@@ -64,28 +64,18 @@ fn C.glfwTerminate()
 const (
 	width  = 854
 	height = 480
+	// vfmt off
 	verts  = [
-		f32(0.5),
-		0.5,
-		0.0, // top right
-		0.5,
-		-0.5,
-		0.0, // bottom right
-		-0.5,
-		-0.5,
-		0.0, // bottom left
-		-0.5,
-		0.5,
-		0.0, // top left
+		f32(0.5), 0.5, 0.0, // top right
+			  0.5, -0.5, 0.0, // bottom right
+			 -0.5, -0.5, 0.0, // bottom left
+			 -0.5,  0.5, 0.0, // top left
 	]
 	inds   = [
-		u32(0),
-		1,
-		3, // first triangle
-		1,
-		2,
-		3, // second triangle
+		u32(0), 1, 3, // first triangle
+				1,  2, 3, // second triangle
 	]
+		// vfmt on
 )
 
 fn main() {
@@ -108,7 +98,7 @@ fn main() {
 	gl.bind_buffer(gl.element_array_buffer, ebo)
 	gl.buffer_data(gl.element_array_buffer, inds.len * 4, inds.data, gl.static_draw)
 
-	gl.vertex_attrib_pointer(0, 3, gl.float, gl.gl_false, 3 * 4, voidptr(0))
+	gl.vertex_attrib_pointer(0, 3, gl.float, gl.gl_false, 3 * 4, unsafe { nil })
 	gl.enable_vertex_attrib_array(0)
 
 	prog := load_shaders('./test_app/vert.glsl', './test_app/frag.glsl')?
@@ -119,7 +109,7 @@ fn main() {
 
 		gl.use_program(prog)
 		gl.bind_vertex_array(vao)
-		gl.draw_elements(gl.triangles, 6, gl.unsigned_int, voidptr(0))
+		gl.draw_elements(gl.triangles, 6, gl.unsigned_int, unsafe { nil })
 		gl.bind_vertex_array(0)
 
 		C.glfwSwapBuffers(win)
@@ -136,8 +126,8 @@ fn create_window() ?voidptr {
 	C.glfwWindowHint(C.GLFW_CONTEXT_VERSION_MINOR, 3)
 	C.glfwWindowHint(C.GLFW_OPENGL_PROFILE, C.GLFW_OPENGL_CORE_PROFILE)
 
-	win := C.glfwCreateWindow(width, height, 'Something'.str, voidptr(0), voidptr(0))
-	if win == voidptr(0) {
+	win := C.glfwCreateWindow(width, height, 'Something'.str, unsafe { nil }, unsafe { nil })
+	if win == unsafe { nil } {
 		C.glfwTerminate()
 		return error('Failed to open window')
 	}
@@ -176,7 +166,7 @@ fn load_shaders(vert_path string, frag_path string) ?u32 {
 }
 
 fn compile_single_shader(path string, src string, shader u32) ? {
-	gl.shader_source(shader, 1, &src.str, voidptr(0))
+	gl.shader_source(shader, 1, &src.str, unsafe { nil })
 	gl.compile_shader(shader)
 
 	single_shader_log(path, shader, false)?
@@ -200,17 +190,17 @@ fn single_shader_log(path string, shader u32, prog bool) ? {
 
 		mut b := []u8{len: log_l}
 		if !prog {
-			gl.get_shader_info_log(shader, log_l, voidptr(0), b.data)
+			gl.get_shader_info_log(shader, log_l, unsafe { nil }, b.data)
 		} else {
-			gl.get_program_info_log(shader, log_l, voidptr(0), b.data)
+			gl.get_program_info_log(shader, log_l, unsafe { nil }, b.data)
 		}
 
 		str := b.bytestr()
 
 		if !prog {
-			return error('Compiling shader $path failed: $str')
+			return error('Compiling shader ${path} failed: ${str}')
 		} else {
-			return error('Linking program failed: $str')
+			return error('Linking program failed: ${str}')
 		}
 	}
 }

@@ -295,7 +295,9 @@ fn parse_args(raw string) ?[]Var {
 		kind_raw := arg.substr(kind_from, kind_to)
 		kind := parse_type(kind_raw, ptr: ptr, arr_len: len)?
 
-		res << Var{name, kind}
+		// name_snake_case := to_snake_case('${name[0].to_lower()}${name[1..]}')
+		name_snake_case := to_snake_case(name, true)
+		res << Var{name_snake_case, kind}
 	}
 
 	return res
