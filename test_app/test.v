@@ -61,26 +61,24 @@ fn C.glfwMakeContextCurrent(window voidptr)
 fn C.glfwInit() int
 fn C.glfwTerminate()
 
-const (
-	width  = 854
-	height = 480
-	// vfmt off
-	verts  = [
+const width = 854
+const height = 480
+// vfmt off
+const verts  = [
 		f32(0.5), 0.5, 0.0, // top right
 			  0.5, -0.5, 0.0, // bottom right
 			 -0.5, -0.5, 0.0, // bottom left
 			 -0.5,  0.5, 0.0, // top left
 	]
-	inds   = [
+const inds   = [
 		u32(0), 1, 3, // first triangle
 				1,  2, 3, // second triangle
 	]
-		// vfmt on
-)
+// vfmt on
 
 fn main() {
-	win := create_window()?
-	init_glew()?
+	win := create_window()!
+	init_glew()!
 
 	gl.viewport(0, 0, width, height)
 
@@ -101,7 +99,7 @@ fn main() {
 	gl.vertex_attrib_pointer(0, 3, gl.float, gl.gl_false, 3 * 4, unsafe { nil })
 	gl.enable_vertex_attrib_array(0)
 
-	prog := load_shaders('./test_app/vert.glsl', './test_app/frag.glsl')?
+	prog := load_shaders('./test_app/vert.glsl', './test_app/frag.glsl')!
 
 	for C.glfwWindowShouldClose(win) == 0 {
 		gl.clear_color(0.2, 0.3, 0.3, 1.0)
@@ -117,16 +115,19 @@ fn main() {
 	}
 }
 
-fn create_window() ?voidptr {
+fn create_window() !voidptr {
 	if C.glfwInit() == 0 {
 		return error('Failed to initialize GLFW. yikes')
 	}
 
 	C.glfwWindowHint(C.GLFW_CONTEXT_VERSION_MAJOR, 3)
 	C.glfwWindowHint(C.GLFW_CONTEXT_VERSION_MINOR, 3)
+	$if macos {
+		C.glfwWindowHint(C.GLFW_OPENGL_FORWARD_COMPAT, C.GL_TRUE)
+	}
 	C.glfwWindowHint(C.GLFW_OPENGL_PROFILE, C.GLFW_OPENGL_CORE_PROFILE)
 
-	win := C.glfwCreateWindow(width, height, 'Something'.str, unsafe { nil }, unsafe { nil })
+	win := C.glfwCreateWindow(width, height, c'Something', unsafe { nil }, unsafe { nil })
 	if win == unsafe { nil } {
 		C.glfwTerminate()
 		return error('Failed to open window')
@@ -136,28 +137,28 @@ fn create_window() ?voidptr {
 	return win
 }
 
-fn init_glew() ? {
+fn init_glew() ! {
 	if gl.glew_init() != 0 {
 		return error('Failed to initialize GLEW')
 	}
 }
 
-fn load_shaders(vert_path string, frag_path string) ?u32 {
-	vert_src := os.read_file(vert_path)?
-	frag_src := os.read_file(frag_path)?
+fn load_shaders(vert_path string, frag_path string) !u32 {
+	vert_src := os.read_file(vert_path)!
+	frag_src := os.read_file(frag_path)!
 
 	vert := gl.create_shader(gl.vertex_shader)
 	frag := gl.create_shader(gl.fragment_shader)
 
-	compile_single_shader(vert_path, vert_src, vert)?
-	compile_single_shader(frag_path, frag_src, frag)?
+	compile_single_shader(vert_path, vert_src, vert)!
+	compile_single_shader(frag_path, frag_src, frag)!
 
 	prog := gl.create_program()
 	gl.attach_shader(prog, vert)
 	gl.attach_shader(prog, frag)
 	gl.link_program(prog)
 
-	single_shader_log('', prog, true)?
+	single_shader_log('', prog, true)!
 
 	gl.delete_shader(vert)
 	gl.delete_shader(frag)
@@ -165,14 +166,14 @@ fn load_shaders(vert_path string, frag_path string) ?u32 {
 	return prog
 }
 
-fn compile_single_shader(path string, src string, shader u32) ? {
+fn compile_single_shader(path string, src string, shader u32) ! {
 	gl.shader_source(shader, 1, &src.str, unsafe { nil })
 	gl.compile_shader(shader)
 
-	single_shader_log(path, shader, false)?
+	single_shader_log(path, shader, false)!
 }
 
-fn single_shader_log(path string, shader u32, prog bool) ? {
+fn single_shader_log(path string, shader u32, prog bool) ! {
 	mut success := 0
 	mut log_l := 0
 
