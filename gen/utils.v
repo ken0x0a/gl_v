@@ -2,14 +2,12 @@ module gen
 
 import os
 
-const (
-	reserved_words   = ['as', 'asm', 'assert', 'atomic', 'break', 'const', 'continue', 'defer',
-		'else', 'embed', 'enum', 'false', 'fn', 'for', 'go', 'goto', 'if', 'import', 'in',
-		'interface', 'is', 'lock', 'match', 'module', 'mut', 'none', 'or', 'pub', 'return', 'rlock',
-		'select', 'shared', 'sizeof', 'static', 'struct', 'true', 'type', 'typeof', 'union', 'unsafe',
-		'volatile', '__offsetof', 'map', 'string']
-	reserved_numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-)
+const reserved_words = ['as', 'asm', 'assert', 'atomic', 'break', 'const', 'continue', 'defer',
+	'else', 'embed', 'enum', 'false', 'fn', 'for', 'go', 'goto', 'if', 'import', 'in', 'interface',
+	'is', 'lock', 'match', 'module', 'mut', 'none', 'or', 'pub', 'return', 'rlock', 'select',
+	'shared', 'sizeof', 'static', 'struct', 'true', 'type', 'typeof', 'union', 'unsafe', 'volatile',
+	'__offsetof', 'map', 'string']
+const reserved_numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 fn translate_type(gl string) string {
 	return match gl {
@@ -52,7 +50,7 @@ fn translate_type(gl string) string {
 		'GLclampx' { 'int' }
 		'char' { 'char' }
 		// else { error('Unknown GL type $gl') }
-		else { '/* $gl */ voidptr' }
+		else { '/* ${gl} */ voidptr' }
 	}
 }
 
@@ -60,7 +58,7 @@ fn translate_type(gl string) string {
 // are invalid in V to names that are actually valid in V.
 fn unreserve_word(raw string) string {
 	if is_invalid(raw) {
-		return 'gl_$raw'
+		return 'gl_${raw}'
 	} else {
 		return raw
 	}

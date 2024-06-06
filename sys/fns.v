@@ -294,7 +294,9 @@ fn C.glMultiDrawArraysIndirectCount(mode u32, indirect voidptr, drawcount i64, m
 fn C.glMultiDrawElementsIndirectCount(mode u32, gl_type u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int)
 fn C.glSpecializeShader(shader u32, p_entry_point &char, num_specialization_constants u32, p_constant_index &u32, p_constant_value &u32)
 fn C.glTbufferMask3DFX(mask u32)
-fn C.glDebugMessageCallbackAMD(callback /* GLDEBUGPROCAMD */ voidptr, user_param voidptr)
+fn C.glDebugMessageCallbackAMD(
+	// GLDEBUGPROCAMD
+	callback voidptr, 	user_param voidptr)
 fn C.glDebugMessageEnableAMD(category u32, severity u32, count int, ids &u32, enabled u8)
 fn C.glDebugMessageInsertAMD(category u32, severity u32, id u32, length int, buf &char)
 fn C.glGetDebugMessageLogAMD(count u32, bufsize int, categories &u32, severities &u32, ids &u32, lengths &int, message &char) u32
@@ -436,7 +438,9 @@ fn C.glDispatchComputeIndirect(indirect i64)
 fn C.glDispatchComputeGroupSizeARB(num_groups_x u32, num_groups_y u32, num_groups_z u32, group_size_x u32, group_size_y u32, group_size_z u32)
 fn C.glCopyBufferSubData(readtarget u32, writetarget u32, readoffset i64, writeoffset i64, size i64)
 fn C.glCopyImageSubData(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int)
-fn C.glDebugMessageCallbackARB(callback /* GLDEBUGPROCARB */ voidptr, user_param voidptr)
+fn C.glDebugMessageCallbackARB(
+	// GLDEBUGPROCARB
+	callback voidptr, 	user_param voidptr)
 fn C.glDebugMessageControlARB(source u32, gl_type u32, severity u32, count int, ids &u32, enabled u8)
 fn C.glDebugMessageInsertARB(source u32, gl_type u32, id u32, severity u32, length int, buf &char)
 fn C.glGetDebugMessageLogARB(count u32, buf_size int, sources &u32, types &u32, ids &u32, severities &u32, lengths &int, message_log &char) u32
@@ -1890,7 +1894,9 @@ fn C.glGetPerfQueryInfoINTEL(query_id u32, query_name_length u32, query_name &ch
 fn C.glTexScissorFuncINTEL(target u32, lfunc u32, hfunc u32)
 fn C.glTexScissorINTEL(target u32, tlow f32, thigh f32)
 fn C.glBlendBarrierKHR()
-fn C.glDebugMessageCallback(callback /* GLDEBUGPROC */ voidptr, user_param voidptr)
+fn C.glDebugMessageCallback(
+	// GLDEBUGPROC
+	callback voidptr, 	user_param voidptr)
 fn C.glDebugMessageControl(source u32, gl_type u32, severity u32, count int, ids &u32, enabled u8)
 fn C.glDebugMessageInsert(source u32, gl_type u32, id u32, severity u32, length int, buf &char)
 fn C.glGetDebugMessageLog(count u32, buf_size int, sources &u32, types &u32, ids &u32, severities &u32, lengths &int, message_log &char) u32
@@ -1929,7 +1935,8 @@ fn C.glWindowPos3iMESA(x int, y int, z int)
 fn C.glWindowPos3ivMESA(p &int)
 fn C.glWindowPos3sMESA(x i16, y i16, z i16)
 fn C.glWindowPos3svMESA(p &i16)
-fn C.glWindowPos4dMESA(x f64, y f64, z f64, xyzabc /* no name. */ f64)
+fn C.glWindowPos4dMESA(x f64, y f64, z f64, // no name.
+xyzabc f64)
 fn C.glWindowPos4dvMESA(p &f64)
 fn C.glWindowPos4fMESA(x f32, y f32, z f32, w f32)
 fn C.glWindowPos4fvMESA(p &f32)
@@ -2006,7 +2013,9 @@ fn C.glDrawArraysInstancedNV(mode u32, first int, count int, primcount int)
 fn C.glDrawElementsInstancedNV(mode u32, count int, gl_type u32, indices voidptr, primcount int)
 fn C.glDrawTextureNV(texture u32, sampler u32, x0 f32, y0 f32, x1 f32, y1 f32, z f32, s0 f32, t0 f32, s1 f32, t1 f32)
 fn C.glDrawVkImageNV(vk_image u64, sampler u32, x0 f32, y0 f32, x1 f32, y1 f32, z f32, s0 f32, t0 f32, s1 f32, t1 f32)
-fn C.glGetVkProcAddrNV(name &char) /* GLVULKANPROCNV */ voidptr
+
+// @return GLVULKANPROCNV
+fn C.glGetVkProcAddrNV(name &char) voidptr
 fn C.glSignalVkFenceNV(vk_fence u64)
 fn C.glSignalVkSemaphoreNV(vk_semaphore u64)
 fn C.glWaitVkSemaphoreNV(vk_semaphore u64)
@@ -2601,7 +2610,9 @@ fn C.glTexParameterxv(target u32, pname u32, params &int)
 fn C.glErrorStringREGAL(error u32) &char
 fn C.glGetExtensionREGAL(ext &char) u8
 fn C.glIsSupportedREGAL(ext &char) u8
-fn C.glLogMessageCallbackREGAL(callback /* GLLOGPROCREGAL */ voidptr)
+fn C.glLogMessageCallbackREGAL(
+	// GLLOGPROCREGAL
+	callback voidptr)
 fn C.glGetProcAddressREGAL(name &char) voidptr
 fn C.glDetailTexFuncSGIS(target u32, n int, points &f32)
 fn C.glGetDetailTexFuncSGIS(target u32, points &f32)

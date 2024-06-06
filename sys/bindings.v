@@ -6,12383 +6,15690 @@ module sys
 #pkgconfig glew
 #include <GL/glew.h>
 
-[inline]
-pub fn copy_tex_sub_image3d(target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int)  {
+@[inline]
+pub fn copy_tex_sub_image3d(target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int) {
 	C.glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height)
 }
-[inline]
-pub fn draw_range_elements(mode u32, start u32, end u32, count int, gl_type u32, indices voidptr)  {
+
+@[inline]
+pub fn draw_range_elements(mode u32, start u32, end u32, count int, gl_type u32, indices voidptr) {
 	C.glDrawRangeElements(mode, start, end, count, gl_type, indices)
 }
-[inline]
-pub fn tex_image3d(target u32, level int, internal_format int, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexImage3D(target, level, internal_format, width, height, depth, border, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_image3d(target u32, level int, internal_format int, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexImage3D(target, level, internal_format, width, height, depth, border, format,
+		gl_type, pixels)
 }
-[inline]
-pub fn tex_sub_image3d(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_sub_image3d(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn active_texture(texture u32)  {
+
+@[inline]
+pub fn active_texture(texture u32) {
 	C.glActiveTexture(texture)
 }
-[inline]
-pub fn client_active_texture(texture u32)  {
+
+@[inline]
+pub fn client_active_texture(texture u32) {
 	C.glClientActiveTexture(texture)
 }
-[inline]
-pub fn compressed_tex_image1d(target u32, level int, internalformat u32, width int, border int, image_size int, data voidptr)  {
-	C.glCompressedTexImage1D(target, level, internalformat, width, border, image_size, data)
+
+@[inline]
+pub fn compressed_tex_image1d(target u32, level int, internalformat u32, width int, border int, image_size int, data voidptr) {
+	C.glCompressedTexImage1D(target, level, internalformat, width, border, image_size,
+		data)
 }
-[inline]
-pub fn compressed_tex_image2d(target u32, level int, internalformat u32, width int, height int, border int, image_size int, data voidptr)  {
-	C.glCompressedTexImage2D(target, level, internalformat, width, height, border, image_size, data)
+
+@[inline]
+pub fn compressed_tex_image2d(target u32, level int, internalformat u32, width int, height int, border int, image_size int, data voidptr) {
+	C.glCompressedTexImage2D(target, level, internalformat, width, height, border, image_size,
+		data)
 }
-[inline]
-pub fn compressed_tex_image3d(target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr)  {
-	C.glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, image_size, data)
+
+@[inline]
+pub fn compressed_tex_image3d(target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr) {
+	C.glCompressedTexImage3D(target, level, internalformat, width, height, depth, border,
+		image_size, data)
 }
-[inline]
-pub fn compressed_tex_sub_image1d(target u32, level int, xoffset int, width int, format u32, image_size int, data voidptr)  {
+
+@[inline]
+pub fn compressed_tex_sub_image1d(target u32, level int, xoffset int, width int, format u32, image_size int, data voidptr) {
 	C.glCompressedTexSubImage1D(target, level, xoffset, width, format, image_size, data)
 }
-[inline]
-pub fn compressed_tex_sub_image2d(target u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, image_size, data)
+
+@[inline]
+pub fn compressed_tex_sub_image2d(target u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr) {
+	C.glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format,
+		image_size, data)
 }
-[inline]
-pub fn compressed_tex_sub_image3d(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, image_size, data)
+
+@[inline]
+pub fn compressed_tex_sub_image3d(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr) {
+	C.glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height,
+		depth, format, image_size, data)
 }
-[inline]
-pub fn get_compressed_tex_image(target u32, lod int, img voidptr)  {
+
+@[inline]
+pub fn get_compressed_tex_image(target u32, lod int, img voidptr) {
 	C.glGetCompressedTexImage(target, lod, img)
 }
-[inline]
-pub fn load_transpose_matrixd(m [16]f64)  {
+
+@[inline]
+pub fn load_transpose_matrixd(m [16]f64) {
 	C.glLoadTransposeMatrixd(m)
 }
-[inline]
-pub fn load_transpose_matrixf(m [16]f32)  {
+
+@[inline]
+pub fn load_transpose_matrixf(m [16]f32) {
 	C.glLoadTransposeMatrixf(m)
 }
-[inline]
-pub fn mult_transpose_matrixd(m [16]f64)  {
+
+@[inline]
+pub fn mult_transpose_matrixd(m [16]f64) {
 	C.glMultTransposeMatrixd(m)
 }
-[inline]
-pub fn mult_transpose_matrixf(m [16]f32)  {
+
+@[inline]
+pub fn mult_transpose_matrixf(m [16]f32) {
 	C.glMultTransposeMatrixf(m)
 }
-[inline]
-pub fn multi_tex_coord1d(target u32, s f64)  {
+
+@[inline]
+pub fn multi_tex_coord1d(target u32, s f64) {
 	C.glMultiTexCoord1d(target, s)
 }
-[inline]
-pub fn multi_tex_coord1dv(target u32, v &f64)  {
+
+@[inline]
+pub fn multi_tex_coord1dv(target u32, v &f64) {
 	C.glMultiTexCoord1dv(target, v)
 }
-[inline]
-pub fn multi_tex_coord1f(target u32, s f32)  {
+
+@[inline]
+pub fn multi_tex_coord1f(target u32, s f32) {
 	C.glMultiTexCoord1f(target, s)
 }
-[inline]
-pub fn multi_tex_coord1fv(target u32, v &f32)  {
+
+@[inline]
+pub fn multi_tex_coord1fv(target u32, v &f32) {
 	C.glMultiTexCoord1fv(target, v)
 }
-[inline]
-pub fn multi_tex_coord1i(target u32, s int)  {
+
+@[inline]
+pub fn multi_tex_coord1i(target u32, s int) {
 	C.glMultiTexCoord1i(target, s)
 }
-[inline]
-pub fn multi_tex_coord1iv(target u32, v &int)  {
+
+@[inline]
+pub fn multi_tex_coord1iv(target u32, v &int) {
 	C.glMultiTexCoord1iv(target, v)
 }
-[inline]
-pub fn multi_tex_coord1s(target u32, s i16)  {
+
+@[inline]
+pub fn multi_tex_coord1s(target u32, s i16) {
 	C.glMultiTexCoord1s(target, s)
 }
-[inline]
-pub fn multi_tex_coord1sv(target u32, v &i16)  {
+
+@[inline]
+pub fn multi_tex_coord1sv(target u32, v &i16) {
 	C.glMultiTexCoord1sv(target, v)
 }
-[inline]
-pub fn multi_tex_coord2d(target u32, s f64, t f64)  {
+
+@[inline]
+pub fn multi_tex_coord2d(target u32, s f64, t f64) {
 	C.glMultiTexCoord2d(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2dv(target u32, v &f64)  {
+
+@[inline]
+pub fn multi_tex_coord2dv(target u32, v &f64) {
 	C.glMultiTexCoord2dv(target, v)
 }
-[inline]
-pub fn multi_tex_coord2f(target u32, s f32, t f32)  {
+
+@[inline]
+pub fn multi_tex_coord2f(target u32, s f32, t f32) {
 	C.glMultiTexCoord2f(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2fv(target u32, v &f32)  {
+
+@[inline]
+pub fn multi_tex_coord2fv(target u32, v &f32) {
 	C.glMultiTexCoord2fv(target, v)
 }
-[inline]
-pub fn multi_tex_coord2i(target u32, s int, t int)  {
+
+@[inline]
+pub fn multi_tex_coord2i(target u32, s int, t int) {
 	C.glMultiTexCoord2i(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2iv(target u32, v &int)  {
+
+@[inline]
+pub fn multi_tex_coord2iv(target u32, v &int) {
 	C.glMultiTexCoord2iv(target, v)
 }
-[inline]
-pub fn multi_tex_coord2s(target u32, s i16, t i16)  {
+
+@[inline]
+pub fn multi_tex_coord2s(target u32, s i16, t i16) {
 	C.glMultiTexCoord2s(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2sv(target u32, v &i16)  {
+
+@[inline]
+pub fn multi_tex_coord2sv(target u32, v &i16) {
 	C.glMultiTexCoord2sv(target, v)
 }
-[inline]
-pub fn multi_tex_coord3d(target u32, s f64, t f64, r f64)  {
+
+@[inline]
+pub fn multi_tex_coord3d(target u32, s f64, t f64, r f64) {
 	C.glMultiTexCoord3d(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3dv(target u32, v &f64)  {
+
+@[inline]
+pub fn multi_tex_coord3dv(target u32, v &f64) {
 	C.glMultiTexCoord3dv(target, v)
 }
-[inline]
-pub fn multi_tex_coord3f(target u32, s f32, t f32, r f32)  {
+
+@[inline]
+pub fn multi_tex_coord3f(target u32, s f32, t f32, r f32) {
 	C.glMultiTexCoord3f(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3fv(target u32, v &f32)  {
+
+@[inline]
+pub fn multi_tex_coord3fv(target u32, v &f32) {
 	C.glMultiTexCoord3fv(target, v)
 }
-[inline]
-pub fn multi_tex_coord3i(target u32, s int, t int, r int)  {
+
+@[inline]
+pub fn multi_tex_coord3i(target u32, s int, t int, r int) {
 	C.glMultiTexCoord3i(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3iv(target u32, v &int)  {
+
+@[inline]
+pub fn multi_tex_coord3iv(target u32, v &int) {
 	C.glMultiTexCoord3iv(target, v)
 }
-[inline]
-pub fn multi_tex_coord3s(target u32, s i16, t i16, r i16)  {
+
+@[inline]
+pub fn multi_tex_coord3s(target u32, s i16, t i16, r i16) {
 	C.glMultiTexCoord3s(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3sv(target u32, v &i16)  {
+
+@[inline]
+pub fn multi_tex_coord3sv(target u32, v &i16) {
 	C.glMultiTexCoord3sv(target, v)
 }
-[inline]
-pub fn multi_tex_coord4d(target u32, s f64, t f64, r f64, q f64)  {
+
+@[inline]
+pub fn multi_tex_coord4d(target u32, s f64, t f64, r f64, q f64) {
 	C.glMultiTexCoord4d(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4dv(target u32, v &f64)  {
+
+@[inline]
+pub fn multi_tex_coord4dv(target u32, v &f64) {
 	C.glMultiTexCoord4dv(target, v)
 }
-[inline]
-pub fn multi_tex_coord4f(target u32, s f32, t f32, r f32, q f32)  {
+
+@[inline]
+pub fn multi_tex_coord4f(target u32, s f32, t f32, r f32, q f32) {
 	C.glMultiTexCoord4f(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4fv(target u32, v &f32)  {
+
+@[inline]
+pub fn multi_tex_coord4fv(target u32, v &f32) {
 	C.glMultiTexCoord4fv(target, v)
 }
-[inline]
-pub fn multi_tex_coord4i(target u32, s int, t int, r int, q int)  {
+
+@[inline]
+pub fn multi_tex_coord4i(target u32, s int, t int, r int, q int) {
 	C.glMultiTexCoord4i(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4iv(target u32, v &int)  {
+
+@[inline]
+pub fn multi_tex_coord4iv(target u32, v &int) {
 	C.glMultiTexCoord4iv(target, v)
 }
-[inline]
-pub fn multi_tex_coord4s(target u32, s i16, t i16, r i16, q i16)  {
+
+@[inline]
+pub fn multi_tex_coord4s(target u32, s i16, t i16, r i16, q i16) {
 	C.glMultiTexCoord4s(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4sv(target u32, v &i16)  {
+
+@[inline]
+pub fn multi_tex_coord4sv(target u32, v &i16) {
 	C.glMultiTexCoord4sv(target, v)
 }
-[inline]
-pub fn sample_coverage(value f32, invert u8)  {
+
+@[inline]
+pub fn sample_coverage(value f32, invert u8) {
 	C.glSampleCoverage(value, invert)
 }
-[inline]
-pub fn blend_color(red f32, green f32, blue f32, alpha f32)  {
+
+@[inline]
+pub fn blend_color(red f32, green f32, blue f32, alpha f32) {
 	C.glBlendColor(red, green, blue, alpha)
 }
-[inline]
-pub fn blend_equation(mode u32)  {
+
+@[inline]
+pub fn blend_equation(mode u32) {
 	C.glBlendEquation(mode)
 }
-[inline]
-pub fn blend_func_separate(sfactor_rgb u32, dfactor_rgb u32, sfactor_alpha u32, dfactor_alpha u32)  {
+
+@[inline]
+pub fn blend_func_separate(sfactor_rgb u32, dfactor_rgb u32, sfactor_alpha u32, dfactor_alpha u32) {
 	C.glBlendFuncSeparate(sfactor_rgb, dfactor_rgb, sfactor_alpha, dfactor_alpha)
 }
-[inline]
-pub fn fog_coord_pointer(gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn fog_coord_pointer(gl_type u32, stride int, pointer voidptr) {
 	C.glFogCoordPointer(gl_type, stride, pointer)
 }
-[inline]
-pub fn fog_coordd(coord f64)  {
+
+@[inline]
+pub fn fog_coordd(coord f64) {
 	C.glFogCoordd(coord)
 }
-[inline]
-pub fn fog_coorddv(coord &f64)  {
+
+@[inline]
+pub fn fog_coorddv(coord &f64) {
 	C.glFogCoorddv(coord)
 }
-[inline]
-pub fn fog_coordf(coord f32)  {
+
+@[inline]
+pub fn fog_coordf(coord f32) {
 	C.glFogCoordf(coord)
 }
-[inline]
-pub fn fog_coordfv(coord &f32)  {
+
+@[inline]
+pub fn fog_coordfv(coord &f32) {
 	C.glFogCoordfv(coord)
 }
-[inline]
-pub fn multi_draw_arrays(mode u32, first &int, count &int, drawcount int)  {
+
+@[inline]
+pub fn multi_draw_arrays(mode u32, first &int, count &int, drawcount int) {
 	C.glMultiDrawArrays(mode, first, count, drawcount)
 }
-[inline]
-pub fn multi_draw_elements(mode u32, count &int, gl_type u32, indices &voidptr, drawcount int)  {
+
+@[inline]
+pub fn multi_draw_elements(mode u32, count &int, gl_type u32, indices &voidptr, drawcount int) {
 	C.glMultiDrawElements(mode, count, gl_type, indices, drawcount)
 }
-[inline]
-pub fn point_parameterf(pname u32, param f32)  {
+
+@[inline]
+pub fn point_parameterf(pname u32, param f32) {
 	C.glPointParameterf(pname, param)
 }
-[inline]
-pub fn point_parameterfv(pname u32, params &f32)  {
+
+@[inline]
+pub fn point_parameterfv(pname u32, params &f32) {
 	C.glPointParameterfv(pname, params)
 }
-[inline]
-pub fn point_parameteri(pname u32, param int)  {
+
+@[inline]
+pub fn point_parameteri(pname u32, param int) {
 	C.glPointParameteri(pname, param)
 }
-[inline]
-pub fn point_parameteriv(pname u32, params &int)  {
+
+@[inline]
+pub fn point_parameteriv(pname u32, params &int) {
 	C.glPointParameteriv(pname, params)
 }
-[inline]
-pub fn secondary_color3b(red i8, green i8, blue i8)  {
+
+@[inline]
+pub fn secondary_color3b(red i8, green i8, blue i8) {
 	C.glSecondaryColor3b(red, green, blue)
 }
-[inline]
-pub fn secondary_color3bv(v &i8)  {
+
+@[inline]
+pub fn secondary_color3bv(v &i8) {
 	C.glSecondaryColor3bv(v)
 }
-[inline]
-pub fn secondary_color3d(red f64, green f64, blue f64)  {
+
+@[inline]
+pub fn secondary_color3d(red f64, green f64, blue f64) {
 	C.glSecondaryColor3d(red, green, blue)
 }
-[inline]
-pub fn secondary_color3dv(v &f64)  {
+
+@[inline]
+pub fn secondary_color3dv(v &f64) {
 	C.glSecondaryColor3dv(v)
 }
-[inline]
-pub fn secondary_color3f(red f32, green f32, blue f32)  {
+
+@[inline]
+pub fn secondary_color3f(red f32, green f32, blue f32) {
 	C.glSecondaryColor3f(red, green, blue)
 }
-[inline]
-pub fn secondary_color3fv(v &f32)  {
+
+@[inline]
+pub fn secondary_color3fv(v &f32) {
 	C.glSecondaryColor3fv(v)
 }
-[inline]
-pub fn secondary_color3i(red int, green int, blue int)  {
+
+@[inline]
+pub fn secondary_color3i(red int, green int, blue int) {
 	C.glSecondaryColor3i(red, green, blue)
 }
-[inline]
-pub fn secondary_color3iv(v &int)  {
+
+@[inline]
+pub fn secondary_color3iv(v &int) {
 	C.glSecondaryColor3iv(v)
 }
-[inline]
-pub fn secondary_color3s(red i16, green i16, blue i16)  {
+
+@[inline]
+pub fn secondary_color3s(red i16, green i16, blue i16) {
 	C.glSecondaryColor3s(red, green, blue)
 }
-[inline]
-pub fn secondary_color3sv(v &i16)  {
+
+@[inline]
+pub fn secondary_color3sv(v &i16) {
 	C.glSecondaryColor3sv(v)
 }
-[inline]
-pub fn secondary_color3ub(red u8, green u8, blue u8)  {
+
+@[inline]
+pub fn secondary_color3ub(red u8, green u8, blue u8) {
 	C.glSecondaryColor3ub(red, green, blue)
 }
-[inline]
-pub fn secondary_color3ubv(v &u8)  {
+
+@[inline]
+pub fn secondary_color3ubv(v &u8) {
 	C.glSecondaryColor3ubv(v)
 }
-[inline]
-pub fn secondary_color3ui(red u32, green u32, blue u32)  {
+
+@[inline]
+pub fn secondary_color3ui(red u32, green u32, blue u32) {
 	C.glSecondaryColor3ui(red, green, blue)
 }
-[inline]
-pub fn secondary_color3uiv(v &u32)  {
+
+@[inline]
+pub fn secondary_color3uiv(v &u32) {
 	C.glSecondaryColor3uiv(v)
 }
-[inline]
-pub fn secondary_color3us(red u16, green u16, blue u16)  {
+
+@[inline]
+pub fn secondary_color3us(red u16, green u16, blue u16) {
 	C.glSecondaryColor3us(red, green, blue)
 }
-[inline]
-pub fn secondary_color3usv(v &u16)  {
+
+@[inline]
+pub fn secondary_color3usv(v &u16) {
 	C.glSecondaryColor3usv(v)
 }
-[inline]
-pub fn secondary_color_pointer(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn secondary_color_pointer(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glSecondaryColorPointer(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn window_pos2d(x f64, y f64)  {
+
+@[inline]
+pub fn window_pos2d(x f64, y f64) {
 	C.glWindowPos2d(x, y)
 }
-[inline]
-pub fn window_pos2dv(p &f64)  {
+
+@[inline]
+pub fn window_pos2dv(p &f64) {
 	C.glWindowPos2dv(p)
 }
-[inline]
-pub fn window_pos2f(x f32, y f32)  {
+
+@[inline]
+pub fn window_pos2f(x f32, y f32) {
 	C.glWindowPos2f(x, y)
 }
-[inline]
-pub fn window_pos2fv(p &f32)  {
+
+@[inline]
+pub fn window_pos2fv(p &f32) {
 	C.glWindowPos2fv(p)
 }
-[inline]
-pub fn window_pos2i(x int, y int)  {
+
+@[inline]
+pub fn window_pos2i(x int, y int) {
 	C.glWindowPos2i(x, y)
 }
-[inline]
-pub fn window_pos2iv(p &int)  {
+
+@[inline]
+pub fn window_pos2iv(p &int) {
 	C.glWindowPos2iv(p)
 }
-[inline]
-pub fn window_pos2s(x i16, y i16)  {
+
+@[inline]
+pub fn window_pos2s(x i16, y i16) {
 	C.glWindowPos2s(x, y)
 }
-[inline]
-pub fn window_pos2sv(p &i16)  {
+
+@[inline]
+pub fn window_pos2sv(p &i16) {
 	C.glWindowPos2sv(p)
 }
-[inline]
-pub fn window_pos3d(x f64, y f64, z f64)  {
+
+@[inline]
+pub fn window_pos3d(x f64, y f64, z f64) {
 	C.glWindowPos3d(x, y, z)
 }
-[inline]
-pub fn window_pos3dv(p &f64)  {
+
+@[inline]
+pub fn window_pos3dv(p &f64) {
 	C.glWindowPos3dv(p)
 }
-[inline]
-pub fn window_pos3f(x f32, y f32, z f32)  {
+
+@[inline]
+pub fn window_pos3f(x f32, y f32, z f32) {
 	C.glWindowPos3f(x, y, z)
 }
-[inline]
-pub fn window_pos3fv(p &f32)  {
+
+@[inline]
+pub fn window_pos3fv(p &f32) {
 	C.glWindowPos3fv(p)
 }
-[inline]
-pub fn window_pos3i(x int, y int, z int)  {
+
+@[inline]
+pub fn window_pos3i(x int, y int, z int) {
 	C.glWindowPos3i(x, y, z)
 }
-[inline]
-pub fn window_pos3iv(p &int)  {
+
+@[inline]
+pub fn window_pos3iv(p &int) {
 	C.glWindowPos3iv(p)
 }
-[inline]
-pub fn window_pos3s(x i16, y i16, z i16)  {
+
+@[inline]
+pub fn window_pos3s(x i16, y i16, z i16) {
 	C.glWindowPos3s(x, y, z)
 }
-[inline]
-pub fn window_pos3sv(p &i16)  {
+
+@[inline]
+pub fn window_pos3sv(p &i16) {
 	C.glWindowPos3sv(p)
 }
-[inline]
-pub fn begin_query(target u32, id u32)  {
+
+@[inline]
+pub fn begin_query(target u32, id u32) {
 	C.glBeginQuery(target, id)
 }
-[inline]
-pub fn bind_buffer(target u32, buffer u32)  {
+
+@[inline]
+pub fn bind_buffer(target u32, buffer u32) {
 	C.glBindBuffer(target, buffer)
 }
-[inline]
-pub fn buffer_data(target u32, size i64, data voidptr, usage u32)  {
+
+@[inline]
+pub fn buffer_data(target u32, size i64, data voidptr, usage u32) {
 	C.glBufferData(target, size, data, usage)
 }
-[inline]
-pub fn buffer_sub_data(target u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn buffer_sub_data(target u32, offset i64, size i64, data voidptr) {
 	C.glBufferSubData(target, offset, size, data)
 }
-[inline]
-pub fn delete_buffers(n int, buffers &u32)  {
+
+@[inline]
+pub fn delete_buffers(n int, buffers &u32) {
 	C.glDeleteBuffers(n, buffers)
 }
-[inline]
-pub fn delete_queries(n int, ids &u32)  {
+
+@[inline]
+pub fn delete_queries(n int, ids &u32) {
 	C.glDeleteQueries(n, ids)
 }
-[inline]
-pub fn end_query(target u32)  {
+
+@[inline]
+pub fn end_query(target u32) {
 	C.glEndQuery(target)
 }
-[inline]
-pub fn gen_buffers(n int, buffers &u32)  {
+
+@[inline]
+pub fn gen_buffers(n int, buffers &u32) {
 	C.glGenBuffers(n, buffers)
 }
-[inline]
-pub fn gen_queries(n int, ids &u32)  {
+
+@[inline]
+pub fn gen_queries(n int, ids &u32) {
 	C.glGenQueries(n, ids)
 }
-[inline]
-pub fn get_buffer_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_buffer_parameteriv(target u32, pname u32, params &int) {
 	C.glGetBufferParameteriv(target, pname, params)
 }
-[inline]
-pub fn get_buffer_pointerv(target u32, pname u32, params &voidptr)  {
+
+@[inline]
+pub fn get_buffer_pointerv(target u32, pname u32, params &voidptr) {
 	C.glGetBufferPointerv(target, pname, params)
 }
-[inline]
-pub fn get_buffer_sub_data(target u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn get_buffer_sub_data(target u32, offset i64, size i64, data voidptr) {
 	C.glGetBufferSubData(target, offset, size, data)
 }
-[inline]
-pub fn get_query_objectiv(id u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_query_objectiv(id u32, pname u32, params &int) {
 	C.glGetQueryObjectiv(id, pname, params)
 }
-[inline]
-pub fn get_query_objectuiv(id u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_query_objectuiv(id u32, pname u32, params &u32) {
 	C.glGetQueryObjectuiv(id, pname, params)
 }
-[inline]
-pub fn get_queryiv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_queryiv(target u32, pname u32, params &int) {
 	C.glGetQueryiv(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_buffer(buffer u32) u8 {
 	return C.glIsBuffer(buffer)
 }
-[inline]
+
+@[inline]
 pub fn is_query(id u32) u8 {
 	return C.glIsQuery(id)
 }
-[inline]
+
+@[inline]
 pub fn map_buffer(target u32, access u32) voidptr {
 	return C.glMapBuffer(target, access)
 }
-[inline]
+
+@[inline]
 pub fn unmap_buffer(target u32) u8 {
 	return C.glUnmapBuffer(target)
 }
-[inline]
-pub fn attach_shader(program u32, shader u32)  {
+
+@[inline]
+pub fn attach_shader(program u32, shader u32) {
 	C.glAttachShader(program, shader)
 }
-[inline]
-pub fn bind_attrib_location(program u32, index u32, name &char)  {
+
+@[inline]
+pub fn bind_attrib_location(program u32, index u32, name &char) {
 	C.glBindAttribLocation(program, index, name)
 }
-[inline]
-pub fn blend_equation_separate(mode_rgb u32, mode_alpha u32)  {
+
+@[inline]
+pub fn blend_equation_separate(mode_rgb u32, mode_alpha u32) {
 	C.glBlendEquationSeparate(mode_rgb, mode_alpha)
 }
-[inline]
-pub fn compile_shader(shader u32)  {
+
+@[inline]
+pub fn compile_shader(shader u32) {
 	C.glCompileShader(shader)
 }
-[inline]
+
+@[inline]
 pub fn create_program() u32 {
 	return C.glCreateProgram()
 }
-[inline]
+
+@[inline]
 pub fn create_shader(gl_type u32) u32 {
 	return C.glCreateShader(gl_type)
 }
-[inline]
-pub fn delete_program(program u32)  {
+
+@[inline]
+pub fn delete_program(program u32) {
 	C.glDeleteProgram(program)
 }
-[inline]
-pub fn delete_shader(shader u32)  {
+
+@[inline]
+pub fn delete_shader(shader u32) {
 	C.glDeleteShader(shader)
 }
-[inline]
-pub fn detach_shader(program u32, shader u32)  {
+
+@[inline]
+pub fn detach_shader(program u32, shader u32) {
 	C.glDetachShader(program, shader)
 }
-[inline]
-pub fn disable_vertex_attrib_array(index u32)  {
+
+@[inline]
+pub fn disable_vertex_attrib_array(index u32) {
 	C.glDisableVertexAttribArray(index)
 }
-[inline]
-pub fn draw_buffers(n int, bufs &u32)  {
+
+@[inline]
+pub fn draw_buffers(n int, bufs &u32) {
 	C.glDrawBuffers(n, bufs)
 }
-[inline]
-pub fn enable_vertex_attrib_array(index u32)  {
+
+@[inline]
+pub fn enable_vertex_attrib_array(index u32) {
 	C.glEnableVertexAttribArray(index)
 }
-[inline]
-pub fn get_active_attrib(program u32, index u32, max_length int, length &int, size &int, gl_type &u32, name &char)  {
+
+@[inline]
+pub fn get_active_attrib(program u32, index u32, max_length int, length &int, size &int, gl_type &u32, name &char) {
 	C.glGetActiveAttrib(program, index, max_length, length, size, gl_type, name)
 }
-[inline]
-pub fn get_active_uniform(program u32, index u32, max_length int, length &int, size &int, gl_type &u32, name &char)  {
+
+@[inline]
+pub fn get_active_uniform(program u32, index u32, max_length int, length &int, size &int, gl_type &u32, name &char) {
 	C.glGetActiveUniform(program, index, max_length, length, size, gl_type, name)
 }
-[inline]
-pub fn get_attached_shaders(program u32, max_count int, count &int, shaders &u32)  {
+
+@[inline]
+pub fn get_attached_shaders(program u32, max_count int, count &int, shaders &u32) {
 	C.glGetAttachedShaders(program, max_count, count, shaders)
 }
-[inline]
+
+@[inline]
 pub fn get_attrib_location(program u32, name &char) int {
 	return C.glGetAttribLocation(program, name)
 }
-[inline]
-pub fn get_program_info_log(program u32, buf_size int, length &int, info_log &char)  {
+
+@[inline]
+pub fn get_program_info_log(program u32, buf_size int, length &int, info_log &char) {
 	C.glGetProgramInfoLog(program, buf_size, length, info_log)
 }
-[inline]
-pub fn get_programiv(program u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_programiv(program u32, pname u32, param &int) {
 	C.glGetProgramiv(program, pname, param)
 }
-[inline]
-pub fn get_shader_info_log(shader u32, buf_size int, length &int, info_log &char)  {
+
+@[inline]
+pub fn get_shader_info_log(shader u32, buf_size int, length &int, info_log &char) {
 	C.glGetShaderInfoLog(shader, buf_size, length, info_log)
 }
-[inline]
-pub fn get_shader_source(obj u32, max_length int, length &int, source &char)  {
+
+@[inline]
+pub fn get_shader_source(obj u32, max_length int, length &int, source &char) {
 	C.glGetShaderSource(obj, max_length, length, source)
 }
-[inline]
-pub fn get_shaderiv(shader u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_shaderiv(shader u32, pname u32, param &int) {
 	C.glGetShaderiv(shader, pname, param)
 }
-[inline]
+
+@[inline]
 pub fn get_uniform_location(program u32, name &char) int {
 	return C.glGetUniformLocation(program, name)
 }
-[inline]
-pub fn get_uniformfv(program u32, location int, params &f32)  {
+
+@[inline]
+pub fn get_uniformfv(program u32, location int, params &f32) {
 	C.glGetUniformfv(program, location, params)
 }
-[inline]
-pub fn get_uniformiv(program u32, location int, params &int)  {
+
+@[inline]
+pub fn get_uniformiv(program u32, location int, params &int) {
 	C.glGetUniformiv(program, location, params)
 }
-[inline]
-pub fn get_vertex_attrib_pointerv(index u32, pname u32, pointer &voidptr)  {
+
+@[inline]
+pub fn get_vertex_attrib_pointerv(index u32, pname u32, pointer &voidptr) {
 	C.glGetVertexAttribPointerv(index, pname, pointer)
 }
-[inline]
-pub fn get_vertex_attribdv(index u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_vertex_attribdv(index u32, pname u32, params &f64) {
 	C.glGetVertexAttribdv(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attribfv(index u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_vertex_attribfv(index u32, pname u32, params &f32) {
 	C.glGetVertexAttribfv(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attribiv(index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_vertex_attribiv(index u32, pname u32, params &int) {
 	C.glGetVertexAttribiv(index, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_program(program u32) u8 {
 	return C.glIsProgram(program)
 }
-[inline]
+
+@[inline]
 pub fn is_shader(shader u32) u8 {
 	return C.glIsShader(shader)
 }
-[inline]
-pub fn link_program(program u32)  {
+
+@[inline]
+pub fn link_program(program u32) {
 	C.glLinkProgram(program)
 }
-[inline]
-pub fn shader_source(shader u32, count int, gl_string &&char, length &int)  {
+
+@[inline]
+pub fn shader_source(shader u32, count int, gl_string &&char, length &int) {
 	C.glShaderSource(shader, count, gl_string, length)
 }
-[inline]
-pub fn stencil_func_separate(face u32, func u32, ref int, mask u32)  {
+
+@[inline]
+pub fn stencil_func_separate(face u32, func u32, ref int, mask u32) {
 	C.glStencilFuncSeparate(face, func, ref, mask)
 }
-[inline]
-pub fn stencil_mask_separate(face u32, mask u32)  {
+
+@[inline]
+pub fn stencil_mask_separate(face u32, mask u32) {
 	C.glStencilMaskSeparate(face, mask)
 }
-[inline]
-pub fn stencil_op_separate(face u32, sfail u32, dpfail u32, dppass u32)  {
+
+@[inline]
+pub fn stencil_op_separate(face u32, sfail u32, dpfail u32, dppass u32) {
 	C.glStencilOpSeparate(face, sfail, dpfail, dppass)
 }
-[inline]
-pub fn uniform1f(location int, v0 f32)  {
+
+@[inline]
+pub fn uniform1f(location int, v0 f32) {
 	C.glUniform1f(location, v0)
 }
-[inline]
-pub fn uniform1fv(location int, count int, value &f32)  {
+
+@[inline]
+pub fn uniform1fv(location int, count int, value &f32) {
 	C.glUniform1fv(location, count, value)
 }
-[inline]
-pub fn uniform1i(location int, v0 int)  {
+
+@[inline]
+pub fn uniform1i(location int, v0 int) {
 	C.glUniform1i(location, v0)
 }
-[inline]
-pub fn uniform1iv(location int, count int, value &int)  {
+
+@[inline]
+pub fn uniform1iv(location int, count int, value &int) {
 	C.glUniform1iv(location, count, value)
 }
-[inline]
-pub fn uniform2f(location int, v0 f32, v1 f32)  {
+
+@[inline]
+pub fn uniform2f(location int, v0 f32, v1 f32) {
 	C.glUniform2f(location, v0, v1)
 }
-[inline]
-pub fn uniform2fv(location int, count int, value &f32)  {
+
+@[inline]
+pub fn uniform2fv(location int, count int, value &f32) {
 	C.glUniform2fv(location, count, value)
 }
-[inline]
-pub fn uniform2i(location int, v0 int, v1 int)  {
+
+@[inline]
+pub fn uniform2i(location int, v0 int, v1 int) {
 	C.glUniform2i(location, v0, v1)
 }
-[inline]
-pub fn uniform2iv(location int, count int, value &int)  {
+
+@[inline]
+pub fn uniform2iv(location int, count int, value &int) {
 	C.glUniform2iv(location, count, value)
 }
-[inline]
-pub fn uniform3f(location int, v0 f32, v1 f32, v2 f32)  {
+
+@[inline]
+pub fn uniform3f(location int, v0 f32, v1 f32, v2 f32) {
 	C.glUniform3f(location, v0, v1, v2)
 }
-[inline]
-pub fn uniform3fv(location int, count int, value &f32)  {
+
+@[inline]
+pub fn uniform3fv(location int, count int, value &f32) {
 	C.glUniform3fv(location, count, value)
 }
-[inline]
-pub fn uniform3i(location int, v0 int, v1 int, v2 int)  {
+
+@[inline]
+pub fn uniform3i(location int, v0 int, v1 int, v2 int) {
 	C.glUniform3i(location, v0, v1, v2)
 }
-[inline]
-pub fn uniform3iv(location int, count int, value &int)  {
+
+@[inline]
+pub fn uniform3iv(location int, count int, value &int) {
 	C.glUniform3iv(location, count, value)
 }
-[inline]
-pub fn uniform4f(location int, v0 f32, v1 f32, v2 f32, v3 f32)  {
+
+@[inline]
+pub fn uniform4f(location int, v0 f32, v1 f32, v2 f32, v3 f32) {
 	C.glUniform4f(location, v0, v1, v2, v3)
 }
-[inline]
-pub fn uniform4fv(location int, count int, value &f32)  {
+
+@[inline]
+pub fn uniform4fv(location int, count int, value &f32) {
 	C.glUniform4fv(location, count, value)
 }
-[inline]
-pub fn uniform4i(location int, v0 int, v1 int, v2 int, v3 int)  {
+
+@[inline]
+pub fn uniform4i(location int, v0 int, v1 int, v2 int, v3 int) {
 	C.glUniform4i(location, v0, v1, v2, v3)
 }
-[inline]
-pub fn uniform4iv(location int, count int, value &int)  {
+
+@[inline]
+pub fn uniform4iv(location int, count int, value &int) {
 	C.glUniform4iv(location, count, value)
 }
-[inline]
-pub fn uniform_matrix2fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix2fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix2fv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix3fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix3fv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix4fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix4fv(location, count, transpose, value)
 }
-[inline]
-pub fn use_program(program u32)  {
+
+@[inline]
+pub fn use_program(program u32) {
 	C.glUseProgram(program)
 }
-[inline]
-pub fn validate_program(program u32)  {
+
+@[inline]
+pub fn validate_program(program u32) {
 	C.glValidateProgram(program)
 }
-[inline]
-pub fn vertex_attrib1d(index u32, x f64)  {
+
+@[inline]
+pub fn vertex_attrib1d(index u32, x f64) {
 	C.glVertexAttrib1d(index, x)
 }
-[inline]
-pub fn vertex_attrib1dv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib1dv(index u32, v &f64) {
 	C.glVertexAttrib1dv(index, v)
 }
-[inline]
-pub fn vertex_attrib1f(index u32, x f32)  {
+
+@[inline]
+pub fn vertex_attrib1f(index u32, x f32) {
 	C.glVertexAttrib1f(index, x)
 }
-[inline]
-pub fn vertex_attrib1fv(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib1fv(index u32, v &f32) {
 	C.glVertexAttrib1fv(index, v)
 }
-[inline]
-pub fn vertex_attrib1s(index u32, x i16)  {
+
+@[inline]
+pub fn vertex_attrib1s(index u32, x i16) {
 	C.glVertexAttrib1s(index, x)
 }
-[inline]
-pub fn vertex_attrib1sv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib1sv(index u32, v &i16) {
 	C.glVertexAttrib1sv(index, v)
 }
-[inline]
-pub fn vertex_attrib2d(index u32, x f64, y f64)  {
+
+@[inline]
+pub fn vertex_attrib2d(index u32, x f64, y f64) {
 	C.glVertexAttrib2d(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2dv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib2dv(index u32, v &f64) {
 	C.glVertexAttrib2dv(index, v)
 }
-[inline]
-pub fn vertex_attrib2f(index u32, x f32, y f32)  {
+
+@[inline]
+pub fn vertex_attrib2f(index u32, x f32, y f32) {
 	C.glVertexAttrib2f(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2fv(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib2fv(index u32, v &f32) {
 	C.glVertexAttrib2fv(index, v)
 }
-[inline]
-pub fn vertex_attrib2s(index u32, x i16, y i16)  {
+
+@[inline]
+pub fn vertex_attrib2s(index u32, x i16, y i16) {
 	C.glVertexAttrib2s(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2sv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib2sv(index u32, v &i16) {
 	C.glVertexAttrib2sv(index, v)
 }
-[inline]
-pub fn vertex_attrib3d(index u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn vertex_attrib3d(index u32, x f64, y f64, z f64) {
 	C.glVertexAttrib3d(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3dv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib3dv(index u32, v &f64) {
 	C.glVertexAttrib3dv(index, v)
 }
-[inline]
-pub fn vertex_attrib3f(index u32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn vertex_attrib3f(index u32, x f32, y f32, z f32) {
 	C.glVertexAttrib3f(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3fv(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib3fv(index u32, v &f32) {
 	C.glVertexAttrib3fv(index, v)
 }
-[inline]
-pub fn vertex_attrib3s(index u32, x i16, y i16, z i16)  {
+
+@[inline]
+pub fn vertex_attrib3s(index u32, x i16, y i16, z i16) {
 	C.glVertexAttrib3s(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3sv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib3sv(index u32, v &i16) {
 	C.glVertexAttrib3sv(index, v)
 }
-[inline]
-pub fn vertex_attrib4nbv(index u32, v &i8)  {
+
+@[inline]
+pub fn vertex_attrib4nbv(index u32, v &i8) {
 	C.glVertexAttrib4Nbv(index, v)
 }
-[inline]
-pub fn vertex_attrib4niv(index u32, v &int)  {
+
+@[inline]
+pub fn vertex_attrib4niv(index u32, v &int) {
 	C.glVertexAttrib4Niv(index, v)
 }
-[inline]
-pub fn vertex_attrib4nsv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib4nsv(index u32, v &i16) {
 	C.glVertexAttrib4Nsv(index, v)
 }
-[inline]
-pub fn vertex_attrib4nub(index u32, x u8, y u8, z u8, w u8)  {
+
+@[inline]
+pub fn vertex_attrib4nub(index u32, x u8, y u8, z u8, w u8) {
 	C.glVertexAttrib4Nub(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4nubv(index u32, v &u8)  {
+
+@[inline]
+pub fn vertex_attrib4nubv(index u32, v &u8) {
 	C.glVertexAttrib4Nubv(index, v)
 }
-[inline]
-pub fn vertex_attrib4nuiv(index u32, v &u32)  {
+
+@[inline]
+pub fn vertex_attrib4nuiv(index u32, v &u32) {
 	C.glVertexAttrib4Nuiv(index, v)
 }
-[inline]
-pub fn vertex_attrib4nusv(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib4nusv(index u32, v &u16) {
 	C.glVertexAttrib4Nusv(index, v)
 }
-[inline]
-pub fn vertex_attrib4bv(index u32, v &i8)  {
+
+@[inline]
+pub fn vertex_attrib4bv(index u32, v &i8) {
 	C.glVertexAttrib4bv(index, v)
 }
-[inline]
-pub fn vertex_attrib4d(index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn vertex_attrib4d(index u32, x f64, y f64, z f64, w f64) {
 	C.glVertexAttrib4d(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4dv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib4dv(index u32, v &f64) {
 	C.glVertexAttrib4dv(index, v)
 }
-[inline]
-pub fn vertex_attrib4f(index u32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn vertex_attrib4f(index u32, x f32, y f32, z f32, w f32) {
 	C.glVertexAttrib4f(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4fv(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib4fv(index u32, v &f32) {
 	C.glVertexAttrib4fv(index, v)
 }
-[inline]
-pub fn vertex_attrib4iv(index u32, v &int)  {
+
+@[inline]
+pub fn vertex_attrib4iv(index u32, v &int) {
 	C.glVertexAttrib4iv(index, v)
 }
-[inline]
-pub fn vertex_attrib4s(index u32, x i16, y i16, z i16, w i16)  {
+
+@[inline]
+pub fn vertex_attrib4s(index u32, x i16, y i16, z i16, w i16) {
 	C.glVertexAttrib4s(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4sv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib4sv(index u32, v &i16) {
 	C.glVertexAttrib4sv(index, v)
 }
-[inline]
-pub fn vertex_attrib4ubv(index u32, v &u8)  {
+
+@[inline]
+pub fn vertex_attrib4ubv(index u32, v &u8) {
 	C.glVertexAttrib4ubv(index, v)
 }
-[inline]
-pub fn vertex_attrib4uiv(index u32, v &u32)  {
+
+@[inline]
+pub fn vertex_attrib4uiv(index u32, v &u32) {
 	C.glVertexAttrib4uiv(index, v)
 }
-[inline]
-pub fn vertex_attrib4usv(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib4usv(index u32, v &u16) {
 	C.glVertexAttrib4usv(index, v)
 }
-[inline]
-pub fn vertex_attrib_pointer(index u32, size int, gl_type u32, normalized u8, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_attrib_pointer(index u32, size int, gl_type u32, normalized u8, stride int, pointer voidptr) {
 	C.glVertexAttribPointer(index, size, gl_type, normalized, stride, pointer)
 }
-[inline]
-pub fn uniform_matrix2x3fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix2x3fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix2x3fv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix2x4fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix2x4fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix2x4fv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3x2fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix3x2fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix3x2fv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3x4fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix3x4fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix3x4fv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4x2fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix4x2fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix4x2fv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4x3fv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix4x3fv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix4x3fv(location, count, transpose, value)
 }
-[inline]
-pub fn begin_conditional_render(id u32, mode u32)  {
+
+@[inline]
+pub fn begin_conditional_render(id u32, mode u32) {
 	C.glBeginConditionalRender(id, mode)
 }
-[inline]
-pub fn begin_transform_feedback(primitive_mode u32)  {
+
+@[inline]
+pub fn begin_transform_feedback(primitive_mode u32) {
 	C.glBeginTransformFeedback(primitive_mode)
 }
-[inline]
-pub fn bind_frag_data_location(program u32, color_number u32, name &char)  {
+
+@[inline]
+pub fn bind_frag_data_location(program u32, color_number u32, name &char) {
 	C.glBindFragDataLocation(program, color_number, name)
 }
-[inline]
-pub fn clamp_color(target u32, clamp u32)  {
+
+@[inline]
+pub fn clamp_color(target u32, clamp u32) {
 	C.glClampColor(target, clamp)
 }
-[inline]
-pub fn clear_bufferfi(buffer u32, draw_buffer int, depth f32, stencil int)  {
+
+@[inline]
+pub fn clear_bufferfi(buffer u32, draw_buffer int, depth f32, stencil int) {
 	C.glClearBufferfi(buffer, draw_buffer, depth, stencil)
 }
-[inline]
-pub fn clear_bufferfv(buffer u32, draw_buffer int, value &f32)  {
+
+@[inline]
+pub fn clear_bufferfv(buffer u32, draw_buffer int, value &f32) {
 	C.glClearBufferfv(buffer, draw_buffer, value)
 }
-[inline]
-pub fn clear_bufferiv(buffer u32, draw_buffer int, value &int)  {
+
+@[inline]
+pub fn clear_bufferiv(buffer u32, draw_buffer int, value &int) {
 	C.glClearBufferiv(buffer, draw_buffer, value)
 }
-[inline]
-pub fn clear_bufferuiv(buffer u32, draw_buffer int, value &u32)  {
+
+@[inline]
+pub fn clear_bufferuiv(buffer u32, draw_buffer int, value &u32) {
 	C.glClearBufferuiv(buffer, draw_buffer, value)
 }
-[inline]
-pub fn color_maski(buf u32, red u8, green u8, blue u8, alpha u8)  {
+
+@[inline]
+pub fn color_maski(buf u32, red u8, green u8, blue u8, alpha u8) {
 	C.glColorMaski(buf, red, green, blue, alpha)
 }
-[inline]
-pub fn disablei(cap u32, index u32)  {
+
+@[inline]
+pub fn disablei(cap u32, index u32) {
 	C.glDisablei(cap, index)
 }
-[inline]
-pub fn enablei(cap u32, index u32)  {
+
+@[inline]
+pub fn enablei(cap u32, index u32) {
 	C.glEnablei(cap, index)
 }
-[inline]
-pub fn end_conditional_render()  {
+
+@[inline]
+pub fn end_conditional_render() {
 	C.glEndConditionalRender()
 }
-[inline]
-pub fn end_transform_feedback()  {
+
+@[inline]
+pub fn end_transform_feedback() {
 	C.glEndTransformFeedback()
 }
-[inline]
-pub fn get_booleani_v(pname u32, index u32, data &u8)  {
+
+@[inline]
+pub fn get_booleani_v(pname u32, index u32, data &u8) {
 	C.glGetBooleani_v(pname, index, data)
 }
-[inline]
+
+@[inline]
 pub fn get_frag_data_location(program u32, name &char) int {
 	return C.glGetFragDataLocation(program, name)
 }
-[inline]
+
+@[inline]
 pub fn get_stringi(name u32, index u32) &u8 {
 	return C.glGetStringi(name, index)
 }
-[inline]
-pub fn get_tex_parameter_iiv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_parameter_iiv(target u32, pname u32, params &int) {
 	C.glGetTexParameterIiv(target, pname, params)
 }
-[inline]
-pub fn get_tex_parameter_iuiv(target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_tex_parameter_iuiv(target u32, pname u32, params &u32) {
 	C.glGetTexParameterIuiv(target, pname, params)
 }
-[inline]
-pub fn get_transform_feedback_varying(program u32, index u32, buf_size int, length &int, size &int, gl_type &u32, name &char)  {
+
+@[inline]
+pub fn get_transform_feedback_varying(program u32, index u32, buf_size int, length &int, size &int, gl_type &u32, name &char) {
 	C.glGetTransformFeedbackVarying(program, index, buf_size, length, size, gl_type, name)
 }
-[inline]
-pub fn get_uniformuiv(program u32, location int, params &u32)  {
+
+@[inline]
+pub fn get_uniformuiv(program u32, location int, params &u32) {
 	C.glGetUniformuiv(program, location, params)
 }
-[inline]
-pub fn get_vertex_attrib_iiv(index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_vertex_attrib_iiv(index u32, pname u32, params &int) {
 	C.glGetVertexAttribIiv(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attrib_iuiv(index u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_vertex_attrib_iuiv(index u32, pname u32, params &u32) {
 	C.glGetVertexAttribIuiv(index, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_enabledi(cap u32, index u32) u8 {
 	return C.glIsEnabledi(cap, index)
 }
-[inline]
-pub fn tex_parameter_iiv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_parameter_iiv(target u32, pname u32, params &int) {
 	C.glTexParameterIiv(target, pname, params)
 }
-[inline]
-pub fn tex_parameter_iuiv(target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn tex_parameter_iuiv(target u32, pname u32, params &u32) {
 	C.glTexParameterIuiv(target, pname, params)
 }
-[inline]
-pub fn transform_feedback_varyings(program u32, count int, varyings &&char, buffer_mode u32)  {
+
+@[inline]
+pub fn transform_feedback_varyings(program u32, count int, varyings &&char, buffer_mode u32) {
 	C.glTransformFeedbackVaryings(program, count, varyings, buffer_mode)
 }
-[inline]
-pub fn uniform1ui(location int, v0 u32)  {
+
+@[inline]
+pub fn uniform1ui(location int, v0 u32) {
 	C.glUniform1ui(location, v0)
 }
-[inline]
-pub fn uniform1uiv(location int, count int, value &u32)  {
+
+@[inline]
+pub fn uniform1uiv(location int, count int, value &u32) {
 	C.glUniform1uiv(location, count, value)
 }
-[inline]
-pub fn uniform2ui(location int, v0 u32, v1 u32)  {
+
+@[inline]
+pub fn uniform2ui(location int, v0 u32, v1 u32) {
 	C.glUniform2ui(location, v0, v1)
 }
-[inline]
-pub fn uniform2uiv(location int, count int, value &u32)  {
+
+@[inline]
+pub fn uniform2uiv(location int, count int, value &u32) {
 	C.glUniform2uiv(location, count, value)
 }
-[inline]
-pub fn uniform3ui(location int, v0 u32, v1 u32, v2 u32)  {
+
+@[inline]
+pub fn uniform3ui(location int, v0 u32, v1 u32, v2 u32) {
 	C.glUniform3ui(location, v0, v1, v2)
 }
-[inline]
-pub fn uniform3uiv(location int, count int, value &u32)  {
+
+@[inline]
+pub fn uniform3uiv(location int, count int, value &u32) {
 	C.glUniform3uiv(location, count, value)
 }
-[inline]
-pub fn uniform4ui(location int, v0 u32, v1 u32, v2 u32, v3 u32)  {
+
+@[inline]
+pub fn uniform4ui(location int, v0 u32, v1 u32, v2 u32, v3 u32) {
 	C.glUniform4ui(location, v0, v1, v2, v3)
 }
-[inline]
-pub fn uniform4uiv(location int, count int, value &u32)  {
+
+@[inline]
+pub fn uniform4uiv(location int, count int, value &u32) {
 	C.glUniform4uiv(location, count, value)
 }
-[inline]
-pub fn vertex_attrib_i1i(index u32, v0 int)  {
+
+@[inline]
+pub fn vertex_attrib_i1i(index u32, v0 int) {
 	C.glVertexAttribI1i(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i1iv(index u32, v0 &int)  {
+
+@[inline]
+pub fn vertex_attrib_i1iv(index u32, v0 &int) {
 	C.glVertexAttribI1iv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i1ui(index u32, v0 u32)  {
+
+@[inline]
+pub fn vertex_attrib_i1ui(index u32, v0 u32) {
 	C.glVertexAttribI1ui(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i1uiv(index u32, v0 &u32)  {
+
+@[inline]
+pub fn vertex_attrib_i1uiv(index u32, v0 &u32) {
 	C.glVertexAttribI1uiv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i2i(index u32, v0 int, v1 int)  {
+
+@[inline]
+pub fn vertex_attrib_i2i(index u32, v0 int, v1 int) {
 	C.glVertexAttribI2i(index, v0, v1)
 }
-[inline]
-pub fn vertex_attrib_i2iv(index u32, v0 &int)  {
+
+@[inline]
+pub fn vertex_attrib_i2iv(index u32, v0 &int) {
 	C.glVertexAttribI2iv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i2ui(index u32, v0 u32, v1 u32)  {
+
+@[inline]
+pub fn vertex_attrib_i2ui(index u32, v0 u32, v1 u32) {
 	C.glVertexAttribI2ui(index, v0, v1)
 }
-[inline]
-pub fn vertex_attrib_i2uiv(index u32, v0 &u32)  {
+
+@[inline]
+pub fn vertex_attrib_i2uiv(index u32, v0 &u32) {
 	C.glVertexAttribI2uiv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i3i(index u32, v0 int, v1 int, v2 int)  {
+
+@[inline]
+pub fn vertex_attrib_i3i(index u32, v0 int, v1 int, v2 int) {
 	C.glVertexAttribI3i(index, v0, v1, v2)
 }
-[inline]
-pub fn vertex_attrib_i3iv(index u32, v0 &int)  {
+
+@[inline]
+pub fn vertex_attrib_i3iv(index u32, v0 &int) {
 	C.glVertexAttribI3iv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i3ui(index u32, v0 u32, v1 u32, v2 u32)  {
+
+@[inline]
+pub fn vertex_attrib_i3ui(index u32, v0 u32, v1 u32, v2 u32) {
 	C.glVertexAttribI3ui(index, v0, v1, v2)
 }
-[inline]
-pub fn vertex_attrib_i3uiv(index u32, v0 &u32)  {
+
+@[inline]
+pub fn vertex_attrib_i3uiv(index u32, v0 &u32) {
 	C.glVertexAttribI3uiv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i4bv(index u32, v0 &i8)  {
+
+@[inline]
+pub fn vertex_attrib_i4bv(index u32, v0 &i8) {
 	C.glVertexAttribI4bv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i4i(index u32, v0 int, v1 int, v2 int, v3 int)  {
+
+@[inline]
+pub fn vertex_attrib_i4i(index u32, v0 int, v1 int, v2 int, v3 int) {
 	C.glVertexAttribI4i(index, v0, v1, v2, v3)
 }
-[inline]
-pub fn vertex_attrib_i4iv(index u32, v0 &int)  {
+
+@[inline]
+pub fn vertex_attrib_i4iv(index u32, v0 &int) {
 	C.glVertexAttribI4iv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i4sv(index u32, v0 &i16)  {
+
+@[inline]
+pub fn vertex_attrib_i4sv(index u32, v0 &i16) {
 	C.glVertexAttribI4sv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i4ubv(index u32, v0 &u8)  {
+
+@[inline]
+pub fn vertex_attrib_i4ubv(index u32, v0 &u8) {
 	C.glVertexAttribI4ubv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i4ui(index u32, v0 u32, v1 u32, v2 u32, v3 u32)  {
+
+@[inline]
+pub fn vertex_attrib_i4ui(index u32, v0 u32, v1 u32, v2 u32, v3 u32) {
 	C.glVertexAttribI4ui(index, v0, v1, v2, v3)
 }
-[inline]
-pub fn vertex_attrib_i4uiv(index u32, v0 &u32)  {
+
+@[inline]
+pub fn vertex_attrib_i4uiv(index u32, v0 &u32) {
 	C.glVertexAttribI4uiv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_i4usv(index u32, v0 &u16)  {
+
+@[inline]
+pub fn vertex_attrib_i4usv(index u32, v0 &u16) {
 	C.glVertexAttribI4usv(index, v0)
 }
-[inline]
-pub fn vertex_attrib_ipointer(index u32, size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_attrib_ipointer(index u32, size int, gl_type u32, stride int, pointer voidptr) {
 	C.glVertexAttribIPointer(index, size, gl_type, stride, pointer)
 }
-[inline]
-pub fn draw_arrays_instanced(mode u32, first int, count int, primcount int)  {
+
+@[inline]
+pub fn draw_arrays_instanced(mode u32, first int, count int, primcount int) {
 	C.glDrawArraysInstanced(mode, first, count, primcount)
 }
-[inline]
-pub fn draw_elements_instanced(mode u32, count int, gl_type u32, indices voidptr, primcount int)  {
+
+@[inline]
+pub fn draw_elements_instanced(mode u32, count int, gl_type u32, indices voidptr, primcount int) {
 	C.glDrawElementsInstanced(mode, count, gl_type, indices, primcount)
 }
-[inline]
-pub fn primitive_restart_index(buffer u32)  {
+
+@[inline]
+pub fn primitive_restart_index(buffer u32) {
 	C.glPrimitiveRestartIndex(buffer)
 }
-[inline]
-pub fn tex_buffer(target u32, internal_format u32, buffer u32)  {
+
+@[inline]
+pub fn tex_buffer(target u32, internal_format u32, buffer u32) {
 	C.glTexBuffer(target, internal_format, buffer)
 }
-[inline]
-pub fn framebuffer_texture(target u32, attachment u32, texture u32, level int)  {
+
+@[inline]
+pub fn framebuffer_texture(target u32, attachment u32, texture u32, level int) {
 	C.glFramebufferTexture(target, attachment, texture, level)
 }
-[inline]
-pub fn get_buffer_parameteri64v(target u32, value u32, data &i64)  {
+
+@[inline]
+pub fn get_buffer_parameteri64v(target u32, value u32, data &i64) {
 	C.glGetBufferParameteri64v(target, value, data)
 }
-[inline]
-pub fn get_integer64i_v(pname u32, index u32, data &i64)  {
+
+@[inline]
+pub fn get_integer64i_v(pname u32, index u32, data &i64) {
 	C.glGetInteger64i_v(pname, index, data)
 }
-[inline]
-pub fn vertex_attrib_divisor(index u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_attrib_divisor(index u32, divisor u32) {
 	C.glVertexAttribDivisor(index, divisor)
 }
-[inline]
-pub fn blend_equation_separatei(buf u32, mode_rgb u32, mode_alpha u32)  {
+
+@[inline]
+pub fn blend_equation_separatei(buf u32, mode_rgb u32, mode_alpha u32) {
 	C.glBlendEquationSeparatei(buf, mode_rgb, mode_alpha)
 }
-[inline]
-pub fn blend_equationi(buf u32, mode u32)  {
+
+@[inline]
+pub fn blend_equationi(buf u32, mode u32) {
 	C.glBlendEquationi(buf, mode)
 }
-[inline]
-pub fn blend_func_separatei(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32)  {
+
+@[inline]
+pub fn blend_func_separatei(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32) {
 	C.glBlendFuncSeparatei(buf, src_rgb, dst_rgb, src_alpha, dst_alpha)
 }
-[inline]
-pub fn blend_funci(buf u32, src u32, dst u32)  {
+
+@[inline]
+pub fn blend_funci(buf u32, src u32, dst u32) {
 	C.glBlendFunci(buf, src, dst)
 }
-[inline]
-pub fn min_sample_shading(value f32)  {
+
+@[inline]
+pub fn min_sample_shading(value f32) {
 	C.glMinSampleShading(value)
 }
-[inline]
+
+@[inline]
 pub fn get_graphics_reset_status() u32 {
 	return C.glGetGraphicsResetStatus()
 }
-[inline]
-pub fn getn_compressed_tex_image(target u32, lod int, buf_size int, pixels voidptr)  {
+
+@[inline]
+pub fn getn_compressed_tex_image(target u32, lod int, buf_size int, pixels voidptr) {
 	C.glGetnCompressedTexImage(target, lod, buf_size, pixels)
 }
-[inline]
-pub fn getn_tex_image(tex u32, level int, format u32, gl_type u32, buf_size int, pixels voidptr)  {
+
+@[inline]
+pub fn getn_tex_image(tex u32, level int, format u32, gl_type u32, buf_size int, pixels voidptr) {
 	C.glGetnTexImage(tex, level, format, gl_type, buf_size, pixels)
 }
-[inline]
-pub fn getn_uniformdv(program u32, location int, buf_size int, params &f64)  {
+
+@[inline]
+pub fn getn_uniformdv(program u32, location int, buf_size int, params &f64) {
 	C.glGetnUniformdv(program, location, buf_size, params)
 }
-[inline]
-pub fn multi_draw_arrays_indirect_count(mode u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_arrays_indirect_count(mode u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int) {
 	C.glMultiDrawArraysIndirectCount(mode, indirect, drawcount, maxdrawcount, stride)
 }
-[inline]
-pub fn multi_draw_elements_indirect_count(mode u32, gl_type u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int)  {
-	C.glMultiDrawElementsIndirectCount(mode, gl_type, indirect, drawcount, maxdrawcount, stride)
+
+@[inline]
+pub fn multi_draw_elements_indirect_count(mode u32, gl_type u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int) {
+	C.glMultiDrawElementsIndirectCount(mode, gl_type, indirect, drawcount, maxdrawcount,
+		stride)
 }
-[inline]
-pub fn specialize_shader(shader u32, p_entry_point &char, num_specialization_constants u32, p_constant_index &u32, p_constant_value &u32)  {
-	C.glSpecializeShader(shader, p_entry_point, num_specialization_constants, p_constant_index, p_constant_value)
+
+@[inline]
+pub fn specialize_shader(shader u32, p_entry_point &char, num_specialization_constants u32, p_constant_index &u32, p_constant_value &u32) {
+	C.glSpecializeShader(shader, p_entry_point, num_specialization_constants, p_constant_index,
+		p_constant_value)
 }
-[inline]
-pub fn tbuffer_mask3dfx(mask u32)  {
+
+@[inline]
+pub fn tbuffer_mask3dfx(mask u32) {
 	C.glTbufferMask3DFX(mask)
 }
-[inline]
-pub fn debug_message_callback_amd(callback /* GLDEBUGPROCAMD */ voidptr, user_param voidptr)  {
+
+@[inline]
+pub fn debug_message_callback_amd(
+	// GLDEBUGPROCAMD
+	callback voidptr, 	user_param voidptr) {
 	C.glDebugMessageCallbackAMD(callback, user_param)
 }
-[inline]
-pub fn debug_message_enable_amd(category u32, severity u32, count int, ids &u32, enabled u8)  {
+
+@[inline]
+pub fn debug_message_enable_amd(category u32, severity u32, count int, ids &u32, enabled u8) {
 	C.glDebugMessageEnableAMD(category, severity, count, ids, enabled)
 }
-[inline]
-pub fn debug_message_insert_amd(category u32, severity u32, id u32, length int, buf &char)  {
+
+@[inline]
+pub fn debug_message_insert_amd(category u32, severity u32, id u32, length int, buf &char) {
 	C.glDebugMessageInsertAMD(category, severity, id, length, buf)
 }
-[inline]
+
+@[inline]
 pub fn get_debug_message_log_amd(count u32, bufsize int, categories &u32, severities &u32, ids &u32, lengths &int, message &char) u32 {
-	return C.glGetDebugMessageLogAMD(count, bufsize, categories, severities, ids, lengths, message)
+	return C.glGetDebugMessageLogAMD(count, bufsize, categories, severities, ids, lengths,
+		message)
 }
-[inline]
-pub fn blend_equation_indexed_amd(buf u32, mode u32)  {
+
+@[inline]
+pub fn blend_equation_indexed_amd(buf u32, mode u32) {
 	C.glBlendEquationIndexedAMD(buf, mode)
 }
-[inline]
-pub fn blend_equation_separate_indexed_amd(buf u32, mode_rgb u32, mode_alpha u32)  {
+
+@[inline]
+pub fn blend_equation_separate_indexed_amd(buf u32, mode_rgb u32, mode_alpha u32) {
 	C.glBlendEquationSeparateIndexedAMD(buf, mode_rgb, mode_alpha)
 }
-[inline]
-pub fn blend_func_indexed_amd(buf u32, src u32, dst u32)  {
+
+@[inline]
+pub fn blend_func_indexed_amd(buf u32, src u32, dst u32) {
 	C.glBlendFuncIndexedAMD(buf, src, dst)
 }
-[inline]
-pub fn blend_func_separate_indexed_amd(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32)  {
+
+@[inline]
+pub fn blend_func_separate_indexed_amd(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32) {
 	C.glBlendFuncSeparateIndexedAMD(buf, src_rgb, dst_rgb, src_alpha, dst_alpha)
 }
-[inline]
-pub fn named_renderbuffer_storage_multisample_advanced_amd(renderbuffer u32, samples int, storage_samples int, internalformat u32, width int, height int)  {
-	C.glNamedRenderbufferStorageMultisampleAdvancedAMD(renderbuffer, samples, storage_samples, internalformat, width, height)
+
+@[inline]
+pub fn named_renderbuffer_storage_multisample_advanced_amd(renderbuffer u32, samples int, storage_samples int, internalformat u32, width int, height int) {
+	C.glNamedRenderbufferStorageMultisampleAdvancedAMD(renderbuffer, samples, storage_samples,
+		internalformat, width, height)
 }
-[inline]
-pub fn renderbuffer_storage_multisample_advanced_amd(target u32, samples int, storage_samples int, internalformat u32, width int, height int)  {
-	C.glRenderbufferStorageMultisampleAdvancedAMD(target, samples, storage_samples, internalformat, width, height)
+
+@[inline]
+pub fn renderbuffer_storage_multisample_advanced_amd(target u32, samples int, storage_samples int, internalformat u32, width int, height int) {
+	C.glRenderbufferStorageMultisampleAdvancedAMD(target, samples, storage_samples, internalformat,
+		width, height)
 }
-[inline]
-pub fn framebuffer_sample_positionsfv_amd(target u32, numsamples u32, pixelindex u32, values &f32)  {
+
+@[inline]
+pub fn framebuffer_sample_positionsfv_amd(target u32, numsamples u32, pixelindex u32, values &f32) {
 	C.glFramebufferSamplePositionsfvAMD(target, numsamples, pixelindex, values)
 }
-[inline]
-pub fn get_framebuffer_parameterfv_amd(target u32, pname u32, numsamples u32, pixelindex u32, size int, values &f32)  {
+
+@[inline]
+pub fn get_framebuffer_parameterfv_amd(target u32, pname u32, numsamples u32, pixelindex u32, size int, values &f32) {
 	C.glGetFramebufferParameterfvAMD(target, pname, numsamples, pixelindex, size, values)
 }
-[inline]
-pub fn get_named_framebuffer_parameterfv_amd(framebuffer u32, pname u32, numsamples u32, pixelindex u32, size int, values &f32)  {
-	C.glGetNamedFramebufferParameterfvAMD(framebuffer, pname, numsamples, pixelindex, size, values)
+
+@[inline]
+pub fn get_named_framebuffer_parameterfv_amd(framebuffer u32, pname u32, numsamples u32, pixelindex u32, size int, values &f32) {
+	C.glGetNamedFramebufferParameterfvAMD(framebuffer, pname, numsamples, pixelindex,
+		size, values)
 }
-[inline]
-pub fn named_framebuffer_sample_positionsfv_amd(framebuffer u32, numsamples u32, pixelindex u32, values &f32)  {
+
+@[inline]
+pub fn named_framebuffer_sample_positionsfv_amd(framebuffer u32, numsamples u32, pixelindex u32, values &f32) {
 	C.glNamedFramebufferSamplePositionsfvAMD(framebuffer, numsamples, pixelindex, values)
 }
-[inline]
-pub fn vertex_attrib_parameteri_amd(index u32, pname u32, param int)  {
+
+@[inline]
+pub fn vertex_attrib_parameteri_amd(index u32, pname u32, param int) {
 	C.glVertexAttribParameteriAMD(index, pname, param)
 }
-[inline]
-pub fn multi_draw_arrays_indirect_amd(mode u32, indirect voidptr, primcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_arrays_indirect_amd(mode u32, indirect voidptr, primcount int, stride int) {
 	C.glMultiDrawArraysIndirectAMD(mode, indirect, primcount, stride)
 }
-[inline]
-pub fn multi_draw_elements_indirect_amd(mode u32, gl_type u32, indirect voidptr, primcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_elements_indirect_amd(mode u32, gl_type u32, indirect voidptr, primcount int, stride int) {
 	C.glMultiDrawElementsIndirectAMD(mode, gl_type, indirect, primcount, stride)
 }
-[inline]
-pub fn delete_names_amd(identifier u32, num u32, names &u32)  {
+
+@[inline]
+pub fn delete_names_amd(identifier u32, num u32, names &u32) {
 	C.glDeleteNamesAMD(identifier, num, names)
 }
-[inline]
-pub fn gen_names_amd(identifier u32, num u32, names &u32)  {
+
+@[inline]
+pub fn gen_names_amd(identifier u32, num u32, names &u32) {
 	C.glGenNamesAMD(identifier, num, names)
 }
-[inline]
+
+@[inline]
 pub fn is_name_amd(identifier u32, name u32) u8 {
 	return C.glIsNameAMD(identifier, name)
 }
-[inline]
-pub fn query_object_parameterui_amd(target u32, id u32, pname u32, param u32)  {
+
+@[inline]
+pub fn query_object_parameterui_amd(target u32, id u32, pname u32, param u32) {
 	C.glQueryObjectParameteruiAMD(target, id, pname, param)
 }
-[inline]
-pub fn begin_perf_monitor_amd(monitor u32)  {
+
+@[inline]
+pub fn begin_perf_monitor_amd(monitor u32) {
 	C.glBeginPerfMonitorAMD(monitor)
 }
-[inline]
-pub fn delete_perf_monitors_amd(n int, monitors &u32)  {
+
+@[inline]
+pub fn delete_perf_monitors_amd(n int, monitors &u32) {
 	C.glDeletePerfMonitorsAMD(n, monitors)
 }
-[inline]
-pub fn end_perf_monitor_amd(monitor u32)  {
+
+@[inline]
+pub fn end_perf_monitor_amd(monitor u32) {
 	C.glEndPerfMonitorAMD(monitor)
 }
-[inline]
-pub fn gen_perf_monitors_amd(n int, monitors &u32)  {
+
+@[inline]
+pub fn gen_perf_monitors_amd(n int, monitors &u32) {
 	C.glGenPerfMonitorsAMD(n, monitors)
 }
-[inline]
-pub fn get_perf_monitor_counter_data_amd(monitor u32, pname u32, data_size int, data &u32, bytes_written &int)  {
+
+@[inline]
+pub fn get_perf_monitor_counter_data_amd(monitor u32, pname u32, data_size int, data &u32, bytes_written &int) {
 	C.glGetPerfMonitorCounterDataAMD(monitor, pname, data_size, data, bytes_written)
 }
-[inline]
-pub fn get_perf_monitor_counter_info_amd(group u32, counter u32, pname u32, data voidptr)  {
+
+@[inline]
+pub fn get_perf_monitor_counter_info_amd(group u32, counter u32, pname u32, data voidptr) {
 	C.glGetPerfMonitorCounterInfoAMD(group, counter, pname, data)
 }
-[inline]
-pub fn get_perf_monitor_counter_string_amd(group u32, counter u32, buf_size int, length &int, counter_string &char)  {
+
+@[inline]
+pub fn get_perf_monitor_counter_string_amd(group u32, counter u32, buf_size int, length &int, counter_string &char) {
 	C.glGetPerfMonitorCounterStringAMD(group, counter, buf_size, length, counter_string)
 }
-[inline]
-pub fn get_perf_monitor_counters_amd(group u32, num_counters &int, max_active_counters &int, counters_size int, counters &u32)  {
-	C.glGetPerfMonitorCountersAMD(group, num_counters, max_active_counters, counters_size, counters)
+
+@[inline]
+pub fn get_perf_monitor_counters_amd(group u32, num_counters &int, max_active_counters &int, counters_size int, counters &u32) {
+	C.glGetPerfMonitorCountersAMD(group, num_counters, max_active_counters, counters_size,
+		counters)
 }
-[inline]
-pub fn get_perf_monitor_group_string_amd(group u32, buf_size int, length &int, group_string &char)  {
+
+@[inline]
+pub fn get_perf_monitor_group_string_amd(group u32, buf_size int, length &int, group_string &char) {
 	C.glGetPerfMonitorGroupStringAMD(group, buf_size, length, group_string)
 }
-[inline]
-pub fn get_perf_monitor_groups_amd(num_groups &int, groups_size int, groups &u32)  {
+
+@[inline]
+pub fn get_perf_monitor_groups_amd(num_groups &int, groups_size int, groups &u32) {
 	C.glGetPerfMonitorGroupsAMD(num_groups, groups_size, groups)
 }
-[inline]
-pub fn select_perf_monitor_counters_amd(monitor u32, enable u8, group u32, num_counters int, counter_list &u32)  {
+
+@[inline]
+pub fn select_perf_monitor_counters_amd(monitor u32, enable u8, group u32, num_counters int, counter_list &u32) {
 	C.glSelectPerfMonitorCountersAMD(monitor, enable, group, num_counters, counter_list)
 }
-[inline]
-pub fn set_multisamplefv_amd(pname u32, index u32, val &f32)  {
+
+@[inline]
+pub fn set_multisamplefv_amd(pname u32, index u32, val &f32) {
 	C.glSetMultisamplefvAMD(pname, index, val)
 }
-[inline]
-pub fn tex_storage_sparse_amd(target u32, internal_format u32, width int, height int, depth int, layers int, flags u32)  {
+
+@[inline]
+pub fn tex_storage_sparse_amd(target u32, internal_format u32, width int, height int, depth int, layers int, flags u32) {
 	C.glTexStorageSparseAMD(target, internal_format, width, height, depth, layers, flags)
 }
-[inline]
-pub fn texture_storage_sparse_amd(texture u32, target u32, internal_format u32, width int, height int, depth int, layers int, flags u32)  {
-	C.glTextureStorageSparseAMD(texture, target, internal_format, width, height, depth, layers, flags)
+
+@[inline]
+pub fn texture_storage_sparse_amd(texture u32, target u32, internal_format u32, width int, height int, depth int, layers int, flags u32) {
+	C.glTextureStorageSparseAMD(texture, target, internal_format, width, height, depth,
+		layers, flags)
 }
-[inline]
-pub fn stencil_op_value_amd(face u32, value u32)  {
+
+@[inline]
+pub fn stencil_op_value_amd(face u32, value u32) {
 	C.glStencilOpValueAMD(face, value)
 }
-[inline]
-pub fn tessellation_factor_amd(factor f32)  {
+
+@[inline]
+pub fn tessellation_factor_amd(factor f32) {
 	C.glTessellationFactorAMD(factor)
 }
-[inline]
-pub fn tessellation_mode_amd(mode u32)  {
+
+@[inline]
+pub fn tessellation_mode_amd(mode u32) {
 	C.glTessellationModeAMD(mode)
 }
-[inline]
-pub fn blit_framebuffer_angle(src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32)  {
-	C.glBlitFramebufferANGLE(src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1, mask, filter)
+
+@[inline]
+pub fn blit_framebuffer_angle(src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32) {
+	C.glBlitFramebufferANGLE(src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1,
+		mask, filter)
 }
-[inline]
-pub fn renderbuffer_storage_multisample_angle(target u32, samples int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage_multisample_angle(target u32, samples int, internalformat u32, width int, height int) {
 	C.glRenderbufferStorageMultisampleANGLE(target, samples, internalformat, width, height)
 }
-[inline]
-pub fn draw_arrays_instanced_angle(mode u32, first int, count int, primcount int)  {
+
+@[inline]
+pub fn draw_arrays_instanced_angle(mode u32, first int, count int, primcount int) {
 	C.glDrawArraysInstancedANGLE(mode, first, count, primcount)
 }
-[inline]
-pub fn draw_elements_instanced_angle(mode u32, count int, gl_type u32, indices voidptr, primcount int)  {
+
+@[inline]
+pub fn draw_elements_instanced_angle(mode u32, count int, gl_type u32, indices voidptr, primcount int) {
 	C.glDrawElementsInstancedANGLE(mode, count, gl_type, indices, primcount)
 }
-[inline]
-pub fn vertex_attrib_divisor_angle(index u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_attrib_divisor_angle(index u32, divisor u32) {
 	C.glVertexAttribDivisorANGLE(index, divisor)
 }
-[inline]
-pub fn begin_query_angle(target u32, id u32)  {
+
+@[inline]
+pub fn begin_query_angle(target u32, id u32) {
 	C.glBeginQueryANGLE(target, id)
 }
-[inline]
-pub fn delete_queries_angle(n int, ids &u32)  {
+
+@[inline]
+pub fn delete_queries_angle(n int, ids &u32) {
 	C.glDeleteQueriesANGLE(n, ids)
 }
-[inline]
-pub fn end_query_angle(target u32)  {
+
+@[inline]
+pub fn end_query_angle(target u32) {
 	C.glEndQueryANGLE(target)
 }
-[inline]
-pub fn gen_queries_angle(n int, ids &u32)  {
+
+@[inline]
+pub fn gen_queries_angle(n int, ids &u32) {
 	C.glGenQueriesANGLE(n, ids)
 }
-[inline]
-pub fn get_query_objecti64v_angle(id u32, pname u32, params &i64)  {
+
+@[inline]
+pub fn get_query_objecti64v_angle(id u32, pname u32, params &i64) {
 	C.glGetQueryObjecti64vANGLE(id, pname, params)
 }
-[inline]
-pub fn get_query_objectiv_angle(id u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_query_objectiv_angle(id u32, pname u32, params &int) {
 	C.glGetQueryObjectivANGLE(id, pname, params)
 }
-[inline]
-pub fn get_query_objectui64v_angle(id u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_query_objectui64v_angle(id u32, pname u32, params &u64) {
 	C.glGetQueryObjectui64vANGLE(id, pname, params)
 }
-[inline]
-pub fn get_query_objectuiv_angle(id u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_query_objectuiv_angle(id u32, pname u32, params &u32) {
 	C.glGetQueryObjectuivANGLE(id, pname, params)
 }
-[inline]
-pub fn get_queryiv_angle(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_queryiv_angle(target u32, pname u32, params &int) {
 	C.glGetQueryivANGLE(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_query_angle(id u32) u8 {
 	return C.glIsQueryANGLE(id)
 }
-[inline]
-pub fn query_counter_angle(id u32, target u32)  {
+
+@[inline]
+pub fn query_counter_angle(id u32, target u32) {
 	C.glQueryCounterANGLE(id, target)
 }
-[inline]
-pub fn get_translated_shader_source_angle(shader u32, bufsize int, length &int, source &char)  {
+
+@[inline]
+pub fn get_translated_shader_source_angle(shader u32, bufsize int, length &int, source &char) {
 	C.glGetTranslatedShaderSourceANGLE(shader, bufsize, length, source)
 }
-[inline]
-pub fn copy_texture_levels_apple(destination_texture u32, source_texture u32, source_base_level int, source_level_count int)  {
-	C.glCopyTextureLevelsAPPLE(destination_texture, source_texture, source_base_level, source_level_count)
+
+@[inline]
+pub fn copy_texture_levels_apple(destination_texture u32, source_texture u32, source_base_level int, source_level_count int) {
+	C.glCopyTextureLevelsAPPLE(destination_texture, source_texture, source_base_level,
+		source_level_count)
 }
-[inline]
-pub fn draw_element_array_apple(mode u32, first int, count int)  {
+
+@[inline]
+pub fn draw_element_array_apple(mode u32, first int, count int) {
 	C.glDrawElementArrayAPPLE(mode, first, count)
 }
-[inline]
-pub fn draw_range_element_array_apple(mode u32, start u32, end u32, first int, count int)  {
+
+@[inline]
+pub fn draw_range_element_array_apple(mode u32, start u32, end u32, first int, count int) {
 	C.glDrawRangeElementArrayAPPLE(mode, start, end, first, count)
 }
-[inline]
-pub fn element_pointer_apple(gl_type u32, pointer voidptr)  {
+
+@[inline]
+pub fn element_pointer_apple(gl_type u32, pointer voidptr) {
 	C.glElementPointerAPPLE(gl_type, pointer)
 }
-[inline]
-pub fn multi_draw_element_array_apple(mode u32, first &int, count &int, primcount int)  {
+
+@[inline]
+pub fn multi_draw_element_array_apple(mode u32, first &int, count &int, primcount int) {
 	C.glMultiDrawElementArrayAPPLE(mode, first, count, primcount)
 }
-[inline]
-pub fn multi_draw_range_element_array_apple(mode u32, start u32, end u32, first &int, count &int, primcount int)  {
+
+@[inline]
+pub fn multi_draw_range_element_array_apple(mode u32, start u32, end u32, first &int, count &int, primcount int) {
 	C.glMultiDrawRangeElementArrayAPPLE(mode, start, end, first, count, primcount)
 }
-[inline]
-pub fn delete_fences_apple(n int, fences &u32)  {
+
+@[inline]
+pub fn delete_fences_apple(n int, fences &u32) {
 	C.glDeleteFencesAPPLE(n, fences)
 }
-[inline]
-pub fn finish_fence_apple(fence u32)  {
+
+@[inline]
+pub fn finish_fence_apple(fence u32) {
 	C.glFinishFenceAPPLE(fence)
 }
-[inline]
-pub fn finish_object_apple(object u32, name int)  {
+
+@[inline]
+pub fn finish_object_apple(object u32, name int) {
 	C.glFinishObjectAPPLE(object, name)
 }
-[inline]
-pub fn gen_fences_apple(n int, fences &u32)  {
+
+@[inline]
+pub fn gen_fences_apple(n int, fences &u32) {
 	C.glGenFencesAPPLE(n, fences)
 }
-[inline]
+
+@[inline]
 pub fn is_fence_apple(fence u32) u8 {
 	return C.glIsFenceAPPLE(fence)
 }
-[inline]
-pub fn set_fence_apple(fence u32)  {
+
+@[inline]
+pub fn set_fence_apple(fence u32) {
 	C.glSetFenceAPPLE(fence)
 }
-[inline]
+
+@[inline]
 pub fn test_fence_apple(fence u32) u8 {
 	return C.glTestFenceAPPLE(fence)
 }
-[inline]
+
+@[inline]
 pub fn test_object_apple(object u32, name u32) u8 {
 	return C.glTestObjectAPPLE(object, name)
 }
-[inline]
-pub fn buffer_parameteri_apple(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn buffer_parameteri_apple(target u32, pname u32, param int) {
 	C.glBufferParameteriAPPLE(target, pname, param)
 }
-[inline]
-pub fn flush_mapped_buffer_range_apple(target u32, offset i64, size i64)  {
+
+@[inline]
+pub fn flush_mapped_buffer_range_apple(target u32, offset i64, size i64) {
 	C.glFlushMappedBufferRangeAPPLE(target, offset, size)
 }
-[inline]
-pub fn renderbuffer_storage_multisample_apple(target u32, samples int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage_multisample_apple(target u32, samples int, internalformat u32, width int, height int) {
 	C.glRenderbufferStorageMultisampleAPPLE(target, samples, internalformat, width, height)
 }
-[inline]
-pub fn resolve_multisample_framebuffer_apple()  {
+
+@[inline]
+pub fn resolve_multisample_framebuffer_apple() {
 	C.glResolveMultisampleFramebufferAPPLE()
 }
-[inline]
-pub fn get_object_parameteriv_apple(object_type u32, name u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_object_parameteriv_apple(object_type u32, name u32, pname u32, params &int) {
 	C.glGetObjectParameterivAPPLE(object_type, name, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn object_purgeable_apple(object_type u32, name u32, option u32) u32 {
 	return C.glObjectPurgeableAPPLE(object_type, name, option)
 }
-[inline]
+
+@[inline]
 pub fn object_unpurgeable_apple(object_type u32, name u32, option u32) u32 {
 	return C.glObjectUnpurgeableAPPLE(object_type, name, option)
 }
-[inline]
+
+@[inline]
 pub fn client_wait_sync_apple(glsync voidptr, flags u32, timeout u64) u32 {
 	return C.glClientWaitSyncAPPLE(glsync, flags, timeout)
 }
-[inline]
-pub fn delete_sync_apple(glsync voidptr)  {
+
+@[inline]
+pub fn delete_sync_apple(glsync voidptr) {
 	C.glDeleteSyncAPPLE(glsync)
 }
-[inline]
+
+@[inline]
 pub fn fence_sync_apple(condition u32, flags u32) voidptr {
 	return C.glFenceSyncAPPLE(condition, flags)
 }
-[inline]
-pub fn get_integer64v_apple(pname u32, params &i64)  {
+
+@[inline]
+pub fn get_integer64v_apple(pname u32, params &i64) {
 	C.glGetInteger64vAPPLE(pname, params)
 }
-[inline]
-pub fn get_synciv_apple(glsync voidptr, pname u32, buf_size int, length &int, values &int)  {
+
+@[inline]
+pub fn get_synciv_apple(glsync voidptr, pname u32, buf_size int, length &int, values &int) {
 	C.glGetSyncivAPPLE(glsync, pname, buf_size, length, values)
 }
-[inline]
+
+@[inline]
 pub fn is_sync_apple(glsync voidptr) u8 {
 	return C.glIsSyncAPPLE(glsync)
 }
-[inline]
-pub fn wait_sync_apple(glsync voidptr, flags u32, timeout u64)  {
+
+@[inline]
+pub fn wait_sync_apple(glsync voidptr, flags u32, timeout u64) {
 	C.glWaitSyncAPPLE(glsync, flags, timeout)
 }
-[inline]
-pub fn get_tex_parameter_pointerv_apple(target u32, pname u32, params &voidptr)  {
+
+@[inline]
+pub fn get_tex_parameter_pointerv_apple(target u32, pname u32, params &voidptr) {
 	C.glGetTexParameterPointervAPPLE(target, pname, params)
 }
-[inline]
-pub fn texture_range_apple(target u32, length int, pointer voidptr)  {
+
+@[inline]
+pub fn texture_range_apple(target u32, length int, pointer voidptr) {
 	C.glTextureRangeAPPLE(target, length, pointer)
 }
-[inline]
-pub fn bind_vertex_array_apple(array u32)  {
+
+@[inline]
+pub fn bind_vertex_array_apple(array u32) {
 	C.glBindVertexArrayAPPLE(array)
 }
-[inline]
-pub fn delete_vertex_arrays_apple(n int, arrays &u32)  {
+
+@[inline]
+pub fn delete_vertex_arrays_apple(n int, arrays &u32) {
 	C.glDeleteVertexArraysAPPLE(n, arrays)
 }
-[inline]
-pub fn gen_vertex_arrays_apple(n int, arrays &u32)  {
+
+@[inline]
+pub fn gen_vertex_arrays_apple(n int, arrays &u32) {
 	C.glGenVertexArraysAPPLE(n, arrays)
 }
-[inline]
+
+@[inline]
 pub fn is_vertex_array_apple(array u32) u8 {
 	return C.glIsVertexArrayAPPLE(array)
 }
-[inline]
-pub fn flush_vertex_array_range_apple(length int, pointer voidptr)  {
+
+@[inline]
+pub fn flush_vertex_array_range_apple(length int, pointer voidptr) {
 	C.glFlushVertexArrayRangeAPPLE(length, pointer)
 }
-[inline]
-pub fn vertex_array_parameteri_apple(pname u32, param int)  {
+
+@[inline]
+pub fn vertex_array_parameteri_apple(pname u32, param int) {
 	C.glVertexArrayParameteriAPPLE(pname, param)
 }
-[inline]
-pub fn vertex_array_range_apple(length int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_array_range_apple(length int, pointer voidptr) {
 	C.glVertexArrayRangeAPPLE(length, pointer)
 }
-[inline]
-pub fn disable_vertex_attrib_apple(index u32, pname u32)  {
+
+@[inline]
+pub fn disable_vertex_attrib_apple(index u32, pname u32) {
 	C.glDisableVertexAttribAPPLE(index, pname)
 }
-[inline]
-pub fn enable_vertex_attrib_apple(index u32, pname u32)  {
+
+@[inline]
+pub fn enable_vertex_attrib_apple(index u32, pname u32) {
 	C.glEnableVertexAttribAPPLE(index, pname)
 }
-[inline]
+
+@[inline]
 pub fn is_vertex_attrib_enabled_apple(index u32, pname u32) u8 {
 	return C.glIsVertexAttribEnabledAPPLE(index, pname)
 }
-[inline]
-pub fn map_vertex_attrib1d_apple(index u32, size u32, u1 f64, u2 f64, stride int, order int, points &f64)  {
+
+@[inline]
+pub fn map_vertex_attrib1d_apple(index u32, size u32, u1 f64, u2 f64, stride int, order int, points &f64) {
 	C.glMapVertexAttrib1dAPPLE(index, size, u1, u2, stride, order, points)
 }
-[inline]
-pub fn map_vertex_attrib1f_apple(index u32, size u32, u1 f32, u2 f32, stride int, order int, points &f32)  {
+
+@[inline]
+pub fn map_vertex_attrib1f_apple(index u32, size u32, u1 f32, u2 f32, stride int, order int, points &f32) {
 	C.glMapVertexAttrib1fAPPLE(index, size, u1, u2, stride, order, points)
 }
-[inline]
-pub fn map_vertex_attrib2d_apple(index u32, size u32, u1 f64, u2 f64, ustride int, uorder int, v1 f64, v2 f64, vstride int, vorder int, points &f64)  {
-	C.glMapVertexAttrib2dAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points)
+
+@[inline]
+pub fn map_vertex_attrib2d_apple(index u32, size u32, u1 f64, u2 f64, ustride int, uorder int, v1 f64, v2 f64, vstride int, vorder int, points &f64) {
+	C.glMapVertexAttrib2dAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride,
+		vorder, points)
 }
-[inline]
-pub fn map_vertex_attrib2f_apple(index u32, size u32, u1 f32, u2 f32, ustride int, uorder int, v1 f32, v2 f32, vstride int, vorder int, points &f32)  {
-	C.glMapVertexAttrib2fAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points)
+
+@[inline]
+pub fn map_vertex_attrib2f_apple(index u32, size u32, u1 f32, u2 f32, ustride int, uorder int, v1 f32, v2 f32, vstride int, vorder int, points &f32) {
+	C.glMapVertexAttrib2fAPPLE(index, size, u1, u2, ustride, uorder, v1, v2, vstride,
+		vorder, points)
 }
-[inline]
-pub fn clear_depthf(d f32)  {
+
+@[inline]
+pub fn clear_depthf(d f32) {
 	C.glClearDepthf(d)
 }
-[inline]
-pub fn depth_rangef(n f32, f f32)  {
+
+@[inline]
+pub fn depth_rangef(n f32, f f32) {
 	C.glDepthRangef(n, f)
 }
-[inline]
-pub fn get_shader_precision_format(shadertype u32, precisiontype u32, range &int, precision &int)  {
+
+@[inline]
+pub fn get_shader_precision_format(shadertype u32, precisiontype u32, range &int, precision &int) {
 	C.glGetShaderPrecisionFormat(shadertype, precisiontype, range, precision)
 }
-[inline]
-pub fn release_shader_compiler()  {
+
+@[inline]
+pub fn release_shader_compiler() {
 	C.glReleaseShaderCompiler()
 }
-[inline]
-pub fn shader_binary(count int, shaders &u32, binaryformat u32, binary voidptr, length int)  {
+
+@[inline]
+pub fn shader_binary(count int, shaders &u32, binaryformat u32, binary voidptr, length int) {
 	C.glShaderBinary(count, shaders, binaryformat, binary, length)
 }
-[inline]
-pub fn memory_barrier_by_region(barriers u32)  {
+
+@[inline]
+pub fn memory_barrier_by_region(barriers u32) {
 	C.glMemoryBarrierByRegion(barriers)
 }
-[inline]
-pub fn primitive_bounding_box_arb(min_x f32, min_y f32, min_z f32, min_w f32, max_x f32, max_y f32, max_z f32, max_w f32)  {
+
+@[inline]
+pub fn primitive_bounding_box_arb(min_x f32, min_y f32, min_z f32, min_w f32, max_x f32, max_y f32, max_z f32, max_w f32) {
 	C.glPrimitiveBoundingBoxARB(min_x, min_y, min_z, min_w, max_x, max_y, max_z, max_w)
 }
-[inline]
-pub fn draw_arrays_instanced_base_instance(mode u32, first int, count int, primcount int, baseinstance u32)  {
+
+@[inline]
+pub fn draw_arrays_instanced_base_instance(mode u32, first int, count int, primcount int, baseinstance u32) {
 	C.glDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance)
 }
-[inline]
-pub fn draw_elements_instanced_base_instance(mode u32, count int, gl_type u32, indices voidptr, primcount int, baseinstance u32)  {
+
+@[inline]
+pub fn draw_elements_instanced_base_instance(mode u32, count int, gl_type u32, indices voidptr, primcount int, baseinstance u32) {
 	C.glDrawElementsInstancedBaseInstance(mode, count, gl_type, indices, primcount, baseinstance)
 }
-[inline]
-pub fn draw_elements_instanced_base_vertex_base_instance(mode u32, count int, gl_type u32, indices voidptr, primcount int, basevertex int, baseinstance u32)  {
-	C.glDrawElementsInstancedBaseVertexBaseInstance(mode, count, gl_type, indices, primcount, basevertex, baseinstance)
+
+@[inline]
+pub fn draw_elements_instanced_base_vertex_base_instance(mode u32, count int, gl_type u32, indices voidptr, primcount int, basevertex int, baseinstance u32) {
+	C.glDrawElementsInstancedBaseVertexBaseInstance(mode, count, gl_type, indices, primcount,
+		basevertex, baseinstance)
 }
-[inline]
+
+@[inline]
 pub fn get_image_handle_arb(texture u32, level int, layered u8, layer int, format u32) u64 {
 	return C.glGetImageHandleARB(texture, level, layered, layer, format)
 }
-[inline]
+
+@[inline]
 pub fn get_texture_handle_arb(texture u32) u64 {
 	return C.glGetTextureHandleARB(texture)
 }
-[inline]
+
+@[inline]
 pub fn get_texture_sampler_handle_arb(texture u32, sampler u32) u64 {
 	return C.glGetTextureSamplerHandleARB(texture, sampler)
 }
-[inline]
-pub fn get_vertex_attrib_lui64v_arb(index u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_vertex_attrib_lui64v_arb(index u32, pname u32, params &u64) {
 	C.glGetVertexAttribLui64vARB(index, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_image_handle_resident_arb(handle u64) u8 {
 	return C.glIsImageHandleResidentARB(handle)
 }
-[inline]
+
+@[inline]
 pub fn is_texture_handle_resident_arb(handle u64) u8 {
 	return C.glIsTextureHandleResidentARB(handle)
 }
-[inline]
-pub fn make_image_handle_non_resident_arb(handle u64)  {
+
+@[inline]
+pub fn make_image_handle_non_resident_arb(handle u64) {
 	C.glMakeImageHandleNonResidentARB(handle)
 }
-[inline]
-pub fn make_image_handle_resident_arb(handle u64, access u32)  {
+
+@[inline]
+pub fn make_image_handle_resident_arb(handle u64, access u32) {
 	C.glMakeImageHandleResidentARB(handle, access)
 }
-[inline]
-pub fn make_texture_handle_non_resident_arb(handle u64)  {
+
+@[inline]
+pub fn make_texture_handle_non_resident_arb(handle u64) {
 	C.glMakeTextureHandleNonResidentARB(handle)
 }
-[inline]
-pub fn make_texture_handle_resident_arb(handle u64)  {
+
+@[inline]
+pub fn make_texture_handle_resident_arb(handle u64) {
 	C.glMakeTextureHandleResidentARB(handle)
 }
-[inline]
-pub fn program_uniform_handleui64arb(program u32, location int, value u64)  {
+
+@[inline]
+pub fn program_uniform_handleui64arb(program u32, location int, value u64) {
 	C.glProgramUniformHandleui64ARB(program, location, value)
 }
-[inline]
-pub fn program_uniform_handleui64v_arb(program u32, location int, count int, values &u64)  {
+
+@[inline]
+pub fn program_uniform_handleui64v_arb(program u32, location int, count int, values &u64) {
 	C.glProgramUniformHandleui64vARB(program, location, count, values)
 }
-[inline]
-pub fn uniform_handleui64arb(location int, value u64)  {
+
+@[inline]
+pub fn uniform_handleui64arb(location int, value u64) {
 	C.glUniformHandleui64ARB(location, value)
 }
-[inline]
-pub fn uniform_handleui64v_arb(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform_handleui64v_arb(location int, count int, value &u64) {
 	C.glUniformHandleui64vARB(location, count, value)
 }
-[inline]
-pub fn vertex_attrib_l1ui64arb(index u32, x u64)  {
+
+@[inline]
+pub fn vertex_attrib_l1ui64arb(index u32, x u64) {
 	C.glVertexAttribL1ui64ARB(index, x)
 }
-[inline]
-pub fn vertex_attrib_l1ui64v_arb(index u32, v &u64)  {
+
+@[inline]
+pub fn vertex_attrib_l1ui64v_arb(index u32, v &u64) {
 	C.glVertexAttribL1ui64vARB(index, v)
 }
-[inline]
-pub fn bind_frag_data_location_indexed(program u32, color_number u32, index u32, name &char)  {
+
+@[inline]
+pub fn bind_frag_data_location_indexed(program u32, color_number u32, index u32, name &char) {
 	C.glBindFragDataLocationIndexed(program, color_number, index, name)
 }
-[inline]
+
+@[inline]
 pub fn get_frag_data_index(program u32, name &char) int {
 	return C.glGetFragDataIndex(program, name)
 }
-[inline]
-pub fn buffer_storage(target u32, size i64, data voidptr, flags u32)  {
+
+@[inline]
+pub fn buffer_storage(target u32, size i64, data voidptr, flags u32) {
 	C.glBufferStorage(target, size, data, flags)
 }
-[inline]
+
+@[inline]
 pub fn create_sync_from_clevent_arb(context voidptr, event voidptr, flags u32) voidptr {
 	return C.glCreateSyncFromCLeventARB(context, event, flags)
 }
-[inline]
-pub fn clear_buffer_data(target u32, internalformat u32, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn clear_buffer_data(target u32, internalformat u32, format u32, gl_type u32, data voidptr) {
 	C.glClearBufferData(target, internalformat, format, gl_type, data)
 }
-[inline]
-pub fn clear_buffer_sub_data(target u32, internalformat u32, offset i64, size i64, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn clear_buffer_sub_data(target u32, internalformat u32, offset i64, size i64, format u32, gl_type u32, data voidptr) {
 	C.glClearBufferSubData(target, internalformat, offset, size, format, gl_type, data)
 }
-[inline]
-pub fn clear_named_buffer_data_ext(buffer u32, internalformat u32, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn clear_named_buffer_data_ext(buffer u32, internalformat u32, format u32, gl_type u32, data voidptr) {
 	C.glClearNamedBufferDataEXT(buffer, internalformat, format, gl_type, data)
 }
-[inline]
-pub fn clear_named_buffer_sub_data_ext(buffer u32, internalformat u32, offset i64, size i64, format u32, gl_type u32, data voidptr)  {
-	C.glClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, gl_type, data)
+
+@[inline]
+pub fn clear_named_buffer_sub_data_ext(buffer u32, internalformat u32, offset i64, size i64, format u32, gl_type u32, data voidptr) {
+	C.glClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, gl_type,
+		data)
 }
-[inline]
-pub fn clear_tex_image(texture u32, level int, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn clear_tex_image(texture u32, level int, format u32, gl_type u32, data voidptr) {
 	C.glClearTexImage(texture, level, format, gl_type, data)
 }
-[inline]
-pub fn clear_tex_sub_image(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, data voidptr)  {
-	C.glClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, data)
+
+@[inline]
+pub fn clear_tex_sub_image(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, data voidptr) {
+	C.glClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth,
+		format, gl_type, data)
 }
-[inline]
-pub fn clip_control(origin u32, depth u32)  {
+
+@[inline]
+pub fn clip_control(origin u32, depth u32) {
 	C.glClipControl(origin, depth)
 }
-[inline]
-pub fn clamp_color_arb(target u32, clamp u32)  {
+
+@[inline]
+pub fn clamp_color_arb(target u32, clamp u32) {
 	C.glClampColorARB(target, clamp)
 }
-[inline]
-pub fn dispatch_compute(num_groups_x u32, num_groups_y u32, num_groups_z u32)  {
+
+@[inline]
+pub fn dispatch_compute(num_groups_x u32, num_groups_y u32, num_groups_z u32) {
 	C.glDispatchCompute(num_groups_x, num_groups_y, num_groups_z)
 }
-[inline]
-pub fn dispatch_compute_indirect(indirect i64)  {
+
+@[inline]
+pub fn dispatch_compute_indirect(indirect i64) {
 	C.glDispatchComputeIndirect(indirect)
 }
-[inline]
-pub fn dispatch_compute_group_size_arb(num_groups_x u32, num_groups_y u32, num_groups_z u32, group_size_x u32, group_size_y u32, group_size_z u32)  {
-	C.glDispatchComputeGroupSizeARB(num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z)
+
+@[inline]
+pub fn dispatch_compute_group_size_arb(num_groups_x u32, num_groups_y u32, num_groups_z u32, group_size_x u32, group_size_y u32, group_size_z u32) {
+	C.glDispatchComputeGroupSizeARB(num_groups_x, num_groups_y, num_groups_z, group_size_x,
+		group_size_y, group_size_z)
 }
-[inline]
-pub fn copy_buffer_sub_data(readtarget u32, writetarget u32, readoffset i64, writeoffset i64, size i64)  {
+
+@[inline]
+pub fn copy_buffer_sub_data(readtarget u32, writetarget u32, readoffset i64, writeoffset i64, size i64) {
 	C.glCopyBufferSubData(readtarget, writetarget, readoffset, writeoffset, size)
 }
-[inline]
-pub fn copy_image_sub_data(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int)  {
-	C.glCopyImageSubData(src_name, src_target, src_level, src_x, src_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth)
+
+@[inline]
+pub fn copy_image_sub_data(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int) {
+	C.glCopyImageSubData(src_name, src_target, src_level, src_x, src_y, src_z, dst_name,
+		dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth)
 }
-[inline]
-pub fn debug_message_callback_arb(callback /* GLDEBUGPROCARB */ voidptr, user_param voidptr)  {
+
+@[inline]
+pub fn debug_message_callback_arb(
+	// GLDEBUGPROCARB
+	callback voidptr, 	user_param voidptr) {
 	C.glDebugMessageCallbackARB(callback, user_param)
 }
-[inline]
-pub fn debug_message_control_arb(source u32, gl_type u32, severity u32, count int, ids &u32, enabled u8)  {
+
+@[inline]
+pub fn debug_message_control_arb(source u32, gl_type u32, severity u32, count int, ids &u32, enabled u8) {
 	C.glDebugMessageControlARB(source, gl_type, severity, count, ids, enabled)
 }
-[inline]
-pub fn debug_message_insert_arb(source u32, gl_type u32, id u32, severity u32, length int, buf &char)  {
+
+@[inline]
+pub fn debug_message_insert_arb(source u32, gl_type u32, id u32, severity u32, length int, buf &char) {
 	C.glDebugMessageInsertARB(source, gl_type, id, severity, length, buf)
 }
-[inline]
+
+@[inline]
 pub fn get_debug_message_log_arb(count u32, buf_size int, sources &u32, types &u32, ids &u32, severities &u32, lengths &int, message_log &char) u32 {
-	return C.glGetDebugMessageLogARB(count, buf_size, sources, types, ids, severities, lengths, message_log)
+	return C.glGetDebugMessageLogARB(count, buf_size, sources, types, ids, severities,
+		lengths, message_log)
 }
-[inline]
-pub fn bind_texture_unit(unit u32, texture u32)  {
+
+@[inline]
+pub fn bind_texture_unit(unit u32, texture u32) {
 	C.glBindTextureUnit(unit, texture)
 }
-[inline]
-pub fn blit_named_framebuffer(read_framebuffer u32, draw_framebuffer u32, src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32)  {
-	C.glBlitNamedFramebuffer(read_framebuffer, draw_framebuffer, src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1, mask, filter)
+
+@[inline]
+pub fn blit_named_framebuffer(read_framebuffer u32, draw_framebuffer u32, src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32) {
+	C.glBlitNamedFramebuffer(read_framebuffer, draw_framebuffer, src_x0, src_y0, src_x1,
+		src_y1, dst_x0, dst_y0, dst_x1, dst_y1, mask, filter)
 }
-[inline]
+
+@[inline]
 pub fn check_named_framebuffer_status(framebuffer u32, target u32) u32 {
 	return C.glCheckNamedFramebufferStatus(framebuffer, target)
 }
-[inline]
-pub fn clear_named_buffer_data(buffer u32, internalformat u32, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn clear_named_buffer_data(buffer u32, internalformat u32, format u32, gl_type u32, data voidptr) {
 	C.glClearNamedBufferData(buffer, internalformat, format, gl_type, data)
 }
-[inline]
-pub fn clear_named_buffer_sub_data(buffer u32, internalformat u32, offset i64, size i64, format u32, gl_type u32, data voidptr)  {
-	C.glClearNamedBufferSubData(buffer, internalformat, offset, size, format, gl_type, data)
+
+@[inline]
+pub fn clear_named_buffer_sub_data(buffer u32, internalformat u32, offset i64, size i64, format u32, gl_type u32, data voidptr) {
+	C.glClearNamedBufferSubData(buffer, internalformat, offset, size, format, gl_type,
+		data)
 }
-[inline]
-pub fn clear_named_framebufferfi(framebuffer u32, buffer u32, drawbuffer int, depth f32, stencil int)  {
+
+@[inline]
+pub fn clear_named_framebufferfi(framebuffer u32, buffer u32, drawbuffer int, depth f32, stencil int) {
 	C.glClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil)
 }
-[inline]
-pub fn clear_named_framebufferfv(framebuffer u32, buffer u32, drawbuffer int, value &f32)  {
+
+@[inline]
+pub fn clear_named_framebufferfv(framebuffer u32, buffer u32, drawbuffer int, value &f32) {
 	C.glClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, value)
 }
-[inline]
-pub fn clear_named_framebufferiv(framebuffer u32, buffer u32, drawbuffer int, value &int)  {
+
+@[inline]
+pub fn clear_named_framebufferiv(framebuffer u32, buffer u32, drawbuffer int, value &int) {
 	C.glClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, value)
 }
-[inline]
-pub fn clear_named_framebufferuiv(framebuffer u32, buffer u32, drawbuffer int, value &u32)  {
+
+@[inline]
+pub fn clear_named_framebufferuiv(framebuffer u32, buffer u32, drawbuffer int, value &u32) {
 	C.glClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, value)
 }
-[inline]
-pub fn compressed_texture_sub_image1d(texture u32, level int, xoffset int, width int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTextureSubImage1D(texture, level, xoffset, width, format, image_size, data)
+
+@[inline]
+pub fn compressed_texture_sub_image1d(texture u32, level int, xoffset int, width int, format u32, image_size int, data voidptr) {
+	C.glCompressedTextureSubImage1D(texture, level, xoffset, width, format, image_size,
+		data)
 }
-[inline]
-pub fn compressed_texture_sub_image2d(texture u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, image_size, data)
+
+@[inline]
+pub fn compressed_texture_sub_image2d(texture u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr) {
+	C.glCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format,
+		image_size, data)
 }
-[inline]
-pub fn compressed_texture_sub_image3d(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, image_size, data)
+
+@[inline]
+pub fn compressed_texture_sub_image3d(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr) {
+	C.glCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width,
+		height, depth, format, image_size, data)
 }
-[inline]
-pub fn copy_named_buffer_sub_data(read_buffer u32, write_buffer u32, read_offset i64, write_offset i64, size i64)  {
+
+@[inline]
+pub fn copy_named_buffer_sub_data(read_buffer u32, write_buffer u32, read_offset i64, write_offset i64, size i64) {
 	C.glCopyNamedBufferSubData(read_buffer, write_buffer, read_offset, write_offset, size)
 }
-[inline]
-pub fn copy_texture_sub_image1d(texture u32, level int, xoffset int, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_texture_sub_image1d(texture u32, level int, xoffset int, x int, y int, width int) {
 	C.glCopyTextureSubImage1D(texture, level, xoffset, x, y, width)
 }
-[inline]
-pub fn copy_texture_sub_image2d(texture u32, level int, xoffset int, yoffset int, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn copy_texture_sub_image2d(texture u32, level int, xoffset int, yoffset int, x int, y int, width int, height int) {
 	C.glCopyTextureSubImage2D(texture, level, xoffset, yoffset, x, y, width, height)
 }
-[inline]
-pub fn copy_texture_sub_image3d(texture u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int)  {
-	C.glCopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width, height)
+
+@[inline]
+pub fn copy_texture_sub_image3d(texture u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int) {
+	C.glCopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width,
+		height)
 }
-[inline]
-pub fn create_buffers(n int, buffers &u32)  {
+
+@[inline]
+pub fn create_buffers(n int, buffers &u32) {
 	C.glCreateBuffers(n, buffers)
 }
-[inline]
-pub fn create_framebuffers(n int, framebuffers &u32)  {
+
+@[inline]
+pub fn create_framebuffers(n int, framebuffers &u32) {
 	C.glCreateFramebuffers(n, framebuffers)
 }
-[inline]
-pub fn create_program_pipelines(n int, pipelines &u32)  {
+
+@[inline]
+pub fn create_program_pipelines(n int, pipelines &u32) {
 	C.glCreateProgramPipelines(n, pipelines)
 }
-[inline]
-pub fn create_queries(target u32, n int, ids &u32)  {
+
+@[inline]
+pub fn create_queries(target u32, n int, ids &u32) {
 	C.glCreateQueries(target, n, ids)
 }
-[inline]
-pub fn create_renderbuffers(n int, renderbuffers &u32)  {
+
+@[inline]
+pub fn create_renderbuffers(n int, renderbuffers &u32) {
 	C.glCreateRenderbuffers(n, renderbuffers)
 }
-[inline]
-pub fn create_samplers(n int, samplers &u32)  {
+
+@[inline]
+pub fn create_samplers(n int, samplers &u32) {
 	C.glCreateSamplers(n, samplers)
 }
-[inline]
-pub fn create_textures(target u32, n int, textures &u32)  {
+
+@[inline]
+pub fn create_textures(target u32, n int, textures &u32) {
 	C.glCreateTextures(target, n, textures)
 }
-[inline]
-pub fn create_transform_feedbacks(n int, ids &u32)  {
+
+@[inline]
+pub fn create_transform_feedbacks(n int, ids &u32) {
 	C.glCreateTransformFeedbacks(n, ids)
 }
-[inline]
-pub fn create_vertex_arrays(n int, arrays &u32)  {
+
+@[inline]
+pub fn create_vertex_arrays(n int, arrays &u32) {
 	C.glCreateVertexArrays(n, arrays)
 }
-[inline]
-pub fn disable_vertex_array_attrib(vaobj u32, index u32)  {
+
+@[inline]
+pub fn disable_vertex_array_attrib(vaobj u32, index u32) {
 	C.glDisableVertexArrayAttrib(vaobj, index)
 }
-[inline]
-pub fn enable_vertex_array_attrib(vaobj u32, index u32)  {
+
+@[inline]
+pub fn enable_vertex_array_attrib(vaobj u32, index u32) {
 	C.glEnableVertexArrayAttrib(vaobj, index)
 }
-[inline]
-pub fn flush_mapped_named_buffer_range(buffer u32, offset i64, length i64)  {
+
+@[inline]
+pub fn flush_mapped_named_buffer_range(buffer u32, offset i64, length i64) {
 	C.glFlushMappedNamedBufferRange(buffer, offset, length)
 }
-[inline]
-pub fn generate_texture_mipmap(texture u32)  {
+
+@[inline]
+pub fn generate_texture_mipmap(texture u32) {
 	C.glGenerateTextureMipmap(texture)
 }
-[inline]
-pub fn get_compressed_texture_image(texture u32, level int, buf_size int, pixels voidptr)  {
+
+@[inline]
+pub fn get_compressed_texture_image(texture u32, level int, buf_size int, pixels voidptr) {
 	C.glGetCompressedTextureImage(texture, level, buf_size, pixels)
 }
-[inline]
-pub fn get_named_buffer_parameteri64v(buffer u32, pname u32, params &i64)  {
+
+@[inline]
+pub fn get_named_buffer_parameteri64v(buffer u32, pname u32, params &i64) {
 	C.glGetNamedBufferParameteri64v(buffer, pname, params)
 }
-[inline]
-pub fn get_named_buffer_parameteriv(buffer u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_buffer_parameteriv(buffer u32, pname u32, params &int) {
 	C.glGetNamedBufferParameteriv(buffer, pname, params)
 }
-[inline]
-pub fn get_named_buffer_pointerv(buffer u32, pname u32, params &voidptr)  {
+
+@[inline]
+pub fn get_named_buffer_pointerv(buffer u32, pname u32, params &voidptr) {
 	C.glGetNamedBufferPointerv(buffer, pname, params)
 }
-[inline]
-pub fn get_named_buffer_sub_data(buffer u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn get_named_buffer_sub_data(buffer u32, offset i64, size i64, data voidptr) {
 	C.glGetNamedBufferSubData(buffer, offset, size, data)
 }
-[inline]
-pub fn get_named_framebuffer_attachment_parameteriv(framebuffer u32, attachment u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_framebuffer_attachment_parameteriv(framebuffer u32, attachment u32, pname u32, params &int) {
 	C.glGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, params)
 }
-[inline]
-pub fn get_named_framebuffer_parameteriv(framebuffer u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_named_framebuffer_parameteriv(framebuffer u32, pname u32, param &int) {
 	C.glGetNamedFramebufferParameteriv(framebuffer, pname, param)
 }
-[inline]
-pub fn get_named_renderbuffer_parameteriv(renderbuffer u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_renderbuffer_parameteriv(renderbuffer u32, pname u32, params &int) {
 	C.glGetNamedRenderbufferParameteriv(renderbuffer, pname, params)
 }
-[inline]
-pub fn get_query_buffer_objecti64v(id u32, buffer u32, pname u32, offset i64)  {
+
+@[inline]
+pub fn get_query_buffer_objecti64v(id u32, buffer u32, pname u32, offset i64) {
 	C.glGetQueryBufferObjecti64v(id, buffer, pname, offset)
 }
-[inline]
-pub fn get_query_buffer_objectiv(id u32, buffer u32, pname u32, offset i64)  {
+
+@[inline]
+pub fn get_query_buffer_objectiv(id u32, buffer u32, pname u32, offset i64) {
 	C.glGetQueryBufferObjectiv(id, buffer, pname, offset)
 }
-[inline]
-pub fn get_query_buffer_objectui64v(id u32, buffer u32, pname u32, offset i64)  {
+
+@[inline]
+pub fn get_query_buffer_objectui64v(id u32, buffer u32, pname u32, offset i64) {
 	C.glGetQueryBufferObjectui64v(id, buffer, pname, offset)
 }
-[inline]
-pub fn get_query_buffer_objectuiv(id u32, buffer u32, pname u32, offset i64)  {
+
+@[inline]
+pub fn get_query_buffer_objectuiv(id u32, buffer u32, pname u32, offset i64) {
 	C.glGetQueryBufferObjectuiv(id, buffer, pname, offset)
 }
-[inline]
-pub fn get_texture_image(texture u32, level int, format u32, gl_type u32, buf_size int, pixels voidptr)  {
+
+@[inline]
+pub fn get_texture_image(texture u32, level int, format u32, gl_type u32, buf_size int, pixels voidptr) {
 	C.glGetTextureImage(texture, level, format, gl_type, buf_size, pixels)
 }
-[inline]
-pub fn get_texture_level_parameterfv(texture u32, level int, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_texture_level_parameterfv(texture u32, level int, pname u32, params &f32) {
 	C.glGetTextureLevelParameterfv(texture, level, pname, params)
 }
-[inline]
-pub fn get_texture_level_parameteriv(texture u32, level int, pname u32, params &int)  {
+
+@[inline]
+pub fn get_texture_level_parameteriv(texture u32, level int, pname u32, params &int) {
 	C.glGetTextureLevelParameteriv(texture, level, pname, params)
 }
-[inline]
-pub fn get_texture_parameter_iiv(texture u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_texture_parameter_iiv(texture u32, pname u32, params &int) {
 	C.glGetTextureParameterIiv(texture, pname, params)
 }
-[inline]
-pub fn get_texture_parameter_iuiv(texture u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_texture_parameter_iuiv(texture u32, pname u32, params &u32) {
 	C.glGetTextureParameterIuiv(texture, pname, params)
 }
-[inline]
-pub fn get_texture_parameterfv(texture u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_texture_parameterfv(texture u32, pname u32, params &f32) {
 	C.glGetTextureParameterfv(texture, pname, params)
 }
-[inline]
-pub fn get_texture_parameteriv(texture u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_texture_parameteriv(texture u32, pname u32, params &int) {
 	C.glGetTextureParameteriv(texture, pname, params)
 }
-[inline]
-pub fn get_transform_feedbacki64_v(xfb u32, pname u32, index u32, param &i64)  {
+
+@[inline]
+pub fn get_transform_feedbacki64_v(xfb u32, pname u32, index u32, param &i64) {
 	C.glGetTransformFeedbacki64_v(xfb, pname, index, param)
 }
-[inline]
-pub fn get_transform_feedbacki_v(xfb u32, pname u32, index u32, param &int)  {
+
+@[inline]
+pub fn get_transform_feedbacki_v(xfb u32, pname u32, index u32, param &int) {
 	C.glGetTransformFeedbacki_v(xfb, pname, index, param)
 }
-[inline]
-pub fn get_transform_feedbackiv(xfb u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_transform_feedbackiv(xfb u32, pname u32, param &int) {
 	C.glGetTransformFeedbackiv(xfb, pname, param)
 }
-[inline]
-pub fn get_vertex_array_indexed64iv(vaobj u32, index u32, pname u32, param &i64)  {
+
+@[inline]
+pub fn get_vertex_array_indexed64iv(vaobj u32, index u32, pname u32, param &i64) {
 	C.glGetVertexArrayIndexed64iv(vaobj, index, pname, param)
 }
-[inline]
-pub fn get_vertex_array_indexediv(vaobj u32, index u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_vertex_array_indexediv(vaobj u32, index u32, pname u32, param &int) {
 	C.glGetVertexArrayIndexediv(vaobj, index, pname, param)
 }
-[inline]
-pub fn get_vertex_arrayiv(vaobj u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_vertex_arrayiv(vaobj u32, pname u32, param &int) {
 	C.glGetVertexArrayiv(vaobj, pname, param)
 }
-[inline]
-pub fn invalidate_named_framebuffer_data(framebuffer u32, num_attachments int, attachments &u32)  {
+
+@[inline]
+pub fn invalidate_named_framebuffer_data(framebuffer u32, num_attachments int, attachments &u32) {
 	C.glInvalidateNamedFramebufferData(framebuffer, num_attachments, attachments)
 }
-[inline]
-pub fn invalidate_named_framebuffer_sub_data(framebuffer u32, num_attachments int, attachments &u32, x int, y int, width int, height int)  {
-	C.glInvalidateNamedFramebufferSubData(framebuffer, num_attachments, attachments, x, y, width, height)
+
+@[inline]
+pub fn invalidate_named_framebuffer_sub_data(framebuffer u32, num_attachments int, attachments &u32, x int, y int, width int, height int) {
+	C.glInvalidateNamedFramebufferSubData(framebuffer, num_attachments, attachments, x,
+		y, width, height)
 }
-[inline]
+
+@[inline]
 pub fn map_named_buffer(buffer u32, access u32) voidptr {
 	return C.glMapNamedBuffer(buffer, access)
 }
-[inline]
+
+@[inline]
 pub fn map_named_buffer_range(buffer u32, offset i64, length i64, access u32) voidptr {
 	return C.glMapNamedBufferRange(buffer, offset, length, access)
 }
-[inline]
-pub fn named_buffer_data(buffer u32, size i64, data voidptr, usage u32)  {
+
+@[inline]
+pub fn named_buffer_data(buffer u32, size i64, data voidptr, usage u32) {
 	C.glNamedBufferData(buffer, size, data, usage)
 }
-[inline]
-pub fn named_buffer_storage(buffer u32, size i64, data voidptr, flags u32)  {
+
+@[inline]
+pub fn named_buffer_storage(buffer u32, size i64, data voidptr, flags u32) {
 	C.glNamedBufferStorage(buffer, size, data, flags)
 }
-[inline]
-pub fn named_buffer_sub_data(buffer u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn named_buffer_sub_data(buffer u32, offset i64, size i64, data voidptr) {
 	C.glNamedBufferSubData(buffer, offset, size, data)
 }
-[inline]
-pub fn named_framebuffer_draw_buffer(framebuffer u32, mode u32)  {
+
+@[inline]
+pub fn named_framebuffer_draw_buffer(framebuffer u32, mode u32) {
 	C.glNamedFramebufferDrawBuffer(framebuffer, mode)
 }
-[inline]
-pub fn named_framebuffer_draw_buffers(framebuffer u32, n int, bufs &u32)  {
+
+@[inline]
+pub fn named_framebuffer_draw_buffers(framebuffer u32, n int, bufs &u32) {
 	C.glNamedFramebufferDrawBuffers(framebuffer, n, bufs)
 }
-[inline]
-pub fn named_framebuffer_parameteri(framebuffer u32, pname u32, param int)  {
+
+@[inline]
+pub fn named_framebuffer_parameteri(framebuffer u32, pname u32, param int) {
 	C.glNamedFramebufferParameteri(framebuffer, pname, param)
 }
-[inline]
-pub fn named_framebuffer_read_buffer(framebuffer u32, mode u32)  {
+
+@[inline]
+pub fn named_framebuffer_read_buffer(framebuffer u32, mode u32) {
 	C.glNamedFramebufferReadBuffer(framebuffer, mode)
 }
-[inline]
-pub fn named_framebuffer_renderbuffer(framebuffer u32, attachment u32, renderbuffertarget u32, renderbuffer u32)  {
+
+@[inline]
+pub fn named_framebuffer_renderbuffer(framebuffer u32, attachment u32, renderbuffertarget u32, renderbuffer u32) {
 	C.glNamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer)
 }
-[inline]
-pub fn named_framebuffer_texture(framebuffer u32, attachment u32, texture u32, level int)  {
+
+@[inline]
+pub fn named_framebuffer_texture(framebuffer u32, attachment u32, texture u32, level int) {
 	C.glNamedFramebufferTexture(framebuffer, attachment, texture, level)
 }
-[inline]
-pub fn named_framebuffer_texture_layer(framebuffer u32, attachment u32, texture u32, level int, layer int)  {
+
+@[inline]
+pub fn named_framebuffer_texture_layer(framebuffer u32, attachment u32, texture u32, level int, layer int) {
 	C.glNamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer)
 }
-[inline]
-pub fn named_renderbuffer_storage(renderbuffer u32, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn named_renderbuffer_storage(renderbuffer u32, internalformat u32, width int, height int) {
 	C.glNamedRenderbufferStorage(renderbuffer, internalformat, width, height)
 }
-[inline]
-pub fn named_renderbuffer_storage_multisample(renderbuffer u32, samples int, internalformat u32, width int, height int)  {
-	C.glNamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width, height)
+
+@[inline]
+pub fn named_renderbuffer_storage_multisample(renderbuffer u32, samples int, internalformat u32, width int, height int) {
+	C.glNamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width,
+		height)
 }
-[inline]
-pub fn texture_buffer(texture u32, internalformat u32, buffer u32)  {
+
+@[inline]
+pub fn texture_buffer(texture u32, internalformat u32, buffer u32) {
 	C.glTextureBuffer(texture, internalformat, buffer)
 }
-[inline]
-pub fn texture_buffer_range(texture u32, internalformat u32, buffer u32, offset i64, size i64)  {
+
+@[inline]
+pub fn texture_buffer_range(texture u32, internalformat u32, buffer u32, offset i64, size i64) {
 	C.glTextureBufferRange(texture, internalformat, buffer, offset, size)
 }
-[inline]
-pub fn texture_parameter_iiv(texture u32, pname u32, params &int)  {
+
+@[inline]
+pub fn texture_parameter_iiv(texture u32, pname u32, params &int) {
 	C.glTextureParameterIiv(texture, pname, params)
 }
-[inline]
-pub fn texture_parameter_iuiv(texture u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn texture_parameter_iuiv(texture u32, pname u32, params &u32) {
 	C.glTextureParameterIuiv(texture, pname, params)
 }
-[inline]
-pub fn texture_parameterf(texture u32, pname u32, param f32)  {
+
+@[inline]
+pub fn texture_parameterf(texture u32, pname u32, param f32) {
 	C.glTextureParameterf(texture, pname, param)
 }
-[inline]
-pub fn texture_parameterfv(texture u32, pname u32, param &f32)  {
+
+@[inline]
+pub fn texture_parameterfv(texture u32, pname u32, param &f32) {
 	C.glTextureParameterfv(texture, pname, param)
 }
-[inline]
-pub fn texture_parameteri(texture u32, pname u32, param int)  {
+
+@[inline]
+pub fn texture_parameteri(texture u32, pname u32, param int) {
 	C.glTextureParameteri(texture, pname, param)
 }
-[inline]
-pub fn texture_parameteriv(texture u32, pname u32, param &int)  {
+
+@[inline]
+pub fn texture_parameteriv(texture u32, pname u32, param &int) {
 	C.glTextureParameteriv(texture, pname, param)
 }
-[inline]
-pub fn texture_storage1d(texture u32, levels int, internalformat u32, width int)  {
+
+@[inline]
+pub fn texture_storage1d(texture u32, levels int, internalformat u32, width int) {
 	C.glTextureStorage1D(texture, levels, internalformat, width)
 }
-[inline]
-pub fn texture_storage2d(texture u32, levels int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn texture_storage2d(texture u32, levels int, internalformat u32, width int, height int) {
 	C.glTextureStorage2D(texture, levels, internalformat, width, height)
 }
-[inline]
-pub fn texture_storage2dmultisample(texture u32, samples int, internalformat u32, width int, height int, fixedsamplelocations u8)  {
+
+@[inline]
+pub fn texture_storage2dmultisample(texture u32, samples int, internalformat u32, width int, height int, fixedsamplelocations u8) {
 	C.glTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations)
 }
-[inline]
-pub fn texture_storage3d(texture u32, levels int, internalformat u32, width int, height int, depth int)  {
+
+@[inline]
+pub fn texture_storage3d(texture u32, levels int, internalformat u32, width int, height int, depth int) {
 	C.glTextureStorage3D(texture, levels, internalformat, width, height, depth)
 }
-[inline]
-pub fn texture_storage3dmultisample(texture u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8)  {
-	C.glTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations)
+
+@[inline]
+pub fn texture_storage3dmultisample(texture u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8) {
+	C.glTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth,
+		fixedsamplelocations)
 }
-[inline]
-pub fn texture_sub_image1d(texture u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn texture_sub_image1d(texture u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr) {
 	C.glTextureSubImage1D(texture, level, xoffset, width, format, gl_type, pixels)
 }
-[inline]
-pub fn texture_sub_image2d(texture u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, gl_type, pixels)
+
+@[inline]
+pub fn texture_sub_image2d(texture u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr) {
+	C.glTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, gl_type,
+		pixels)
 }
-[inline]
-pub fn texture_sub_image3d(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, pixels)
+
+@[inline]
+pub fn texture_sub_image3d(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr) {
+	C.glTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn transform_feedback_buffer_base(xfb u32, index u32, buffer u32)  {
+
+@[inline]
+pub fn transform_feedback_buffer_base(xfb u32, index u32, buffer u32) {
 	C.glTransformFeedbackBufferBase(xfb, index, buffer)
 }
-[inline]
-pub fn transform_feedback_buffer_range(xfb u32, index u32, buffer u32, offset i64, size i64)  {
+
+@[inline]
+pub fn transform_feedback_buffer_range(xfb u32, index u32, buffer u32, offset i64, size i64) {
 	C.glTransformFeedbackBufferRange(xfb, index, buffer, offset, size)
 }
-[inline]
+
+@[inline]
 pub fn unmap_named_buffer(buffer u32) u8 {
 	return C.glUnmapNamedBuffer(buffer)
 }
-[inline]
-pub fn vertex_array_attrib_binding(vaobj u32, attribindex u32, bindingindex u32)  {
+
+@[inline]
+pub fn vertex_array_attrib_binding(vaobj u32, attribindex u32, bindingindex u32) {
 	C.glVertexArrayAttribBinding(vaobj, attribindex, bindingindex)
 }
-[inline]
-pub fn vertex_array_attrib_format(vaobj u32, attribindex u32, size int, gl_type u32, normalized u8, relativeoffset u32)  {
+
+@[inline]
+pub fn vertex_array_attrib_format(vaobj u32, attribindex u32, size int, gl_type u32, normalized u8, relativeoffset u32) {
 	C.glVertexArrayAttribFormat(vaobj, attribindex, size, gl_type, normalized, relativeoffset)
 }
-[inline]
-pub fn vertex_array_attrib_iformat(vaobj u32, attribindex u32, size int, gl_type u32, relativeoffset u32)  {
+
+@[inline]
+pub fn vertex_array_attrib_iformat(vaobj u32, attribindex u32, size int, gl_type u32, relativeoffset u32) {
 	C.glVertexArrayAttribIFormat(vaobj, attribindex, size, gl_type, relativeoffset)
 }
-[inline]
-pub fn vertex_array_attrib_lformat(vaobj u32, attribindex u32, size int, gl_type u32, relativeoffset u32)  {
+
+@[inline]
+pub fn vertex_array_attrib_lformat(vaobj u32, attribindex u32, size int, gl_type u32, relativeoffset u32) {
 	C.glVertexArrayAttribLFormat(vaobj, attribindex, size, gl_type, relativeoffset)
 }
-[inline]
-pub fn vertex_array_binding_divisor(vaobj u32, bindingindex u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_array_binding_divisor(vaobj u32, bindingindex u32, divisor u32) {
 	C.glVertexArrayBindingDivisor(vaobj, bindingindex, divisor)
 }
-[inline]
-pub fn vertex_array_element_buffer(vaobj u32, buffer u32)  {
+
+@[inline]
+pub fn vertex_array_element_buffer(vaobj u32, buffer u32) {
 	C.glVertexArrayElementBuffer(vaobj, buffer)
 }
-[inline]
-pub fn vertex_array_vertex_buffer(vaobj u32, bindingindex u32, buffer u32, offset i64, stride int)  {
+
+@[inline]
+pub fn vertex_array_vertex_buffer(vaobj u32, bindingindex u32, buffer u32, offset i64, stride int) {
 	C.glVertexArrayVertexBuffer(vaobj, bindingindex, buffer, offset, stride)
 }
-[inline]
-pub fn vertex_array_vertex_buffers(vaobj u32, first u32, count int, buffers &u32, offsets &i64, strides &int)  {
+
+@[inline]
+pub fn vertex_array_vertex_buffers(vaobj u32, first u32, count int, buffers &u32, offsets &i64, strides &int) {
 	C.glVertexArrayVertexBuffers(vaobj, first, count, buffers, offsets, strides)
 }
-[inline]
-pub fn draw_buffers_arb(n int, bufs &u32)  {
+
+@[inline]
+pub fn draw_buffers_arb(n int, bufs &u32) {
 	C.glDrawBuffersARB(n, bufs)
 }
-[inline]
-pub fn blend_equation_separatei_arb(buf u32, mode_rgb u32, mode_alpha u32)  {
+
+@[inline]
+pub fn blend_equation_separatei_arb(buf u32, mode_rgb u32, mode_alpha u32) {
 	C.glBlendEquationSeparateiARB(buf, mode_rgb, mode_alpha)
 }
-[inline]
-pub fn blend_equationi_arb(buf u32, mode u32)  {
+
+@[inline]
+pub fn blend_equationi_arb(buf u32, mode u32) {
 	C.glBlendEquationiARB(buf, mode)
 }
-[inline]
-pub fn blend_func_separatei_arb(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32)  {
+
+@[inline]
+pub fn blend_func_separatei_arb(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32) {
 	C.glBlendFuncSeparateiARB(buf, src_rgb, dst_rgb, src_alpha, dst_alpha)
 }
-[inline]
-pub fn blend_funci_arb(buf u32, src u32, dst u32)  {
+
+@[inline]
+pub fn blend_funci_arb(buf u32, src u32, dst u32) {
 	C.glBlendFunciARB(buf, src, dst)
 }
-[inline]
-pub fn draw_elements_base_vertex(mode u32, count int, gl_type u32, indices voidptr, basevertex int)  {
+
+@[inline]
+pub fn draw_elements_base_vertex(mode u32, count int, gl_type u32, indices voidptr, basevertex int) {
 	C.glDrawElementsBaseVertex(mode, count, gl_type, indices, basevertex)
 }
-[inline]
-pub fn draw_elements_instanced_base_vertex(mode u32, count int, gl_type u32, indices voidptr, instancecount int, basevertex int)  {
-	C.glDrawElementsInstancedBaseVertex(mode, count, gl_type, indices, instancecount, basevertex)
+
+@[inline]
+pub fn draw_elements_instanced_base_vertex(mode u32, count int, gl_type u32, indices voidptr, instancecount int, basevertex int) {
+	C.glDrawElementsInstancedBaseVertex(mode, count, gl_type, indices, instancecount,
+		basevertex)
 }
-[inline]
-pub fn draw_range_elements_base_vertex(mode u32, start u32, end u32, count int, gl_type u32, indices voidptr, basevertex int)  {
+
+@[inline]
+pub fn draw_range_elements_base_vertex(mode u32, start u32, end u32, count int, gl_type u32, indices voidptr, basevertex int) {
 	C.glDrawRangeElementsBaseVertex(mode, start, end, count, gl_type, indices, basevertex)
 }
-[inline]
-pub fn multi_draw_elements_base_vertex(mode u32, count &int, gl_type u32, indices &voidptr, drawcount int, basevertex &int)  {
+
+@[inline]
+pub fn multi_draw_elements_base_vertex(mode u32, count &int, gl_type u32, indices &voidptr, drawcount int, basevertex &int) {
 	C.glMultiDrawElementsBaseVertex(mode, count, gl_type, indices, drawcount, basevertex)
 }
-[inline]
-pub fn draw_arrays_indirect(mode u32, indirect voidptr)  {
+
+@[inline]
+pub fn draw_arrays_indirect(mode u32, indirect voidptr) {
 	C.glDrawArraysIndirect(mode, indirect)
 }
-[inline]
-pub fn draw_elements_indirect(mode u32, gl_type u32, indirect voidptr)  {
+
+@[inline]
+pub fn draw_elements_indirect(mode u32, gl_type u32, indirect voidptr) {
 	C.glDrawElementsIndirect(mode, gl_type, indirect)
 }
-[inline]
-pub fn framebuffer_parameteri(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn framebuffer_parameteri(target u32, pname u32, param int) {
 	C.glFramebufferParameteri(target, pname, param)
 }
-[inline]
-pub fn get_framebuffer_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_framebuffer_parameteriv(target u32, pname u32, params &int) {
 	C.glGetFramebufferParameteriv(target, pname, params)
 }
-[inline]
-pub fn get_named_framebuffer_parameteriv_ext(framebuffer u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_framebuffer_parameteriv_ext(framebuffer u32, pname u32, params &int) {
 	C.glGetNamedFramebufferParameterivEXT(framebuffer, pname, params)
 }
-[inline]
-pub fn named_framebuffer_parameteri_ext(framebuffer u32, pname u32, param int)  {
+
+@[inline]
+pub fn named_framebuffer_parameteri_ext(framebuffer u32, pname u32, param int) {
 	C.glNamedFramebufferParameteriEXT(framebuffer, pname, param)
 }
-[inline]
-pub fn bind_framebuffer(target u32, framebuffer u32)  {
+
+@[inline]
+pub fn bind_framebuffer(target u32, framebuffer u32) {
 	C.glBindFramebuffer(target, framebuffer)
 }
-[inline]
-pub fn bind_renderbuffer(target u32, renderbuffer u32)  {
+
+@[inline]
+pub fn bind_renderbuffer(target u32, renderbuffer u32) {
 	C.glBindRenderbuffer(target, renderbuffer)
 }
-[inline]
-pub fn blit_framebuffer(src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32)  {
-	C.glBlitFramebuffer(src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1, mask, filter)
+
+@[inline]
+pub fn blit_framebuffer(src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32) {
+	C.glBlitFramebuffer(src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1,
+		mask, filter)
 }
-[inline]
+
+@[inline]
 pub fn check_framebuffer_status(target u32) u32 {
 	return C.glCheckFramebufferStatus(target)
 }
-[inline]
-pub fn delete_framebuffers(n int, framebuffers &u32)  {
+
+@[inline]
+pub fn delete_framebuffers(n int, framebuffers &u32) {
 	C.glDeleteFramebuffers(n, framebuffers)
 }
-[inline]
-pub fn delete_renderbuffers(n int, renderbuffers &u32)  {
+
+@[inline]
+pub fn delete_renderbuffers(n int, renderbuffers &u32) {
 	C.glDeleteRenderbuffers(n, renderbuffers)
 }
-[inline]
-pub fn framebuffer_renderbuffer(target u32, attachment u32, renderbuffertarget u32, renderbuffer u32)  {
+
+@[inline]
+pub fn framebuffer_renderbuffer(target u32, attachment u32, renderbuffertarget u32, renderbuffer u32) {
 	C.glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer)
 }
-[inline]
-pub fn framebuffer_texture1d(target u32, attachment u32, textarget u32, texture u32, level int)  {
+
+@[inline]
+pub fn framebuffer_texture1d(target u32, attachment u32, textarget u32, texture u32, level int) {
 	C.glFramebufferTexture1D(target, attachment, textarget, texture, level)
 }
-[inline]
-pub fn framebuffer_texture2d(target u32, attachment u32, textarget u32, texture u32, level int)  {
+
+@[inline]
+pub fn framebuffer_texture2d(target u32, attachment u32, textarget u32, texture u32, level int) {
 	C.glFramebufferTexture2D(target, attachment, textarget, texture, level)
 }
-[inline]
-pub fn framebuffer_texture3d(target u32, attachment u32, textarget u32, texture u32, level int, layer int)  {
+
+@[inline]
+pub fn framebuffer_texture3d(target u32, attachment u32, textarget u32, texture u32, level int, layer int) {
 	C.glFramebufferTexture3D(target, attachment, textarget, texture, level, layer)
 }
-[inline]
-pub fn framebuffer_texture_layer(target u32, attachment u32, texture u32, level int, layer int)  {
+
+@[inline]
+pub fn framebuffer_texture_layer(target u32, attachment u32, texture u32, level int, layer int) {
 	C.glFramebufferTextureLayer(target, attachment, texture, level, layer)
 }
-[inline]
-pub fn gen_framebuffers(n int, framebuffers &u32)  {
+
+@[inline]
+pub fn gen_framebuffers(n int, framebuffers &u32) {
 	C.glGenFramebuffers(n, framebuffers)
 }
-[inline]
-pub fn gen_renderbuffers(n int, renderbuffers &u32)  {
+
+@[inline]
+pub fn gen_renderbuffers(n int, renderbuffers &u32) {
 	C.glGenRenderbuffers(n, renderbuffers)
 }
-[inline]
-pub fn generate_mipmap(target u32)  {
+
+@[inline]
+pub fn generate_mipmap(target u32) {
 	C.glGenerateMipmap(target)
 }
-[inline]
-pub fn get_framebuffer_attachment_parameteriv(target u32, attachment u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_framebuffer_attachment_parameteriv(target u32, attachment u32, pname u32, params &int) {
 	C.glGetFramebufferAttachmentParameteriv(target, attachment, pname, params)
 }
-[inline]
-pub fn get_renderbuffer_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_renderbuffer_parameteriv(target u32, pname u32, params &int) {
 	C.glGetRenderbufferParameteriv(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_framebuffer(framebuffer u32) u8 {
 	return C.glIsFramebuffer(framebuffer)
 }
-[inline]
+
+@[inline]
 pub fn is_renderbuffer(renderbuffer u32) u8 {
 	return C.glIsRenderbuffer(renderbuffer)
 }
-[inline]
-pub fn renderbuffer_storage(target u32, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage(target u32, internalformat u32, width int, height int) {
 	C.glRenderbufferStorage(target, internalformat, width, height)
 }
-[inline]
-pub fn renderbuffer_storage_multisample(target u32, samples int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage_multisample(target u32, samples int, internalformat u32, width int, height int) {
 	C.glRenderbufferStorageMultisample(target, samples, internalformat, width, height)
 }
-[inline]
-pub fn framebuffer_texture_arb(target u32, attachment u32, texture u32, level int)  {
+
+@[inline]
+pub fn framebuffer_texture_arb(target u32, attachment u32, texture u32, level int) {
 	C.glFramebufferTextureARB(target, attachment, texture, level)
 }
-[inline]
-pub fn framebuffer_texture_face_arb(target u32, attachment u32, texture u32, level int, face u32)  {
+
+@[inline]
+pub fn framebuffer_texture_face_arb(target u32, attachment u32, texture u32, level int, face u32) {
 	C.glFramebufferTextureFaceARB(target, attachment, texture, level, face)
 }
-[inline]
-pub fn framebuffer_texture_layer_arb(target u32, attachment u32, texture u32, level int, layer int)  {
+
+@[inline]
+pub fn framebuffer_texture_layer_arb(target u32, attachment u32, texture u32, level int, layer int) {
 	C.glFramebufferTextureLayerARB(target, attachment, texture, level, layer)
 }
-[inline]
-pub fn program_parameteri_arb(program u32, pname u32, value int)  {
+
+@[inline]
+pub fn program_parameteri_arb(program u32, pname u32, value int) {
 	C.glProgramParameteriARB(program, pname, value)
 }
-[inline]
-pub fn get_program_binary(program u32, buf_size int, length &int, binary_format &u32, binary voidptr)  {
+
+@[inline]
+pub fn get_program_binary(program u32, buf_size int, length &int, binary_format &u32, binary voidptr) {
 	C.glGetProgramBinary(program, buf_size, length, binary_format, binary)
 }
-[inline]
-pub fn program_binary(program u32, binary_format u32, binary voidptr, length int)  {
+
+@[inline]
+pub fn program_binary(program u32, binary_format u32, binary voidptr, length int) {
 	C.glProgramBinary(program, binary_format, binary, length)
 }
-[inline]
-pub fn program_parameteri(program u32, pname u32, value int)  {
+
+@[inline]
+pub fn program_parameteri(program u32, pname u32, value int) {
 	C.glProgramParameteri(program, pname, value)
 }
-[inline]
-pub fn get_compressed_texture_sub_image(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, buf_size int, pixels voidptr)  {
-	C.glGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, buf_size, pixels)
+
+@[inline]
+pub fn get_compressed_texture_sub_image(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, buf_size int, pixels voidptr) {
+	C.glGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width,
+		height, depth, buf_size, pixels)
 }
-[inline]
-pub fn get_texture_sub_image(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, buf_size int, pixels voidptr)  {
-	C.glGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, buf_size, pixels)
+
+@[inline]
+pub fn get_texture_sub_image(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, buf_size int, pixels voidptr) {
+	C.glGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth,
+		format, gl_type, buf_size, pixels)
 }
-[inline]
-pub fn specialize_shader_arb(shader u32, p_entry_point &char, num_specialization_constants u32, p_constant_index &u32, p_constant_value &u32)  {
-	C.glSpecializeShaderARB(shader, p_entry_point, num_specialization_constants, p_constant_index, p_constant_value)
+
+@[inline]
+pub fn specialize_shader_arb(shader u32, p_entry_point &char, num_specialization_constants u32, p_constant_index &u32, p_constant_value &u32) {
+	C.glSpecializeShaderARB(shader, p_entry_point, num_specialization_constants, p_constant_index,
+		p_constant_value)
 }
-[inline]
-pub fn get_uniformdv(program u32, location int, params &f64)  {
+
+@[inline]
+pub fn get_uniformdv(program u32, location int, params &f64) {
 	C.glGetUniformdv(program, location, params)
 }
-[inline]
-pub fn uniform1d(location int, x f64)  {
+
+@[inline]
+pub fn uniform1d(location int, x f64) {
 	C.glUniform1d(location, x)
 }
-[inline]
-pub fn uniform1dv(location int, count int, value &f64)  {
+
+@[inline]
+pub fn uniform1dv(location int, count int, value &f64) {
 	C.glUniform1dv(location, count, value)
 }
-[inline]
-pub fn uniform2d(location int, x f64, y f64)  {
+
+@[inline]
+pub fn uniform2d(location int, x f64, y f64) {
 	C.glUniform2d(location, x, y)
 }
-[inline]
-pub fn uniform2dv(location int, count int, value &f64)  {
+
+@[inline]
+pub fn uniform2dv(location int, count int, value &f64) {
 	C.glUniform2dv(location, count, value)
 }
-[inline]
-pub fn uniform3d(location int, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn uniform3d(location int, x f64, y f64, z f64) {
 	C.glUniform3d(location, x, y, z)
 }
-[inline]
-pub fn uniform3dv(location int, count int, value &f64)  {
+
+@[inline]
+pub fn uniform3dv(location int, count int, value &f64) {
 	C.glUniform3dv(location, count, value)
 }
-[inline]
-pub fn uniform4d(location int, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn uniform4d(location int, x f64, y f64, z f64, w f64) {
 	C.glUniform4d(location, x, y, z, w)
 }
-[inline]
-pub fn uniform4dv(location int, count int, value &f64)  {
+
+@[inline]
+pub fn uniform4dv(location int, count int, value &f64) {
 	C.glUniform4dv(location, count, value)
 }
-[inline]
-pub fn uniform_matrix2dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix2dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix2dv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix2x3dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix2x3dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix2x3dv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix2x4dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix2x4dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix2x4dv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix3dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix3dv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3x2dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix3x2dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix3x2dv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3x4dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix3x4dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix3x4dv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix4dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix4dv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4x2dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix4x2dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix4x2dv(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4x3dv(location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn uniform_matrix4x3dv(location int, count int, transpose u8, value &f64) {
 	C.glUniformMatrix4x3dv(location, count, transpose, value)
 }
-[inline]
-pub fn get_uniformi64v_arb(program u32, location int, params &i64)  {
+
+@[inline]
+pub fn get_uniformi64v_arb(program u32, location int, params &i64) {
 	C.glGetUniformi64vARB(program, location, params)
 }
-[inline]
-pub fn get_uniformui64v_arb(program u32, location int, params &u64)  {
+
+@[inline]
+pub fn get_uniformui64v_arb(program u32, location int, params &u64) {
 	C.glGetUniformui64vARB(program, location, params)
 }
-[inline]
-pub fn getn_uniformi64v_arb(program u32, location int, buf_size int, params &i64)  {
+
+@[inline]
+pub fn getn_uniformi64v_arb(program u32, location int, buf_size int, params &i64) {
 	C.glGetnUniformi64vARB(program, location, buf_size, params)
 }
-[inline]
-pub fn getn_uniformui64v_arb(program u32, location int, buf_size int, params &u64)  {
+
+@[inline]
+pub fn getn_uniformui64v_arb(program u32, location int, buf_size int, params &u64) {
 	C.glGetnUniformui64vARB(program, location, buf_size, params)
 }
-[inline]
-pub fn program_uniform1i64arb(program u32, location int, x i64)  {
+
+@[inline]
+pub fn program_uniform1i64arb(program u32, location int, x i64) {
 	C.glProgramUniform1i64ARB(program, location, x)
 }
-[inline]
-pub fn program_uniform1i64v_arb(program u32, location int, count int, value &i64)  {
+
+@[inline]
+pub fn program_uniform1i64v_arb(program u32, location int, count int, value &i64) {
 	C.glProgramUniform1i64vARB(program, location, count, value)
 }
-[inline]
-pub fn program_uniform1ui64arb(program u32, location int, x u64)  {
+
+@[inline]
+pub fn program_uniform1ui64arb(program u32, location int, x u64) {
 	C.glProgramUniform1ui64ARB(program, location, x)
 }
-[inline]
-pub fn program_uniform1ui64v_arb(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniform1ui64v_arb(program u32, location int, count int, value &u64) {
 	C.glProgramUniform1ui64vARB(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2i64arb(program u32, location int, x i64, y i64)  {
+
+@[inline]
+pub fn program_uniform2i64arb(program u32, location int, x i64, y i64) {
 	C.glProgramUniform2i64ARB(program, location, x, y)
 }
-[inline]
-pub fn program_uniform2i64v_arb(program u32, location int, count int, value &i64)  {
+
+@[inline]
+pub fn program_uniform2i64v_arb(program u32, location int, count int, value &i64) {
 	C.glProgramUniform2i64vARB(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2ui64arb(program u32, location int, x u64, y u64)  {
+
+@[inline]
+pub fn program_uniform2ui64arb(program u32, location int, x u64, y u64) {
 	C.glProgramUniform2ui64ARB(program, location, x, y)
 }
-[inline]
-pub fn program_uniform2ui64v_arb(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniform2ui64v_arb(program u32, location int, count int, value &u64) {
 	C.glProgramUniform2ui64vARB(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3i64arb(program u32, location int, x i64, y i64, z i64)  {
+
+@[inline]
+pub fn program_uniform3i64arb(program u32, location int, x i64, y i64, z i64) {
 	C.glProgramUniform3i64ARB(program, location, x, y, z)
 }
-[inline]
-pub fn program_uniform3i64v_arb(program u32, location int, count int, value &i64)  {
+
+@[inline]
+pub fn program_uniform3i64v_arb(program u32, location int, count int, value &i64) {
 	C.glProgramUniform3i64vARB(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3ui64arb(program u32, location int, x u64, y u64, z u64)  {
+
+@[inline]
+pub fn program_uniform3ui64arb(program u32, location int, x u64, y u64, z u64) {
 	C.glProgramUniform3ui64ARB(program, location, x, y, z)
 }
-[inline]
-pub fn program_uniform3ui64v_arb(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniform3ui64v_arb(program u32, location int, count int, value &u64) {
 	C.glProgramUniform3ui64vARB(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4i64arb(program u32, location int, x i64, y i64, z i64, w i64)  {
+
+@[inline]
+pub fn program_uniform4i64arb(program u32, location int, x i64, y i64, z i64, w i64) {
 	C.glProgramUniform4i64ARB(program, location, x, y, z, w)
 }
-[inline]
-pub fn program_uniform4i64v_arb(program u32, location int, count int, value &i64)  {
+
+@[inline]
+pub fn program_uniform4i64v_arb(program u32, location int, count int, value &i64) {
 	C.glProgramUniform4i64vARB(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4ui64arb(program u32, location int, x u64, y u64, z u64, w u64)  {
+
+@[inline]
+pub fn program_uniform4ui64arb(program u32, location int, x u64, y u64, z u64, w u64) {
 	C.glProgramUniform4ui64ARB(program, location, x, y, z, w)
 }
-[inline]
-pub fn program_uniform4ui64v_arb(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniform4ui64v_arb(program u32, location int, count int, value &u64) {
 	C.glProgramUniform4ui64vARB(program, location, count, value)
 }
-[inline]
-pub fn uniform1i64arb(location int, x i64)  {
+
+@[inline]
+pub fn uniform1i64arb(location int, x i64) {
 	C.glUniform1i64ARB(location, x)
 }
-[inline]
-pub fn uniform1i64v_arb(location int, count int, value &i64)  {
+
+@[inline]
+pub fn uniform1i64v_arb(location int, count int, value &i64) {
 	C.glUniform1i64vARB(location, count, value)
 }
-[inline]
-pub fn uniform1ui64arb(location int, x u64)  {
+
+@[inline]
+pub fn uniform1ui64arb(location int, x u64) {
 	C.glUniform1ui64ARB(location, x)
 }
-[inline]
-pub fn uniform1ui64v_arb(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform1ui64v_arb(location int, count int, value &u64) {
 	C.glUniform1ui64vARB(location, count, value)
 }
-[inline]
-pub fn uniform2i64arb(location int, x i64, y i64)  {
+
+@[inline]
+pub fn uniform2i64arb(location int, x i64, y i64) {
 	C.glUniform2i64ARB(location, x, y)
 }
-[inline]
-pub fn uniform2i64v_arb(location int, count int, value &i64)  {
+
+@[inline]
+pub fn uniform2i64v_arb(location int, count int, value &i64) {
 	C.glUniform2i64vARB(location, count, value)
 }
-[inline]
-pub fn uniform2ui64arb(location int, x u64, y u64)  {
+
+@[inline]
+pub fn uniform2ui64arb(location int, x u64, y u64) {
 	C.glUniform2ui64ARB(location, x, y)
 }
-[inline]
-pub fn uniform2ui64v_arb(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform2ui64v_arb(location int, count int, value &u64) {
 	C.glUniform2ui64vARB(location, count, value)
 }
-[inline]
-pub fn uniform3i64arb(location int, x i64, y i64, z i64)  {
+
+@[inline]
+pub fn uniform3i64arb(location int, x i64, y i64, z i64) {
 	C.glUniform3i64ARB(location, x, y, z)
 }
-[inline]
-pub fn uniform3i64v_arb(location int, count int, value &i64)  {
+
+@[inline]
+pub fn uniform3i64v_arb(location int, count int, value &i64) {
 	C.glUniform3i64vARB(location, count, value)
 }
-[inline]
-pub fn uniform3ui64arb(location int, x u64, y u64, z u64)  {
+
+@[inline]
+pub fn uniform3ui64arb(location int, x u64, y u64, z u64) {
 	C.glUniform3ui64ARB(location, x, y, z)
 }
-[inline]
-pub fn uniform3ui64v_arb(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform3ui64v_arb(location int, count int, value &u64) {
 	C.glUniform3ui64vARB(location, count, value)
 }
-[inline]
-pub fn uniform4i64arb(location int, x i64, y i64, z i64, w i64)  {
+
+@[inline]
+pub fn uniform4i64arb(location int, x i64, y i64, z i64, w i64) {
 	C.glUniform4i64ARB(location, x, y, z, w)
 }
-[inline]
-pub fn uniform4i64v_arb(location int, count int, value &i64)  {
+
+@[inline]
+pub fn uniform4i64v_arb(location int, count int, value &i64) {
 	C.glUniform4i64vARB(location, count, value)
 }
-[inline]
-pub fn uniform4ui64arb(location int, x u64, y u64, z u64, w u64)  {
+
+@[inline]
+pub fn uniform4ui64arb(location int, x u64, y u64, z u64, w u64) {
 	C.glUniform4ui64ARB(location, x, y, z, w)
 }
-[inline]
-pub fn uniform4ui64v_arb(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform4ui64v_arb(location int, count int, value &u64) {
 	C.glUniform4ui64vARB(location, count, value)
 }
-[inline]
-pub fn color_sub_table(target u32, start int, count int, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn color_sub_table(target u32, start int, count int, format u32, gl_type u32, data voidptr) {
 	C.glColorSubTable(target, start, count, format, gl_type, data)
 }
-[inline]
-pub fn color_table(target u32, internalformat u32, width int, format u32, gl_type u32, table voidptr)  {
+
+@[inline]
+pub fn color_table(target u32, internalformat u32, width int, format u32, gl_type u32, table voidptr) {
 	C.glColorTable(target, internalformat, width, format, gl_type, table)
 }
-[inline]
-pub fn color_table_parameterfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn color_table_parameterfv(target u32, pname u32, params &f32) {
 	C.glColorTableParameterfv(target, pname, params)
 }
-[inline]
-pub fn color_table_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn color_table_parameteriv(target u32, pname u32, params &int) {
 	C.glColorTableParameteriv(target, pname, params)
 }
-[inline]
-pub fn convolution_filter1d(target u32, internalformat u32, width int, format u32, gl_type u32, image voidptr)  {
+
+@[inline]
+pub fn convolution_filter1d(target u32, internalformat u32, width int, format u32, gl_type u32, image voidptr) {
 	C.glConvolutionFilter1D(target, internalformat, width, format, gl_type, image)
 }
-[inline]
-pub fn convolution_filter2d(target u32, internalformat u32, width int, height int, format u32, gl_type u32, image voidptr)  {
+
+@[inline]
+pub fn convolution_filter2d(target u32, internalformat u32, width int, height int, format u32, gl_type u32, image voidptr) {
 	C.glConvolutionFilter2D(target, internalformat, width, height, format, gl_type, image)
 }
-[inline]
-pub fn convolution_parameterf(target u32, pname u32, params f32)  {
+
+@[inline]
+pub fn convolution_parameterf(target u32, pname u32, params f32) {
 	C.glConvolutionParameterf(target, pname, params)
 }
-[inline]
-pub fn convolution_parameterfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn convolution_parameterfv(target u32, pname u32, params &f32) {
 	C.glConvolutionParameterfv(target, pname, params)
 }
-[inline]
-pub fn convolution_parameteri(target u32, pname u32, params int)  {
+
+@[inline]
+pub fn convolution_parameteri(target u32, pname u32, params int) {
 	C.glConvolutionParameteri(target, pname, params)
 }
-[inline]
-pub fn convolution_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn convolution_parameteriv(target u32, pname u32, params &int) {
 	C.glConvolutionParameteriv(target, pname, params)
 }
-[inline]
-pub fn copy_color_sub_table(target u32, start int, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_color_sub_table(target u32, start int, x int, y int, width int) {
 	C.glCopyColorSubTable(target, start, x, y, width)
 }
-[inline]
-pub fn copy_color_table(target u32, internalformat u32, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_color_table(target u32, internalformat u32, x int, y int, width int) {
 	C.glCopyColorTable(target, internalformat, x, y, width)
 }
-[inline]
-pub fn copy_convolution_filter1d(target u32, internalformat u32, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_convolution_filter1d(target u32, internalformat u32, x int, y int, width int) {
 	C.glCopyConvolutionFilter1D(target, internalformat, x, y, width)
 }
-[inline]
-pub fn copy_convolution_filter2d(target u32, internalformat u32, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn copy_convolution_filter2d(target u32, internalformat u32, x int, y int, width int, height int) {
 	C.glCopyConvolutionFilter2D(target, internalformat, x, y, width, height)
 }
-[inline]
-pub fn get_color_table(target u32, format u32, gl_type u32, table voidptr)  {
+
+@[inline]
+pub fn get_color_table(target u32, format u32, gl_type u32, table voidptr) {
 	C.glGetColorTable(target, format, gl_type, table)
 }
-[inline]
-pub fn get_color_table_parameterfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_color_table_parameterfv(target u32, pname u32, params &f32) {
 	C.glGetColorTableParameterfv(target, pname, params)
 }
-[inline]
-pub fn get_color_table_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_color_table_parameteriv(target u32, pname u32, params &int) {
 	C.glGetColorTableParameteriv(target, pname, params)
 }
-[inline]
-pub fn get_convolution_filter(target u32, format u32, gl_type u32, image voidptr)  {
+
+@[inline]
+pub fn get_convolution_filter(target u32, format u32, gl_type u32, image voidptr) {
 	C.glGetConvolutionFilter(target, format, gl_type, image)
 }
-[inline]
-pub fn get_convolution_parameterfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_convolution_parameterfv(target u32, pname u32, params &f32) {
 	C.glGetConvolutionParameterfv(target, pname, params)
 }
-[inline]
-pub fn get_convolution_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_convolution_parameteriv(target u32, pname u32, params &int) {
 	C.glGetConvolutionParameteriv(target, pname, params)
 }
-[inline]
-pub fn get_histogram(target u32, reset u8, format u32, gl_type u32, values voidptr)  {
+
+@[inline]
+pub fn get_histogram(target u32, reset u8, format u32, gl_type u32, values voidptr) {
 	C.glGetHistogram(target, reset, format, gl_type, values)
 }
-[inline]
-pub fn get_histogram_parameterfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_histogram_parameterfv(target u32, pname u32, params &f32) {
 	C.glGetHistogramParameterfv(target, pname, params)
 }
-[inline]
-pub fn get_histogram_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_histogram_parameteriv(target u32, pname u32, params &int) {
 	C.glGetHistogramParameteriv(target, pname, params)
 }
-[inline]
-pub fn get_minmax(target u32, reset u8, format u32, types u32, values voidptr)  {
+
+@[inline]
+pub fn get_minmax(target u32, reset u8, format u32, types u32, values voidptr) {
 	C.glGetMinmax(target, reset, format, types, values)
 }
-[inline]
-pub fn get_minmax_parameterfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_minmax_parameterfv(target u32, pname u32, params &f32) {
 	C.glGetMinmaxParameterfv(target, pname, params)
 }
-[inline]
-pub fn get_minmax_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_minmax_parameteriv(target u32, pname u32, params &int) {
 	C.glGetMinmaxParameteriv(target, pname, params)
 }
-[inline]
-pub fn get_separable_filter(target u32, format u32, gl_type u32, row voidptr, column voidptr, span voidptr)  {
+
+@[inline]
+pub fn get_separable_filter(target u32, format u32, gl_type u32, row voidptr, column voidptr, span voidptr) {
 	C.glGetSeparableFilter(target, format, gl_type, row, column, span)
 }
-[inline]
-pub fn histogram(target u32, width int, internalformat u32, sink u8)  {
+
+@[inline]
+pub fn histogram(target u32, width int, internalformat u32, sink u8) {
 	C.glHistogram(target, width, internalformat, sink)
 }
-[inline]
-pub fn minmax(target u32, internalformat u32, sink u8)  {
+
+@[inline]
+pub fn minmax(target u32, internalformat u32, sink u8) {
 	C.glMinmax(target, internalformat, sink)
 }
-[inline]
-pub fn reset_histogram(target u32)  {
+
+@[inline]
+pub fn reset_histogram(target u32) {
 	C.glResetHistogram(target)
 }
-[inline]
-pub fn reset_minmax(target u32)  {
+
+@[inline]
+pub fn reset_minmax(target u32) {
 	C.glResetMinmax(target)
 }
-[inline]
-pub fn separable_filter2d(target u32, internalformat u32, width int, height int, format u32, gl_type u32, row voidptr, column voidptr)  {
-	C.glSeparableFilter2D(target, internalformat, width, height, format, gl_type, row, column)
+
+@[inline]
+pub fn separable_filter2d(target u32, internalformat u32, width int, height int, format u32, gl_type u32, row voidptr, column voidptr) {
+	C.glSeparableFilter2D(target, internalformat, width, height, format, gl_type, row,
+		column)
 }
-[inline]
-pub fn multi_draw_arrays_indirect_count_arb(mode u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_arrays_indirect_count_arb(mode u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int) {
 	C.glMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride)
 }
-[inline]
-pub fn multi_draw_elements_indirect_count_arb(mode u32, gl_type u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int)  {
-	C.glMultiDrawElementsIndirectCountARB(mode, gl_type, indirect, drawcount, maxdrawcount, stride)
+
+@[inline]
+pub fn multi_draw_elements_indirect_count_arb(mode u32, gl_type u32, indirect voidptr, drawcount i64, maxdrawcount int, stride int) {
+	C.glMultiDrawElementsIndirectCountARB(mode, gl_type, indirect, drawcount, maxdrawcount,
+		stride)
 }
-[inline]
-pub fn draw_arrays_instanced_arb(mode u32, first int, count int, primcount int)  {
+
+@[inline]
+pub fn draw_arrays_instanced_arb(mode u32, first int, count int, primcount int) {
 	C.glDrawArraysInstancedARB(mode, first, count, primcount)
 }
-[inline]
-pub fn draw_elements_instanced_arb(mode u32, count int, gl_type u32, indices voidptr, primcount int)  {
+
+@[inline]
+pub fn draw_elements_instanced_arb(mode u32, count int, gl_type u32, indices voidptr, primcount int) {
 	C.glDrawElementsInstancedARB(mode, count, gl_type, indices, primcount)
 }
-[inline]
-pub fn vertex_attrib_divisor_arb(index u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_attrib_divisor_arb(index u32, divisor u32) {
 	C.glVertexAttribDivisorARB(index, divisor)
 }
-[inline]
-pub fn get_internalformativ(target u32, internalformat u32, pname u32, buf_size int, params &int)  {
+
+@[inline]
+pub fn get_internalformativ(target u32, internalformat u32, pname u32, buf_size int, params &int) {
 	C.glGetInternalformativ(target, internalformat, pname, buf_size, params)
 }
-[inline]
-pub fn get_internalformati64v(target u32, internalformat u32, pname u32, buf_size int, params &i64)  {
+
+@[inline]
+pub fn get_internalformati64v(target u32, internalformat u32, pname u32, buf_size int, params &i64) {
 	C.glGetInternalformati64v(target, internalformat, pname, buf_size, params)
 }
-[inline]
-pub fn invalidate_buffer_data(buffer u32)  {
+
+@[inline]
+pub fn invalidate_buffer_data(buffer u32) {
 	C.glInvalidateBufferData(buffer)
 }
-[inline]
-pub fn invalidate_buffer_sub_data(buffer u32, offset i64, length i64)  {
+
+@[inline]
+pub fn invalidate_buffer_sub_data(buffer u32, offset i64, length i64) {
 	C.glInvalidateBufferSubData(buffer, offset, length)
 }
-[inline]
-pub fn invalidate_framebuffer(target u32, num_attachments int, attachments &u32)  {
+
+@[inline]
+pub fn invalidate_framebuffer(target u32, num_attachments int, attachments &u32) {
 	C.glInvalidateFramebuffer(target, num_attachments, attachments)
 }
-[inline]
-pub fn invalidate_sub_framebuffer(target u32, num_attachments int, attachments &u32, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn invalidate_sub_framebuffer(target u32, num_attachments int, attachments &u32, x int, y int, width int, height int) {
 	C.glInvalidateSubFramebuffer(target, num_attachments, attachments, x, y, width, height)
 }
-[inline]
-pub fn invalidate_tex_image(texture u32, level int)  {
+
+@[inline]
+pub fn invalidate_tex_image(texture u32, level int) {
 	C.glInvalidateTexImage(texture, level)
 }
-[inline]
-pub fn invalidate_tex_sub_image(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int)  {
-	C.glInvalidateTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth)
+
+@[inline]
+pub fn invalidate_tex_sub_image(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int) {
+	C.glInvalidateTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height,
+		depth)
 }
-[inline]
-pub fn flush_mapped_buffer_range(target u32, offset i64, length i64)  {
+
+@[inline]
+pub fn flush_mapped_buffer_range(target u32, offset i64, length i64) {
 	C.glFlushMappedBufferRange(target, offset, length)
 }
-[inline]
+
+@[inline]
 pub fn map_buffer_range(target u32, offset i64, length i64, access u32) voidptr {
 	return C.glMapBufferRange(target, offset, length, access)
 }
-[inline]
-pub fn current_palette_matrix_arb(index int)  {
+
+@[inline]
+pub fn current_palette_matrix_arb(index int) {
 	C.glCurrentPaletteMatrixARB(index)
 }
-[inline]
-pub fn matrix_index_pointer_arb(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn matrix_index_pointer_arb(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glMatrixIndexPointerARB(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn matrix_indexubv_arb(size int, indices &u8)  {
+
+@[inline]
+pub fn matrix_indexubv_arb(size int, indices &u8) {
 	C.glMatrixIndexubvARB(size, indices)
 }
-[inline]
-pub fn matrix_indexuiv_arb(size int, indices &u32)  {
+
+@[inline]
+pub fn matrix_indexuiv_arb(size int, indices &u32) {
 	C.glMatrixIndexuivARB(size, indices)
 }
-[inline]
-pub fn matrix_indexusv_arb(size int, indices &u16)  {
+
+@[inline]
+pub fn matrix_indexusv_arb(size int, indices &u16) {
 	C.glMatrixIndexusvARB(size, indices)
 }
-[inline]
-pub fn bind_buffers_base(target u32, first u32, count int, buffers &u32)  {
+
+@[inline]
+pub fn bind_buffers_base(target u32, first u32, count int, buffers &u32) {
 	C.glBindBuffersBase(target, first, count, buffers)
 }
-[inline]
-pub fn bind_buffers_range(target u32, first u32, count int, buffers &u32, offsets &i64, sizes &i64)  {
+
+@[inline]
+pub fn bind_buffers_range(target u32, first u32, count int, buffers &u32, offsets &i64, sizes &i64) {
 	C.glBindBuffersRange(target, first, count, buffers, offsets, sizes)
 }
-[inline]
-pub fn bind_image_textures(first u32, count int, textures &u32)  {
+
+@[inline]
+pub fn bind_image_textures(first u32, count int, textures &u32) {
 	C.glBindImageTextures(first, count, textures)
 }
-[inline]
-pub fn bind_samplers(first u32, count int, samplers &u32)  {
+
+@[inline]
+pub fn bind_samplers(first u32, count int, samplers &u32) {
 	C.glBindSamplers(first, count, samplers)
 }
-[inline]
-pub fn bind_textures(first u32, count int, textures &u32)  {
+
+@[inline]
+pub fn bind_textures(first u32, count int, textures &u32) {
 	C.glBindTextures(first, count, textures)
 }
-[inline]
-pub fn bind_vertex_buffers(first u32, count int, buffers &u32, offsets &i64, strides &int)  {
+
+@[inline]
+pub fn bind_vertex_buffers(first u32, count int, buffers &u32, offsets &i64, strides &int) {
 	C.glBindVertexBuffers(first, count, buffers, offsets, strides)
 }
-[inline]
-pub fn multi_draw_arrays_indirect(mode u32, indirect voidptr, primcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_arrays_indirect(mode u32, indirect voidptr, primcount int, stride int) {
 	C.glMultiDrawArraysIndirect(mode, indirect, primcount, stride)
 }
-[inline]
-pub fn multi_draw_elements_indirect(mode u32, gl_type u32, indirect voidptr, primcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_elements_indirect(mode u32, gl_type u32, indirect voidptr, primcount int, stride int) {
 	C.glMultiDrawElementsIndirect(mode, gl_type, indirect, primcount, stride)
 }
-[inline]
-pub fn sample_coverage_arb(value f32, invert u8)  {
+
+@[inline]
+pub fn sample_coverage_arb(value f32, invert u8) {
 	C.glSampleCoverageARB(value, invert)
 }
-[inline]
-pub fn active_texture_arb(texture u32)  {
+
+@[inline]
+pub fn active_texture_arb(texture u32) {
 	C.glActiveTextureARB(texture)
 }
-[inline]
-pub fn client_active_texture_arb(texture u32)  {
+
+@[inline]
+pub fn client_active_texture_arb(texture u32) {
 	C.glClientActiveTextureARB(texture)
 }
-[inline]
-pub fn multi_tex_coord1d_arb(target u32, s f64)  {
+
+@[inline]
+pub fn multi_tex_coord1d_arb(target u32, s f64) {
 	C.glMultiTexCoord1dARB(target, s)
 }
-[inline]
-pub fn multi_tex_coord1dv_arb(target u32, v &f64)  {
+
+@[inline]
+pub fn multi_tex_coord1dv_arb(target u32, v &f64) {
 	C.glMultiTexCoord1dvARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord1f_arb(target u32, s f32)  {
+
+@[inline]
+pub fn multi_tex_coord1f_arb(target u32, s f32) {
 	C.glMultiTexCoord1fARB(target, s)
 }
-[inline]
-pub fn multi_tex_coord1fv_arb(target u32, v &f32)  {
+
+@[inline]
+pub fn multi_tex_coord1fv_arb(target u32, v &f32) {
 	C.glMultiTexCoord1fvARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord1i_arb(target u32, s int)  {
+
+@[inline]
+pub fn multi_tex_coord1i_arb(target u32, s int) {
 	C.glMultiTexCoord1iARB(target, s)
 }
-[inline]
-pub fn multi_tex_coord1iv_arb(target u32, v &int)  {
+
+@[inline]
+pub fn multi_tex_coord1iv_arb(target u32, v &int) {
 	C.glMultiTexCoord1ivARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord1s_arb(target u32, s i16)  {
+
+@[inline]
+pub fn multi_tex_coord1s_arb(target u32, s i16) {
 	C.glMultiTexCoord1sARB(target, s)
 }
-[inline]
-pub fn multi_tex_coord1sv_arb(target u32, v &i16)  {
+
+@[inline]
+pub fn multi_tex_coord1sv_arb(target u32, v &i16) {
 	C.glMultiTexCoord1svARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord2d_arb(target u32, s f64, t f64)  {
+
+@[inline]
+pub fn multi_tex_coord2d_arb(target u32, s f64, t f64) {
 	C.glMultiTexCoord2dARB(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2dv_arb(target u32, v &f64)  {
+
+@[inline]
+pub fn multi_tex_coord2dv_arb(target u32, v &f64) {
 	C.glMultiTexCoord2dvARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord2f_arb(target u32, s f32, t f32)  {
+
+@[inline]
+pub fn multi_tex_coord2f_arb(target u32, s f32, t f32) {
 	C.glMultiTexCoord2fARB(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2fv_arb(target u32, v &f32)  {
+
+@[inline]
+pub fn multi_tex_coord2fv_arb(target u32, v &f32) {
 	C.glMultiTexCoord2fvARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord2i_arb(target u32, s int, t int)  {
+
+@[inline]
+pub fn multi_tex_coord2i_arb(target u32, s int, t int) {
 	C.glMultiTexCoord2iARB(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2iv_arb(target u32, v &int)  {
+
+@[inline]
+pub fn multi_tex_coord2iv_arb(target u32, v &int) {
 	C.glMultiTexCoord2ivARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord2s_arb(target u32, s i16, t i16)  {
+
+@[inline]
+pub fn multi_tex_coord2s_arb(target u32, s i16, t i16) {
 	C.glMultiTexCoord2sARB(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2sv_arb(target u32, v &i16)  {
+
+@[inline]
+pub fn multi_tex_coord2sv_arb(target u32, v &i16) {
 	C.glMultiTexCoord2svARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord3d_arb(target u32, s f64, t f64, r f64)  {
+
+@[inline]
+pub fn multi_tex_coord3d_arb(target u32, s f64, t f64, r f64) {
 	C.glMultiTexCoord3dARB(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3dv_arb(target u32, v &f64)  {
+
+@[inline]
+pub fn multi_tex_coord3dv_arb(target u32, v &f64) {
 	C.glMultiTexCoord3dvARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord3f_arb(target u32, s f32, t f32, r f32)  {
+
+@[inline]
+pub fn multi_tex_coord3f_arb(target u32, s f32, t f32, r f32) {
 	C.glMultiTexCoord3fARB(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3fv_arb(target u32, v &f32)  {
+
+@[inline]
+pub fn multi_tex_coord3fv_arb(target u32, v &f32) {
 	C.glMultiTexCoord3fvARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord3i_arb(target u32, s int, t int, r int)  {
+
+@[inline]
+pub fn multi_tex_coord3i_arb(target u32, s int, t int, r int) {
 	C.glMultiTexCoord3iARB(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3iv_arb(target u32, v &int)  {
+
+@[inline]
+pub fn multi_tex_coord3iv_arb(target u32, v &int) {
 	C.glMultiTexCoord3ivARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord3s_arb(target u32, s i16, t i16, r i16)  {
+
+@[inline]
+pub fn multi_tex_coord3s_arb(target u32, s i16, t i16, r i16) {
 	C.glMultiTexCoord3sARB(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3sv_arb(target u32, v &i16)  {
+
+@[inline]
+pub fn multi_tex_coord3sv_arb(target u32, v &i16) {
 	C.glMultiTexCoord3svARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord4d_arb(target u32, s f64, t f64, r f64, q f64)  {
+
+@[inline]
+pub fn multi_tex_coord4d_arb(target u32, s f64, t f64, r f64, q f64) {
 	C.glMultiTexCoord4dARB(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4dv_arb(target u32, v &f64)  {
+
+@[inline]
+pub fn multi_tex_coord4dv_arb(target u32, v &f64) {
 	C.glMultiTexCoord4dvARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord4f_arb(target u32, s f32, t f32, r f32, q f32)  {
+
+@[inline]
+pub fn multi_tex_coord4f_arb(target u32, s f32, t f32, r f32, q f32) {
 	C.glMultiTexCoord4fARB(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4fv_arb(target u32, v &f32)  {
+
+@[inline]
+pub fn multi_tex_coord4fv_arb(target u32, v &f32) {
 	C.glMultiTexCoord4fvARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord4i_arb(target u32, s int, t int, r int, q int)  {
+
+@[inline]
+pub fn multi_tex_coord4i_arb(target u32, s int, t int, r int, q int) {
 	C.glMultiTexCoord4iARB(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4iv_arb(target u32, v &int)  {
+
+@[inline]
+pub fn multi_tex_coord4iv_arb(target u32, v &int) {
 	C.glMultiTexCoord4ivARB(target, v)
 }
-[inline]
-pub fn multi_tex_coord4s_arb(target u32, s i16, t i16, r i16, q i16)  {
+
+@[inline]
+pub fn multi_tex_coord4s_arb(target u32, s i16, t i16, r i16, q i16) {
 	C.glMultiTexCoord4sARB(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4sv_arb(target u32, v &i16)  {
+
+@[inline]
+pub fn multi_tex_coord4sv_arb(target u32, v &i16) {
 	C.glMultiTexCoord4svARB(target, v)
 }
-[inline]
-pub fn begin_query_arb(target u32, id u32)  {
+
+@[inline]
+pub fn begin_query_arb(target u32, id u32) {
 	C.glBeginQueryARB(target, id)
 }
-[inline]
-pub fn delete_queries_arb(n int, ids &u32)  {
+
+@[inline]
+pub fn delete_queries_arb(n int, ids &u32) {
 	C.glDeleteQueriesARB(n, ids)
 }
-[inline]
-pub fn end_query_arb(target u32)  {
+
+@[inline]
+pub fn end_query_arb(target u32) {
 	C.glEndQueryARB(target)
 }
-[inline]
-pub fn gen_queries_arb(n int, ids &u32)  {
+
+@[inline]
+pub fn gen_queries_arb(n int, ids &u32) {
 	C.glGenQueriesARB(n, ids)
 }
-[inline]
-pub fn get_query_objectiv_arb(id u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_query_objectiv_arb(id u32, pname u32, params &int) {
 	C.glGetQueryObjectivARB(id, pname, params)
 }
-[inline]
-pub fn get_query_objectuiv_arb(id u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_query_objectuiv_arb(id u32, pname u32, params &u32) {
 	C.glGetQueryObjectuivARB(id, pname, params)
 }
-[inline]
-pub fn get_queryiv_arb(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_queryiv_arb(target u32, pname u32, params &int) {
 	C.glGetQueryivARB(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_query_arb(id u32) u8 {
 	return C.glIsQueryARB(id)
 }
-[inline]
-pub fn max_shader_compiler_threads_arb(count u32)  {
+
+@[inline]
+pub fn max_shader_compiler_threads_arb(count u32) {
 	C.glMaxShaderCompilerThreadsARB(count)
 }
-[inline]
-pub fn point_parameterf_arb(pname u32, param f32)  {
+
+@[inline]
+pub fn point_parameterf_arb(pname u32, param f32) {
 	C.glPointParameterfARB(pname, param)
 }
-[inline]
-pub fn point_parameterfv_arb(pname u32, params &f32)  {
+
+@[inline]
+pub fn point_parameterfv_arb(pname u32, params &f32) {
 	C.glPointParameterfvARB(pname, params)
 }
-[inline]
-pub fn polygon_offset_clamp(factor f32, units f32, clamp f32)  {
+
+@[inline]
+pub fn polygon_offset_clamp(factor f32, units f32, clamp f32) {
 	C.glPolygonOffsetClamp(factor, units, clamp)
 }
-[inline]
-pub fn get_program_interfaceiv(program u32, program_interface u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_program_interfaceiv(program u32, program_interface u32, pname u32, params &int) {
 	C.glGetProgramInterfaceiv(program, program_interface, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn get_program_resource_index(program u32, program_interface u32, name &char) u32 {
 	return C.glGetProgramResourceIndex(program, program_interface, name)
 }
-[inline]
+
+@[inline]
 pub fn get_program_resource_location(program u32, program_interface u32, name &char) int {
 	return C.glGetProgramResourceLocation(program, program_interface, name)
 }
-[inline]
+
+@[inline]
 pub fn get_program_resource_location_index(program u32, program_interface u32, name &char) int {
 	return C.glGetProgramResourceLocationIndex(program, program_interface, name)
 }
-[inline]
-pub fn get_program_resource_name(program u32, program_interface u32, index u32, buf_size int, length &int, name &char)  {
+
+@[inline]
+pub fn get_program_resource_name(program u32, program_interface u32, index u32, buf_size int, length &int, name &char) {
 	C.glGetProgramResourceName(program, program_interface, index, buf_size, length, name)
 }
-[inline]
-pub fn get_program_resourceiv(program u32, program_interface u32, index u32, prop_count int, props &u32, buf_size int, length &int, params &int)  {
-	C.glGetProgramResourceiv(program, program_interface, index, prop_count, props, buf_size, length, params)
+
+@[inline]
+pub fn get_program_resourceiv(program u32, program_interface u32, index u32, prop_count int, props &u32, buf_size int, length &int, params &int) {
+	C.glGetProgramResourceiv(program, program_interface, index, prop_count, props, buf_size,
+		length, params)
 }
-[inline]
-pub fn provoking_vertex(mode u32)  {
+
+@[inline]
+pub fn provoking_vertex(mode u32) {
 	C.glProvokingVertex(mode)
 }
-[inline]
+
+@[inline]
 pub fn get_graphics_reset_status_arb() u32 {
 	return C.glGetGraphicsResetStatusARB()
 }
-[inline]
-pub fn getn_color_table_arb(target u32, format u32, gl_type u32, buf_size int, table voidptr)  {
+
+@[inline]
+pub fn getn_color_table_arb(target u32, format u32, gl_type u32, buf_size int, table voidptr) {
 	C.glGetnColorTableARB(target, format, gl_type, buf_size, table)
 }
-[inline]
-pub fn getn_compressed_tex_image_arb(target u32, lod int, buf_size int, img voidptr)  {
+
+@[inline]
+pub fn getn_compressed_tex_image_arb(target u32, lod int, buf_size int, img voidptr) {
 	C.glGetnCompressedTexImageARB(target, lod, buf_size, img)
 }
-[inline]
-pub fn getn_convolution_filter_arb(target u32, format u32, gl_type u32, buf_size int, image voidptr)  {
+
+@[inline]
+pub fn getn_convolution_filter_arb(target u32, format u32, gl_type u32, buf_size int, image voidptr) {
 	C.glGetnConvolutionFilterARB(target, format, gl_type, buf_size, image)
 }
-[inline]
-pub fn getn_histogram_arb(target u32, reset u8, format u32, gl_type u32, buf_size int, values voidptr)  {
+
+@[inline]
+pub fn getn_histogram_arb(target u32, reset u8, format u32, gl_type u32, buf_size int, values voidptr) {
 	C.glGetnHistogramARB(target, reset, format, gl_type, buf_size, values)
 }
-[inline]
-pub fn getn_mapdv_arb(target u32, query u32, buf_size int, v &f64)  {
+
+@[inline]
+pub fn getn_mapdv_arb(target u32, query u32, buf_size int, v &f64) {
 	C.glGetnMapdvARB(target, query, buf_size, v)
 }
-[inline]
-pub fn getn_mapfv_arb(target u32, query u32, buf_size int, v &f32)  {
+
+@[inline]
+pub fn getn_mapfv_arb(target u32, query u32, buf_size int, v &f32) {
 	C.glGetnMapfvARB(target, query, buf_size, v)
 }
-[inline]
-pub fn getn_mapiv_arb(target u32, query u32, buf_size int, v &int)  {
+
+@[inline]
+pub fn getn_mapiv_arb(target u32, query u32, buf_size int, v &int) {
 	C.glGetnMapivARB(target, query, buf_size, v)
 }
-[inline]
-pub fn getn_minmax_arb(target u32, reset u8, format u32, gl_type u32, buf_size int, values voidptr)  {
+
+@[inline]
+pub fn getn_minmax_arb(target u32, reset u8, format u32, gl_type u32, buf_size int, values voidptr) {
 	C.glGetnMinmaxARB(target, reset, format, gl_type, buf_size, values)
 }
-[inline]
-pub fn getn_pixel_mapfv_arb(gl_map u32, buf_size int, values &f32)  {
+
+@[inline]
+pub fn getn_pixel_mapfv_arb(gl_map u32, buf_size int, values &f32) {
 	C.glGetnPixelMapfvARB(gl_map, buf_size, values)
 }
-[inline]
-pub fn getn_pixel_mapuiv_arb(gl_map u32, buf_size int, values &u32)  {
+
+@[inline]
+pub fn getn_pixel_mapuiv_arb(gl_map u32, buf_size int, values &u32) {
 	C.glGetnPixelMapuivARB(gl_map, buf_size, values)
 }
-[inline]
-pub fn getn_pixel_mapusv_arb(gl_map u32, buf_size int, values &u16)  {
+
+@[inline]
+pub fn getn_pixel_mapusv_arb(gl_map u32, buf_size int, values &u16) {
 	C.glGetnPixelMapusvARB(gl_map, buf_size, values)
 }
-[inline]
-pub fn getn_polygon_stipple_arb(buf_size int, pattern &u8)  {
+
+@[inline]
+pub fn getn_polygon_stipple_arb(buf_size int, pattern &u8) {
 	C.glGetnPolygonStippleARB(buf_size, pattern)
 }
-[inline]
-pub fn getn_separable_filter_arb(target u32, format u32, gl_type u32, row_buf_size int, row voidptr, column_buf_size int, column voidptr, span voidptr)  {
-	C.glGetnSeparableFilterARB(target, format, gl_type, row_buf_size, row, column_buf_size, column, span)
+
+@[inline]
+pub fn getn_separable_filter_arb(target u32, format u32, gl_type u32, row_buf_size int, row voidptr, column_buf_size int, column voidptr, span voidptr) {
+	C.glGetnSeparableFilterARB(target, format, gl_type, row_buf_size, row, column_buf_size,
+		column, span)
 }
-[inline]
-pub fn getn_tex_image_arb(target u32, level int, format u32, gl_type u32, buf_size int, img voidptr)  {
+
+@[inline]
+pub fn getn_tex_image_arb(target u32, level int, format u32, gl_type u32, buf_size int, img voidptr) {
 	C.glGetnTexImageARB(target, level, format, gl_type, buf_size, img)
 }
-[inline]
-pub fn getn_uniformdv_arb(program u32, location int, buf_size int, params &f64)  {
+
+@[inline]
+pub fn getn_uniformdv_arb(program u32, location int, buf_size int, params &f64) {
 	C.glGetnUniformdvARB(program, location, buf_size, params)
 }
-[inline]
-pub fn getn_uniformfv_arb(program u32, location int, buf_size int, params &f32)  {
+
+@[inline]
+pub fn getn_uniformfv_arb(program u32, location int, buf_size int, params &f32) {
 	C.glGetnUniformfvARB(program, location, buf_size, params)
 }
-[inline]
-pub fn getn_uniformiv_arb(program u32, location int, buf_size int, params &int)  {
+
+@[inline]
+pub fn getn_uniformiv_arb(program u32, location int, buf_size int, params &int) {
 	C.glGetnUniformivARB(program, location, buf_size, params)
 }
-[inline]
-pub fn getn_uniformuiv_arb(program u32, location int, buf_size int, params &u32)  {
+
+@[inline]
+pub fn getn_uniformuiv_arb(program u32, location int, buf_size int, params &u32) {
 	C.glGetnUniformuivARB(program, location, buf_size, params)
 }
-[inline]
-pub fn readn_pixels_arb(x int, y int, width int, height int, format u32, gl_type u32, buf_size int, data voidptr)  {
+
+@[inline]
+pub fn readn_pixels_arb(x int, y int, width int, height int, format u32, gl_type u32, buf_size int, data voidptr) {
 	C.glReadnPixelsARB(x, y, width, height, format, gl_type, buf_size, data)
 }
-[inline]
-pub fn framebuffer_sample_locationsfv_arb(target u32, start u32, count int, v &f32)  {
+
+@[inline]
+pub fn framebuffer_sample_locationsfv_arb(target u32, start u32, count int, v &f32) {
 	C.glFramebufferSampleLocationsfvARB(target, start, count, v)
 }
-[inline]
-pub fn named_framebuffer_sample_locationsfv_arb(framebuffer u32, start u32, count int, v &f32)  {
+
+@[inline]
+pub fn named_framebuffer_sample_locationsfv_arb(framebuffer u32, start u32, count int, v &f32) {
 	C.glNamedFramebufferSampleLocationsfvARB(framebuffer, start, count, v)
 }
-[inline]
-pub fn min_sample_shading_arb(value f32)  {
+
+@[inline]
+pub fn min_sample_shading_arb(value f32) {
 	C.glMinSampleShadingARB(value)
 }
-[inline]
-pub fn bind_sampler(unit u32, sampler u32)  {
+
+@[inline]
+pub fn bind_sampler(unit u32, sampler u32) {
 	C.glBindSampler(unit, sampler)
 }
-[inline]
-pub fn delete_samplers(count int, samplers &u32)  {
+
+@[inline]
+pub fn delete_samplers(count int, samplers &u32) {
 	C.glDeleteSamplers(count, samplers)
 }
-[inline]
-pub fn gen_samplers(count int, samplers &u32)  {
+
+@[inline]
+pub fn gen_samplers(count int, samplers &u32) {
 	C.glGenSamplers(count, samplers)
 }
-[inline]
-pub fn get_sampler_parameter_iiv(sampler u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_sampler_parameter_iiv(sampler u32, pname u32, params &int) {
 	C.glGetSamplerParameterIiv(sampler, pname, params)
 }
-[inline]
-pub fn get_sampler_parameter_iuiv(sampler u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_sampler_parameter_iuiv(sampler u32, pname u32, params &u32) {
 	C.glGetSamplerParameterIuiv(sampler, pname, params)
 }
-[inline]
-pub fn get_sampler_parameterfv(sampler u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_sampler_parameterfv(sampler u32, pname u32, params &f32) {
 	C.glGetSamplerParameterfv(sampler, pname, params)
 }
-[inline]
-pub fn get_sampler_parameteriv(sampler u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_sampler_parameteriv(sampler u32, pname u32, params &int) {
 	C.glGetSamplerParameteriv(sampler, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_sampler(sampler u32) u8 {
 	return C.glIsSampler(sampler)
 }
-[inline]
-pub fn sampler_parameter_iiv(sampler u32, pname u32, params &int)  {
+
+@[inline]
+pub fn sampler_parameter_iiv(sampler u32, pname u32, params &int) {
 	C.glSamplerParameterIiv(sampler, pname, params)
 }
-[inline]
-pub fn sampler_parameter_iuiv(sampler u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn sampler_parameter_iuiv(sampler u32, pname u32, params &u32) {
 	C.glSamplerParameterIuiv(sampler, pname, params)
 }
-[inline]
-pub fn sampler_parameterf(sampler u32, pname u32, param f32)  {
+
+@[inline]
+pub fn sampler_parameterf(sampler u32, pname u32, param f32) {
 	C.glSamplerParameterf(sampler, pname, param)
 }
-[inline]
-pub fn sampler_parameterfv(sampler u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn sampler_parameterfv(sampler u32, pname u32, params &f32) {
 	C.glSamplerParameterfv(sampler, pname, params)
 }
-[inline]
-pub fn sampler_parameteri(sampler u32, pname u32, param int)  {
+
+@[inline]
+pub fn sampler_parameteri(sampler u32, pname u32, param int) {
 	C.glSamplerParameteri(sampler, pname, param)
 }
-[inline]
-pub fn sampler_parameteriv(sampler u32, pname u32, params &int)  {
+
+@[inline]
+pub fn sampler_parameteriv(sampler u32, pname u32, params &int) {
 	C.glSamplerParameteriv(sampler, pname, params)
 }
-[inline]
-pub fn active_shader_program(pipeline u32, program u32)  {
+
+@[inline]
+pub fn active_shader_program(pipeline u32, program u32) {
 	C.glActiveShaderProgram(pipeline, program)
 }
-[inline]
-pub fn bind_program_pipeline(pipeline u32)  {
+
+@[inline]
+pub fn bind_program_pipeline(pipeline u32) {
 	C.glBindProgramPipeline(pipeline)
 }
-[inline]
+
+@[inline]
 pub fn create_shader_programv(gl_type u32, count int, strings &&char) u32 {
 	return C.glCreateShaderProgramv(gl_type, count, strings)
 }
-[inline]
-pub fn delete_program_pipelines(n int, pipelines &u32)  {
+
+@[inline]
+pub fn delete_program_pipelines(n int, pipelines &u32) {
 	C.glDeleteProgramPipelines(n, pipelines)
 }
-[inline]
-pub fn gen_program_pipelines(n int, pipelines &u32)  {
+
+@[inline]
+pub fn gen_program_pipelines(n int, pipelines &u32) {
 	C.glGenProgramPipelines(n, pipelines)
 }
-[inline]
-pub fn get_program_pipeline_info_log(pipeline u32, buf_size int, length &int, info_log &char)  {
+
+@[inline]
+pub fn get_program_pipeline_info_log(pipeline u32, buf_size int, length &int, info_log &char) {
 	C.glGetProgramPipelineInfoLog(pipeline, buf_size, length, info_log)
 }
-[inline]
-pub fn get_program_pipelineiv(pipeline u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_program_pipelineiv(pipeline u32, pname u32, params &int) {
 	C.glGetProgramPipelineiv(pipeline, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_program_pipeline(pipeline u32) u8 {
 	return C.glIsProgramPipeline(pipeline)
 }
-[inline]
-pub fn program_uniform1d(program u32, location int, x f64)  {
+
+@[inline]
+pub fn program_uniform1d(program u32, location int, x f64) {
 	C.glProgramUniform1d(program, location, x)
 }
-[inline]
-pub fn program_uniform1dv(program u32, location int, count int, value &f64)  {
+
+@[inline]
+pub fn program_uniform1dv(program u32, location int, count int, value &f64) {
 	C.glProgramUniform1dv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform1f(program u32, location int, x f32)  {
+
+@[inline]
+pub fn program_uniform1f(program u32, location int, x f32) {
 	C.glProgramUniform1f(program, location, x)
 }
-[inline]
-pub fn program_uniform1fv(program u32, location int, count int, value &f32)  {
+
+@[inline]
+pub fn program_uniform1fv(program u32, location int, count int, value &f32) {
 	C.glProgramUniform1fv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform1i(program u32, location int, x int)  {
+
+@[inline]
+pub fn program_uniform1i(program u32, location int, x int) {
 	C.glProgramUniform1i(program, location, x)
 }
-[inline]
-pub fn program_uniform1iv(program u32, location int, count int, value &int)  {
+
+@[inline]
+pub fn program_uniform1iv(program u32, location int, count int, value &int) {
 	C.glProgramUniform1iv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform1ui(program u32, location int, x u32)  {
+
+@[inline]
+pub fn program_uniform1ui(program u32, location int, x u32) {
 	C.glProgramUniform1ui(program, location, x)
 }
-[inline]
-pub fn program_uniform1uiv(program u32, location int, count int, value &u32)  {
+
+@[inline]
+pub fn program_uniform1uiv(program u32, location int, count int, value &u32) {
 	C.glProgramUniform1uiv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2d(program u32, location int, x f64, y f64)  {
+
+@[inline]
+pub fn program_uniform2d(program u32, location int, x f64, y f64) {
 	C.glProgramUniform2d(program, location, x, y)
 }
-[inline]
-pub fn program_uniform2dv(program u32, location int, count int, value &f64)  {
+
+@[inline]
+pub fn program_uniform2dv(program u32, location int, count int, value &f64) {
 	C.glProgramUniform2dv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2f(program u32, location int, x f32, y f32)  {
+
+@[inline]
+pub fn program_uniform2f(program u32, location int, x f32, y f32) {
 	C.glProgramUniform2f(program, location, x, y)
 }
-[inline]
-pub fn program_uniform2fv(program u32, location int, count int, value &f32)  {
+
+@[inline]
+pub fn program_uniform2fv(program u32, location int, count int, value &f32) {
 	C.glProgramUniform2fv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2i(program u32, location int, x int, y int)  {
+
+@[inline]
+pub fn program_uniform2i(program u32, location int, x int, y int) {
 	C.glProgramUniform2i(program, location, x, y)
 }
-[inline]
-pub fn program_uniform2iv(program u32, location int, count int, value &int)  {
+
+@[inline]
+pub fn program_uniform2iv(program u32, location int, count int, value &int) {
 	C.glProgramUniform2iv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2ui(program u32, location int, x u32, y u32)  {
+
+@[inline]
+pub fn program_uniform2ui(program u32, location int, x u32, y u32) {
 	C.glProgramUniform2ui(program, location, x, y)
 }
-[inline]
-pub fn program_uniform2uiv(program u32, location int, count int, value &u32)  {
+
+@[inline]
+pub fn program_uniform2uiv(program u32, location int, count int, value &u32) {
 	C.glProgramUniform2uiv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3d(program u32, location int, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn program_uniform3d(program u32, location int, x f64, y f64, z f64) {
 	C.glProgramUniform3d(program, location, x, y, z)
 }
-[inline]
-pub fn program_uniform3dv(program u32, location int, count int, value &f64)  {
+
+@[inline]
+pub fn program_uniform3dv(program u32, location int, count int, value &f64) {
 	C.glProgramUniform3dv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3f(program u32, location int, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn program_uniform3f(program u32, location int, x f32, y f32, z f32) {
 	C.glProgramUniform3f(program, location, x, y, z)
 }
-[inline]
-pub fn program_uniform3fv(program u32, location int, count int, value &f32)  {
+
+@[inline]
+pub fn program_uniform3fv(program u32, location int, count int, value &f32) {
 	C.glProgramUniform3fv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3i(program u32, location int, x int, y int, z int)  {
+
+@[inline]
+pub fn program_uniform3i(program u32, location int, x int, y int, z int) {
 	C.glProgramUniform3i(program, location, x, y, z)
 }
-[inline]
-pub fn program_uniform3iv(program u32, location int, count int, value &int)  {
+
+@[inline]
+pub fn program_uniform3iv(program u32, location int, count int, value &int) {
 	C.glProgramUniform3iv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3ui(program u32, location int, x u32, y u32, z u32)  {
+
+@[inline]
+pub fn program_uniform3ui(program u32, location int, x u32, y u32, z u32) {
 	C.glProgramUniform3ui(program, location, x, y, z)
 }
-[inline]
-pub fn program_uniform3uiv(program u32, location int, count int, value &u32)  {
+
+@[inline]
+pub fn program_uniform3uiv(program u32, location int, count int, value &u32) {
 	C.glProgramUniform3uiv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4d(program u32, location int, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn program_uniform4d(program u32, location int, x f64, y f64, z f64, w f64) {
 	C.glProgramUniform4d(program, location, x, y, z, w)
 }
-[inline]
-pub fn program_uniform4dv(program u32, location int, count int, value &f64)  {
+
+@[inline]
+pub fn program_uniform4dv(program u32, location int, count int, value &f64) {
 	C.glProgramUniform4dv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4f(program u32, location int, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn program_uniform4f(program u32, location int, x f32, y f32, z f32, w f32) {
 	C.glProgramUniform4f(program, location, x, y, z, w)
 }
-[inline]
-pub fn program_uniform4fv(program u32, location int, count int, value &f32)  {
+
+@[inline]
+pub fn program_uniform4fv(program u32, location int, count int, value &f32) {
 	C.glProgramUniform4fv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4i(program u32, location int, x int, y int, z int, w int)  {
+
+@[inline]
+pub fn program_uniform4i(program u32, location int, x int, y int, z int, w int) {
 	C.glProgramUniform4i(program, location, x, y, z, w)
 }
-[inline]
-pub fn program_uniform4iv(program u32, location int, count int, value &int)  {
+
+@[inline]
+pub fn program_uniform4iv(program u32, location int, count int, value &int) {
 	C.glProgramUniform4iv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4ui(program u32, location int, x u32, y u32, z u32, w u32)  {
+
+@[inline]
+pub fn program_uniform4ui(program u32, location int, x u32, y u32, z u32, w u32) {
 	C.glProgramUniform4ui(program, location, x, y, z, w)
 }
-[inline]
-pub fn program_uniform4uiv(program u32, location int, count int, value &u32)  {
+
+@[inline]
+pub fn program_uniform4uiv(program u32, location int, count int, value &u32) {
 	C.glProgramUniform4uiv(program, location, count, value)
 }
-[inline]
-pub fn program_uniform_matrix2dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix2dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix2dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix2fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix2fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix2fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix2x3dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix2x3dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix2x3dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix2x3fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix2x3fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix2x3fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix2x4dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix2x4dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix2x4dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix2x4fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix2x4fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix2x4fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix3dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix3dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix3fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix3fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3x2dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix3x2dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix3x2dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3x2fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix3x2fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix3x2fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3x4dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix3x4dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix3x4dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3x4fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix3x4fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix3x4fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix4dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix4dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix4fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix4fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4x2dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix4x2dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix4x2dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4x2fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix4x2fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix4x2fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4x3dv(program u32, location int, count int, transpose u8, value &f64)  {
+
+@[inline]
+pub fn program_uniform_matrix4x3dv(program u32, location int, count int, transpose u8, value &f64) {
 	C.glProgramUniformMatrix4x3dv(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4x3fv(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix4x3fv(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix4x3fv(program, location, count, transpose, value)
 }
-[inline]
-pub fn use_program_stages(pipeline u32, stages u32, program u32)  {
+
+@[inline]
+pub fn use_program_stages(pipeline u32, stages u32, program u32) {
 	C.glUseProgramStages(pipeline, stages, program)
 }
-[inline]
-pub fn validate_program_pipeline(pipeline u32)  {
+
+@[inline]
+pub fn validate_program_pipeline(pipeline u32) {
 	C.glValidateProgramPipeline(pipeline)
 }
-[inline]
-pub fn get_active_atomic_counter_bufferiv(program u32, buffer_index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_active_atomic_counter_bufferiv(program u32, buffer_index u32, pname u32, params &int) {
 	C.glGetActiveAtomicCounterBufferiv(program, buffer_index, pname, params)
 }
-[inline]
-pub fn bind_image_texture(unit u32, texture u32, level int, layered u8, layer int, access u32, format u32)  {
+
+@[inline]
+pub fn bind_image_texture(unit u32, texture u32, level int, layered u8, layer int, access u32, format u32) {
 	C.glBindImageTexture(unit, texture, level, layered, layer, access, format)
 }
-[inline]
-pub fn memory_barrier(barriers u32)  {
+
+@[inline]
+pub fn memory_barrier(barriers u32) {
 	C.glMemoryBarrier(barriers)
 }
-[inline]
-pub fn attach_object_arb(container_obj u32, obj u32)  {
+
+@[inline]
+pub fn attach_object_arb(container_obj u32, obj u32) {
 	C.glAttachObjectARB(container_obj, obj)
 }
-[inline]
-pub fn compile_shader_arb(shader_obj u32)  {
+
+@[inline]
+pub fn compile_shader_arb(shader_obj u32) {
 	C.glCompileShaderARB(shader_obj)
 }
-[inline]
+
+@[inline]
 pub fn create_program_object_arb() u32 {
 	return C.glCreateProgramObjectARB()
 }
-[inline]
+
+@[inline]
 pub fn create_shader_object_arb(shader_type u32) u32 {
 	return C.glCreateShaderObjectARB(shader_type)
 }
-[inline]
-pub fn delete_object_arb(obj u32)  {
+
+@[inline]
+pub fn delete_object_arb(obj u32) {
 	C.glDeleteObjectARB(obj)
 }
-[inline]
-pub fn detach_object_arb(container_obj u32, attached_obj u32)  {
+
+@[inline]
+pub fn detach_object_arb(container_obj u32, attached_obj u32) {
 	C.glDetachObjectARB(container_obj, attached_obj)
 }
-[inline]
-pub fn get_active_uniform_arb(program_obj u32, index u32, max_length int, length &int, size &int, gl_type &u32, name &char)  {
+
+@[inline]
+pub fn get_active_uniform_arb(program_obj u32, index u32, max_length int, length &int, size &int, gl_type &u32, name &char) {
 	C.glGetActiveUniformARB(program_obj, index, max_length, length, size, gl_type, name)
 }
-[inline]
-pub fn get_attached_objects_arb(container_obj u32, max_count int, count &int, obj &u32)  {
+
+@[inline]
+pub fn get_attached_objects_arb(container_obj u32, max_count int, count &int, obj &u32) {
 	C.glGetAttachedObjectsARB(container_obj, max_count, count, obj)
 }
-[inline]
+
+@[inline]
 pub fn get_handle_arb(pname u32) u32 {
 	return C.glGetHandleARB(pname)
 }
-[inline]
-pub fn get_info_log_arb(obj u32, max_length int, length &int, info_log &char)  {
+
+@[inline]
+pub fn get_info_log_arb(obj u32, max_length int, length &int, info_log &char) {
 	C.glGetInfoLogARB(obj, max_length, length, info_log)
 }
-[inline]
-pub fn get_object_parameterfv_arb(obj u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_object_parameterfv_arb(obj u32, pname u32, params &f32) {
 	C.glGetObjectParameterfvARB(obj, pname, params)
 }
-[inline]
-pub fn get_object_parameteriv_arb(obj u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_object_parameteriv_arb(obj u32, pname u32, params &int) {
 	C.glGetObjectParameterivARB(obj, pname, params)
 }
-[inline]
-pub fn get_shader_source_arb(obj u32, max_length int, length &int, source &char)  {
+
+@[inline]
+pub fn get_shader_source_arb(obj u32, max_length int, length &int, source &char) {
 	C.glGetShaderSourceARB(obj, max_length, length, source)
 }
-[inline]
+
+@[inline]
 pub fn get_uniform_location_arb(program_obj u32, name &char) int {
 	return C.glGetUniformLocationARB(program_obj, name)
 }
-[inline]
-pub fn get_uniformfv_arb(program_obj u32, location int, params &f32)  {
+
+@[inline]
+pub fn get_uniformfv_arb(program_obj u32, location int, params &f32) {
 	C.glGetUniformfvARB(program_obj, location, params)
 }
-[inline]
-pub fn get_uniformiv_arb(program_obj u32, location int, params &int)  {
+
+@[inline]
+pub fn get_uniformiv_arb(program_obj u32, location int, params &int) {
 	C.glGetUniformivARB(program_obj, location, params)
 }
-[inline]
-pub fn link_program_arb(program_obj u32)  {
+
+@[inline]
+pub fn link_program_arb(program_obj u32) {
 	C.glLinkProgramARB(program_obj)
 }
-[inline]
-pub fn shader_source_arb(shader_obj u32, count int, gl_string &&char, length &int)  {
+
+@[inline]
+pub fn shader_source_arb(shader_obj u32, count int, gl_string &&char, length &int) {
 	C.glShaderSourceARB(shader_obj, count, gl_string, length)
 }
-[inline]
-pub fn uniform1f_arb(location int, v0 f32)  {
+
+@[inline]
+pub fn uniform1f_arb(location int, v0 f32) {
 	C.glUniform1fARB(location, v0)
 }
-[inline]
-pub fn uniform1fv_arb(location int, count int, value &f32)  {
+
+@[inline]
+pub fn uniform1fv_arb(location int, count int, value &f32) {
 	C.glUniform1fvARB(location, count, value)
 }
-[inline]
-pub fn uniform1i_arb(location int, v0 int)  {
+
+@[inline]
+pub fn uniform1i_arb(location int, v0 int) {
 	C.glUniform1iARB(location, v0)
 }
-[inline]
-pub fn uniform1iv_arb(location int, count int, value &int)  {
+
+@[inline]
+pub fn uniform1iv_arb(location int, count int, value &int) {
 	C.glUniform1ivARB(location, count, value)
 }
-[inline]
-pub fn uniform2f_arb(location int, v0 f32, v1 f32)  {
+
+@[inline]
+pub fn uniform2f_arb(location int, v0 f32, v1 f32) {
 	C.glUniform2fARB(location, v0, v1)
 }
-[inline]
-pub fn uniform2fv_arb(location int, count int, value &f32)  {
+
+@[inline]
+pub fn uniform2fv_arb(location int, count int, value &f32) {
 	C.glUniform2fvARB(location, count, value)
 }
-[inline]
-pub fn uniform2i_arb(location int, v0 int, v1 int)  {
+
+@[inline]
+pub fn uniform2i_arb(location int, v0 int, v1 int) {
 	C.glUniform2iARB(location, v0, v1)
 }
-[inline]
-pub fn uniform2iv_arb(location int, count int, value &int)  {
+
+@[inline]
+pub fn uniform2iv_arb(location int, count int, value &int) {
 	C.glUniform2ivARB(location, count, value)
 }
-[inline]
-pub fn uniform3f_arb(location int, v0 f32, v1 f32, v2 f32)  {
+
+@[inline]
+pub fn uniform3f_arb(location int, v0 f32, v1 f32, v2 f32) {
 	C.glUniform3fARB(location, v0, v1, v2)
 }
-[inline]
-pub fn uniform3fv_arb(location int, count int, value &f32)  {
+
+@[inline]
+pub fn uniform3fv_arb(location int, count int, value &f32) {
 	C.glUniform3fvARB(location, count, value)
 }
-[inline]
-pub fn uniform3i_arb(location int, v0 int, v1 int, v2 int)  {
+
+@[inline]
+pub fn uniform3i_arb(location int, v0 int, v1 int, v2 int) {
 	C.glUniform3iARB(location, v0, v1, v2)
 }
-[inline]
-pub fn uniform3iv_arb(location int, count int, value &int)  {
+
+@[inline]
+pub fn uniform3iv_arb(location int, count int, value &int) {
 	C.glUniform3ivARB(location, count, value)
 }
-[inline]
-pub fn uniform4f_arb(location int, v0 f32, v1 f32, v2 f32, v3 f32)  {
+
+@[inline]
+pub fn uniform4f_arb(location int, v0 f32, v1 f32, v2 f32, v3 f32) {
 	C.glUniform4fARB(location, v0, v1, v2, v3)
 }
-[inline]
-pub fn uniform4fv_arb(location int, count int, value &f32)  {
+
+@[inline]
+pub fn uniform4fv_arb(location int, count int, value &f32) {
 	C.glUniform4fvARB(location, count, value)
 }
-[inline]
-pub fn uniform4i_arb(location int, v0 int, v1 int, v2 int, v3 int)  {
+
+@[inline]
+pub fn uniform4i_arb(location int, v0 int, v1 int, v2 int, v3 int) {
 	C.glUniform4iARB(location, v0, v1, v2, v3)
 }
-[inline]
-pub fn uniform4iv_arb(location int, count int, value &int)  {
+
+@[inline]
+pub fn uniform4iv_arb(location int, count int, value &int) {
 	C.glUniform4ivARB(location, count, value)
 }
-[inline]
-pub fn uniform_matrix2fv_arb(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix2fv_arb(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix2fvARB(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3fv_arb(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix3fv_arb(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix3fvARB(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4fv_arb(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix4fv_arb(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix4fvARB(location, count, transpose, value)
 }
-[inline]
-pub fn use_program_object_arb(program_obj u32)  {
+
+@[inline]
+pub fn use_program_object_arb(program_obj u32) {
 	C.glUseProgramObjectARB(program_obj)
 }
-[inline]
-pub fn validate_program_arb(program_obj u32)  {
+
+@[inline]
+pub fn validate_program_arb(program_obj u32) {
 	C.glValidateProgramARB(program_obj)
 }
-[inline]
-pub fn shader_storage_block_binding(program u32, storage_block_index u32, storage_block_binding u32)  {
+
+@[inline]
+pub fn shader_storage_block_binding(program u32, storage_block_index u32, storage_block_binding u32) {
 	C.glShaderStorageBlockBinding(program, storage_block_index, storage_block_binding)
 }
-[inline]
-pub fn get_active_subroutine_name(program u32, shadertype u32, index u32, bufsize int, length &int, name &char)  {
+
+@[inline]
+pub fn get_active_subroutine_name(program u32, shadertype u32, index u32, bufsize int, length &int, name &char) {
 	C.glGetActiveSubroutineName(program, shadertype, index, bufsize, length, name)
 }
-[inline]
-pub fn get_active_subroutine_uniform_name(program u32, shadertype u32, index u32, bufsize int, length &int, name &char)  {
+
+@[inline]
+pub fn get_active_subroutine_uniform_name(program u32, shadertype u32, index u32, bufsize int, length &int, name &char) {
 	C.glGetActiveSubroutineUniformName(program, shadertype, index, bufsize, length, name)
 }
-[inline]
-pub fn get_active_subroutine_uniformiv(program u32, shadertype u32, index u32, pname u32, values &int)  {
+
+@[inline]
+pub fn get_active_subroutine_uniformiv(program u32, shadertype u32, index u32, pname u32, values &int) {
 	C.glGetActiveSubroutineUniformiv(program, shadertype, index, pname, values)
 }
-[inline]
-pub fn get_program_stageiv(program u32, shadertype u32, pname u32, values &int)  {
+
+@[inline]
+pub fn get_program_stageiv(program u32, shadertype u32, pname u32, values &int) {
 	C.glGetProgramStageiv(program, shadertype, pname, values)
 }
-[inline]
+
+@[inline]
 pub fn get_subroutine_index(program u32, shadertype u32, name &char) u32 {
 	return C.glGetSubroutineIndex(program, shadertype, name)
 }
-[inline]
+
+@[inline]
 pub fn get_subroutine_uniform_location(program u32, shadertype u32, name &char) int {
 	return C.glGetSubroutineUniformLocation(program, shadertype, name)
 }
-[inline]
-pub fn get_uniform_subroutineuiv(shadertype u32, location int, params &u32)  {
+
+@[inline]
+pub fn get_uniform_subroutineuiv(shadertype u32, location int, params &u32) {
 	C.glGetUniformSubroutineuiv(shadertype, location, params)
 }
-[inline]
-pub fn uniform_subroutinesuiv(shadertype u32, count int, indices &u32)  {
+
+@[inline]
+pub fn uniform_subroutinesuiv(shadertype u32, count int, indices &u32) {
 	C.glUniformSubroutinesuiv(shadertype, count, indices)
 }
-[inline]
-pub fn compile_shader_include_arb(shader u32, count int, path &&char, length &int)  {
+
+@[inline]
+pub fn compile_shader_include_arb(shader u32, count int, path &&char, length &int) {
 	C.glCompileShaderIncludeARB(shader, count, path, length)
 }
-[inline]
-pub fn delete_named_string_arb(namelen int, name &char)  {
+
+@[inline]
+pub fn delete_named_string_arb(namelen int, name &char) {
 	C.glDeleteNamedStringARB(namelen, name)
 }
-[inline]
-pub fn get_named_string_arb(namelen int, name &char, buf_size int, stringlen &int, gl_string &char)  {
+
+@[inline]
+pub fn get_named_string_arb(namelen int, name &char, buf_size int, stringlen &int, gl_string &char) {
 	C.glGetNamedStringARB(namelen, name, buf_size, stringlen, gl_string)
 }
-[inline]
-pub fn get_named_stringiv_arb(namelen int, name &char, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_stringiv_arb(namelen int, name &char, pname u32, params &int) {
 	C.glGetNamedStringivARB(namelen, name, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_named_string_arb(namelen int, name &char) u8 {
 	return C.glIsNamedStringARB(namelen, name)
 }
-[inline]
-pub fn named_string_arb(gl_type u32, namelen int, name &char, stringlen int, gl_string &char)  {
+
+@[inline]
+pub fn named_string_arb(gl_type u32, namelen int, name &char, stringlen int, gl_string &char) {
 	C.glNamedStringARB(gl_type, namelen, name, stringlen, gl_string)
 }
-[inline]
-pub fn buffer_page_commitment_arb(target u32, offset i64, size i64, commit u8)  {
+
+@[inline]
+pub fn buffer_page_commitment_arb(target u32, offset i64, size i64, commit u8) {
 	C.glBufferPageCommitmentARB(target, offset, size, commit)
 }
-[inline]
-pub fn tex_page_commitment_arb(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, commit u8)  {
-	C.glTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit)
+
+@[inline]
+pub fn tex_page_commitment_arb(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, commit u8) {
+	C.glTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height,
+		depth, commit)
 }
-[inline]
+
+@[inline]
 pub fn client_wait_sync(glsync voidptr, flags u32, timeout u64) u32 {
 	return C.glClientWaitSync(glsync, flags, timeout)
 }
-[inline]
-pub fn delete_sync(glsync voidptr)  {
+
+@[inline]
+pub fn delete_sync(glsync voidptr) {
 	C.glDeleteSync(glsync)
 }
-[inline]
+
+@[inline]
 pub fn fence_sync(condition u32, flags u32) voidptr {
 	return C.glFenceSync(condition, flags)
 }
-[inline]
-pub fn get_integer64v(pname u32, params &i64)  {
+
+@[inline]
+pub fn get_integer64v(pname u32, params &i64) {
 	C.glGetInteger64v(pname, params)
 }
-[inline]
-pub fn get_synciv(glsync voidptr, pname u32, buf_size int, length &int, values &int)  {
+
+@[inline]
+pub fn get_synciv(glsync voidptr, pname u32, buf_size int, length &int, values &int) {
 	C.glGetSynciv(glsync, pname, buf_size, length, values)
 }
-[inline]
+
+@[inline]
 pub fn is_sync(glsync voidptr) u8 {
 	return C.glIsSync(glsync)
 }
-[inline]
-pub fn wait_sync(glsync voidptr, flags u32, timeout u64)  {
+
+@[inline]
+pub fn wait_sync(glsync voidptr, flags u32, timeout u64) {
 	C.glWaitSync(glsync, flags, timeout)
 }
-[inline]
-pub fn patch_parameterfv(pname u32, values &f32)  {
+
+@[inline]
+pub fn patch_parameterfv(pname u32, values &f32) {
 	C.glPatchParameterfv(pname, values)
 }
-[inline]
-pub fn patch_parameteri(pname u32, value int)  {
+
+@[inline]
+pub fn patch_parameteri(pname u32, value int) {
 	C.glPatchParameteri(pname, value)
 }
-[inline]
-pub fn texture_barrier()  {
+
+@[inline]
+pub fn texture_barrier() {
 	C.glTextureBarrier()
 }
-[inline]
-pub fn tex_buffer_arb(target u32, internalformat u32, buffer u32)  {
+
+@[inline]
+pub fn tex_buffer_arb(target u32, internalformat u32, buffer u32) {
 	C.glTexBufferARB(target, internalformat, buffer)
 }
-[inline]
-pub fn tex_buffer_range(target u32, internalformat u32, buffer u32, offset i64, size i64)  {
+
+@[inline]
+pub fn tex_buffer_range(target u32, internalformat u32, buffer u32, offset i64, size i64) {
 	C.glTexBufferRange(target, internalformat, buffer, offset, size)
 }
-[inline]
-pub fn texture_buffer_range_ext(texture u32, target u32, internalformat u32, buffer u32, offset i64, size i64)  {
+
+@[inline]
+pub fn texture_buffer_range_ext(texture u32, target u32, internalformat u32, buffer u32, offset i64, size i64) {
 	C.glTextureBufferRangeEXT(texture, target, internalformat, buffer, offset, size)
 }
-[inline]
-pub fn compressed_tex_image1darb(target u32, level int, internalformat u32, width int, border int, image_size int, data voidptr)  {
-	C.glCompressedTexImage1DARB(target, level, internalformat, width, border, image_size, data)
+
+@[inline]
+pub fn compressed_tex_image1darb(target u32, level int, internalformat u32, width int, border int, image_size int, data voidptr) {
+	C.glCompressedTexImage1DARB(target, level, internalformat, width, border, image_size,
+		data)
 }
-[inline]
-pub fn compressed_tex_image2darb(target u32, level int, internalformat u32, width int, height int, border int, image_size int, data voidptr)  {
-	C.glCompressedTexImage2DARB(target, level, internalformat, width, height, border, image_size, data)
+
+@[inline]
+pub fn compressed_tex_image2darb(target u32, level int, internalformat u32, width int, height int, border int, image_size int, data voidptr) {
+	C.glCompressedTexImage2DARB(target, level, internalformat, width, height, border,
+		image_size, data)
 }
-[inline]
-pub fn compressed_tex_image3darb(target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr)  {
-	C.glCompressedTexImage3DARB(target, level, internalformat, width, height, depth, border, image_size, data)
+
+@[inline]
+pub fn compressed_tex_image3darb(target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr) {
+	C.glCompressedTexImage3DARB(target, level, internalformat, width, height, depth, border,
+		image_size, data)
 }
-[inline]
-pub fn compressed_tex_sub_image1darb(target u32, level int, xoffset int, width int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTexSubImage1DARB(target, level, xoffset, width, format, image_size, data)
+
+@[inline]
+pub fn compressed_tex_sub_image1darb(target u32, level int, xoffset int, width int, format u32, image_size int, data voidptr) {
+	C.glCompressedTexSubImage1DARB(target, level, xoffset, width, format, image_size,
+		data)
 }
-[inline]
-pub fn compressed_tex_sub_image2darb(target u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format, image_size, data)
+
+@[inline]
+pub fn compressed_tex_sub_image2darb(target u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr) {
+	C.glCompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format,
+		image_size, data)
 }
-[inline]
-pub fn compressed_tex_sub_image3darb(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height, depth, format, image_size, data)
+
+@[inline]
+pub fn compressed_tex_sub_image3darb(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr) {
+	C.glCompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height,
+		depth, format, image_size, data)
 }
-[inline]
-pub fn get_compressed_tex_image_arb(target u32, lod int, img voidptr)  {
+
+@[inline]
+pub fn get_compressed_tex_image_arb(target u32, lod int, img voidptr) {
 	C.glGetCompressedTexImageARB(target, lod, img)
 }
-[inline]
-pub fn get_multisamplefv(pname u32, index u32, val &f32)  {
+
+@[inline]
+pub fn get_multisamplefv(pname u32, index u32, val &f32) {
 	C.glGetMultisamplefv(pname, index, val)
 }
-[inline]
-pub fn sample_maski(index u32, mask u32)  {
+
+@[inline]
+pub fn sample_maski(index u32, mask u32) {
 	C.glSampleMaski(index, mask)
 }
-[inline]
-pub fn tex_image2dmultisample(target u32, samples int, internalformat u32, width int, height int, fixedsamplelocations u8)  {
+
+@[inline]
+pub fn tex_image2dmultisample(target u32, samples int, internalformat u32, width int, height int, fixedsamplelocations u8) {
 	C.glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations)
 }
-[inline]
-pub fn tex_image3dmultisample(target u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8)  {
+
+@[inline]
+pub fn tex_image3dmultisample(target u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8) {
 	C.glTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations)
 }
-[inline]
-pub fn tex_storage1d(target u32, levels int, internalformat u32, width int)  {
+
+@[inline]
+pub fn tex_storage1d(target u32, levels int, internalformat u32, width int) {
 	C.glTexStorage1D(target, levels, internalformat, width)
 }
-[inline]
-pub fn tex_storage2d(target u32, levels int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn tex_storage2d(target u32, levels int, internalformat u32, width int, height int) {
 	C.glTexStorage2D(target, levels, internalformat, width, height)
 }
-[inline]
-pub fn tex_storage3d(target u32, levels int, internalformat u32, width int, height int, depth int)  {
+
+@[inline]
+pub fn tex_storage3d(target u32, levels int, internalformat u32, width int, height int, depth int) {
 	C.glTexStorage3D(target, levels, internalformat, width, height, depth)
 }
-[inline]
-pub fn tex_storage2dmultisample(target u32, samples int, internalformat u32, width int, height int, fixedsamplelocations u8)  {
+
+@[inline]
+pub fn tex_storage2dmultisample(target u32, samples int, internalformat u32, width int, height int, fixedsamplelocations u8) {
 	C.glTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations)
 }
-[inline]
-pub fn tex_storage3dmultisample(target u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8)  {
-	C.glTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations)
+
+@[inline]
+pub fn tex_storage3dmultisample(target u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8) {
+	C.glTexStorage3DMultisample(target, samples, internalformat, width, height, depth,
+		fixedsamplelocations)
 }
-[inline]
-pub fn texture_storage2dmultisample_ext(texture u32, target u32, samples int, internalformat u32, width int, height int, fixedsamplelocations u8)  {
-	C.glTextureStorage2DMultisampleEXT(texture, target, samples, internalformat, width, height, fixedsamplelocations)
+
+@[inline]
+pub fn texture_storage2dmultisample_ext(texture u32, target u32, samples int, internalformat u32, width int, height int, fixedsamplelocations u8) {
+	C.glTextureStorage2DMultisampleEXT(texture, target, samples, internalformat, width,
+		height, fixedsamplelocations)
 }
-[inline]
-pub fn texture_storage3dmultisample_ext(texture u32, target u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8)  {
-	C.glTextureStorage3DMultisampleEXT(texture, target, samples, internalformat, width, height, depth, fixedsamplelocations)
+
+@[inline]
+pub fn texture_storage3dmultisample_ext(texture u32, target u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8) {
+	C.glTextureStorage3DMultisampleEXT(texture, target, samples, internalformat, width,
+		height, depth, fixedsamplelocations)
 }
-[inline]
-pub fn texture_view(texture u32, target u32, origtexture u32, internalformat u32, minlevel u32, numlevels u32, minlayer u32, numlayers u32)  {
-	C.glTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers)
+
+@[inline]
+pub fn texture_view(texture u32, target u32, origtexture u32, internalformat u32, minlevel u32, numlevels u32, minlayer u32, numlayers u32) {
+	C.glTextureView(texture, target, origtexture, internalformat, minlevel, numlevels,
+		minlayer, numlayers)
 }
-[inline]
-pub fn get_query_objecti64v(id u32, pname u32, params &i64)  {
+
+@[inline]
+pub fn get_query_objecti64v(id u32, pname u32, params &i64) {
 	C.glGetQueryObjecti64v(id, pname, params)
 }
-[inline]
-pub fn get_query_objectui64v(id u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_query_objectui64v(id u32, pname u32, params &u64) {
 	C.glGetQueryObjectui64v(id, pname, params)
 }
-[inline]
-pub fn query_counter(id u32, target u32)  {
+
+@[inline]
+pub fn query_counter(id u32, target u32) {
 	C.glQueryCounter(id, target)
 }
-[inline]
-pub fn bind_transform_feedback(target u32, id u32)  {
+
+@[inline]
+pub fn bind_transform_feedback(target u32, id u32) {
 	C.glBindTransformFeedback(target, id)
 }
-[inline]
-pub fn delete_transform_feedbacks(n int, ids &u32)  {
+
+@[inline]
+pub fn delete_transform_feedbacks(n int, ids &u32) {
 	C.glDeleteTransformFeedbacks(n, ids)
 }
-[inline]
-pub fn draw_transform_feedback(mode u32, id u32)  {
+
+@[inline]
+pub fn draw_transform_feedback(mode u32, id u32) {
 	C.glDrawTransformFeedback(mode, id)
 }
-[inline]
-pub fn gen_transform_feedbacks(n int, ids &u32)  {
+
+@[inline]
+pub fn gen_transform_feedbacks(n int, ids &u32) {
 	C.glGenTransformFeedbacks(n, ids)
 }
-[inline]
+
+@[inline]
 pub fn is_transform_feedback(id u32) u8 {
 	return C.glIsTransformFeedback(id)
 }
-[inline]
-pub fn pause_transform_feedback()  {
+
+@[inline]
+pub fn pause_transform_feedback() {
 	C.glPauseTransformFeedback()
 }
-[inline]
-pub fn resume_transform_feedback()  {
+
+@[inline]
+pub fn resume_transform_feedback() {
 	C.glResumeTransformFeedback()
 }
-[inline]
-pub fn begin_query_indexed(target u32, index u32, id u32)  {
+
+@[inline]
+pub fn begin_query_indexed(target u32, index u32, id u32) {
 	C.glBeginQueryIndexed(target, index, id)
 }
-[inline]
-pub fn draw_transform_feedback_stream(mode u32, id u32, stream u32)  {
+
+@[inline]
+pub fn draw_transform_feedback_stream(mode u32, id u32, stream u32) {
 	C.glDrawTransformFeedbackStream(mode, id, stream)
 }
-[inline]
-pub fn end_query_indexed(target u32, index u32)  {
+
+@[inline]
+pub fn end_query_indexed(target u32, index u32) {
 	C.glEndQueryIndexed(target, index)
 }
-[inline]
-pub fn get_query_indexediv(target u32, index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_query_indexediv(target u32, index u32, pname u32, params &int) {
 	C.glGetQueryIndexediv(target, index, pname, params)
 }
-[inline]
-pub fn draw_transform_feedback_instanced(mode u32, id u32, primcount int)  {
+
+@[inline]
+pub fn draw_transform_feedback_instanced(mode u32, id u32, primcount int) {
 	C.glDrawTransformFeedbackInstanced(mode, id, primcount)
 }
-[inline]
-pub fn draw_transform_feedback_stream_instanced(mode u32, id u32, stream u32, primcount int)  {
+
+@[inline]
+pub fn draw_transform_feedback_stream_instanced(mode u32, id u32, stream u32, primcount int) {
 	C.glDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount)
 }
-[inline]
-pub fn load_transpose_matrixd_arb(m [16]f64)  {
+
+@[inline]
+pub fn load_transpose_matrixd_arb(m [16]f64) {
 	C.glLoadTransposeMatrixdARB(m)
 }
-[inline]
-pub fn load_transpose_matrixf_arb(m [16]f32)  {
+
+@[inline]
+pub fn load_transpose_matrixf_arb(m [16]f32) {
 	C.glLoadTransposeMatrixfARB(m)
 }
-[inline]
-pub fn mult_transpose_matrixd_arb(m [16]f64)  {
+
+@[inline]
+pub fn mult_transpose_matrixd_arb(m [16]f64) {
 	C.glMultTransposeMatrixdARB(m)
 }
-[inline]
-pub fn mult_transpose_matrixf_arb(m [16]f32)  {
+
+@[inline]
+pub fn mult_transpose_matrixf_arb(m [16]f32) {
 	C.glMultTransposeMatrixfARB(m)
 }
-[inline]
-pub fn bind_buffer_base(target u32, index u32, buffer u32)  {
+
+@[inline]
+pub fn bind_buffer_base(target u32, index u32, buffer u32) {
 	C.glBindBufferBase(target, index, buffer)
 }
-[inline]
-pub fn bind_buffer_range(target u32, index u32, buffer u32, offset i64, size i64)  {
+
+@[inline]
+pub fn bind_buffer_range(target u32, index u32, buffer u32, offset i64, size i64) {
 	C.glBindBufferRange(target, index, buffer, offset, size)
 }
-[inline]
-pub fn get_active_uniform_block_name(program u32, uniform_block_index u32, buf_size int, length &int, uniform_block_name &char)  {
+
+@[inline]
+pub fn get_active_uniform_block_name(program u32, uniform_block_index u32, buf_size int, length &int, uniform_block_name &char) {
 	C.glGetActiveUniformBlockName(program, uniform_block_index, buf_size, length, uniform_block_name)
 }
-[inline]
-pub fn get_active_uniform_blockiv(program u32, uniform_block_index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_active_uniform_blockiv(program u32, uniform_block_index u32, pname u32, params &int) {
 	C.glGetActiveUniformBlockiv(program, uniform_block_index, pname, params)
 }
-[inline]
-pub fn get_active_uniform_name(program u32, uniform_index u32, buf_size int, length &int, uniform_name &char)  {
+
+@[inline]
+pub fn get_active_uniform_name(program u32, uniform_index u32, buf_size int, length &int, uniform_name &char) {
 	C.glGetActiveUniformName(program, uniform_index, buf_size, length, uniform_name)
 }
-[inline]
-pub fn get_active_uniformsiv(program u32, uniform_count int, uniform_indices &u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_active_uniformsiv(program u32, uniform_count int, uniform_indices &u32, pname u32, params &int) {
 	C.glGetActiveUniformsiv(program, uniform_count, uniform_indices, pname, params)
 }
-[inline]
-pub fn get_integeri_v(target u32, index u32, data &int)  {
+
+@[inline]
+pub fn get_integeri_v(target u32, index u32, data &int) {
 	C.glGetIntegeri_v(target, index, data)
 }
-[inline]
+
+@[inline]
 pub fn get_uniform_block_index(program u32, uniform_block_name &char) u32 {
 	return C.glGetUniformBlockIndex(program, uniform_block_name)
 }
-[inline]
-pub fn get_uniform_indices(program u32, uniform_count int, uniform_names &&char, uniform_indices &u32)  {
+
+@[inline]
+pub fn get_uniform_indices(program u32, uniform_count int, uniform_names &&char, uniform_indices &u32) {
 	C.glGetUniformIndices(program, uniform_count, uniform_names, uniform_indices)
 }
-[inline]
-pub fn uniform_block_binding(program u32, uniform_block_index u32, uniform_block_binding u32)  {
+
+@[inline]
+pub fn uniform_block_binding(program u32, uniform_block_index u32, uniform_block_binding u32) {
 	C.glUniformBlockBinding(program, uniform_block_index, uniform_block_binding)
 }
-[inline]
-pub fn bind_vertex_array(array u32)  {
+
+@[inline]
+pub fn bind_vertex_array(array u32) {
 	C.glBindVertexArray(array)
 }
-[inline]
-pub fn delete_vertex_arrays(n int, arrays &u32)  {
+
+@[inline]
+pub fn delete_vertex_arrays(n int, arrays &u32) {
 	C.glDeleteVertexArrays(n, arrays)
 }
-[inline]
-pub fn gen_vertex_arrays(n int, arrays &u32)  {
+
+@[inline]
+pub fn gen_vertex_arrays(n int, arrays &u32) {
 	C.glGenVertexArrays(n, arrays)
 }
-[inline]
+
+@[inline]
 pub fn is_vertex_array(array u32) u8 {
 	return C.glIsVertexArray(array)
 }
-[inline]
-pub fn get_vertex_attrib_ldv(index u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_vertex_attrib_ldv(index u32, pname u32, params &f64) {
 	C.glGetVertexAttribLdv(index, pname, params)
 }
-[inline]
-pub fn vertex_attrib_l1d(index u32, x f64)  {
+
+@[inline]
+pub fn vertex_attrib_l1d(index u32, x f64) {
 	C.glVertexAttribL1d(index, x)
 }
-[inline]
-pub fn vertex_attrib_l1dv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib_l1dv(index u32, v &f64) {
 	C.glVertexAttribL1dv(index, v)
 }
-[inline]
-pub fn vertex_attrib_l2d(index u32, x f64, y f64)  {
+
+@[inline]
+pub fn vertex_attrib_l2d(index u32, x f64, y f64) {
 	C.glVertexAttribL2d(index, x, y)
 }
-[inline]
-pub fn vertex_attrib_l2dv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib_l2dv(index u32, v &f64) {
 	C.glVertexAttribL2dv(index, v)
 }
-[inline]
-pub fn vertex_attrib_l3d(index u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn vertex_attrib_l3d(index u32, x f64, y f64, z f64) {
 	C.glVertexAttribL3d(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib_l3dv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib_l3dv(index u32, v &f64) {
 	C.glVertexAttribL3dv(index, v)
 }
-[inline]
-pub fn vertex_attrib_l4d(index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn vertex_attrib_l4d(index u32, x f64, y f64, z f64, w f64) {
 	C.glVertexAttribL4d(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib_l4dv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib_l4dv(index u32, v &f64) {
 	C.glVertexAttribL4dv(index, v)
 }
-[inline]
-pub fn vertex_attrib_lpointer(index u32, size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_attrib_lpointer(index u32, size int, gl_type u32, stride int, pointer voidptr) {
 	C.glVertexAttribLPointer(index, size, gl_type, stride, pointer)
 }
-[inline]
-pub fn bind_vertex_buffer(bindingindex u32, buffer u32, offset i64, stride int)  {
+
+@[inline]
+pub fn bind_vertex_buffer(bindingindex u32, buffer u32, offset i64, stride int) {
 	C.glBindVertexBuffer(bindingindex, buffer, offset, stride)
 }
-[inline]
-pub fn vertex_array_bind_vertex_buffer_ext(vaobj u32, bindingindex u32, buffer u32, offset i64, stride int)  {
+
+@[inline]
+pub fn vertex_array_bind_vertex_buffer_ext(vaobj u32, bindingindex u32, buffer u32, offset i64, stride int) {
 	C.glVertexArrayBindVertexBufferEXT(vaobj, bindingindex, buffer, offset, stride)
 }
-[inline]
-pub fn vertex_array_vertex_attrib_binding_ext(vaobj u32, attribindex u32, bindingindex u32)  {
+
+@[inline]
+pub fn vertex_array_vertex_attrib_binding_ext(vaobj u32, attribindex u32, bindingindex u32) {
 	C.glVertexArrayVertexAttribBindingEXT(vaobj, attribindex, bindingindex)
 }
-[inline]
-pub fn vertex_array_vertex_attrib_format_ext(vaobj u32, attribindex u32, size int, gl_type u32, normalized u8, relativeoffset u32)  {
-	C.glVertexArrayVertexAttribFormatEXT(vaobj, attribindex, size, gl_type, normalized, relativeoffset)
+
+@[inline]
+pub fn vertex_array_vertex_attrib_format_ext(vaobj u32, attribindex u32, size int, gl_type u32, normalized u8, relativeoffset u32) {
+	C.glVertexArrayVertexAttribFormatEXT(vaobj, attribindex, size, gl_type, normalized,
+		relativeoffset)
 }
-[inline]
-pub fn vertex_array_vertex_attrib_iformat_ext(vaobj u32, attribindex u32, size int, gl_type u32, relativeoffset u32)  {
+
+@[inline]
+pub fn vertex_array_vertex_attrib_iformat_ext(vaobj u32, attribindex u32, size int, gl_type u32, relativeoffset u32) {
 	C.glVertexArrayVertexAttribIFormatEXT(vaobj, attribindex, size, gl_type, relativeoffset)
 }
-[inline]
-pub fn vertex_array_vertex_attrib_lformat_ext(vaobj u32, attribindex u32, size int, gl_type u32, relativeoffset u32)  {
+
+@[inline]
+pub fn vertex_array_vertex_attrib_lformat_ext(vaobj u32, attribindex u32, size int, gl_type u32, relativeoffset u32) {
 	C.glVertexArrayVertexAttribLFormatEXT(vaobj, attribindex, size, gl_type, relativeoffset)
 }
-[inline]
-pub fn vertex_array_vertex_binding_divisor_ext(vaobj u32, bindingindex u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_array_vertex_binding_divisor_ext(vaobj u32, bindingindex u32, divisor u32) {
 	C.glVertexArrayVertexBindingDivisorEXT(vaobj, bindingindex, divisor)
 }
-[inline]
-pub fn vertex_attrib_binding(attribindex u32, bindingindex u32)  {
+
+@[inline]
+pub fn vertex_attrib_binding(attribindex u32, bindingindex u32) {
 	C.glVertexAttribBinding(attribindex, bindingindex)
 }
-[inline]
-pub fn vertex_attrib_format(attribindex u32, size int, gl_type u32, normalized u8, relativeoffset u32)  {
+
+@[inline]
+pub fn vertex_attrib_format(attribindex u32, size int, gl_type u32, normalized u8, relativeoffset u32) {
 	C.glVertexAttribFormat(attribindex, size, gl_type, normalized, relativeoffset)
 }
-[inline]
-pub fn vertex_attrib_iformat(attribindex u32, size int, gl_type u32, relativeoffset u32)  {
+
+@[inline]
+pub fn vertex_attrib_iformat(attribindex u32, size int, gl_type u32, relativeoffset u32) {
 	C.glVertexAttribIFormat(attribindex, size, gl_type, relativeoffset)
 }
-[inline]
-pub fn vertex_attrib_lformat(attribindex u32, size int, gl_type u32, relativeoffset u32)  {
+
+@[inline]
+pub fn vertex_attrib_lformat(attribindex u32, size int, gl_type u32, relativeoffset u32) {
 	C.glVertexAttribLFormat(attribindex, size, gl_type, relativeoffset)
 }
-[inline]
-pub fn vertex_binding_divisor(bindingindex u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_binding_divisor(bindingindex u32, divisor u32) {
 	C.glVertexBindingDivisor(bindingindex, divisor)
 }
-[inline]
-pub fn vertex_blend_arb(count int)  {
+
+@[inline]
+pub fn vertex_blend_arb(count int) {
 	C.glVertexBlendARB(count)
 }
-[inline]
-pub fn weight_pointer_arb(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn weight_pointer_arb(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glWeightPointerARB(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn weightbv_arb(size int, weights &i8)  {
+
+@[inline]
+pub fn weightbv_arb(size int, weights &i8) {
 	C.glWeightbvARB(size, weights)
 }
-[inline]
-pub fn weightdv_arb(size int, weights &f64)  {
+
+@[inline]
+pub fn weightdv_arb(size int, weights &f64) {
 	C.glWeightdvARB(size, weights)
 }
-[inline]
-pub fn weightfv_arb(size int, weights &f32)  {
+
+@[inline]
+pub fn weightfv_arb(size int, weights &f32) {
 	C.glWeightfvARB(size, weights)
 }
-[inline]
-pub fn weightiv_arb(size int, weights &int)  {
+
+@[inline]
+pub fn weightiv_arb(size int, weights &int) {
 	C.glWeightivARB(size, weights)
 }
-[inline]
-pub fn weightsv_arb(size int, weights &i16)  {
+
+@[inline]
+pub fn weightsv_arb(size int, weights &i16) {
 	C.glWeightsvARB(size, weights)
 }
-[inline]
-pub fn weightubv_arb(size int, weights &u8)  {
+
+@[inline]
+pub fn weightubv_arb(size int, weights &u8) {
 	C.glWeightubvARB(size, weights)
 }
-[inline]
-pub fn weightuiv_arb(size int, weights &u32)  {
+
+@[inline]
+pub fn weightuiv_arb(size int, weights &u32) {
 	C.glWeightuivARB(size, weights)
 }
-[inline]
-pub fn weightusv_arb(size int, weights &u16)  {
+
+@[inline]
+pub fn weightusv_arb(size int, weights &u16) {
 	C.glWeightusvARB(size, weights)
 }
-[inline]
-pub fn bind_buffer_arb(target u32, buffer u32)  {
+
+@[inline]
+pub fn bind_buffer_arb(target u32, buffer u32) {
 	C.glBindBufferARB(target, buffer)
 }
-[inline]
-pub fn buffer_data_arb(target u32, size i64, data voidptr, usage u32)  {
+
+@[inline]
+pub fn buffer_data_arb(target u32, size i64, data voidptr, usage u32) {
 	C.glBufferDataARB(target, size, data, usage)
 }
-[inline]
-pub fn buffer_sub_data_arb(target u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn buffer_sub_data_arb(target u32, offset i64, size i64, data voidptr) {
 	C.glBufferSubDataARB(target, offset, size, data)
 }
-[inline]
-pub fn delete_buffers_arb(n int, buffers &u32)  {
+
+@[inline]
+pub fn delete_buffers_arb(n int, buffers &u32) {
 	C.glDeleteBuffersARB(n, buffers)
 }
-[inline]
-pub fn gen_buffers_arb(n int, buffers &u32)  {
+
+@[inline]
+pub fn gen_buffers_arb(n int, buffers &u32) {
 	C.glGenBuffersARB(n, buffers)
 }
-[inline]
-pub fn get_buffer_parameteriv_arb(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_buffer_parameteriv_arb(target u32, pname u32, params &int) {
 	C.glGetBufferParameterivARB(target, pname, params)
 }
-[inline]
-pub fn get_buffer_pointerv_arb(target u32, pname u32, params &voidptr)  {
+
+@[inline]
+pub fn get_buffer_pointerv_arb(target u32, pname u32, params &voidptr) {
 	C.glGetBufferPointervARB(target, pname, params)
 }
-[inline]
-pub fn get_buffer_sub_data_arb(target u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn get_buffer_sub_data_arb(target u32, offset i64, size i64, data voidptr) {
 	C.glGetBufferSubDataARB(target, offset, size, data)
 }
-[inline]
+
+@[inline]
 pub fn is_buffer_arb(buffer u32) u8 {
 	return C.glIsBufferARB(buffer)
 }
-[inline]
+
+@[inline]
 pub fn map_buffer_arb(target u32, access u32) voidptr {
 	return C.glMapBufferARB(target, access)
 }
-[inline]
+
+@[inline]
 pub fn unmap_buffer_arb(target u32) u8 {
 	return C.glUnmapBufferARB(target)
 }
-[inline]
-pub fn bind_program_arb(target u32, program u32)  {
+
+@[inline]
+pub fn bind_program_arb(target u32, program u32) {
 	C.glBindProgramARB(target, program)
 }
-[inline]
-pub fn delete_programs_arb(n int, programs &u32)  {
+
+@[inline]
+pub fn delete_programs_arb(n int, programs &u32) {
 	C.glDeleteProgramsARB(n, programs)
 }
-[inline]
-pub fn disable_vertex_attrib_array_arb(index u32)  {
+
+@[inline]
+pub fn disable_vertex_attrib_array_arb(index u32) {
 	C.glDisableVertexAttribArrayARB(index)
 }
-[inline]
-pub fn enable_vertex_attrib_array_arb(index u32)  {
+
+@[inline]
+pub fn enable_vertex_attrib_array_arb(index u32) {
 	C.glEnableVertexAttribArrayARB(index)
 }
-[inline]
-pub fn gen_programs_arb(n int, programs &u32)  {
+
+@[inline]
+pub fn gen_programs_arb(n int, programs &u32) {
 	C.glGenProgramsARB(n, programs)
 }
-[inline]
-pub fn get_program_env_parameterdv_arb(target u32, index u32, params &f64)  {
+
+@[inline]
+pub fn get_program_env_parameterdv_arb(target u32, index u32, params &f64) {
 	C.glGetProgramEnvParameterdvARB(target, index, params)
 }
-[inline]
-pub fn get_program_env_parameterfv_arb(target u32, index u32, params &f32)  {
+
+@[inline]
+pub fn get_program_env_parameterfv_arb(target u32, index u32, params &f32) {
 	C.glGetProgramEnvParameterfvARB(target, index, params)
 }
-[inline]
-pub fn get_program_local_parameterdv_arb(target u32, index u32, params &f64)  {
+
+@[inline]
+pub fn get_program_local_parameterdv_arb(target u32, index u32, params &f64) {
 	C.glGetProgramLocalParameterdvARB(target, index, params)
 }
-[inline]
-pub fn get_program_local_parameterfv_arb(target u32, index u32, params &f32)  {
+
+@[inline]
+pub fn get_program_local_parameterfv_arb(target u32, index u32, params &f32) {
 	C.glGetProgramLocalParameterfvARB(target, index, params)
 }
-[inline]
-pub fn get_program_string_arb(target u32, pname u32, gl_string voidptr)  {
+
+@[inline]
+pub fn get_program_string_arb(target u32, pname u32, gl_string voidptr) {
 	C.glGetProgramStringARB(target, pname, gl_string)
 }
-[inline]
-pub fn get_programiv_arb(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_programiv_arb(target u32, pname u32, params &int) {
 	C.glGetProgramivARB(target, pname, params)
 }
-[inline]
-pub fn get_vertex_attrib_pointerv_arb(index u32, pname u32, pointer &voidptr)  {
+
+@[inline]
+pub fn get_vertex_attrib_pointerv_arb(index u32, pname u32, pointer &voidptr) {
 	C.glGetVertexAttribPointervARB(index, pname, pointer)
 }
-[inline]
-pub fn get_vertex_attribdv_arb(index u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_vertex_attribdv_arb(index u32, pname u32, params &f64) {
 	C.glGetVertexAttribdvARB(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attribfv_arb(index u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_vertex_attribfv_arb(index u32, pname u32, params &f32) {
 	C.glGetVertexAttribfvARB(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attribiv_arb(index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_vertex_attribiv_arb(index u32, pname u32, params &int) {
 	C.glGetVertexAttribivARB(index, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_program_arb(program u32) u8 {
 	return C.glIsProgramARB(program)
 }
-[inline]
-pub fn program_env_parameter4d_arb(target u32, index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn program_env_parameter4d_arb(target u32, index u32, x f64, y f64, z f64, w f64) {
 	C.glProgramEnvParameter4dARB(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_env_parameter4dv_arb(target u32, index u32, params &f64)  {
+
+@[inline]
+pub fn program_env_parameter4dv_arb(target u32, index u32, params &f64) {
 	C.glProgramEnvParameter4dvARB(target, index, params)
 }
-[inline]
-pub fn program_env_parameter4f_arb(target u32, index u32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn program_env_parameter4f_arb(target u32, index u32, x f32, y f32, z f32, w f32) {
 	C.glProgramEnvParameter4fARB(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_env_parameter4fv_arb(target u32, index u32, params &f32)  {
+
+@[inline]
+pub fn program_env_parameter4fv_arb(target u32, index u32, params &f32) {
 	C.glProgramEnvParameter4fvARB(target, index, params)
 }
-[inline]
-pub fn program_local_parameter4d_arb(target u32, index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn program_local_parameter4d_arb(target u32, index u32, x f64, y f64, z f64, w f64) {
 	C.glProgramLocalParameter4dARB(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_local_parameter4dv_arb(target u32, index u32, params &f64)  {
+
+@[inline]
+pub fn program_local_parameter4dv_arb(target u32, index u32, params &f64) {
 	C.glProgramLocalParameter4dvARB(target, index, params)
 }
-[inline]
-pub fn program_local_parameter4f_arb(target u32, index u32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn program_local_parameter4f_arb(target u32, index u32, x f32, y f32, z f32, w f32) {
 	C.glProgramLocalParameter4fARB(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_local_parameter4fv_arb(target u32, index u32, params &f32)  {
+
+@[inline]
+pub fn program_local_parameter4fv_arb(target u32, index u32, params &f32) {
 	C.glProgramLocalParameter4fvARB(target, index, params)
 }
-[inline]
-pub fn program_string_arb(target u32, format u32, len int, gl_string voidptr)  {
+
+@[inline]
+pub fn program_string_arb(target u32, format u32, len int, gl_string voidptr) {
 	C.glProgramStringARB(target, format, len, gl_string)
 }
-[inline]
-pub fn vertex_attrib1d_arb(index u32, x f64)  {
+
+@[inline]
+pub fn vertex_attrib1d_arb(index u32, x f64) {
 	C.glVertexAttrib1dARB(index, x)
 }
-[inline]
-pub fn vertex_attrib1dv_arb(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib1dv_arb(index u32, v &f64) {
 	C.glVertexAttrib1dvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib1f_arb(index u32, x f32)  {
+
+@[inline]
+pub fn vertex_attrib1f_arb(index u32, x f32) {
 	C.glVertexAttrib1fARB(index, x)
 }
-[inline]
-pub fn vertex_attrib1fv_arb(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib1fv_arb(index u32, v &f32) {
 	C.glVertexAttrib1fvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib1s_arb(index u32, x i16)  {
+
+@[inline]
+pub fn vertex_attrib1s_arb(index u32, x i16) {
 	C.glVertexAttrib1sARB(index, x)
 }
-[inline]
-pub fn vertex_attrib1sv_arb(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib1sv_arb(index u32, v &i16) {
 	C.glVertexAttrib1svARB(index, v)
 }
-[inline]
-pub fn vertex_attrib2d_arb(index u32, x f64, y f64)  {
+
+@[inline]
+pub fn vertex_attrib2d_arb(index u32, x f64, y f64) {
 	C.glVertexAttrib2dARB(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2dv_arb(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib2dv_arb(index u32, v &f64) {
 	C.glVertexAttrib2dvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib2f_arb(index u32, x f32, y f32)  {
+
+@[inline]
+pub fn vertex_attrib2f_arb(index u32, x f32, y f32) {
 	C.glVertexAttrib2fARB(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2fv_arb(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib2fv_arb(index u32, v &f32) {
 	C.glVertexAttrib2fvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib2s_arb(index u32, x i16, y i16)  {
+
+@[inline]
+pub fn vertex_attrib2s_arb(index u32, x i16, y i16) {
 	C.glVertexAttrib2sARB(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2sv_arb(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib2sv_arb(index u32, v &i16) {
 	C.glVertexAttrib2svARB(index, v)
 }
-[inline]
-pub fn vertex_attrib3d_arb(index u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn vertex_attrib3d_arb(index u32, x f64, y f64, z f64) {
 	C.glVertexAttrib3dARB(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3dv_arb(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib3dv_arb(index u32, v &f64) {
 	C.glVertexAttrib3dvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib3f_arb(index u32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn vertex_attrib3f_arb(index u32, x f32, y f32, z f32) {
 	C.glVertexAttrib3fARB(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3fv_arb(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib3fv_arb(index u32, v &f32) {
 	C.glVertexAttrib3fvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib3s_arb(index u32, x i16, y i16, z i16)  {
+
+@[inline]
+pub fn vertex_attrib3s_arb(index u32, x i16, y i16, z i16) {
 	C.glVertexAttrib3sARB(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3sv_arb(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib3sv_arb(index u32, v &i16) {
 	C.glVertexAttrib3svARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4nbv_arb(index u32, v &i8)  {
+
+@[inline]
+pub fn vertex_attrib4nbv_arb(index u32, v &i8) {
 	C.glVertexAttrib4NbvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4niv_arb(index u32, v &int)  {
+
+@[inline]
+pub fn vertex_attrib4niv_arb(index u32, v &int) {
 	C.glVertexAttrib4NivARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4nsv_arb(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib4nsv_arb(index u32, v &i16) {
 	C.glVertexAttrib4NsvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4nub_arb(index u32, x u8, y u8, z u8, w u8)  {
+
+@[inline]
+pub fn vertex_attrib4nub_arb(index u32, x u8, y u8, z u8, w u8) {
 	C.glVertexAttrib4NubARB(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4nubv_arb(index u32, v &u8)  {
+
+@[inline]
+pub fn vertex_attrib4nubv_arb(index u32, v &u8) {
 	C.glVertexAttrib4NubvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4nuiv_arb(index u32, v &u32)  {
+
+@[inline]
+pub fn vertex_attrib4nuiv_arb(index u32, v &u32) {
 	C.glVertexAttrib4NuivARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4nusv_arb(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib4nusv_arb(index u32, v &u16) {
 	C.glVertexAttrib4NusvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4bv_arb(index u32, v &i8)  {
+
+@[inline]
+pub fn vertex_attrib4bv_arb(index u32, v &i8) {
 	C.glVertexAttrib4bvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4d_arb(index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn vertex_attrib4d_arb(index u32, x f64, y f64, z f64, w f64) {
 	C.glVertexAttrib4dARB(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4dv_arb(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib4dv_arb(index u32, v &f64) {
 	C.glVertexAttrib4dvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4f_arb(index u32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn vertex_attrib4f_arb(index u32, x f32, y f32, z f32, w f32) {
 	C.glVertexAttrib4fARB(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4fv_arb(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib4fv_arb(index u32, v &f32) {
 	C.glVertexAttrib4fvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4iv_arb(index u32, v &int)  {
+
+@[inline]
+pub fn vertex_attrib4iv_arb(index u32, v &int) {
 	C.glVertexAttrib4ivARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4s_arb(index u32, x i16, y i16, z i16, w i16)  {
+
+@[inline]
+pub fn vertex_attrib4s_arb(index u32, x i16, y i16, z i16, w i16) {
 	C.glVertexAttrib4sARB(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4sv_arb(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib4sv_arb(index u32, v &i16) {
 	C.glVertexAttrib4svARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4ubv_arb(index u32, v &u8)  {
+
+@[inline]
+pub fn vertex_attrib4ubv_arb(index u32, v &u8) {
 	C.glVertexAttrib4ubvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4uiv_arb(index u32, v &u32)  {
+
+@[inline]
+pub fn vertex_attrib4uiv_arb(index u32, v &u32) {
 	C.glVertexAttrib4uivARB(index, v)
 }
-[inline]
-pub fn vertex_attrib4usv_arb(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib4usv_arb(index u32, v &u16) {
 	C.glVertexAttrib4usvARB(index, v)
 }
-[inline]
-pub fn vertex_attrib_pointer_arb(index u32, size int, gl_type u32, normalized u8, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_attrib_pointer_arb(index u32, size int, gl_type u32, normalized u8, stride int, pointer voidptr) {
 	C.glVertexAttribPointerARB(index, size, gl_type, normalized, stride, pointer)
 }
-[inline]
-pub fn bind_attrib_location_arb(program_obj u32, index u32, name &char)  {
+
+@[inline]
+pub fn bind_attrib_location_arb(program_obj u32, index u32, name &char) {
 	C.glBindAttribLocationARB(program_obj, index, name)
 }
-[inline]
-pub fn get_active_attrib_arb(program_obj u32, index u32, max_length int, length &int, size &int, gl_type &u32, name &char)  {
+
+@[inline]
+pub fn get_active_attrib_arb(program_obj u32, index u32, max_length int, length &int, size &int, gl_type &u32, name &char) {
 	C.glGetActiveAttribARB(program_obj, index, max_length, length, size, gl_type, name)
 }
-[inline]
+
+@[inline]
 pub fn get_attrib_location_arb(program_obj u32, name &char) int {
 	return C.glGetAttribLocationARB(program_obj, name)
 }
-[inline]
-pub fn color_p3ui(gl_type u32, color u32)  {
+
+@[inline]
+pub fn color_p3ui(gl_type u32, color u32) {
 	C.glColorP3ui(gl_type, color)
 }
-[inline]
-pub fn color_p3uiv(gl_type u32, color &u32)  {
+
+@[inline]
+pub fn color_p3uiv(gl_type u32, color &u32) {
 	C.glColorP3uiv(gl_type, color)
 }
-[inline]
-pub fn color_p4ui(gl_type u32, color u32)  {
+
+@[inline]
+pub fn color_p4ui(gl_type u32, color u32) {
 	C.glColorP4ui(gl_type, color)
 }
-[inline]
-pub fn color_p4uiv(gl_type u32, color &u32)  {
+
+@[inline]
+pub fn color_p4uiv(gl_type u32, color &u32) {
 	C.glColorP4uiv(gl_type, color)
 }
-[inline]
-pub fn multi_tex_coord_p1ui(texture u32, gl_type u32, coords u32)  {
+
+@[inline]
+pub fn multi_tex_coord_p1ui(texture u32, gl_type u32, coords u32) {
 	C.glMultiTexCoordP1ui(texture, gl_type, coords)
 }
-[inline]
-pub fn multi_tex_coord_p1uiv(texture u32, gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn multi_tex_coord_p1uiv(texture u32, gl_type u32, coords &u32) {
 	C.glMultiTexCoordP1uiv(texture, gl_type, coords)
 }
-[inline]
-pub fn multi_tex_coord_p2ui(texture u32, gl_type u32, coords u32)  {
+
+@[inline]
+pub fn multi_tex_coord_p2ui(texture u32, gl_type u32, coords u32) {
 	C.glMultiTexCoordP2ui(texture, gl_type, coords)
 }
-[inline]
-pub fn multi_tex_coord_p2uiv(texture u32, gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn multi_tex_coord_p2uiv(texture u32, gl_type u32, coords &u32) {
 	C.glMultiTexCoordP2uiv(texture, gl_type, coords)
 }
-[inline]
-pub fn multi_tex_coord_p3ui(texture u32, gl_type u32, coords u32)  {
+
+@[inline]
+pub fn multi_tex_coord_p3ui(texture u32, gl_type u32, coords u32) {
 	C.glMultiTexCoordP3ui(texture, gl_type, coords)
 }
-[inline]
-pub fn multi_tex_coord_p3uiv(texture u32, gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn multi_tex_coord_p3uiv(texture u32, gl_type u32, coords &u32) {
 	C.glMultiTexCoordP3uiv(texture, gl_type, coords)
 }
-[inline]
-pub fn multi_tex_coord_p4ui(texture u32, gl_type u32, coords u32)  {
+
+@[inline]
+pub fn multi_tex_coord_p4ui(texture u32, gl_type u32, coords u32) {
 	C.glMultiTexCoordP4ui(texture, gl_type, coords)
 }
-[inline]
-pub fn multi_tex_coord_p4uiv(texture u32, gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn multi_tex_coord_p4uiv(texture u32, gl_type u32, coords &u32) {
 	C.glMultiTexCoordP4uiv(texture, gl_type, coords)
 }
-[inline]
-pub fn normal_p3ui(gl_type u32, coords u32)  {
+
+@[inline]
+pub fn normal_p3ui(gl_type u32, coords u32) {
 	C.glNormalP3ui(gl_type, coords)
 }
-[inline]
-pub fn normal_p3uiv(gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn normal_p3uiv(gl_type u32, coords &u32) {
 	C.glNormalP3uiv(gl_type, coords)
 }
-[inline]
-pub fn secondary_color_p3ui(gl_type u32, color u32)  {
+
+@[inline]
+pub fn secondary_color_p3ui(gl_type u32, color u32) {
 	C.glSecondaryColorP3ui(gl_type, color)
 }
-[inline]
-pub fn secondary_color_p3uiv(gl_type u32, color &u32)  {
+
+@[inline]
+pub fn secondary_color_p3uiv(gl_type u32, color &u32) {
 	C.glSecondaryColorP3uiv(gl_type, color)
 }
-[inline]
-pub fn tex_coord_p1ui(gl_type u32, coords u32)  {
+
+@[inline]
+pub fn tex_coord_p1ui(gl_type u32, coords u32) {
 	C.glTexCoordP1ui(gl_type, coords)
 }
-[inline]
-pub fn tex_coord_p1uiv(gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn tex_coord_p1uiv(gl_type u32, coords &u32) {
 	C.glTexCoordP1uiv(gl_type, coords)
 }
-[inline]
-pub fn tex_coord_p2ui(gl_type u32, coords u32)  {
+
+@[inline]
+pub fn tex_coord_p2ui(gl_type u32, coords u32) {
 	C.glTexCoordP2ui(gl_type, coords)
 }
-[inline]
-pub fn tex_coord_p2uiv(gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn tex_coord_p2uiv(gl_type u32, coords &u32) {
 	C.glTexCoordP2uiv(gl_type, coords)
 }
-[inline]
-pub fn tex_coord_p3ui(gl_type u32, coords u32)  {
+
+@[inline]
+pub fn tex_coord_p3ui(gl_type u32, coords u32) {
 	C.glTexCoordP3ui(gl_type, coords)
 }
-[inline]
-pub fn tex_coord_p3uiv(gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn tex_coord_p3uiv(gl_type u32, coords &u32) {
 	C.glTexCoordP3uiv(gl_type, coords)
 }
-[inline]
-pub fn tex_coord_p4ui(gl_type u32, coords u32)  {
+
+@[inline]
+pub fn tex_coord_p4ui(gl_type u32, coords u32) {
 	C.glTexCoordP4ui(gl_type, coords)
 }
-[inline]
-pub fn tex_coord_p4uiv(gl_type u32, coords &u32)  {
+
+@[inline]
+pub fn tex_coord_p4uiv(gl_type u32, coords &u32) {
 	C.glTexCoordP4uiv(gl_type, coords)
 }
-[inline]
-pub fn vertex_attrib_p1ui(index u32, gl_type u32, normalized u8, value u32)  {
+
+@[inline]
+pub fn vertex_attrib_p1ui(index u32, gl_type u32, normalized u8, value u32) {
 	C.glVertexAttribP1ui(index, gl_type, normalized, value)
 }
-[inline]
-pub fn vertex_attrib_p1uiv(index u32, gl_type u32, normalized u8, value &u32)  {
+
+@[inline]
+pub fn vertex_attrib_p1uiv(index u32, gl_type u32, normalized u8, value &u32) {
 	C.glVertexAttribP1uiv(index, gl_type, normalized, value)
 }
-[inline]
-pub fn vertex_attrib_p2ui(index u32, gl_type u32, normalized u8, value u32)  {
+
+@[inline]
+pub fn vertex_attrib_p2ui(index u32, gl_type u32, normalized u8, value u32) {
 	C.glVertexAttribP2ui(index, gl_type, normalized, value)
 }
-[inline]
-pub fn vertex_attrib_p2uiv(index u32, gl_type u32, normalized u8, value &u32)  {
+
+@[inline]
+pub fn vertex_attrib_p2uiv(index u32, gl_type u32, normalized u8, value &u32) {
 	C.glVertexAttribP2uiv(index, gl_type, normalized, value)
 }
-[inline]
-pub fn vertex_attrib_p3ui(index u32, gl_type u32, normalized u8, value u32)  {
+
+@[inline]
+pub fn vertex_attrib_p3ui(index u32, gl_type u32, normalized u8, value u32) {
 	C.glVertexAttribP3ui(index, gl_type, normalized, value)
 }
-[inline]
-pub fn vertex_attrib_p3uiv(index u32, gl_type u32, normalized u8, value &u32)  {
+
+@[inline]
+pub fn vertex_attrib_p3uiv(index u32, gl_type u32, normalized u8, value &u32) {
 	C.glVertexAttribP3uiv(index, gl_type, normalized, value)
 }
-[inline]
-pub fn vertex_attrib_p4ui(index u32, gl_type u32, normalized u8, value u32)  {
+
+@[inline]
+pub fn vertex_attrib_p4ui(index u32, gl_type u32, normalized u8, value u32) {
 	C.glVertexAttribP4ui(index, gl_type, normalized, value)
 }
-[inline]
-pub fn vertex_attrib_p4uiv(index u32, gl_type u32, normalized u8, value &u32)  {
+
+@[inline]
+pub fn vertex_attrib_p4uiv(index u32, gl_type u32, normalized u8, value &u32) {
 	C.glVertexAttribP4uiv(index, gl_type, normalized, value)
 }
-[inline]
-pub fn vertex_p2ui(gl_type u32, value u32)  {
+
+@[inline]
+pub fn vertex_p2ui(gl_type u32, value u32) {
 	C.glVertexP2ui(gl_type, value)
 }
-[inline]
-pub fn vertex_p2uiv(gl_type u32, value &u32)  {
+
+@[inline]
+pub fn vertex_p2uiv(gl_type u32, value &u32) {
 	C.glVertexP2uiv(gl_type, value)
 }
-[inline]
-pub fn vertex_p3ui(gl_type u32, value u32)  {
+
+@[inline]
+pub fn vertex_p3ui(gl_type u32, value u32) {
 	C.glVertexP3ui(gl_type, value)
 }
-[inline]
-pub fn vertex_p3uiv(gl_type u32, value &u32)  {
+
+@[inline]
+pub fn vertex_p3uiv(gl_type u32, value &u32) {
 	C.glVertexP3uiv(gl_type, value)
 }
-[inline]
-pub fn vertex_p4ui(gl_type u32, value u32)  {
+
+@[inline]
+pub fn vertex_p4ui(gl_type u32, value u32) {
 	C.glVertexP4ui(gl_type, value)
 }
-[inline]
-pub fn vertex_p4uiv(gl_type u32, value &u32)  {
+
+@[inline]
+pub fn vertex_p4uiv(gl_type u32, value &u32) {
 	C.glVertexP4uiv(gl_type, value)
 }
-[inline]
-pub fn depth_range_arrayv(first u32, count int, v &f64)  {
+
+@[inline]
+pub fn depth_range_arrayv(first u32, count int, v &f64) {
 	C.glDepthRangeArrayv(first, count, v)
 }
-[inline]
-pub fn depth_range_indexed(index u32, n f64, f f64)  {
+
+@[inline]
+pub fn depth_range_indexed(index u32, n f64, f f64) {
 	C.glDepthRangeIndexed(index, n, f)
 }
-[inline]
-pub fn get_doublei_v(target u32, index u32, data &f64)  {
+
+@[inline]
+pub fn get_doublei_v(target u32, index u32, data &f64) {
 	C.glGetDoublei_v(target, index, data)
 }
-[inline]
-pub fn get_floati_v(target u32, index u32, data &f32)  {
+
+@[inline]
+pub fn get_floati_v(target u32, index u32, data &f32) {
 	C.glGetFloati_v(target, index, data)
 }
-[inline]
-pub fn scissor_arrayv(first u32, count int, v &int)  {
+
+@[inline]
+pub fn scissor_arrayv(first u32, count int, v &int) {
 	C.glScissorArrayv(first, count, v)
 }
-[inline]
-pub fn scissor_indexed(index u32, left int, bottom int, width int, height int)  {
+
+@[inline]
+pub fn scissor_indexed(index u32, left int, bottom int, width int, height int) {
 	C.glScissorIndexed(index, left, bottom, width, height)
 }
-[inline]
-pub fn scissor_indexedv(index u32, v &int)  {
+
+@[inline]
+pub fn scissor_indexedv(index u32, v &int) {
 	C.glScissorIndexedv(index, v)
 }
-[inline]
-pub fn viewport_arrayv(first u32, count int, v &f32)  {
+
+@[inline]
+pub fn viewport_arrayv(first u32, count int, v &f32) {
 	C.glViewportArrayv(first, count, v)
 }
-[inline]
-pub fn viewport_indexedf(index u32, x f32, y f32, w f32, h f32)  {
+
+@[inline]
+pub fn viewport_indexedf(index u32, x f32, y f32, w f32, h f32) {
 	C.glViewportIndexedf(index, x, y, w, h)
 }
-[inline]
-pub fn viewport_indexedfv(index u32, v &f32)  {
+
+@[inline]
+pub fn viewport_indexedfv(index u32, v &f32) {
 	C.glViewportIndexedfv(index, v)
 }
-[inline]
-pub fn window_pos2d_arb(x f64, y f64)  {
+
+@[inline]
+pub fn window_pos2d_arb(x f64, y f64) {
 	C.glWindowPos2dARB(x, y)
 }
-[inline]
-pub fn window_pos2dv_arb(p &f64)  {
+
+@[inline]
+pub fn window_pos2dv_arb(p &f64) {
 	C.glWindowPos2dvARB(p)
 }
-[inline]
-pub fn window_pos2f_arb(x f32, y f32)  {
+
+@[inline]
+pub fn window_pos2f_arb(x f32, y f32) {
 	C.glWindowPos2fARB(x, y)
 }
-[inline]
-pub fn window_pos2fv_arb(p &f32)  {
+
+@[inline]
+pub fn window_pos2fv_arb(p &f32) {
 	C.glWindowPos2fvARB(p)
 }
-[inline]
-pub fn window_pos2i_arb(x int, y int)  {
+
+@[inline]
+pub fn window_pos2i_arb(x int, y int) {
 	C.glWindowPos2iARB(x, y)
 }
-[inline]
-pub fn window_pos2iv_arb(p &int)  {
+
+@[inline]
+pub fn window_pos2iv_arb(p &int) {
 	C.glWindowPos2ivARB(p)
 }
-[inline]
-pub fn window_pos2s_arb(x i16, y i16)  {
+
+@[inline]
+pub fn window_pos2s_arb(x i16, y i16) {
 	C.glWindowPos2sARB(x, y)
 }
-[inline]
-pub fn window_pos2sv_arb(p &i16)  {
+
+@[inline]
+pub fn window_pos2sv_arb(p &i16) {
 	C.glWindowPos2svARB(p)
 }
-[inline]
-pub fn window_pos3d_arb(x f64, y f64, z f64)  {
+
+@[inline]
+pub fn window_pos3d_arb(x f64, y f64, z f64) {
 	C.glWindowPos3dARB(x, y, z)
 }
-[inline]
-pub fn window_pos3dv_arb(p &f64)  {
+
+@[inline]
+pub fn window_pos3dv_arb(p &f64) {
 	C.glWindowPos3dvARB(p)
 }
-[inline]
-pub fn window_pos3f_arb(x f32, y f32, z f32)  {
+
+@[inline]
+pub fn window_pos3f_arb(x f32, y f32, z f32) {
 	C.glWindowPos3fARB(x, y, z)
 }
-[inline]
-pub fn window_pos3fv_arb(p &f32)  {
+
+@[inline]
+pub fn window_pos3fv_arb(p &f32) {
 	C.glWindowPos3fvARB(p)
 }
-[inline]
-pub fn window_pos3i_arb(x int, y int, z int)  {
+
+@[inline]
+pub fn window_pos3i_arb(x int, y int, z int) {
 	C.glWindowPos3iARB(x, y, z)
 }
-[inline]
-pub fn window_pos3iv_arb(p &int)  {
+
+@[inline]
+pub fn window_pos3iv_arb(p &int) {
 	C.glWindowPos3ivARB(p)
 }
-[inline]
-pub fn window_pos3s_arb(x i16, y i16, z i16)  {
+
+@[inline]
+pub fn window_pos3s_arb(x i16, y i16, z i16) {
 	C.glWindowPos3sARB(x, y, z)
 }
-[inline]
-pub fn window_pos3sv_arb(p &i16)  {
+
+@[inline]
+pub fn window_pos3sv_arb(p &i16) {
 	C.glWindowPos3svARB(p)
 }
-[inline]
-pub fn draw_buffers_ati(n int, bufs &u32)  {
+
+@[inline]
+pub fn draw_buffers_ati(n int, bufs &u32) {
 	C.glDrawBuffersATI(n, bufs)
 }
-[inline]
-pub fn draw_element_array_ati(mode u32, count int)  {
+
+@[inline]
+pub fn draw_element_array_ati(mode u32, count int) {
 	C.glDrawElementArrayATI(mode, count)
 }
-[inline]
-pub fn draw_range_element_array_ati(mode u32, start u32, end u32, count int)  {
+
+@[inline]
+pub fn draw_range_element_array_ati(mode u32, start u32, end u32, count int) {
 	C.glDrawRangeElementArrayATI(mode, start, end, count)
 }
-[inline]
-pub fn element_pointer_ati(gl_type u32, pointer voidptr)  {
+
+@[inline]
+pub fn element_pointer_ati(gl_type u32, pointer voidptr) {
 	C.glElementPointerATI(gl_type, pointer)
 }
-[inline]
-pub fn get_tex_bump_parameterfv_ati(pname u32, param &f32)  {
+
+@[inline]
+pub fn get_tex_bump_parameterfv_ati(pname u32, param &f32) {
 	C.glGetTexBumpParameterfvATI(pname, param)
 }
-[inline]
-pub fn get_tex_bump_parameteriv_ati(pname u32, param &int)  {
+
+@[inline]
+pub fn get_tex_bump_parameteriv_ati(pname u32, param &int) {
 	C.glGetTexBumpParameterivATI(pname, param)
 }
-[inline]
-pub fn tex_bump_parameterfv_ati(pname u32, param &f32)  {
+
+@[inline]
+pub fn tex_bump_parameterfv_ati(pname u32, param &f32) {
 	C.glTexBumpParameterfvATI(pname, param)
 }
-[inline]
-pub fn tex_bump_parameteriv_ati(pname u32, param &int)  {
+
+@[inline]
+pub fn tex_bump_parameteriv_ati(pname u32, param &int) {
 	C.glTexBumpParameterivATI(pname, param)
 }
-[inline]
-pub fn alpha_fragment_op1ati(op u32, dst u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32)  {
+
+@[inline]
+pub fn alpha_fragment_op1ati(op u32, dst u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32) {
 	C.glAlphaFragmentOp1ATI(op, dst, dst_mod, arg1, arg1rep, arg1mod)
 }
-[inline]
-pub fn alpha_fragment_op2ati(op u32, dst u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32, arg2 u32, arg2rep u32, arg2mod u32)  {
+
+@[inline]
+pub fn alpha_fragment_op2ati(op u32, dst u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32, arg2 u32, arg2rep u32, arg2mod u32) {
 	C.glAlphaFragmentOp2ATI(op, dst, dst_mod, arg1, arg1rep, arg1mod, arg2, arg2rep, arg2mod)
 }
-[inline]
-pub fn alpha_fragment_op3ati(op u32, dst u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32, arg2 u32, arg2rep u32, arg2mod u32, arg3 u32, arg3rep u32, arg3mod u32)  {
-	C.glAlphaFragmentOp3ATI(op, dst, dst_mod, arg1, arg1rep, arg1mod, arg2, arg2rep, arg2mod, arg3, arg3rep, arg3mod)
+
+@[inline]
+pub fn alpha_fragment_op3ati(op u32, dst u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32, arg2 u32, arg2rep u32, arg2mod u32, arg3 u32, arg3rep u32, arg3mod u32) {
+	C.glAlphaFragmentOp3ATI(op, dst, dst_mod, arg1, arg1rep, arg1mod, arg2, arg2rep, arg2mod,
+		arg3, arg3rep, arg3mod)
 }
-[inline]
-pub fn begin_fragment_shader_ati()  {
+
+@[inline]
+pub fn begin_fragment_shader_ati() {
 	C.glBeginFragmentShaderATI()
 }
-[inline]
-pub fn bind_fragment_shader_ati(id u32)  {
+
+@[inline]
+pub fn bind_fragment_shader_ati(id u32) {
 	C.glBindFragmentShaderATI(id)
 }
-[inline]
-pub fn color_fragment_op1ati(op u32, dst u32, dst_mask u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32)  {
+
+@[inline]
+pub fn color_fragment_op1ati(op u32, dst u32, dst_mask u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32) {
 	C.glColorFragmentOp1ATI(op, dst, dst_mask, dst_mod, arg1, arg1rep, arg1mod)
 }
-[inline]
-pub fn color_fragment_op2ati(op u32, dst u32, dst_mask u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32, arg2 u32, arg2rep u32, arg2mod u32)  {
-	C.glColorFragmentOp2ATI(op, dst, dst_mask, dst_mod, arg1, arg1rep, arg1mod, arg2, arg2rep, arg2mod)
+
+@[inline]
+pub fn color_fragment_op2ati(op u32, dst u32, dst_mask u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32, arg2 u32, arg2rep u32, arg2mod u32) {
+	C.glColorFragmentOp2ATI(op, dst, dst_mask, dst_mod, arg1, arg1rep, arg1mod, arg2,
+		arg2rep, arg2mod)
 }
-[inline]
-pub fn color_fragment_op3ati(op u32, dst u32, dst_mask u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32, arg2 u32, arg2rep u32, arg2mod u32, arg3 u32, arg3rep u32, arg3mod u32)  {
-	C.glColorFragmentOp3ATI(op, dst, dst_mask, dst_mod, arg1, arg1rep, arg1mod, arg2, arg2rep, arg2mod, arg3, arg3rep, arg3mod)
+
+@[inline]
+pub fn color_fragment_op3ati(op u32, dst u32, dst_mask u32, dst_mod u32, arg1 u32, arg1rep u32, arg1mod u32, arg2 u32, arg2rep u32, arg2mod u32, arg3 u32, arg3rep u32, arg3mod u32) {
+	C.glColorFragmentOp3ATI(op, dst, dst_mask, dst_mod, arg1, arg1rep, arg1mod, arg2,
+		arg2rep, arg2mod, arg3, arg3rep, arg3mod)
 }
-[inline]
-pub fn delete_fragment_shader_ati(id u32)  {
+
+@[inline]
+pub fn delete_fragment_shader_ati(id u32) {
 	C.glDeleteFragmentShaderATI(id)
 }
-[inline]
-pub fn end_fragment_shader_ati()  {
+
+@[inline]
+pub fn end_fragment_shader_ati() {
 	C.glEndFragmentShaderATI()
 }
-[inline]
+
+@[inline]
 pub fn gen_fragment_shaders_ati(range u32) u32 {
 	return C.glGenFragmentShadersATI(range)
 }
-[inline]
-pub fn pass_tex_coord_ati(dst u32, coord u32, swizzle u32)  {
+
+@[inline]
+pub fn pass_tex_coord_ati(dst u32, coord u32, swizzle u32) {
 	C.glPassTexCoordATI(dst, coord, swizzle)
 }
-[inline]
-pub fn sample_map_ati(dst u32, interp u32, swizzle u32)  {
+
+@[inline]
+pub fn sample_map_ati(dst u32, interp u32, swizzle u32) {
 	C.glSampleMapATI(dst, interp, swizzle)
 }
-[inline]
-pub fn set_fragment_shader_constant_ati(dst u32, value &f32)  {
+
+@[inline]
+pub fn set_fragment_shader_constant_ati(dst u32, value &f32) {
 	C.glSetFragmentShaderConstantATI(dst, value)
 }
-[inline]
+
+@[inline]
 pub fn map_object_buffer_ati(buffer u32) voidptr {
 	return C.glMapObjectBufferATI(buffer)
 }
-[inline]
-pub fn unmap_object_buffer_ati(buffer u32)  {
+
+@[inline]
+pub fn unmap_object_buffer_ati(buffer u32) {
 	C.glUnmapObjectBufferATI(buffer)
 }
-[inline]
-pub fn pntrianglesf_ati(pname u32, param f32)  {
+
+@[inline]
+pub fn pntrianglesf_ati(pname u32, param f32) {
 	C.glPNTrianglesfATI(pname, param)
 }
-[inline]
-pub fn pntrianglesi_ati(pname u32, param int)  {
+
+@[inline]
+pub fn pntrianglesi_ati(pname u32, param int) {
 	C.glPNTrianglesiATI(pname, param)
 }
-[inline]
-pub fn stencil_func_separate_ati(frontfunc u32, backfunc u32, ref int, mask u32)  {
+
+@[inline]
+pub fn stencil_func_separate_ati(frontfunc u32, backfunc u32, ref int, mask u32) {
 	C.glStencilFuncSeparateATI(frontfunc, backfunc, ref, mask)
 }
-[inline]
-pub fn stencil_op_separate_ati(face u32, sfail u32, dpfail u32, dppass u32)  {
+
+@[inline]
+pub fn stencil_op_separate_ati(face u32, sfail u32, dpfail u32, dppass u32) {
 	C.glStencilOpSeparateATI(face, sfail, dpfail, dppass)
 }
-[inline]
-pub fn array_object_ati(array u32, size int, gl_type u32, stride int, buffer u32, offset u32)  {
+
+@[inline]
+pub fn array_object_ati(array u32, size int, gl_type u32, stride int, buffer u32, offset u32) {
 	C.glArrayObjectATI(array, size, gl_type, stride, buffer, offset)
 }
-[inline]
-pub fn free_object_buffer_ati(buffer u32)  {
+
+@[inline]
+pub fn free_object_buffer_ati(buffer u32) {
 	C.glFreeObjectBufferATI(buffer)
 }
-[inline]
-pub fn get_array_objectfv_ati(array u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_array_objectfv_ati(array u32, pname u32, params &f32) {
 	C.glGetArrayObjectfvATI(array, pname, params)
 }
-[inline]
-pub fn get_array_objectiv_ati(array u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_array_objectiv_ati(array u32, pname u32, params &int) {
 	C.glGetArrayObjectivATI(array, pname, params)
 }
-[inline]
-pub fn get_object_bufferfv_ati(buffer u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_object_bufferfv_ati(buffer u32, pname u32, params &f32) {
 	C.glGetObjectBufferfvATI(buffer, pname, params)
 }
-[inline]
-pub fn get_object_bufferiv_ati(buffer u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_object_bufferiv_ati(buffer u32, pname u32, params &int) {
 	C.glGetObjectBufferivATI(buffer, pname, params)
 }
-[inline]
-pub fn get_variant_array_objectfv_ati(id u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_variant_array_objectfv_ati(id u32, pname u32, params &f32) {
 	C.glGetVariantArrayObjectfvATI(id, pname, params)
 }
-[inline]
-pub fn get_variant_array_objectiv_ati(id u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_variant_array_objectiv_ati(id u32, pname u32, params &int) {
 	C.glGetVariantArrayObjectivATI(id, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_object_buffer_ati(buffer u32) u8 {
 	return C.glIsObjectBufferATI(buffer)
 }
-[inline]
+
+@[inline]
 pub fn new_object_buffer_ati(size int, pointer voidptr, usage u32) u32 {
 	return C.glNewObjectBufferATI(size, pointer, usage)
 }
-[inline]
-pub fn update_object_buffer_ati(buffer u32, offset u32, size int, pointer voidptr, preserve u32)  {
+
+@[inline]
+pub fn update_object_buffer_ati(buffer u32, offset u32, size int, pointer voidptr, preserve u32) {
 	C.glUpdateObjectBufferATI(buffer, offset, size, pointer, preserve)
 }
-[inline]
-pub fn variant_array_object_ati(id u32, gl_type u32, stride int, buffer u32, offset u32)  {
+
+@[inline]
+pub fn variant_array_object_ati(id u32, gl_type u32, stride int, buffer u32, offset u32) {
 	C.glVariantArrayObjectATI(id, gl_type, stride, buffer, offset)
 }
-[inline]
-pub fn get_vertex_attrib_array_objectfv_ati(index u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_vertex_attrib_array_objectfv_ati(index u32, pname u32, params &f32) {
 	C.glGetVertexAttribArrayObjectfvATI(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attrib_array_objectiv_ati(index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_vertex_attrib_array_objectiv_ati(index u32, pname u32, params &int) {
 	C.glGetVertexAttribArrayObjectivATI(index, pname, params)
 }
-[inline]
-pub fn vertex_attrib_array_object_ati(index u32, size int, gl_type u32, normalized u8, stride int, buffer u32, offset u32)  {
+
+@[inline]
+pub fn vertex_attrib_array_object_ati(index u32, size int, gl_type u32, normalized u8, stride int, buffer u32, offset u32) {
 	C.glVertexAttribArrayObjectATI(index, size, gl_type, normalized, stride, buffer, offset)
 }
-[inline]
-pub fn client_active_vertex_stream_ati(stream u32)  {
+
+@[inline]
+pub fn client_active_vertex_stream_ati(stream u32) {
 	C.glClientActiveVertexStreamATI(stream)
 }
-[inline]
-pub fn normal_stream3b_ati(stream u32, x i8, y i8, z i8)  {
+
+@[inline]
+pub fn normal_stream3b_ati(stream u32, x i8, y i8, z i8) {
 	C.glNormalStream3bATI(stream, x, y, z)
 }
-[inline]
-pub fn normal_stream3bv_ati(stream u32, coords &i8)  {
+
+@[inline]
+pub fn normal_stream3bv_ati(stream u32, coords &i8) {
 	C.glNormalStream3bvATI(stream, coords)
 }
-[inline]
-pub fn normal_stream3d_ati(stream u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn normal_stream3d_ati(stream u32, x f64, y f64, z f64) {
 	C.glNormalStream3dATI(stream, x, y, z)
 }
-[inline]
-pub fn normal_stream3dv_ati(stream u32, coords &f64)  {
+
+@[inline]
+pub fn normal_stream3dv_ati(stream u32, coords &f64) {
 	C.glNormalStream3dvATI(stream, coords)
 }
-[inline]
-pub fn normal_stream3f_ati(stream u32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn normal_stream3f_ati(stream u32, x f32, y f32, z f32) {
 	C.glNormalStream3fATI(stream, x, y, z)
 }
-[inline]
-pub fn normal_stream3fv_ati(stream u32, coords &f32)  {
+
+@[inline]
+pub fn normal_stream3fv_ati(stream u32, coords &f32) {
 	C.glNormalStream3fvATI(stream, coords)
 }
-[inline]
-pub fn normal_stream3i_ati(stream u32, x int, y int, z int)  {
+
+@[inline]
+pub fn normal_stream3i_ati(stream u32, x int, y int, z int) {
 	C.glNormalStream3iATI(stream, x, y, z)
 }
-[inline]
-pub fn normal_stream3iv_ati(stream u32, coords &int)  {
+
+@[inline]
+pub fn normal_stream3iv_ati(stream u32, coords &int) {
 	C.glNormalStream3ivATI(stream, coords)
 }
-[inline]
-pub fn normal_stream3s_ati(stream u32, x i16, y i16, z i16)  {
+
+@[inline]
+pub fn normal_stream3s_ati(stream u32, x i16, y i16, z i16) {
 	C.glNormalStream3sATI(stream, x, y, z)
 }
-[inline]
-pub fn normal_stream3sv_ati(stream u32, coords &i16)  {
+
+@[inline]
+pub fn normal_stream3sv_ati(stream u32, coords &i16) {
 	C.glNormalStream3svATI(stream, coords)
 }
-[inline]
-pub fn vertex_blend_envf_ati(pname u32, param f32)  {
+
+@[inline]
+pub fn vertex_blend_envf_ati(pname u32, param f32) {
 	C.glVertexBlendEnvfATI(pname, param)
 }
-[inline]
-pub fn vertex_blend_envi_ati(pname u32, param int)  {
+
+@[inline]
+pub fn vertex_blend_envi_ati(pname u32, param int) {
 	C.glVertexBlendEnviATI(pname, param)
 }
-[inline]
-pub fn vertex_stream1d_ati(stream u32, x f64)  {
+
+@[inline]
+pub fn vertex_stream1d_ati(stream u32, x f64) {
 	C.glVertexStream1dATI(stream, x)
 }
-[inline]
-pub fn vertex_stream1dv_ati(stream u32, coords &f64)  {
+
+@[inline]
+pub fn vertex_stream1dv_ati(stream u32, coords &f64) {
 	C.glVertexStream1dvATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream1f_ati(stream u32, x f32)  {
+
+@[inline]
+pub fn vertex_stream1f_ati(stream u32, x f32) {
 	C.glVertexStream1fATI(stream, x)
 }
-[inline]
-pub fn vertex_stream1fv_ati(stream u32, coords &f32)  {
+
+@[inline]
+pub fn vertex_stream1fv_ati(stream u32, coords &f32) {
 	C.glVertexStream1fvATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream1i_ati(stream u32, x int)  {
+
+@[inline]
+pub fn vertex_stream1i_ati(stream u32, x int) {
 	C.glVertexStream1iATI(stream, x)
 }
-[inline]
-pub fn vertex_stream1iv_ati(stream u32, coords &int)  {
+
+@[inline]
+pub fn vertex_stream1iv_ati(stream u32, coords &int) {
 	C.glVertexStream1ivATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream1s_ati(stream u32, x i16)  {
+
+@[inline]
+pub fn vertex_stream1s_ati(stream u32, x i16) {
 	C.glVertexStream1sATI(stream, x)
 }
-[inline]
-pub fn vertex_stream1sv_ati(stream u32, coords &i16)  {
+
+@[inline]
+pub fn vertex_stream1sv_ati(stream u32, coords &i16) {
 	C.glVertexStream1svATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream2d_ati(stream u32, x f64, y f64)  {
+
+@[inline]
+pub fn vertex_stream2d_ati(stream u32, x f64, y f64) {
 	C.glVertexStream2dATI(stream, x, y)
 }
-[inline]
-pub fn vertex_stream2dv_ati(stream u32, coords &f64)  {
+
+@[inline]
+pub fn vertex_stream2dv_ati(stream u32, coords &f64) {
 	C.glVertexStream2dvATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream2f_ati(stream u32, x f32, y f32)  {
+
+@[inline]
+pub fn vertex_stream2f_ati(stream u32, x f32, y f32) {
 	C.glVertexStream2fATI(stream, x, y)
 }
-[inline]
-pub fn vertex_stream2fv_ati(stream u32, coords &f32)  {
+
+@[inline]
+pub fn vertex_stream2fv_ati(stream u32, coords &f32) {
 	C.glVertexStream2fvATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream2i_ati(stream u32, x int, y int)  {
+
+@[inline]
+pub fn vertex_stream2i_ati(stream u32, x int, y int) {
 	C.glVertexStream2iATI(stream, x, y)
 }
-[inline]
-pub fn vertex_stream2iv_ati(stream u32, coords &int)  {
+
+@[inline]
+pub fn vertex_stream2iv_ati(stream u32, coords &int) {
 	C.glVertexStream2ivATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream2s_ati(stream u32, x i16, y i16)  {
+
+@[inline]
+pub fn vertex_stream2s_ati(stream u32, x i16, y i16) {
 	C.glVertexStream2sATI(stream, x, y)
 }
-[inline]
-pub fn vertex_stream2sv_ati(stream u32, coords &i16)  {
+
+@[inline]
+pub fn vertex_stream2sv_ati(stream u32, coords &i16) {
 	C.glVertexStream2svATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream3d_ati(stream u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn vertex_stream3d_ati(stream u32, x f64, y f64, z f64) {
 	C.glVertexStream3dATI(stream, x, y, z)
 }
-[inline]
-pub fn vertex_stream3dv_ati(stream u32, coords &f64)  {
+
+@[inline]
+pub fn vertex_stream3dv_ati(stream u32, coords &f64) {
 	C.glVertexStream3dvATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream3f_ati(stream u32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn vertex_stream3f_ati(stream u32, x f32, y f32, z f32) {
 	C.glVertexStream3fATI(stream, x, y, z)
 }
-[inline]
-pub fn vertex_stream3fv_ati(stream u32, coords &f32)  {
+
+@[inline]
+pub fn vertex_stream3fv_ati(stream u32, coords &f32) {
 	C.glVertexStream3fvATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream3i_ati(stream u32, x int, y int, z int)  {
+
+@[inline]
+pub fn vertex_stream3i_ati(stream u32, x int, y int, z int) {
 	C.glVertexStream3iATI(stream, x, y, z)
 }
-[inline]
-pub fn vertex_stream3iv_ati(stream u32, coords &int)  {
+
+@[inline]
+pub fn vertex_stream3iv_ati(stream u32, coords &int) {
 	C.glVertexStream3ivATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream3s_ati(stream u32, x i16, y i16, z i16)  {
+
+@[inline]
+pub fn vertex_stream3s_ati(stream u32, x i16, y i16, z i16) {
 	C.glVertexStream3sATI(stream, x, y, z)
 }
-[inline]
-pub fn vertex_stream3sv_ati(stream u32, coords &i16)  {
+
+@[inline]
+pub fn vertex_stream3sv_ati(stream u32, coords &i16) {
 	C.glVertexStream3svATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream4d_ati(stream u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn vertex_stream4d_ati(stream u32, x f64, y f64, z f64, w f64) {
 	C.glVertexStream4dATI(stream, x, y, z, w)
 }
-[inline]
-pub fn vertex_stream4dv_ati(stream u32, coords &f64)  {
+
+@[inline]
+pub fn vertex_stream4dv_ati(stream u32, coords &f64) {
 	C.glVertexStream4dvATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream4f_ati(stream u32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn vertex_stream4f_ati(stream u32, x f32, y f32, z f32, w f32) {
 	C.glVertexStream4fATI(stream, x, y, z, w)
 }
-[inline]
-pub fn vertex_stream4fv_ati(stream u32, coords &f32)  {
+
+@[inline]
+pub fn vertex_stream4fv_ati(stream u32, coords &f32) {
 	C.glVertexStream4fvATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream4i_ati(stream u32, x int, y int, z int, w int)  {
+
+@[inline]
+pub fn vertex_stream4i_ati(stream u32, x int, y int, z int, w int) {
 	C.glVertexStream4iATI(stream, x, y, z, w)
 }
-[inline]
-pub fn vertex_stream4iv_ati(stream u32, coords &int)  {
+
+@[inline]
+pub fn vertex_stream4iv_ati(stream u32, coords &int) {
 	C.glVertexStream4ivATI(stream, coords)
 }
-[inline]
-pub fn vertex_stream4s_ati(stream u32, x i16, y i16, z i16, w i16)  {
+
+@[inline]
+pub fn vertex_stream4s_ati(stream u32, x i16, y i16, z i16, w i16) {
 	C.glVertexStream4sATI(stream, x, y, z, w)
 }
-[inline]
-pub fn vertex_stream4sv_ati(stream u32, coords &i16)  {
+
+@[inline]
+pub fn vertex_stream4sv_ati(stream u32, coords &i16) {
 	C.glVertexStream4svATI(stream, coords)
 }
-[inline]
-pub fn eglimage_target_tex_storage_ext(target u32, image voidptr, attrib_list &int)  {
+
+@[inline]
+pub fn eglimage_target_tex_storage_ext(target u32, image voidptr, attrib_list &int) {
 	C.glEGLImageTargetTexStorageEXT(target, image, attrib_list)
 }
-[inline]
-pub fn eglimage_target_texture_storage_ext(texture u32, image voidptr, attrib_list &int)  {
+
+@[inline]
+pub fn eglimage_target_texture_storage_ext(texture u32, image voidptr, attrib_list &int) {
 	C.glEGLImageTargetTextureStorageEXT(texture, image, attrib_list)
 }
-[inline]
-pub fn draw_arrays_instanced_base_instance_ext(mode u32, first int, count int, instancecount int, baseinstance u32)  {
+
+@[inline]
+pub fn draw_arrays_instanced_base_instance_ext(mode u32, first int, count int, instancecount int, baseinstance u32) {
 	C.glDrawArraysInstancedBaseInstanceEXT(mode, first, count, instancecount, baseinstance)
 }
-[inline]
-pub fn draw_elements_instanced_base_instance_ext(mode u32, count int, gl_type u32, indices voidptr, instancecount int, baseinstance u32)  {
-	C.glDrawElementsInstancedBaseInstanceEXT(mode, count, gl_type, indices, instancecount, baseinstance)
+
+@[inline]
+pub fn draw_elements_instanced_base_instance_ext(mode u32, count int, gl_type u32, indices voidptr, instancecount int, baseinstance u32) {
+	C.glDrawElementsInstancedBaseInstanceEXT(mode, count, gl_type, indices, instancecount,
+		baseinstance)
 }
-[inline]
-pub fn draw_elements_instanced_base_vertex_base_instance_ext(mode u32, count int, gl_type u32, indices voidptr, instancecount int, basevertex int, baseinstance u32)  {
-	C.glDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, gl_type, indices, instancecount, basevertex, baseinstance)
+
+@[inline]
+pub fn draw_elements_instanced_base_vertex_base_instance_ext(mode u32, count int, gl_type u32, indices voidptr, instancecount int, basevertex int, baseinstance u32) {
+	C.glDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, gl_type, indices,
+		instancecount, basevertex, baseinstance)
 }
-[inline]
+
+@[inline]
 pub fn get_uniform_buffer_size_ext(program u32, location int) int {
 	return C.glGetUniformBufferSizeEXT(program, location)
 }
-[inline]
+
+@[inline]
 pub fn get_uniform_offset_ext(program u32, location int) i64 {
 	return C.glGetUniformOffsetEXT(program, location)
 }
-[inline]
-pub fn uniform_buffer_ext(program u32, location int, buffer u32)  {
+
+@[inline]
+pub fn uniform_buffer_ext(program u32, location int, buffer u32) {
 	C.glUniformBufferEXT(program, location, buffer)
 }
-[inline]
-pub fn blend_color_ext(red f32, green f32, blue f32, alpha f32)  {
+
+@[inline]
+pub fn blend_color_ext(red f32, green f32, blue f32, alpha f32) {
 	C.glBlendColorEXT(red, green, blue, alpha)
 }
-[inline]
-pub fn blend_equation_separate_ext(mode_rgb u32, mode_alpha u32)  {
+
+@[inline]
+pub fn blend_equation_separate_ext(mode_rgb u32, mode_alpha u32) {
 	C.glBlendEquationSeparateEXT(mode_rgb, mode_alpha)
 }
-[inline]
-pub fn bind_frag_data_location_indexed_ext(program u32, color_number u32, index u32, name &char)  {
+
+@[inline]
+pub fn bind_frag_data_location_indexed_ext(program u32, color_number u32, index u32, name &char) {
 	C.glBindFragDataLocationIndexedEXT(program, color_number, index, name)
 }
-[inline]
+
+@[inline]
 pub fn get_frag_data_index_ext(program u32, name &char) int {
 	return C.glGetFragDataIndexEXT(program, name)
 }
-[inline]
+
+@[inline]
 pub fn get_program_resource_location_index_ext(program u32, program_interface u32, name &char) int {
 	return C.glGetProgramResourceLocationIndexEXT(program, program_interface, name)
 }
-[inline]
-pub fn blend_func_separate_ext(sfactor_rgb u32, dfactor_rgb u32, sfactor_alpha u32, dfactor_alpha u32)  {
+
+@[inline]
+pub fn blend_func_separate_ext(sfactor_rgb u32, dfactor_rgb u32, sfactor_alpha u32, dfactor_alpha u32) {
 	C.glBlendFuncSeparateEXT(sfactor_rgb, dfactor_rgb, sfactor_alpha, dfactor_alpha)
 }
-[inline]
-pub fn blend_equation_ext(mode u32)  {
+
+@[inline]
+pub fn blend_equation_ext(mode u32) {
 	C.glBlendEquationEXT(mode)
 }
-[inline]
-pub fn buffer_storage_ext(target u32, size i64, data voidptr, flags u32)  {
+
+@[inline]
+pub fn buffer_storage_ext(target u32, size i64, data voidptr, flags u32) {
 	C.glBufferStorageEXT(target, size, data, flags)
 }
-[inline]
-pub fn named_buffer_storage_ext(buffer u32, size i64, data voidptr, flags u32)  {
+
+@[inline]
+pub fn named_buffer_storage_ext(buffer u32, size i64, data voidptr, flags u32) {
 	C.glNamedBufferStorageEXT(buffer, size, data, flags)
 }
-[inline]
-pub fn clear_tex_image_ext(texture u32, level int, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn clear_tex_image_ext(texture u32, level int, format u32, gl_type u32, data voidptr) {
 	C.glClearTexImageEXT(texture, level, format, gl_type, data)
 }
-[inline]
-pub fn clear_tex_sub_image_ext(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, data voidptr)  {
-	C.glClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, data)
+
+@[inline]
+pub fn clear_tex_sub_image_ext(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, data voidptr) {
+	C.glClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height,
+		depth, format, gl_type, data)
 }
-[inline]
-pub fn clip_control_ext(origin u32, depth u32)  {
+
+@[inline]
+pub fn clip_control_ext(origin u32, depth u32) {
 	C.glClipControlEXT(origin, depth)
 }
-[inline]
-pub fn color_sub_table_ext(target u32, start int, count int, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn color_sub_table_ext(target u32, start int, count int, format u32, gl_type u32, data voidptr) {
 	C.glColorSubTableEXT(target, start, count, format, gl_type, data)
 }
-[inline]
-pub fn copy_color_sub_table_ext(target u32, start int, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_color_sub_table_ext(target u32, start int, x int, y int, width int) {
 	C.glCopyColorSubTableEXT(target, start, x, y, width)
 }
-[inline]
-pub fn lock_arrays_ext(first int, count int)  {
+
+@[inline]
+pub fn lock_arrays_ext(first int, count int) {
 	C.glLockArraysEXT(first, count)
 }
-[inline]
-pub fn unlock_arrays_ext()  {
+
+@[inline]
+pub fn unlock_arrays_ext() {
 	C.glUnlockArraysEXT()
 }
-[inline]
-pub fn convolution_filter1dext(target u32, internalformat u32, width int, format u32, gl_type u32, image voidptr)  {
+
+@[inline]
+pub fn convolution_filter1dext(target u32, internalformat u32, width int, format u32, gl_type u32, image voidptr) {
 	C.glConvolutionFilter1DEXT(target, internalformat, width, format, gl_type, image)
 }
-[inline]
-pub fn convolution_filter2dext(target u32, internalformat u32, width int, height int, format u32, gl_type u32, image voidptr)  {
-	C.glConvolutionFilter2DEXT(target, internalformat, width, height, format, gl_type, image)
+
+@[inline]
+pub fn convolution_filter2dext(target u32, internalformat u32, width int, height int, format u32, gl_type u32, image voidptr) {
+	C.glConvolutionFilter2DEXT(target, internalformat, width, height, format, gl_type,
+		image)
 }
-[inline]
-pub fn convolution_parameterf_ext(target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn convolution_parameterf_ext(target u32, pname u32, param f32) {
 	C.glConvolutionParameterfEXT(target, pname, param)
 }
-[inline]
-pub fn convolution_parameterfv_ext(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn convolution_parameterfv_ext(target u32, pname u32, params &f32) {
 	C.glConvolutionParameterfvEXT(target, pname, params)
 }
-[inline]
-pub fn convolution_parameteri_ext(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn convolution_parameteri_ext(target u32, pname u32, param int) {
 	C.glConvolutionParameteriEXT(target, pname, param)
 }
-[inline]
-pub fn convolution_parameteriv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn convolution_parameteriv_ext(target u32, pname u32, params &int) {
 	C.glConvolutionParameterivEXT(target, pname, params)
 }
-[inline]
-pub fn copy_convolution_filter1dext(target u32, internalformat u32, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_convolution_filter1dext(target u32, internalformat u32, x int, y int, width int) {
 	C.glCopyConvolutionFilter1DEXT(target, internalformat, x, y, width)
 }
-[inline]
-pub fn copy_convolution_filter2dext(target u32, internalformat u32, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn copy_convolution_filter2dext(target u32, internalformat u32, x int, y int, width int, height int) {
 	C.glCopyConvolutionFilter2DEXT(target, internalformat, x, y, width, height)
 }
-[inline]
-pub fn get_convolution_filter_ext(target u32, format u32, gl_type u32, image voidptr)  {
+
+@[inline]
+pub fn get_convolution_filter_ext(target u32, format u32, gl_type u32, image voidptr) {
 	C.glGetConvolutionFilterEXT(target, format, gl_type, image)
 }
-[inline]
-pub fn get_convolution_parameterfv_ext(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_convolution_parameterfv_ext(target u32, pname u32, params &f32) {
 	C.glGetConvolutionParameterfvEXT(target, pname, params)
 }
-[inline]
-pub fn get_convolution_parameteriv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_convolution_parameteriv_ext(target u32, pname u32, params &int) {
 	C.glGetConvolutionParameterivEXT(target, pname, params)
 }
-[inline]
-pub fn get_separable_filter_ext(target u32, format u32, gl_type u32, row voidptr, column voidptr, span voidptr)  {
+
+@[inline]
+pub fn get_separable_filter_ext(target u32, format u32, gl_type u32, row voidptr, column voidptr, span voidptr) {
 	C.glGetSeparableFilterEXT(target, format, gl_type, row, column, span)
 }
-[inline]
-pub fn separable_filter2dext(target u32, internalformat u32, width int, height int, format u32, gl_type u32, row voidptr, column voidptr)  {
-	C.glSeparableFilter2DEXT(target, internalformat, width, height, format, gl_type, row, column)
+
+@[inline]
+pub fn separable_filter2dext(target u32, internalformat u32, width int, height int, format u32, gl_type u32, row voidptr, column voidptr) {
+	C.glSeparableFilter2DEXT(target, internalformat, width, height, format, gl_type, row,
+		column)
 }
-[inline]
-pub fn binormal_pointer_ext(gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn binormal_pointer_ext(gl_type u32, stride int, pointer voidptr) {
 	C.glBinormalPointerEXT(gl_type, stride, pointer)
 }
-[inline]
-pub fn tangent_pointer_ext(gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn tangent_pointer_ext(gl_type u32, stride int, pointer voidptr) {
 	C.glTangentPointerEXT(gl_type, stride, pointer)
 }
-[inline]
-pub fn copy_image_sub_data_ext(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int)  {
-	C.glCopyImageSubDataEXT(src_name, src_target, src_level, src_x, src_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth)
+
+@[inline]
+pub fn copy_image_sub_data_ext(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int) {
+	C.glCopyImageSubDataEXT(src_name, src_target, src_level, src_x, src_y, src_z, dst_name,
+		dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth)
 }
-[inline]
-pub fn copy_tex_image1dext(target u32, level int, internalformat u32, x int, y int, width int, border int)  {
+
+@[inline]
+pub fn copy_tex_image1dext(target u32, level int, internalformat u32, x int, y int, width int, border int) {
 	C.glCopyTexImage1DEXT(target, level, internalformat, x, y, width, border)
 }
-[inline]
-pub fn copy_tex_image2dext(target u32, level int, internalformat u32, x int, y int, width int, height int, border int)  {
+
+@[inline]
+pub fn copy_tex_image2dext(target u32, level int, internalformat u32, x int, y int, width int, height int, border int) {
 	C.glCopyTexImage2DEXT(target, level, internalformat, x, y, width, height, border)
 }
-[inline]
-pub fn copy_tex_sub_image1dext(target u32, level int, xoffset int, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_tex_sub_image1dext(target u32, level int, xoffset int, x int, y int, width int) {
 	C.glCopyTexSubImage1DEXT(target, level, xoffset, x, y, width)
 }
-[inline]
-pub fn copy_tex_sub_image2dext(target u32, level int, xoffset int, yoffset int, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn copy_tex_sub_image2dext(target u32, level int, xoffset int, yoffset int, x int, y int, width int, height int) {
 	C.glCopyTexSubImage2DEXT(target, level, xoffset, yoffset, x, y, width, height)
 }
-[inline]
-pub fn copy_tex_sub_image3dext(target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn copy_tex_sub_image3dext(target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int) {
 	C.glCopyTexSubImage3DEXT(target, level, xoffset, yoffset, zoffset, x, y, width, height)
 }
-[inline]
-pub fn cull_parameterdv_ext(pname u32, params &f64)  {
+
+@[inline]
+pub fn cull_parameterdv_ext(pname u32, params &f64) {
 	C.glCullParameterdvEXT(pname, params)
 }
-[inline]
-pub fn cull_parameterfv_ext(pname u32, params &f32)  {
+
+@[inline]
+pub fn cull_parameterfv_ext(pname u32, params &f32) {
 	C.glCullParameterfvEXT(pname, params)
 }
-[inline]
-pub fn get_object_label_ext(gl_type u32, object u32, buf_size int, length &int, label &char)  {
+
+@[inline]
+pub fn get_object_label_ext(gl_type u32, object u32, buf_size int, length &int, label &char) {
 	C.glGetObjectLabelEXT(gl_type, object, buf_size, length, label)
 }
-[inline]
-pub fn label_object_ext(gl_type u32, object u32, length int, label &char)  {
+
+@[inline]
+pub fn label_object_ext(gl_type u32, object u32, length int, label &char) {
 	C.glLabelObjectEXT(gl_type, object, length, label)
 }
-[inline]
-pub fn insert_event_marker_ext(length int, marker &char)  {
+
+@[inline]
+pub fn insert_event_marker_ext(length int, marker &char) {
 	C.glInsertEventMarkerEXT(length, marker)
 }
-[inline]
-pub fn pop_group_marker_ext()  {
+
+@[inline]
+pub fn pop_group_marker_ext() {
 	C.glPopGroupMarkerEXT()
 }
-[inline]
-pub fn push_group_marker_ext(length int, marker &char)  {
+
+@[inline]
+pub fn push_group_marker_ext(length int, marker &char) {
 	C.glPushGroupMarkerEXT(length, marker)
 }
-[inline]
-pub fn depth_bounds_ext(zmin f64, zmax f64)  {
+
+@[inline]
+pub fn depth_bounds_ext(zmin f64, zmax f64) {
 	C.glDepthBoundsEXT(zmin, zmax)
 }
-[inline]
-pub fn bind_multi_texture_ext(texunit u32, target u32, texture u32)  {
+
+@[inline]
+pub fn bind_multi_texture_ext(texunit u32, target u32, texture u32) {
 	C.glBindMultiTextureEXT(texunit, target, texture)
 }
-[inline]
+
+@[inline]
 pub fn check_named_framebuffer_status_ext(framebuffer u32, target u32) u32 {
 	return C.glCheckNamedFramebufferStatusEXT(framebuffer, target)
 }
-[inline]
-pub fn client_attrib_default_ext(mask u32)  {
+
+@[inline]
+pub fn client_attrib_default_ext(mask u32) {
 	C.glClientAttribDefaultEXT(mask)
 }
-[inline]
-pub fn compressed_multi_tex_image1dext(texunit u32, target u32, level int, internalformat u32, width int, border int, image_size int, data voidptr)  {
-	C.glCompressedMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, image_size, data)
+
+@[inline]
+pub fn compressed_multi_tex_image1dext(texunit u32, target u32, level int, internalformat u32, width int, border int, image_size int, data voidptr) {
+	C.glCompressedMultiTexImage1DEXT(texunit, target, level, internalformat, width, border,
+		image_size, data)
 }
-[inline]
-pub fn compressed_multi_tex_image2dext(texunit u32, target u32, level int, internalformat u32, width int, height int, border int, image_size int, data voidptr)  {
-	C.glCompressedMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, image_size, data)
+
+@[inline]
+pub fn compressed_multi_tex_image2dext(texunit u32, target u32, level int, internalformat u32, width int, height int, border int, image_size int, data voidptr) {
+	C.glCompressedMultiTexImage2DEXT(texunit, target, level, internalformat, width, height,
+		border, image_size, data)
 }
-[inline]
-pub fn compressed_multi_tex_image3dext(texunit u32, target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr)  {
-	C.glCompressedMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, image_size, data)
+
+@[inline]
+pub fn compressed_multi_tex_image3dext(texunit u32, target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr) {
+	C.glCompressedMultiTexImage3DEXT(texunit, target, level, internalformat, width, height,
+		depth, border, image_size, data)
 }
-[inline]
-pub fn compressed_multi_tex_sub_image1dext(texunit u32, target u32, level int, xoffset int, width int, format u32, image_size int, data voidptr)  {
-	C.glCompressedMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, image_size, data)
+
+@[inline]
+pub fn compressed_multi_tex_sub_image1dext(texunit u32, target u32, level int, xoffset int, width int, format u32, image_size int, data voidptr) {
+	C.glCompressedMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format,
+		image_size, data)
 }
-[inline]
-pub fn compressed_multi_tex_sub_image2dext(texunit u32, target u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr)  {
-	C.glCompressedMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, image_size, data)
+
+@[inline]
+pub fn compressed_multi_tex_sub_image2dext(texunit u32, target u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr) {
+	C.glCompressedMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width,
+		height, format, image_size, data)
 }
-[inline]
-pub fn compressed_multi_tex_sub_image3dext(texunit u32, target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr)  {
-	C.glCompressedMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, image_size, data)
+
+@[inline]
+pub fn compressed_multi_tex_sub_image3dext(texunit u32, target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr) {
+	C.glCompressedMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset,
+		width, height, depth, format, image_size, data)
 }
-[inline]
-pub fn compressed_texture_image1dext(texture u32, target u32, level int, internalformat u32, width int, border int, image_size int, data voidptr)  {
-	C.glCompressedTextureImage1DEXT(texture, target, level, internalformat, width, border, image_size, data)
+
+@[inline]
+pub fn compressed_texture_image1dext(texture u32, target u32, level int, internalformat u32, width int, border int, image_size int, data voidptr) {
+	C.glCompressedTextureImage1DEXT(texture, target, level, internalformat, width, border,
+		image_size, data)
 }
-[inline]
-pub fn compressed_texture_image2dext(texture u32, target u32, level int, internalformat u32, width int, height int, border int, image_size int, data voidptr)  {
-	C.glCompressedTextureImage2DEXT(texture, target, level, internalformat, width, height, border, image_size, data)
+
+@[inline]
+pub fn compressed_texture_image2dext(texture u32, target u32, level int, internalformat u32, width int, height int, border int, image_size int, data voidptr) {
+	C.glCompressedTextureImage2DEXT(texture, target, level, internalformat, width, height,
+		border, image_size, data)
 }
-[inline]
-pub fn compressed_texture_image3dext(texture u32, target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr)  {
-	C.glCompressedTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, image_size, data)
+
+@[inline]
+pub fn compressed_texture_image3dext(texture u32, target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr) {
+	C.glCompressedTextureImage3DEXT(texture, target, level, internalformat, width, height,
+		depth, border, image_size, data)
 }
-[inline]
-pub fn compressed_texture_sub_image1dext(texture u32, target u32, level int, xoffset int, width int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTextureSubImage1DEXT(texture, target, level, xoffset, width, format, image_size, data)
+
+@[inline]
+pub fn compressed_texture_sub_image1dext(texture u32, target u32, level int, xoffset int, width int, format u32, image_size int, data voidptr) {
+	C.glCompressedTextureSubImage1DEXT(texture, target, level, xoffset, width, format,
+		image_size, data)
 }
-[inline]
-pub fn compressed_texture_sub_image2dext(texture u32, target u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, image_size, data)
+
+@[inline]
+pub fn compressed_texture_sub_image2dext(texture u32, target u32, level int, xoffset int, yoffset int, width int, height int, format u32, image_size int, data voidptr) {
+	C.glCompressedTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width,
+		height, format, image_size, data)
 }
-[inline]
-pub fn compressed_texture_sub_image3dext(texture u32, target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, image_size, data)
+
+@[inline]
+pub fn compressed_texture_sub_image3dext(texture u32, target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr) {
+	C.glCompressedTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset,
+		width, height, depth, format, image_size, data)
 }
-[inline]
-pub fn copy_multi_tex_image1dext(texunit u32, target u32, level int, internalformat u32, x int, y int, width int, border int)  {
+
+@[inline]
+pub fn copy_multi_tex_image1dext(texunit u32, target u32, level int, internalformat u32, x int, y int, width int, border int) {
 	C.glCopyMultiTexImage1DEXT(texunit, target, level, internalformat, x, y, width, border)
 }
-[inline]
-pub fn copy_multi_tex_image2dext(texunit u32, target u32, level int, internalformat u32, x int, y int, width int, height int, border int)  {
-	C.glCopyMultiTexImage2DEXT(texunit, target, level, internalformat, x, y, width, height, border)
+
+@[inline]
+pub fn copy_multi_tex_image2dext(texunit u32, target u32, level int, internalformat u32, x int, y int, width int, height int, border int) {
+	C.glCopyMultiTexImage2DEXT(texunit, target, level, internalformat, x, y, width, height,
+		border)
 }
-[inline]
-pub fn copy_multi_tex_sub_image1dext(texunit u32, target u32, level int, xoffset int, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_multi_tex_sub_image1dext(texunit u32, target u32, level int, xoffset int, x int, y int, width int) {
 	C.glCopyMultiTexSubImage1DEXT(texunit, target, level, xoffset, x, y, width)
 }
-[inline]
-pub fn copy_multi_tex_sub_image2dext(texunit u32, target u32, level int, xoffset int, yoffset int, x int, y int, width int, height int)  {
-	C.glCopyMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, x, y, width, height)
+
+@[inline]
+pub fn copy_multi_tex_sub_image2dext(texunit u32, target u32, level int, xoffset int, yoffset int, x int, y int, width int, height int) {
+	C.glCopyMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, x, y, width,
+		height)
 }
-[inline]
-pub fn copy_multi_tex_sub_image3dext(texunit u32, target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int)  {
-	C.glCopyMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, x, y, width, height)
+
+@[inline]
+pub fn copy_multi_tex_sub_image3dext(texunit u32, target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int) {
+	C.glCopyMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, x,
+		y, width, height)
 }
-[inline]
-pub fn copy_texture_image1dext(texture u32, target u32, level int, internalformat u32, x int, y int, width int, border int)  {
+
+@[inline]
+pub fn copy_texture_image1dext(texture u32, target u32, level int, internalformat u32, x int, y int, width int, border int) {
 	C.glCopyTextureImage1DEXT(texture, target, level, internalformat, x, y, width, border)
 }
-[inline]
-pub fn copy_texture_image2dext(texture u32, target u32, level int, internalformat u32, x int, y int, width int, height int, border int)  {
-	C.glCopyTextureImage2DEXT(texture, target, level, internalformat, x, y, width, height, border)
+
+@[inline]
+pub fn copy_texture_image2dext(texture u32, target u32, level int, internalformat u32, x int, y int, width int, height int, border int) {
+	C.glCopyTextureImage2DEXT(texture, target, level, internalformat, x, y, width, height,
+		border)
 }
-[inline]
-pub fn copy_texture_sub_image1dext(texture u32, target u32, level int, xoffset int, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_texture_sub_image1dext(texture u32, target u32, level int, xoffset int, x int, y int, width int) {
 	C.glCopyTextureSubImage1DEXT(texture, target, level, xoffset, x, y, width)
 }
-[inline]
-pub fn copy_texture_sub_image2dext(texture u32, target u32, level int, xoffset int, yoffset int, x int, y int, width int, height int)  {
-	C.glCopyTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, x, y, width, height)
+
+@[inline]
+pub fn copy_texture_sub_image2dext(texture u32, target u32, level int, xoffset int, yoffset int, x int, y int, width int, height int) {
+	C.glCopyTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, x, y, width,
+		height)
 }
-[inline]
-pub fn copy_texture_sub_image3dext(texture u32, target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int)  {
-	C.glCopyTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, x, y, width, height)
+
+@[inline]
+pub fn copy_texture_sub_image3dext(texture u32, target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int) {
+	C.glCopyTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, x,
+		y, width, height)
 }
-[inline]
-pub fn disable_client_state_indexed_ext(array u32, index u32)  {
+
+@[inline]
+pub fn disable_client_state_indexed_ext(array u32, index u32) {
 	C.glDisableClientStateIndexedEXT(array, index)
 }
-[inline]
-pub fn disable_client_statei_ext(array u32, index u32)  {
+
+@[inline]
+pub fn disable_client_statei_ext(array u32, index u32) {
 	C.glDisableClientStateiEXT(array, index)
 }
-[inline]
-pub fn disable_vertex_array_attrib_ext(vaobj u32, index u32)  {
+
+@[inline]
+pub fn disable_vertex_array_attrib_ext(vaobj u32, index u32) {
 	C.glDisableVertexArrayAttribEXT(vaobj, index)
 }
-[inline]
-pub fn disable_vertex_array_ext(vaobj u32, array u32)  {
+
+@[inline]
+pub fn disable_vertex_array_ext(vaobj u32, array u32) {
 	C.glDisableVertexArrayEXT(vaobj, array)
 }
-[inline]
-pub fn enable_client_state_indexed_ext(array u32, index u32)  {
+
+@[inline]
+pub fn enable_client_state_indexed_ext(array u32, index u32) {
 	C.glEnableClientStateIndexedEXT(array, index)
 }
-[inline]
-pub fn enable_client_statei_ext(array u32, index u32)  {
+
+@[inline]
+pub fn enable_client_statei_ext(array u32, index u32) {
 	C.glEnableClientStateiEXT(array, index)
 }
-[inline]
-pub fn enable_vertex_array_attrib_ext(vaobj u32, index u32)  {
+
+@[inline]
+pub fn enable_vertex_array_attrib_ext(vaobj u32, index u32) {
 	C.glEnableVertexArrayAttribEXT(vaobj, index)
 }
-[inline]
-pub fn enable_vertex_array_ext(vaobj u32, array u32)  {
+
+@[inline]
+pub fn enable_vertex_array_ext(vaobj u32, array u32) {
 	C.glEnableVertexArrayEXT(vaobj, array)
 }
-[inline]
-pub fn flush_mapped_named_buffer_range_ext(buffer u32, offset i64, length i64)  {
+
+@[inline]
+pub fn flush_mapped_named_buffer_range_ext(buffer u32, offset i64, length i64) {
 	C.glFlushMappedNamedBufferRangeEXT(buffer, offset, length)
 }
-[inline]
-pub fn framebuffer_draw_buffer_ext(framebuffer u32, mode u32)  {
+
+@[inline]
+pub fn framebuffer_draw_buffer_ext(framebuffer u32, mode u32) {
 	C.glFramebufferDrawBufferEXT(framebuffer, mode)
 }
-[inline]
-pub fn framebuffer_draw_buffers_ext(framebuffer u32, n int, bufs &u32)  {
+
+@[inline]
+pub fn framebuffer_draw_buffers_ext(framebuffer u32, n int, bufs &u32) {
 	C.glFramebufferDrawBuffersEXT(framebuffer, n, bufs)
 }
-[inline]
-pub fn framebuffer_read_buffer_ext(framebuffer u32, mode u32)  {
+
+@[inline]
+pub fn framebuffer_read_buffer_ext(framebuffer u32, mode u32) {
 	C.glFramebufferReadBufferEXT(framebuffer, mode)
 }
-[inline]
-pub fn generate_multi_tex_mipmap_ext(texunit u32, target u32)  {
+
+@[inline]
+pub fn generate_multi_tex_mipmap_ext(texunit u32, target u32) {
 	C.glGenerateMultiTexMipmapEXT(texunit, target)
 }
-[inline]
-pub fn generate_texture_mipmap_ext(texture u32, target u32)  {
+
+@[inline]
+pub fn generate_texture_mipmap_ext(texture u32, target u32) {
 	C.glGenerateTextureMipmapEXT(texture, target)
 }
-[inline]
-pub fn get_compressed_multi_tex_image_ext(texunit u32, target u32, level int, img voidptr)  {
+
+@[inline]
+pub fn get_compressed_multi_tex_image_ext(texunit u32, target u32, level int, img voidptr) {
 	C.glGetCompressedMultiTexImageEXT(texunit, target, level, img)
 }
-[inline]
-pub fn get_compressed_texture_image_ext(texture u32, target u32, level int, img voidptr)  {
+
+@[inline]
+pub fn get_compressed_texture_image_ext(texture u32, target u32, level int, img voidptr) {
 	C.glGetCompressedTextureImageEXT(texture, target, level, img)
 }
-[inline]
-pub fn get_double_indexedv_ext(target u32, index u32, params &f64)  {
+
+@[inline]
+pub fn get_double_indexedv_ext(target u32, index u32, params &f64) {
 	C.glGetDoubleIndexedvEXT(target, index, params)
 }
-[inline]
-pub fn get_doublei_v_ext(pname u32, index u32, params &f64)  {
+
+@[inline]
+pub fn get_doublei_v_ext(pname u32, index u32, params &f64) {
 	C.glGetDoublei_vEXT(pname, index, params)
 }
-[inline]
-pub fn get_float_indexedv_ext(target u32, index u32, params &f32)  {
+
+@[inline]
+pub fn get_float_indexedv_ext(target u32, index u32, params &f32) {
 	C.glGetFloatIndexedvEXT(target, index, params)
 }
-[inline]
-pub fn get_floati_v_ext(pname u32, index u32, params &f32)  {
+
+@[inline]
+pub fn get_floati_v_ext(pname u32, index u32, params &f32) {
 	C.glGetFloati_vEXT(pname, index, params)
 }
-[inline]
-pub fn get_framebuffer_parameteriv_ext(framebuffer u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_framebuffer_parameteriv_ext(framebuffer u32, pname u32, param &int) {
 	C.glGetFramebufferParameterivEXT(framebuffer, pname, param)
 }
-[inline]
-pub fn get_multi_tex_envfv_ext(texunit u32, target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_multi_tex_envfv_ext(texunit u32, target u32, pname u32, params &f32) {
 	C.glGetMultiTexEnvfvEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn get_multi_tex_enviv_ext(texunit u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_multi_tex_enviv_ext(texunit u32, target u32, pname u32, params &int) {
 	C.glGetMultiTexEnvivEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn get_multi_tex_gendv_ext(texunit u32, coord u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_multi_tex_gendv_ext(texunit u32, coord u32, pname u32, params &f64) {
 	C.glGetMultiTexGendvEXT(texunit, coord, pname, params)
 }
-[inline]
-pub fn get_multi_tex_genfv_ext(texunit u32, coord u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_multi_tex_genfv_ext(texunit u32, coord u32, pname u32, params &f32) {
 	C.glGetMultiTexGenfvEXT(texunit, coord, pname, params)
 }
-[inline]
-pub fn get_multi_tex_geniv_ext(texunit u32, coord u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_multi_tex_geniv_ext(texunit u32, coord u32, pname u32, params &int) {
 	C.glGetMultiTexGenivEXT(texunit, coord, pname, params)
 }
-[inline]
-pub fn get_multi_tex_image_ext(texunit u32, target u32, level int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn get_multi_tex_image_ext(texunit u32, target u32, level int, format u32, gl_type u32, pixels voidptr) {
 	C.glGetMultiTexImageEXT(texunit, target, level, format, gl_type, pixels)
 }
-[inline]
-pub fn get_multi_tex_level_parameterfv_ext(texunit u32, target u32, level int, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_multi_tex_level_parameterfv_ext(texunit u32, target u32, level int, pname u32, params &f32) {
 	C.glGetMultiTexLevelParameterfvEXT(texunit, target, level, pname, params)
 }
-[inline]
-pub fn get_multi_tex_level_parameteriv_ext(texunit u32, target u32, level int, pname u32, params &int)  {
+
+@[inline]
+pub fn get_multi_tex_level_parameteriv_ext(texunit u32, target u32, level int, pname u32, params &int) {
 	C.glGetMultiTexLevelParameterivEXT(texunit, target, level, pname, params)
 }
-[inline]
-pub fn get_multi_tex_parameter_iiv_ext(texunit u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_multi_tex_parameter_iiv_ext(texunit u32, target u32, pname u32, params &int) {
 	C.glGetMultiTexParameterIivEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn get_multi_tex_parameter_iuiv_ext(texunit u32, target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_multi_tex_parameter_iuiv_ext(texunit u32, target u32, pname u32, params &u32) {
 	C.glGetMultiTexParameterIuivEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn get_multi_tex_parameterfv_ext(texunit u32, target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_multi_tex_parameterfv_ext(texunit u32, target u32, pname u32, params &f32) {
 	C.glGetMultiTexParameterfvEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn get_multi_tex_parameteriv_ext(texunit u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_multi_tex_parameteriv_ext(texunit u32, target u32, pname u32, params &int) {
 	C.glGetMultiTexParameterivEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn get_named_buffer_parameteriv_ext(buffer u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_buffer_parameteriv_ext(buffer u32, pname u32, params &int) {
 	C.glGetNamedBufferParameterivEXT(buffer, pname, params)
 }
-[inline]
-pub fn get_named_buffer_pointerv_ext(buffer u32, pname u32, params &voidptr)  {
+
+@[inline]
+pub fn get_named_buffer_pointerv_ext(buffer u32, pname u32, params &voidptr) {
 	C.glGetNamedBufferPointervEXT(buffer, pname, params)
 }
-[inline]
-pub fn get_named_buffer_sub_data_ext(buffer u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn get_named_buffer_sub_data_ext(buffer u32, offset i64, size i64, data voidptr) {
 	C.glGetNamedBufferSubDataEXT(buffer, offset, size, data)
 }
-[inline]
-pub fn get_named_framebuffer_attachment_parameteriv_ext(framebuffer u32, attachment u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_framebuffer_attachment_parameteriv_ext(framebuffer u32, attachment u32, pname u32, params &int) {
 	C.glGetNamedFramebufferAttachmentParameterivEXT(framebuffer, attachment, pname, params)
 }
-[inline]
-pub fn get_named_program_local_parameter_iiv_ext(program u32, target u32, index u32, params &int)  {
+
+@[inline]
+pub fn get_named_program_local_parameter_iiv_ext(program u32, target u32, index u32, params &int) {
 	C.glGetNamedProgramLocalParameterIivEXT(program, target, index, params)
 }
-[inline]
-pub fn get_named_program_local_parameter_iuiv_ext(program u32, target u32, index u32, params &u32)  {
+
+@[inline]
+pub fn get_named_program_local_parameter_iuiv_ext(program u32, target u32, index u32, params &u32) {
 	C.glGetNamedProgramLocalParameterIuivEXT(program, target, index, params)
 }
-[inline]
-pub fn get_named_program_local_parameterdv_ext(program u32, target u32, index u32, params &f64)  {
+
+@[inline]
+pub fn get_named_program_local_parameterdv_ext(program u32, target u32, index u32, params &f64) {
 	C.glGetNamedProgramLocalParameterdvEXT(program, target, index, params)
 }
-[inline]
-pub fn get_named_program_local_parameterfv_ext(program u32, target u32, index u32, params &f32)  {
+
+@[inline]
+pub fn get_named_program_local_parameterfv_ext(program u32, target u32, index u32, params &f32) {
 	C.glGetNamedProgramLocalParameterfvEXT(program, target, index, params)
 }
-[inline]
-pub fn get_named_program_string_ext(program u32, target u32, pname u32, gl_string voidptr)  {
+
+@[inline]
+pub fn get_named_program_string_ext(program u32, target u32, pname u32, gl_string voidptr) {
 	C.glGetNamedProgramStringEXT(program, target, pname, gl_string)
 }
-[inline]
-pub fn get_named_programiv_ext(program u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_programiv_ext(program u32, target u32, pname u32, params &int) {
 	C.glGetNamedProgramivEXT(program, target, pname, params)
 }
-[inline]
-pub fn get_named_renderbuffer_parameteriv_ext(renderbuffer u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_named_renderbuffer_parameteriv_ext(renderbuffer u32, pname u32, params &int) {
 	C.glGetNamedRenderbufferParameterivEXT(renderbuffer, pname, params)
 }
-[inline]
-pub fn get_pointer_indexedv_ext(target u32, index u32, params &voidptr)  {
+
+@[inline]
+pub fn get_pointer_indexedv_ext(target u32, index u32, params &voidptr) {
 	C.glGetPointerIndexedvEXT(target, index, params)
 }
-[inline]
-pub fn get_pointeri_v_ext(pname u32, index u32, params &voidptr)  {
+
+@[inline]
+pub fn get_pointeri_v_ext(pname u32, index u32, params &voidptr) {
 	C.glGetPointeri_vEXT(pname, index, params)
 }
-[inline]
-pub fn get_texture_image_ext(texture u32, target u32, level int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn get_texture_image_ext(texture u32, target u32, level int, format u32, gl_type u32, pixels voidptr) {
 	C.glGetTextureImageEXT(texture, target, level, format, gl_type, pixels)
 }
-[inline]
-pub fn get_texture_level_parameterfv_ext(texture u32, target u32, level int, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_texture_level_parameterfv_ext(texture u32, target u32, level int, pname u32, params &f32) {
 	C.glGetTextureLevelParameterfvEXT(texture, target, level, pname, params)
 }
-[inline]
-pub fn get_texture_level_parameteriv_ext(texture u32, target u32, level int, pname u32, params &int)  {
+
+@[inline]
+pub fn get_texture_level_parameteriv_ext(texture u32, target u32, level int, pname u32, params &int) {
 	C.glGetTextureLevelParameterivEXT(texture, target, level, pname, params)
 }
-[inline]
-pub fn get_texture_parameter_iiv_ext(texture u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_texture_parameter_iiv_ext(texture u32, target u32, pname u32, params &int) {
 	C.glGetTextureParameterIivEXT(texture, target, pname, params)
 }
-[inline]
-pub fn get_texture_parameter_iuiv_ext(texture u32, target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_texture_parameter_iuiv_ext(texture u32, target u32, pname u32, params &u32) {
 	C.glGetTextureParameterIuivEXT(texture, target, pname, params)
 }
-[inline]
-pub fn get_texture_parameterfv_ext(texture u32, target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_texture_parameterfv_ext(texture u32, target u32, pname u32, params &f32) {
 	C.glGetTextureParameterfvEXT(texture, target, pname, params)
 }
-[inline]
-pub fn get_texture_parameteriv_ext(texture u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_texture_parameteriv_ext(texture u32, target u32, pname u32, params &int) {
 	C.glGetTextureParameterivEXT(texture, target, pname, params)
 }
-[inline]
-pub fn get_vertex_array_integeri_v_ext(vaobj u32, index u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_vertex_array_integeri_v_ext(vaobj u32, index u32, pname u32, param &int) {
 	C.glGetVertexArrayIntegeri_vEXT(vaobj, index, pname, param)
 }
-[inline]
-pub fn get_vertex_array_integerv_ext(vaobj u32, pname u32, param &int)  {
+
+@[inline]
+pub fn get_vertex_array_integerv_ext(vaobj u32, pname u32, param &int) {
 	C.glGetVertexArrayIntegervEXT(vaobj, pname, param)
 }
-[inline]
-pub fn get_vertex_array_pointeri_v_ext(vaobj u32, index u32, pname u32, param &voidptr)  {
+
+@[inline]
+pub fn get_vertex_array_pointeri_v_ext(vaobj u32, index u32, pname u32, param &voidptr) {
 	C.glGetVertexArrayPointeri_vEXT(vaobj, index, pname, param)
 }
-[inline]
-pub fn get_vertex_array_pointerv_ext(vaobj u32, pname u32, param &voidptr)  {
+
+@[inline]
+pub fn get_vertex_array_pointerv_ext(vaobj u32, pname u32, param &voidptr) {
 	C.glGetVertexArrayPointervEXT(vaobj, pname, param)
 }
-[inline]
+
+@[inline]
 pub fn map_named_buffer_ext(buffer u32, access u32) voidptr {
 	return C.glMapNamedBufferEXT(buffer, access)
 }
-[inline]
+
+@[inline]
 pub fn map_named_buffer_range_ext(buffer u32, offset i64, length i64, access u32) voidptr {
 	return C.glMapNamedBufferRangeEXT(buffer, offset, length, access)
 }
-[inline]
-pub fn matrix_frustum_ext(matrix_mode u32, l f64, r f64, b f64, t f64, n f64, f f64)  {
+
+@[inline]
+pub fn matrix_frustum_ext(matrix_mode u32, l f64, r f64, b f64, t f64, n f64, f f64) {
 	C.glMatrixFrustumEXT(matrix_mode, l, r, b, t, n, f)
 }
-[inline]
-pub fn matrix_load_identity_ext(matrix_mode u32)  {
+
+@[inline]
+pub fn matrix_load_identity_ext(matrix_mode u32) {
 	C.glMatrixLoadIdentityEXT(matrix_mode)
 }
-[inline]
-pub fn matrix_load_transposed_ext(matrix_mode u32, m &f64)  {
+
+@[inline]
+pub fn matrix_load_transposed_ext(matrix_mode u32, m &f64) {
 	C.glMatrixLoadTransposedEXT(matrix_mode, m)
 }
-[inline]
-pub fn matrix_load_transposef_ext(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_load_transposef_ext(matrix_mode u32, m &f32) {
 	C.glMatrixLoadTransposefEXT(matrix_mode, m)
 }
-[inline]
-pub fn matrix_loadd_ext(matrix_mode u32, m &f64)  {
+
+@[inline]
+pub fn matrix_loadd_ext(matrix_mode u32, m &f64) {
 	C.glMatrixLoaddEXT(matrix_mode, m)
 }
-[inline]
-pub fn matrix_loadf_ext(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_loadf_ext(matrix_mode u32, m &f32) {
 	C.glMatrixLoadfEXT(matrix_mode, m)
 }
-[inline]
-pub fn matrix_mult_transposed_ext(matrix_mode u32, m &f64)  {
+
+@[inline]
+pub fn matrix_mult_transposed_ext(matrix_mode u32, m &f64) {
 	C.glMatrixMultTransposedEXT(matrix_mode, m)
 }
-[inline]
-pub fn matrix_mult_transposef_ext(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_mult_transposef_ext(matrix_mode u32, m &f32) {
 	C.glMatrixMultTransposefEXT(matrix_mode, m)
 }
-[inline]
-pub fn matrix_multd_ext(matrix_mode u32, m &f64)  {
+
+@[inline]
+pub fn matrix_multd_ext(matrix_mode u32, m &f64) {
 	C.glMatrixMultdEXT(matrix_mode, m)
 }
-[inline]
-pub fn matrix_multf_ext(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_multf_ext(matrix_mode u32, m &f32) {
 	C.glMatrixMultfEXT(matrix_mode, m)
 }
-[inline]
-pub fn matrix_ortho_ext(matrix_mode u32, l f64, r f64, b f64, t f64, n f64, f f64)  {
+
+@[inline]
+pub fn matrix_ortho_ext(matrix_mode u32, l f64, r f64, b f64, t f64, n f64, f f64) {
 	C.glMatrixOrthoEXT(matrix_mode, l, r, b, t, n, f)
 }
-[inline]
-pub fn matrix_pop_ext(matrix_mode u32)  {
+
+@[inline]
+pub fn matrix_pop_ext(matrix_mode u32) {
 	C.glMatrixPopEXT(matrix_mode)
 }
-[inline]
-pub fn matrix_push_ext(matrix_mode u32)  {
+
+@[inline]
+pub fn matrix_push_ext(matrix_mode u32) {
 	C.glMatrixPushEXT(matrix_mode)
 }
-[inline]
-pub fn matrix_rotated_ext(matrix_mode u32, angle f64, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn matrix_rotated_ext(matrix_mode u32, angle f64, x f64, y f64, z f64) {
 	C.glMatrixRotatedEXT(matrix_mode, angle, x, y, z)
 }
-[inline]
-pub fn matrix_rotatef_ext(matrix_mode u32, angle f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn matrix_rotatef_ext(matrix_mode u32, angle f32, x f32, y f32, z f32) {
 	C.glMatrixRotatefEXT(matrix_mode, angle, x, y, z)
 }
-[inline]
-pub fn matrix_scaled_ext(matrix_mode u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn matrix_scaled_ext(matrix_mode u32, x f64, y f64, z f64) {
 	C.glMatrixScaledEXT(matrix_mode, x, y, z)
 }
-[inline]
-pub fn matrix_scalef_ext(matrix_mode u32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn matrix_scalef_ext(matrix_mode u32, x f32, y f32, z f32) {
 	C.glMatrixScalefEXT(matrix_mode, x, y, z)
 }
-[inline]
-pub fn matrix_translated_ext(matrix_mode u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn matrix_translated_ext(matrix_mode u32, x f64, y f64, z f64) {
 	C.glMatrixTranslatedEXT(matrix_mode, x, y, z)
 }
-[inline]
-pub fn matrix_translatef_ext(matrix_mode u32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn matrix_translatef_ext(matrix_mode u32, x f32, y f32, z f32) {
 	C.glMatrixTranslatefEXT(matrix_mode, x, y, z)
 }
-[inline]
-pub fn multi_tex_buffer_ext(texunit u32, target u32, internalformat u32, buffer u32)  {
+
+@[inline]
+pub fn multi_tex_buffer_ext(texunit u32, target u32, internalformat u32, buffer u32) {
 	C.glMultiTexBufferEXT(texunit, target, internalformat, buffer)
 }
-[inline]
-pub fn multi_tex_coord_pointer_ext(texunit u32, size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn multi_tex_coord_pointer_ext(texunit u32, size int, gl_type u32, stride int, pointer voidptr) {
 	C.glMultiTexCoordPointerEXT(texunit, size, gl_type, stride, pointer)
 }
-[inline]
-pub fn multi_tex_envf_ext(texunit u32, target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn multi_tex_envf_ext(texunit u32, target u32, pname u32, param f32) {
 	C.glMultiTexEnvfEXT(texunit, target, pname, param)
 }
-[inline]
-pub fn multi_tex_envfv_ext(texunit u32, target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn multi_tex_envfv_ext(texunit u32, target u32, pname u32, params &f32) {
 	C.glMultiTexEnvfvEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn multi_tex_envi_ext(texunit u32, target u32, pname u32, param int)  {
+
+@[inline]
+pub fn multi_tex_envi_ext(texunit u32, target u32, pname u32, param int) {
 	C.glMultiTexEnviEXT(texunit, target, pname, param)
 }
-[inline]
-pub fn multi_tex_enviv_ext(texunit u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn multi_tex_enviv_ext(texunit u32, target u32, pname u32, params &int) {
 	C.glMultiTexEnvivEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn multi_tex_gend_ext(texunit u32, coord u32, pname u32, param f64)  {
+
+@[inline]
+pub fn multi_tex_gend_ext(texunit u32, coord u32, pname u32, param f64) {
 	C.glMultiTexGendEXT(texunit, coord, pname, param)
 }
-[inline]
-pub fn multi_tex_gendv_ext(texunit u32, coord u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn multi_tex_gendv_ext(texunit u32, coord u32, pname u32, params &f64) {
 	C.glMultiTexGendvEXT(texunit, coord, pname, params)
 }
-[inline]
-pub fn multi_tex_genf_ext(texunit u32, coord u32, pname u32, param f32)  {
+
+@[inline]
+pub fn multi_tex_genf_ext(texunit u32, coord u32, pname u32, param f32) {
 	C.glMultiTexGenfEXT(texunit, coord, pname, param)
 }
-[inline]
-pub fn multi_tex_genfv_ext(texunit u32, coord u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn multi_tex_genfv_ext(texunit u32, coord u32, pname u32, params &f32) {
 	C.glMultiTexGenfvEXT(texunit, coord, pname, params)
 }
-[inline]
-pub fn multi_tex_geni_ext(texunit u32, coord u32, pname u32, param int)  {
+
+@[inline]
+pub fn multi_tex_geni_ext(texunit u32, coord u32, pname u32, param int) {
 	C.glMultiTexGeniEXT(texunit, coord, pname, param)
 }
-[inline]
-pub fn multi_tex_geniv_ext(texunit u32, coord u32, pname u32, params &int)  {
+
+@[inline]
+pub fn multi_tex_geniv_ext(texunit u32, coord u32, pname u32, params &int) {
 	C.glMultiTexGenivEXT(texunit, coord, pname, params)
 }
-[inline]
-pub fn multi_tex_image1dext(texunit u32, target u32, level int, internalformat int, width int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, gl_type, pixels)
+
+@[inline]
+pub fn multi_tex_image1dext(texunit u32, target u32, level int, internalformat int, width int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format,
+		gl_type, pixels)
 }
-[inline]
-pub fn multi_tex_image2dext(texunit u32, target u32, level int, internalformat int, width int, height int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, gl_type, pixels)
+
+@[inline]
+pub fn multi_tex_image2dext(texunit u32, target u32, level int, internalformat int, width int, height int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn multi_tex_image3dext(texunit u32, target u32, level int, internalformat int, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, gl_type, pixels)
+
+@[inline]
+pub fn multi_tex_image3dext(texunit u32, target u32, level int, internalformat int, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth,
+		border, format, gl_type, pixels)
 }
-[inline]
-pub fn multi_tex_parameter_iiv_ext(texunit u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn multi_tex_parameter_iiv_ext(texunit u32, target u32, pname u32, params &int) {
 	C.glMultiTexParameterIivEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn multi_tex_parameter_iuiv_ext(texunit u32, target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn multi_tex_parameter_iuiv_ext(texunit u32, target u32, pname u32, params &u32) {
 	C.glMultiTexParameterIuivEXT(texunit, target, pname, params)
 }
-[inline]
-pub fn multi_tex_parameterf_ext(texunit u32, target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn multi_tex_parameterf_ext(texunit u32, target u32, pname u32, param f32) {
 	C.glMultiTexParameterfEXT(texunit, target, pname, param)
 }
-[inline]
-pub fn multi_tex_parameterfv_ext(texunit u32, target u32, pname u32, param &f32)  {
+
+@[inline]
+pub fn multi_tex_parameterfv_ext(texunit u32, target u32, pname u32, param &f32) {
 	C.glMultiTexParameterfvEXT(texunit, target, pname, param)
 }
-[inline]
-pub fn multi_tex_parameteri_ext(texunit u32, target u32, pname u32, param int)  {
+
+@[inline]
+pub fn multi_tex_parameteri_ext(texunit u32, target u32, pname u32, param int) {
 	C.glMultiTexParameteriEXT(texunit, target, pname, param)
 }
-[inline]
-pub fn multi_tex_parameteriv_ext(texunit u32, target u32, pname u32, param &int)  {
+
+@[inline]
+pub fn multi_tex_parameteriv_ext(texunit u32, target u32, pname u32, param &int) {
 	C.glMultiTexParameterivEXT(texunit, target, pname, param)
 }
-[inline]
-pub fn multi_tex_renderbuffer_ext(texunit u32, target u32, renderbuffer u32)  {
+
+@[inline]
+pub fn multi_tex_renderbuffer_ext(texunit u32, target u32, renderbuffer u32) {
 	C.glMultiTexRenderbufferEXT(texunit, target, renderbuffer)
 }
-[inline]
-pub fn multi_tex_sub_image1dext(texunit u32, target u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr)  {
-	C.glMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, gl_type, pixels)
+
+@[inline]
+pub fn multi_tex_sub_image1dext(texunit u32, target u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr) {
+	C.glMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, gl_type,
+		pixels)
 }
-[inline]
-pub fn multi_tex_sub_image2dext(texunit u32, target u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr)  {
-	C.glMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, gl_type, pixels)
+
+@[inline]
+pub fn multi_tex_sub_image2dext(texunit u32, target u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr) {
+	C.glMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn multi_tex_sub_image3dext(texunit u32, target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr)  {
-	C.glMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, pixels)
+
+@[inline]
+pub fn multi_tex_sub_image3dext(texunit u32, target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr) {
+	C.glMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width,
+		height, depth, format, gl_type, pixels)
 }
-[inline]
-pub fn named_buffer_data_ext(buffer u32, size i64, data voidptr, usage u32)  {
+
+@[inline]
+pub fn named_buffer_data_ext(buffer u32, size i64, data voidptr, usage u32) {
 	C.glNamedBufferDataEXT(buffer, size, data, usage)
 }
-[inline]
-pub fn named_buffer_sub_data_ext(buffer u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn named_buffer_sub_data_ext(buffer u32, offset i64, size i64, data voidptr) {
 	C.glNamedBufferSubDataEXT(buffer, offset, size, data)
 }
-[inline]
-pub fn named_copy_buffer_sub_data_ext(read_buffer u32, write_buffer u32, read_offset i64, write_offset i64, size i64)  {
-	C.glNamedCopyBufferSubDataEXT(read_buffer, write_buffer, read_offset, write_offset, size)
+
+@[inline]
+pub fn named_copy_buffer_sub_data_ext(read_buffer u32, write_buffer u32, read_offset i64, write_offset i64, size i64) {
+	C.glNamedCopyBufferSubDataEXT(read_buffer, write_buffer, read_offset, write_offset,
+		size)
 }
-[inline]
-pub fn named_framebuffer_renderbuffer_ext(framebuffer u32, attachment u32, renderbuffertarget u32, renderbuffer u32)  {
+
+@[inline]
+pub fn named_framebuffer_renderbuffer_ext(framebuffer u32, attachment u32, renderbuffertarget u32, renderbuffer u32) {
 	C.glNamedFramebufferRenderbufferEXT(framebuffer, attachment, renderbuffertarget, renderbuffer)
 }
-[inline]
-pub fn named_framebuffer_texture1dext(framebuffer u32, attachment u32, textarget u32, texture u32, level int)  {
+
+@[inline]
+pub fn named_framebuffer_texture1dext(framebuffer u32, attachment u32, textarget u32, texture u32, level int) {
 	C.glNamedFramebufferTexture1DEXT(framebuffer, attachment, textarget, texture, level)
 }
-[inline]
-pub fn named_framebuffer_texture2dext(framebuffer u32, attachment u32, textarget u32, texture u32, level int)  {
+
+@[inline]
+pub fn named_framebuffer_texture2dext(framebuffer u32, attachment u32, textarget u32, texture u32, level int) {
 	C.glNamedFramebufferTexture2DEXT(framebuffer, attachment, textarget, texture, level)
 }
-[inline]
-pub fn named_framebuffer_texture3dext(framebuffer u32, attachment u32, textarget u32, texture u32, level int, zoffset int)  {
-	C.glNamedFramebufferTexture3DEXT(framebuffer, attachment, textarget, texture, level, zoffset)
+
+@[inline]
+pub fn named_framebuffer_texture3dext(framebuffer u32, attachment u32, textarget u32, texture u32, level int, zoffset int) {
+	C.glNamedFramebufferTexture3DEXT(framebuffer, attachment, textarget, texture, level,
+		zoffset)
 }
-[inline]
-pub fn named_framebuffer_texture_ext(framebuffer u32, attachment u32, texture u32, level int)  {
+
+@[inline]
+pub fn named_framebuffer_texture_ext(framebuffer u32, attachment u32, texture u32, level int) {
 	C.glNamedFramebufferTextureEXT(framebuffer, attachment, texture, level)
 }
-[inline]
-pub fn named_framebuffer_texture_face_ext(framebuffer u32, attachment u32, texture u32, level int, face u32)  {
+
+@[inline]
+pub fn named_framebuffer_texture_face_ext(framebuffer u32, attachment u32, texture u32, level int, face u32) {
 	C.glNamedFramebufferTextureFaceEXT(framebuffer, attachment, texture, level, face)
 }
-[inline]
-pub fn named_framebuffer_texture_layer_ext(framebuffer u32, attachment u32, texture u32, level int, layer int)  {
+
+@[inline]
+pub fn named_framebuffer_texture_layer_ext(framebuffer u32, attachment u32, texture u32, level int, layer int) {
 	C.glNamedFramebufferTextureLayerEXT(framebuffer, attachment, texture, level, layer)
 }
-[inline]
-pub fn named_program_local_parameter4d_ext(program u32, target u32, index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn named_program_local_parameter4d_ext(program u32, target u32, index u32, x f64, y f64, z f64, w f64) {
 	C.glNamedProgramLocalParameter4dEXT(program, target, index, x, y, z, w)
 }
-[inline]
-pub fn named_program_local_parameter4dv_ext(program u32, target u32, index u32, params &f64)  {
+
+@[inline]
+pub fn named_program_local_parameter4dv_ext(program u32, target u32, index u32, params &f64) {
 	C.glNamedProgramLocalParameter4dvEXT(program, target, index, params)
 }
-[inline]
-pub fn named_program_local_parameter4f_ext(program u32, target u32, index u32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn named_program_local_parameter4f_ext(program u32, target u32, index u32, x f32, y f32, z f32, w f32) {
 	C.glNamedProgramLocalParameter4fEXT(program, target, index, x, y, z, w)
 }
-[inline]
-pub fn named_program_local_parameter4fv_ext(program u32, target u32, index u32, params &f32)  {
+
+@[inline]
+pub fn named_program_local_parameter4fv_ext(program u32, target u32, index u32, params &f32) {
 	C.glNamedProgramLocalParameter4fvEXT(program, target, index, params)
 }
-[inline]
-pub fn named_program_local_parameter_i4i_ext(program u32, target u32, index u32, x int, y int, z int, w int)  {
+
+@[inline]
+pub fn named_program_local_parameter_i4i_ext(program u32, target u32, index u32, x int, y int, z int, w int) {
 	C.glNamedProgramLocalParameterI4iEXT(program, target, index, x, y, z, w)
 }
-[inline]
-pub fn named_program_local_parameter_i4iv_ext(program u32, target u32, index u32, params &int)  {
+
+@[inline]
+pub fn named_program_local_parameter_i4iv_ext(program u32, target u32, index u32, params &int) {
 	C.glNamedProgramLocalParameterI4ivEXT(program, target, index, params)
 }
-[inline]
-pub fn named_program_local_parameter_i4ui_ext(program u32, target u32, index u32, x u32, y u32, z u32, w u32)  {
+
+@[inline]
+pub fn named_program_local_parameter_i4ui_ext(program u32, target u32, index u32, x u32, y u32, z u32, w u32) {
 	C.glNamedProgramLocalParameterI4uiEXT(program, target, index, x, y, z, w)
 }
-[inline]
-pub fn named_program_local_parameter_i4uiv_ext(program u32, target u32, index u32, params &u32)  {
+
+@[inline]
+pub fn named_program_local_parameter_i4uiv_ext(program u32, target u32, index u32, params &u32) {
 	C.glNamedProgramLocalParameterI4uivEXT(program, target, index, params)
 }
-[inline]
-pub fn named_program_local_parameters4fv_ext(program u32, target u32, index u32, count int, params &f32)  {
+
+@[inline]
+pub fn named_program_local_parameters4fv_ext(program u32, target u32, index u32, count int, params &f32) {
 	C.glNamedProgramLocalParameters4fvEXT(program, target, index, count, params)
 }
-[inline]
-pub fn named_program_local_parameters_i4iv_ext(program u32, target u32, index u32, count int, params &int)  {
+
+@[inline]
+pub fn named_program_local_parameters_i4iv_ext(program u32, target u32, index u32, count int, params &int) {
 	C.glNamedProgramLocalParametersI4ivEXT(program, target, index, count, params)
 }
-[inline]
-pub fn named_program_local_parameters_i4uiv_ext(program u32, target u32, index u32, count int, params &u32)  {
+
+@[inline]
+pub fn named_program_local_parameters_i4uiv_ext(program u32, target u32, index u32, count int, params &u32) {
 	C.glNamedProgramLocalParametersI4uivEXT(program, target, index, count, params)
 }
-[inline]
-pub fn named_program_string_ext(program u32, target u32, format u32, len int, gl_string voidptr)  {
+
+@[inline]
+pub fn named_program_string_ext(program u32, target u32, format u32, len int, gl_string voidptr) {
 	C.glNamedProgramStringEXT(program, target, format, len, gl_string)
 }
-[inline]
-pub fn named_renderbuffer_storage_ext(renderbuffer u32, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn named_renderbuffer_storage_ext(renderbuffer u32, internalformat u32, width int, height int) {
 	C.glNamedRenderbufferStorageEXT(renderbuffer, internalformat, width, height)
 }
-[inline]
-pub fn named_renderbuffer_storage_multisample_coverage_ext(renderbuffer u32, coverage_samples int, color_samples int, internalformat u32, width int, height int)  {
-	C.glNamedRenderbufferStorageMultisampleCoverageEXT(renderbuffer, coverage_samples, color_samples, internalformat, width, height)
+
+@[inline]
+pub fn named_renderbuffer_storage_multisample_coverage_ext(renderbuffer u32, coverage_samples int, color_samples int, internalformat u32, width int, height int) {
+	C.glNamedRenderbufferStorageMultisampleCoverageEXT(renderbuffer, coverage_samples,
+		color_samples, internalformat, width, height)
 }
-[inline]
-pub fn named_renderbuffer_storage_multisample_ext(renderbuffer u32, samples int, internalformat u32, width int, height int)  {
-	C.glNamedRenderbufferStorageMultisampleEXT(renderbuffer, samples, internalformat, width, height)
+
+@[inline]
+pub fn named_renderbuffer_storage_multisample_ext(renderbuffer u32, samples int, internalformat u32, width int, height int) {
+	C.glNamedRenderbufferStorageMultisampleEXT(renderbuffer, samples, internalformat,
+		width, height)
 }
-[inline]
-pub fn program_uniform1f_ext(program u32, location int, v0 f32)  {
+
+@[inline]
+pub fn program_uniform1f_ext(program u32, location int, v0 f32) {
 	C.glProgramUniform1fEXT(program, location, v0)
 }
-[inline]
-pub fn program_uniform1fv_ext(program u32, location int, count int, value &f32)  {
+
+@[inline]
+pub fn program_uniform1fv_ext(program u32, location int, count int, value &f32) {
 	C.glProgramUniform1fvEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform1i_ext(program u32, location int, v0 int)  {
+
+@[inline]
+pub fn program_uniform1i_ext(program u32, location int, v0 int) {
 	C.glProgramUniform1iEXT(program, location, v0)
 }
-[inline]
-pub fn program_uniform1iv_ext(program u32, location int, count int, value &int)  {
+
+@[inline]
+pub fn program_uniform1iv_ext(program u32, location int, count int, value &int) {
 	C.glProgramUniform1ivEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform1ui_ext(program u32, location int, v0 u32)  {
+
+@[inline]
+pub fn program_uniform1ui_ext(program u32, location int, v0 u32) {
 	C.glProgramUniform1uiEXT(program, location, v0)
 }
-[inline]
-pub fn program_uniform1uiv_ext(program u32, location int, count int, value &u32)  {
+
+@[inline]
+pub fn program_uniform1uiv_ext(program u32, location int, count int, value &u32) {
 	C.glProgramUniform1uivEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2f_ext(program u32, location int, v0 f32, v1 f32)  {
+
+@[inline]
+pub fn program_uniform2f_ext(program u32, location int, v0 f32, v1 f32) {
 	C.glProgramUniform2fEXT(program, location, v0, v1)
 }
-[inline]
-pub fn program_uniform2fv_ext(program u32, location int, count int, value &f32)  {
+
+@[inline]
+pub fn program_uniform2fv_ext(program u32, location int, count int, value &f32) {
 	C.glProgramUniform2fvEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2i_ext(program u32, location int, v0 int, v1 int)  {
+
+@[inline]
+pub fn program_uniform2i_ext(program u32, location int, v0 int, v1 int) {
 	C.glProgramUniform2iEXT(program, location, v0, v1)
 }
-[inline]
-pub fn program_uniform2iv_ext(program u32, location int, count int, value &int)  {
+
+@[inline]
+pub fn program_uniform2iv_ext(program u32, location int, count int, value &int) {
 	C.glProgramUniform2ivEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2ui_ext(program u32, location int, v0 u32, v1 u32)  {
+
+@[inline]
+pub fn program_uniform2ui_ext(program u32, location int, v0 u32, v1 u32) {
 	C.glProgramUniform2uiEXT(program, location, v0, v1)
 }
-[inline]
-pub fn program_uniform2uiv_ext(program u32, location int, count int, value &u32)  {
+
+@[inline]
+pub fn program_uniform2uiv_ext(program u32, location int, count int, value &u32) {
 	C.glProgramUniform2uivEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3f_ext(program u32, location int, v0 f32, v1 f32, v2 f32)  {
+
+@[inline]
+pub fn program_uniform3f_ext(program u32, location int, v0 f32, v1 f32, v2 f32) {
 	C.glProgramUniform3fEXT(program, location, v0, v1, v2)
 }
-[inline]
-pub fn program_uniform3fv_ext(program u32, location int, count int, value &f32)  {
+
+@[inline]
+pub fn program_uniform3fv_ext(program u32, location int, count int, value &f32) {
 	C.glProgramUniform3fvEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3i_ext(program u32, location int, v0 int, v1 int, v2 int)  {
+
+@[inline]
+pub fn program_uniform3i_ext(program u32, location int, v0 int, v1 int, v2 int) {
 	C.glProgramUniform3iEXT(program, location, v0, v1, v2)
 }
-[inline]
-pub fn program_uniform3iv_ext(program u32, location int, count int, value &int)  {
+
+@[inline]
+pub fn program_uniform3iv_ext(program u32, location int, count int, value &int) {
 	C.glProgramUniform3ivEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3ui_ext(program u32, location int, v0 u32, v1 u32, v2 u32)  {
+
+@[inline]
+pub fn program_uniform3ui_ext(program u32, location int, v0 u32, v1 u32, v2 u32) {
 	C.glProgramUniform3uiEXT(program, location, v0, v1, v2)
 }
-[inline]
-pub fn program_uniform3uiv_ext(program u32, location int, count int, value &u32)  {
+
+@[inline]
+pub fn program_uniform3uiv_ext(program u32, location int, count int, value &u32) {
 	C.glProgramUniform3uivEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4f_ext(program u32, location int, v0 f32, v1 f32, v2 f32, v3 f32)  {
+
+@[inline]
+pub fn program_uniform4f_ext(program u32, location int, v0 f32, v1 f32, v2 f32, v3 f32) {
 	C.glProgramUniform4fEXT(program, location, v0, v1, v2, v3)
 }
-[inline]
-pub fn program_uniform4fv_ext(program u32, location int, count int, value &f32)  {
+
+@[inline]
+pub fn program_uniform4fv_ext(program u32, location int, count int, value &f32) {
 	C.glProgramUniform4fvEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4i_ext(program u32, location int, v0 int, v1 int, v2 int, v3 int)  {
+
+@[inline]
+pub fn program_uniform4i_ext(program u32, location int, v0 int, v1 int, v2 int, v3 int) {
 	C.glProgramUniform4iEXT(program, location, v0, v1, v2, v3)
 }
-[inline]
-pub fn program_uniform4iv_ext(program u32, location int, count int, value &int)  {
+
+@[inline]
+pub fn program_uniform4iv_ext(program u32, location int, count int, value &int) {
 	C.glProgramUniform4ivEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4ui_ext(program u32, location int, v0 u32, v1 u32, v2 u32, v3 u32)  {
+
+@[inline]
+pub fn program_uniform4ui_ext(program u32, location int, v0 u32, v1 u32, v2 u32, v3 u32) {
 	C.glProgramUniform4uiEXT(program, location, v0, v1, v2, v3)
 }
-[inline]
-pub fn program_uniform4uiv_ext(program u32, location int, count int, value &u32)  {
+
+@[inline]
+pub fn program_uniform4uiv_ext(program u32, location int, count int, value &u32) {
 	C.glProgramUniform4uivEXT(program, location, count, value)
 }
-[inline]
-pub fn program_uniform_matrix2fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix2fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix2fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix2x3fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix2x3fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix2x3fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix2x4fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix2x4fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix2x4fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix3fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix3fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3x2fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix3x2fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix3x2fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix3x4fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix3x4fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix3x4fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix4fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix4fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4x2fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix4x2fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix4x2fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn program_uniform_matrix4x3fv_ext(program u32, location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn program_uniform_matrix4x3fv_ext(program u32, location int, count int, transpose u8, value &f32) {
 	C.glProgramUniformMatrix4x3fvEXT(program, location, count, transpose, value)
 }
-[inline]
-pub fn push_client_attrib_default_ext(mask u32)  {
+
+@[inline]
+pub fn push_client_attrib_default_ext(mask u32) {
 	C.glPushClientAttribDefaultEXT(mask)
 }
-[inline]
-pub fn texture_buffer_ext(texture u32, target u32, internalformat u32, buffer u32)  {
+
+@[inline]
+pub fn texture_buffer_ext(texture u32, target u32, internalformat u32, buffer u32) {
 	C.glTextureBufferEXT(texture, target, internalformat, buffer)
 }
-[inline]
-pub fn texture_image1dext(texture u32, target u32, level int, internalformat int, width int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTextureImage1DEXT(texture, target, level, internalformat, width, border, format, gl_type, pixels)
+
+@[inline]
+pub fn texture_image1dext(texture u32, target u32, level int, internalformat int, width int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTextureImage1DEXT(texture, target, level, internalformat, width, border, format,
+		gl_type, pixels)
 }
-[inline]
-pub fn texture_image2dext(texture u32, target u32, level int, internalformat int, width int, height int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, gl_type, pixels)
+
+@[inline]
+pub fn texture_image2dext(texture u32, target u32, level int, internalformat int, width int, height int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTextureImage2DEXT(texture, target, level, internalformat, width, height, border,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn texture_image3dext(texture u32, target u32, level int, internalformat int, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, gl_type, pixels)
+
+@[inline]
+pub fn texture_image3dext(texture u32, target u32, level int, internalformat int, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTextureImage3DEXT(texture, target, level, internalformat, width, height, depth,
+		border, format, gl_type, pixels)
 }
-[inline]
-pub fn texture_parameter_iiv_ext(texture u32, target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn texture_parameter_iiv_ext(texture u32, target u32, pname u32, params &int) {
 	C.glTextureParameterIivEXT(texture, target, pname, params)
 }
-[inline]
-pub fn texture_parameter_iuiv_ext(texture u32, target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn texture_parameter_iuiv_ext(texture u32, target u32, pname u32, params &u32) {
 	C.glTextureParameterIuivEXT(texture, target, pname, params)
 }
-[inline]
-pub fn texture_parameterf_ext(texture u32, target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn texture_parameterf_ext(texture u32, target u32, pname u32, param f32) {
 	C.glTextureParameterfEXT(texture, target, pname, param)
 }
-[inline]
-pub fn texture_parameterfv_ext(texture u32, target u32, pname u32, param &f32)  {
+
+@[inline]
+pub fn texture_parameterfv_ext(texture u32, target u32, pname u32, param &f32) {
 	C.glTextureParameterfvEXT(texture, target, pname, param)
 }
-[inline]
-pub fn texture_parameteri_ext(texture u32, target u32, pname u32, param int)  {
+
+@[inline]
+pub fn texture_parameteri_ext(texture u32, target u32, pname u32, param int) {
 	C.glTextureParameteriEXT(texture, target, pname, param)
 }
-[inline]
-pub fn texture_parameteriv_ext(texture u32, target u32, pname u32, param &int)  {
+
+@[inline]
+pub fn texture_parameteriv_ext(texture u32, target u32, pname u32, param &int) {
 	C.glTextureParameterivEXT(texture, target, pname, param)
 }
-[inline]
-pub fn texture_renderbuffer_ext(texture u32, target u32, renderbuffer u32)  {
+
+@[inline]
+pub fn texture_renderbuffer_ext(texture u32, target u32, renderbuffer u32) {
 	C.glTextureRenderbufferEXT(texture, target, renderbuffer)
 }
-[inline]
-pub fn texture_sub_image1dext(texture u32, target u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTextureSubImage1DEXT(texture, target, level, xoffset, width, format, gl_type, pixels)
+
+@[inline]
+pub fn texture_sub_image1dext(texture u32, target u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr) {
+	C.glTextureSubImage1DEXT(texture, target, level, xoffset, width, format, gl_type,
+		pixels)
 }
-[inline]
-pub fn texture_sub_image2dext(texture u32, target u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, gl_type, pixels)
+
+@[inline]
+pub fn texture_sub_image2dext(texture u32, target u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr) {
+	C.glTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn texture_sub_image3dext(texture u32, target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, pixels)
+
+@[inline]
+pub fn texture_sub_image3dext(texture u32, target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr) {
+	C.glTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width,
+		height, depth, format, gl_type, pixels)
 }
-[inline]
+
+@[inline]
 pub fn unmap_named_buffer_ext(buffer u32) u8 {
 	return C.glUnmapNamedBufferEXT(buffer)
 }
-[inline]
-pub fn vertex_array_color_offset_ext(vaobj u32, buffer u32, size int, gl_type u32, stride int, offset i64)  {
+
+@[inline]
+pub fn vertex_array_color_offset_ext(vaobj u32, buffer u32, size int, gl_type u32, stride int, offset i64) {
 	C.glVertexArrayColorOffsetEXT(vaobj, buffer, size, gl_type, stride, offset)
 }
-[inline]
-pub fn vertex_array_edge_flag_offset_ext(vaobj u32, buffer u32, stride int, offset i64)  {
+
+@[inline]
+pub fn vertex_array_edge_flag_offset_ext(vaobj u32, buffer u32, stride int, offset i64) {
 	C.glVertexArrayEdgeFlagOffsetEXT(vaobj, buffer, stride, offset)
 }
-[inline]
-pub fn vertex_array_fog_coord_offset_ext(vaobj u32, buffer u32, gl_type u32, stride int, offset i64)  {
+
+@[inline]
+pub fn vertex_array_fog_coord_offset_ext(vaobj u32, buffer u32, gl_type u32, stride int, offset i64) {
 	C.glVertexArrayFogCoordOffsetEXT(vaobj, buffer, gl_type, stride, offset)
 }
-[inline]
-pub fn vertex_array_index_offset_ext(vaobj u32, buffer u32, gl_type u32, stride int, offset i64)  {
+
+@[inline]
+pub fn vertex_array_index_offset_ext(vaobj u32, buffer u32, gl_type u32, stride int, offset i64) {
 	C.glVertexArrayIndexOffsetEXT(vaobj, buffer, gl_type, stride, offset)
 }
-[inline]
-pub fn vertex_array_multi_tex_coord_offset_ext(vaobj u32, buffer u32, texunit u32, size int, gl_type u32, stride int, offset i64)  {
-	C.glVertexArrayMultiTexCoordOffsetEXT(vaobj, buffer, texunit, size, gl_type, stride, offset)
+
+@[inline]
+pub fn vertex_array_multi_tex_coord_offset_ext(vaobj u32, buffer u32, texunit u32, size int, gl_type u32, stride int, offset i64) {
+	C.glVertexArrayMultiTexCoordOffsetEXT(vaobj, buffer, texunit, size, gl_type, stride,
+		offset)
 }
-[inline]
-pub fn vertex_array_normal_offset_ext(vaobj u32, buffer u32, gl_type u32, stride int, offset i64)  {
+
+@[inline]
+pub fn vertex_array_normal_offset_ext(vaobj u32, buffer u32, gl_type u32, stride int, offset i64) {
 	C.glVertexArrayNormalOffsetEXT(vaobj, buffer, gl_type, stride, offset)
 }
-[inline]
-pub fn vertex_array_secondary_color_offset_ext(vaobj u32, buffer u32, size int, gl_type u32, stride int, offset i64)  {
+
+@[inline]
+pub fn vertex_array_secondary_color_offset_ext(vaobj u32, buffer u32, size int, gl_type u32, stride int, offset i64) {
 	C.glVertexArraySecondaryColorOffsetEXT(vaobj, buffer, size, gl_type, stride, offset)
 }
-[inline]
-pub fn vertex_array_tex_coord_offset_ext(vaobj u32, buffer u32, size int, gl_type u32, stride int, offset i64)  {
+
+@[inline]
+pub fn vertex_array_tex_coord_offset_ext(vaobj u32, buffer u32, size int, gl_type u32, stride int, offset i64) {
 	C.glVertexArrayTexCoordOffsetEXT(vaobj, buffer, size, gl_type, stride, offset)
 }
-[inline]
-pub fn vertex_array_vertex_attrib_divisor_ext(vaobj u32, index u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_array_vertex_attrib_divisor_ext(vaobj u32, index u32, divisor u32) {
 	C.glVertexArrayVertexAttribDivisorEXT(vaobj, index, divisor)
 }
-[inline]
-pub fn vertex_array_vertex_attrib_ioffset_ext(vaobj u32, buffer u32, index u32, size int, gl_type u32, stride int, offset i64)  {
-	C.glVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, gl_type, stride, offset)
+
+@[inline]
+pub fn vertex_array_vertex_attrib_ioffset_ext(vaobj u32, buffer u32, index u32, size int, gl_type u32, stride int, offset i64) {
+	C.glVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, gl_type, stride,
+		offset)
 }
-[inline]
-pub fn vertex_array_vertex_attrib_offset_ext(vaobj u32, buffer u32, index u32, size int, gl_type u32, normalized u8, stride int, offset i64)  {
-	C.glVertexArrayVertexAttribOffsetEXT(vaobj, buffer, index, size, gl_type, normalized, stride, offset)
+
+@[inline]
+pub fn vertex_array_vertex_attrib_offset_ext(vaobj u32, buffer u32, index u32, size int, gl_type u32, normalized u8, stride int, offset i64) {
+	C.glVertexArrayVertexAttribOffsetEXT(vaobj, buffer, index, size, gl_type, normalized,
+		stride, offset)
 }
-[inline]
-pub fn vertex_array_vertex_offset_ext(vaobj u32, buffer u32, size int, gl_type u32, stride int, offset i64)  {
+
+@[inline]
+pub fn vertex_array_vertex_offset_ext(vaobj u32, buffer u32, size int, gl_type u32, stride int, offset i64) {
 	C.glVertexArrayVertexOffsetEXT(vaobj, buffer, size, gl_type, stride, offset)
 }
-[inline]
-pub fn discard_framebuffer_ext(target u32, num_attachments int, attachments &u32)  {
+
+@[inline]
+pub fn discard_framebuffer_ext(target u32, num_attachments int, attachments &u32) {
 	C.glDiscardFramebufferEXT(target, num_attachments, attachments)
 }
-[inline]
-pub fn begin_query_ext(target u32, id u32)  {
+
+@[inline]
+pub fn begin_query_ext(target u32, id u32) {
 	C.glBeginQueryEXT(target, id)
 }
-[inline]
-pub fn delete_queries_ext(n int, ids &u32)  {
+
+@[inline]
+pub fn delete_queries_ext(n int, ids &u32) {
 	C.glDeleteQueriesEXT(n, ids)
 }
-[inline]
-pub fn end_query_ext(target u32)  {
+
+@[inline]
+pub fn end_query_ext(target u32) {
 	C.glEndQueryEXT(target)
 }
-[inline]
-pub fn gen_queries_ext(n int, ids &u32)  {
+
+@[inline]
+pub fn gen_queries_ext(n int, ids &u32) {
 	C.glGenQueriesEXT(n, ids)
 }
-[inline]
-pub fn get_integer64v_ext(pname u32, data &i64)  {
+
+@[inline]
+pub fn get_integer64v_ext(pname u32, data &i64) {
 	C.glGetInteger64vEXT(pname, data)
 }
-[inline]
-pub fn get_query_objectiv_ext(id u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_query_objectiv_ext(id u32, pname u32, params &int) {
 	C.glGetQueryObjectivEXT(id, pname, params)
 }
-[inline]
-pub fn get_query_objectuiv_ext(id u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_query_objectuiv_ext(id u32, pname u32, params &u32) {
 	C.glGetQueryObjectuivEXT(id, pname, params)
 }
-[inline]
-pub fn get_queryiv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_queryiv_ext(target u32, pname u32, params &int) {
 	C.glGetQueryivEXT(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_query_ext(id u32) u8 {
 	return C.glIsQueryEXT(id)
 }
-[inline]
-pub fn query_counter_ext(id u32, target u32)  {
+
+@[inline]
+pub fn query_counter_ext(id u32, target u32) {
 	C.glQueryCounterEXT(id, target)
 }
-[inline]
-pub fn draw_buffers_ext(n int, bufs &u32)  {
+
+@[inline]
+pub fn draw_buffers_ext(n int, bufs &u32) {
 	C.glDrawBuffersEXT(n, bufs)
 }
-[inline]
-pub fn color_mask_indexed_ext(buf u32, r u8, g u8, b u8, a u8)  {
+
+@[inline]
+pub fn color_mask_indexed_ext(buf u32, r u8, g u8, b u8, a u8) {
 	C.glColorMaskIndexedEXT(buf, r, g, b, a)
 }
-[inline]
-pub fn disable_indexed_ext(target u32, index u32)  {
+
+@[inline]
+pub fn disable_indexed_ext(target u32, index u32) {
 	C.glDisableIndexedEXT(target, index)
 }
-[inline]
-pub fn enable_indexed_ext(target u32, index u32)  {
+
+@[inline]
+pub fn enable_indexed_ext(target u32, index u32) {
 	C.glEnableIndexedEXT(target, index)
 }
-[inline]
-pub fn get_boolean_indexedv_ext(value u32, index u32, data &u8)  {
+
+@[inline]
+pub fn get_boolean_indexedv_ext(value u32, index u32, data &u8) {
 	C.glGetBooleanIndexedvEXT(value, index, data)
 }
-[inline]
-pub fn get_integer_indexedv_ext(value u32, index u32, data &int)  {
+
+@[inline]
+pub fn get_integer_indexedv_ext(value u32, index u32, data &int) {
 	C.glGetIntegerIndexedvEXT(value, index, data)
 }
-[inline]
+
+@[inline]
 pub fn is_enabled_indexed_ext(target u32, index u32) u8 {
 	return C.glIsEnabledIndexedEXT(target, index)
 }
-[inline]
-pub fn blend_equation_separatei_ext(buf u32, mode_rgb u32, mode_alpha u32)  {
+
+@[inline]
+pub fn blend_equation_separatei_ext(buf u32, mode_rgb u32, mode_alpha u32) {
 	C.glBlendEquationSeparateiEXT(buf, mode_rgb, mode_alpha)
 }
-[inline]
-pub fn blend_equationi_ext(buf u32, mode u32)  {
+
+@[inline]
+pub fn blend_equationi_ext(buf u32, mode u32) {
 	C.glBlendEquationiEXT(buf, mode)
 }
-[inline]
-pub fn blend_func_separatei_ext(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32)  {
+
+@[inline]
+pub fn blend_func_separatei_ext(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32) {
 	C.glBlendFuncSeparateiEXT(buf, src_rgb, dst_rgb, src_alpha, dst_alpha)
 }
-[inline]
-pub fn blend_funci_ext(buf u32, src u32, dst u32)  {
+
+@[inline]
+pub fn blend_funci_ext(buf u32, src u32, dst u32) {
 	C.glBlendFunciEXT(buf, src, dst)
 }
-[inline]
-pub fn color_maski_ext(buf u32, r u8, g u8, b u8, a u8)  {
+
+@[inline]
+pub fn color_maski_ext(buf u32, r u8, g u8, b u8, a u8) {
 	C.glColorMaskiEXT(buf, r, g, b, a)
 }
-[inline]
-pub fn disablei_ext(target u32, index u32)  {
+
+@[inline]
+pub fn disablei_ext(target u32, index u32) {
 	C.glDisableiEXT(target, index)
 }
-[inline]
-pub fn enablei_ext(target u32, index u32)  {
+
+@[inline]
+pub fn enablei_ext(target u32, index u32) {
 	C.glEnableiEXT(target, index)
 }
-[inline]
+
+@[inline]
 pub fn is_enabledi_ext(target u32, index u32) u8 {
 	return C.glIsEnablediEXT(target, index)
 }
-[inline]
-pub fn draw_elements_base_vertex_ext(mode u32, count int, gl_type u32, indices voidptr, basevertex int)  {
+
+@[inline]
+pub fn draw_elements_base_vertex_ext(mode u32, count int, gl_type u32, indices voidptr, basevertex int) {
 	C.glDrawElementsBaseVertexEXT(mode, count, gl_type, indices, basevertex)
 }
-[inline]
-pub fn draw_elements_instanced_base_vertex_ext(mode u32, count int, gl_type u32, indices voidptr, instancecount int, basevertex int)  {
-	C.glDrawElementsInstancedBaseVertexEXT(mode, count, gl_type, indices, instancecount, basevertex)
+
+@[inline]
+pub fn draw_elements_instanced_base_vertex_ext(mode u32, count int, gl_type u32, indices voidptr, instancecount int, basevertex int) {
+	C.glDrawElementsInstancedBaseVertexEXT(mode, count, gl_type, indices, instancecount,
+		basevertex)
 }
-[inline]
-pub fn draw_range_elements_base_vertex_ext(mode u32, start u32, end u32, count int, gl_type u32, indices voidptr, basevertex int)  {
+
+@[inline]
+pub fn draw_range_elements_base_vertex_ext(mode u32, start u32, end u32, count int, gl_type u32, indices voidptr, basevertex int) {
 	C.glDrawRangeElementsBaseVertexEXT(mode, start, end, count, gl_type, indices, basevertex)
 }
-[inline]
-pub fn multi_draw_elements_base_vertex_ext(mode u32, count &int, gl_type u32, indices &voidptr, primcount int, basevertex &int)  {
+
+@[inline]
+pub fn multi_draw_elements_base_vertex_ext(mode u32, count &int, gl_type u32, indices &voidptr, primcount int, basevertex &int) {
 	C.glMultiDrawElementsBaseVertexEXT(mode, count, gl_type, indices, primcount, basevertex)
 }
-[inline]
-pub fn draw_arrays_instanced_ext(mode u32, start int, count int, primcount int)  {
+
+@[inline]
+pub fn draw_arrays_instanced_ext(mode u32, start int, count int, primcount int) {
 	C.glDrawArraysInstancedEXT(mode, start, count, primcount)
 }
-[inline]
-pub fn draw_elements_instanced_ext(mode u32, count int, gl_type u32, indices voidptr, primcount int)  {
+
+@[inline]
+pub fn draw_elements_instanced_ext(mode u32, count int, gl_type u32, indices voidptr, primcount int) {
 	C.glDrawElementsInstancedEXT(mode, count, gl_type, indices, primcount)
 }
-[inline]
-pub fn draw_range_elements_ext(mode u32, start u32, end u32, count int, gl_type u32, indices voidptr)  {
+
+@[inline]
+pub fn draw_range_elements_ext(mode u32, start u32, end u32, count int, gl_type u32, indices voidptr) {
 	C.glDrawRangeElementsEXT(mode, start, end, count, gl_type, indices)
 }
-[inline]
-pub fn draw_transform_feedback_ext(mode u32, id u32)  {
+
+@[inline]
+pub fn draw_transform_feedback_ext(mode u32, id u32) {
 	C.glDrawTransformFeedbackEXT(mode, id)
 }
-[inline]
-pub fn draw_transform_feedback_instanced_ext(mode u32, id u32, instancecount int)  {
+
+@[inline]
+pub fn draw_transform_feedback_instanced_ext(mode u32, id u32, instancecount int) {
 	C.glDrawTransformFeedbackInstancedEXT(mode, id, instancecount)
 }
-[inline]
-pub fn buffer_storage_external_ext(target u32, offset i64, size i64, client_buffer voidptr, flags u32)  {
+
+@[inline]
+pub fn buffer_storage_external_ext(target u32, offset i64, size i64, client_buffer voidptr, flags u32) {
 	C.glBufferStorageExternalEXT(target, offset, size, client_buffer, flags)
 }
-[inline]
-pub fn named_buffer_storage_external_ext(buffer u32, offset i64, size i64, client_buffer voidptr, flags u32)  {
+
+@[inline]
+pub fn named_buffer_storage_external_ext(buffer u32, offset i64, size i64, client_buffer voidptr, flags u32) {
 	C.glNamedBufferStorageExternalEXT(buffer, offset, size, client_buffer, flags)
 }
-[inline]
-pub fn fog_coord_pointer_ext(gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn fog_coord_pointer_ext(gl_type u32, stride int, pointer voidptr) {
 	C.glFogCoordPointerEXT(gl_type, stride, pointer)
 }
-[inline]
-pub fn fog_coordd_ext(coord f64)  {
+
+@[inline]
+pub fn fog_coordd_ext(coord f64) {
 	C.glFogCoorddEXT(coord)
 }
-[inline]
-pub fn fog_coorddv_ext(coord &f64)  {
+
+@[inline]
+pub fn fog_coorddv_ext(coord &f64) {
 	C.glFogCoorddvEXT(coord)
 }
-[inline]
-pub fn fog_coordf_ext(coord f32)  {
+
+@[inline]
+pub fn fog_coordf_ext(coord f32) {
 	C.glFogCoordfEXT(coord)
 }
-[inline]
-pub fn fog_coordfv_ext(coord &f32)  {
+
+@[inline]
+pub fn fog_coordfv_ext(coord &f32) {
 	C.glFogCoordfvEXT(coord)
 }
-[inline]
-pub fn fragment_color_material_ext(face u32, mode u32)  {
+
+@[inline]
+pub fn fragment_color_material_ext(face u32, mode u32) {
 	C.glFragmentColorMaterialEXT(face, mode)
 }
-[inline]
-pub fn fragment_light_modelf_ext(pname u32, param f32)  {
+
+@[inline]
+pub fn fragment_light_modelf_ext(pname u32, param f32) {
 	C.glFragmentLightModelfEXT(pname, param)
 }
-[inline]
-pub fn fragment_light_modelfv_ext(pname u32, params &f32)  {
+
+@[inline]
+pub fn fragment_light_modelfv_ext(pname u32, params &f32) {
 	C.glFragmentLightModelfvEXT(pname, params)
 }
-[inline]
-pub fn fragment_light_modeli_ext(pname u32, param int)  {
+
+@[inline]
+pub fn fragment_light_modeli_ext(pname u32, param int) {
 	C.glFragmentLightModeliEXT(pname, param)
 }
-[inline]
-pub fn fragment_light_modeliv_ext(pname u32, params &int)  {
+
+@[inline]
+pub fn fragment_light_modeliv_ext(pname u32, params &int) {
 	C.glFragmentLightModelivEXT(pname, params)
 }
-[inline]
-pub fn fragment_lightf_ext(light u32, pname u32, param f32)  {
+
+@[inline]
+pub fn fragment_lightf_ext(light u32, pname u32, param f32) {
 	C.glFragmentLightfEXT(light, pname, param)
 }
-[inline]
-pub fn fragment_lightfv_ext(light u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn fragment_lightfv_ext(light u32, pname u32, params &f32) {
 	C.glFragmentLightfvEXT(light, pname, params)
 }
-[inline]
-pub fn fragment_lighti_ext(light u32, pname u32, param int)  {
+
+@[inline]
+pub fn fragment_lighti_ext(light u32, pname u32, param int) {
 	C.glFragmentLightiEXT(light, pname, param)
 }
-[inline]
-pub fn fragment_lightiv_ext(light u32, pname u32, params &int)  {
+
+@[inline]
+pub fn fragment_lightiv_ext(light u32, pname u32, params &int) {
 	C.glFragmentLightivEXT(light, pname, params)
 }
-[inline]
-pub fn fragment_materialf_ext(face u32, pname u32, param f32)  {
+
+@[inline]
+pub fn fragment_materialf_ext(face u32, pname u32, param f32) {
 	C.glFragmentMaterialfEXT(face, pname, param)
 }
-[inline]
-pub fn fragment_materialfv_ext(face u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn fragment_materialfv_ext(face u32, pname u32, params &f32) {
 	C.glFragmentMaterialfvEXT(face, pname, params)
 }
-[inline]
-pub fn fragment_materiali_ext(face u32, pname u32, param int)  {
+
+@[inline]
+pub fn fragment_materiali_ext(face u32, pname u32, param int) {
 	C.glFragmentMaterialiEXT(face, pname, param)
 }
-[inline]
-pub fn fragment_materialiv_ext(face u32, pname u32, params &int)  {
+
+@[inline]
+pub fn fragment_materialiv_ext(face u32, pname u32, params &int) {
 	C.glFragmentMaterialivEXT(face, pname, params)
 }
-[inline]
-pub fn get_fragment_lightfv_ext(light u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_fragment_lightfv_ext(light u32, pname u32, params &f32) {
 	C.glGetFragmentLightfvEXT(light, pname, params)
 }
-[inline]
-pub fn get_fragment_lightiv_ext(light u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_fragment_lightiv_ext(light u32, pname u32, params &int) {
 	C.glGetFragmentLightivEXT(light, pname, params)
 }
-[inline]
-pub fn get_fragment_materialfv_ext(face u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_fragment_materialfv_ext(face u32, pname u32, params &f32) {
 	C.glGetFragmentMaterialfvEXT(face, pname, params)
 }
-[inline]
-pub fn get_fragment_materialiv_ext(face u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_fragment_materialiv_ext(face u32, pname u32, params &int) {
 	C.glGetFragmentMaterialivEXT(face, pname, params)
 }
-[inline]
-pub fn light_envi_ext(pname u32, param int)  {
+
+@[inline]
+pub fn light_envi_ext(pname u32, param int) {
 	C.glLightEnviEXT(pname, param)
 }
-[inline]
-pub fn blit_framebuffer_ext(src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32)  {
-	C.glBlitFramebufferEXT(src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1, mask, filter)
+
+@[inline]
+pub fn blit_framebuffer_ext(src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32) {
+	C.glBlitFramebufferEXT(src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1,
+		mask, filter)
 }
-[inline]
-pub fn renderbuffer_storage_multisample_ext(target u32, samples int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage_multisample_ext(target u32, samples int, internalformat u32, width int, height int) {
 	C.glRenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height)
 }
-[inline]
-pub fn bind_framebuffer_ext(target u32, framebuffer u32)  {
+
+@[inline]
+pub fn bind_framebuffer_ext(target u32, framebuffer u32) {
 	C.glBindFramebufferEXT(target, framebuffer)
 }
-[inline]
-pub fn bind_renderbuffer_ext(target u32, renderbuffer u32)  {
+
+@[inline]
+pub fn bind_renderbuffer_ext(target u32, renderbuffer u32) {
 	C.glBindRenderbufferEXT(target, renderbuffer)
 }
-[inline]
+
+@[inline]
 pub fn check_framebuffer_status_ext(target u32) u32 {
 	return C.glCheckFramebufferStatusEXT(target)
 }
-[inline]
-pub fn delete_framebuffers_ext(n int, framebuffers &u32)  {
+
+@[inline]
+pub fn delete_framebuffers_ext(n int, framebuffers &u32) {
 	C.glDeleteFramebuffersEXT(n, framebuffers)
 }
-[inline]
-pub fn delete_renderbuffers_ext(n int, renderbuffers &u32)  {
+
+@[inline]
+pub fn delete_renderbuffers_ext(n int, renderbuffers &u32) {
 	C.glDeleteRenderbuffersEXT(n, renderbuffers)
 }
-[inline]
-pub fn framebuffer_renderbuffer_ext(target u32, attachment u32, renderbuffertarget u32, renderbuffer u32)  {
+
+@[inline]
+pub fn framebuffer_renderbuffer_ext(target u32, attachment u32, renderbuffertarget u32, renderbuffer u32) {
 	C.glFramebufferRenderbufferEXT(target, attachment, renderbuffertarget, renderbuffer)
 }
-[inline]
-pub fn framebuffer_texture1dext(target u32, attachment u32, textarget u32, texture u32, level int)  {
+
+@[inline]
+pub fn framebuffer_texture1dext(target u32, attachment u32, textarget u32, texture u32, level int) {
 	C.glFramebufferTexture1DEXT(target, attachment, textarget, texture, level)
 }
-[inline]
-pub fn framebuffer_texture2dext(target u32, attachment u32, textarget u32, texture u32, level int)  {
+
+@[inline]
+pub fn framebuffer_texture2dext(target u32, attachment u32, textarget u32, texture u32, level int) {
 	C.glFramebufferTexture2DEXT(target, attachment, textarget, texture, level)
 }
-[inline]
-pub fn framebuffer_texture3dext(target u32, attachment u32, textarget u32, texture u32, level int, zoffset int)  {
+
+@[inline]
+pub fn framebuffer_texture3dext(target u32, attachment u32, textarget u32, texture u32, level int, zoffset int) {
 	C.glFramebufferTexture3DEXT(target, attachment, textarget, texture, level, zoffset)
 }
-[inline]
-pub fn gen_framebuffers_ext(n int, framebuffers &u32)  {
+
+@[inline]
+pub fn gen_framebuffers_ext(n int, framebuffers &u32) {
 	C.glGenFramebuffersEXT(n, framebuffers)
 }
-[inline]
-pub fn gen_renderbuffers_ext(n int, renderbuffers &u32)  {
+
+@[inline]
+pub fn gen_renderbuffers_ext(n int, renderbuffers &u32) {
 	C.glGenRenderbuffersEXT(n, renderbuffers)
 }
-[inline]
-pub fn generate_mipmap_ext(target u32)  {
+
+@[inline]
+pub fn generate_mipmap_ext(target u32) {
 	C.glGenerateMipmapEXT(target)
 }
-[inline]
-pub fn get_framebuffer_attachment_parameteriv_ext(target u32, attachment u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_framebuffer_attachment_parameteriv_ext(target u32, attachment u32, pname u32, params &int) {
 	C.glGetFramebufferAttachmentParameterivEXT(target, attachment, pname, params)
 }
-[inline]
-pub fn get_renderbuffer_parameteriv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_renderbuffer_parameteriv_ext(target u32, pname u32, params &int) {
 	C.glGetRenderbufferParameterivEXT(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_framebuffer_ext(framebuffer u32) u8 {
 	return C.glIsFramebufferEXT(framebuffer)
 }
-[inline]
+
+@[inline]
 pub fn is_renderbuffer_ext(renderbuffer u32) u8 {
 	return C.glIsRenderbufferEXT(renderbuffer)
 }
-[inline]
-pub fn renderbuffer_storage_ext(target u32, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage_ext(target u32, internalformat u32, width int, height int) {
 	C.glRenderbufferStorageEXT(target, internalformat, width, height)
 }
-[inline]
-pub fn framebuffer_texture_ext(target u32, attachment u32, texture u32, level int)  {
+
+@[inline]
+pub fn framebuffer_texture_ext(target u32, attachment u32, texture u32, level int) {
 	C.glFramebufferTextureEXT(target, attachment, texture, level)
 }
-[inline]
-pub fn framebuffer_texture_face_ext(target u32, attachment u32, texture u32, level int, face u32)  {
+
+@[inline]
+pub fn framebuffer_texture_face_ext(target u32, attachment u32, texture u32, level int, face u32) {
 	C.glFramebufferTextureFaceEXT(target, attachment, texture, level, face)
 }
-[inline]
-pub fn program_parameteri_ext(program u32, pname u32, value int)  {
+
+@[inline]
+pub fn program_parameteri_ext(program u32, pname u32, value int) {
 	C.glProgramParameteriEXT(program, pname, value)
 }
-[inline]
-pub fn program_env_parameters4fv_ext(target u32, index u32, count int, params &f32)  {
+
+@[inline]
+pub fn program_env_parameters4fv_ext(target u32, index u32, count int, params &f32) {
 	C.glProgramEnvParameters4fvEXT(target, index, count, params)
 }
-[inline]
-pub fn program_local_parameters4fv_ext(target u32, index u32, count int, params &f32)  {
+
+@[inline]
+pub fn program_local_parameters4fv_ext(target u32, index u32, count int, params &f32) {
 	C.glProgramLocalParameters4fvEXT(target, index, count, params)
 }
-[inline]
-pub fn bind_frag_data_location_ext(program u32, color u32, name &char)  {
+
+@[inline]
+pub fn bind_frag_data_location_ext(program u32, color u32, name &char) {
 	C.glBindFragDataLocationEXT(program, color, name)
 }
-[inline]
+
+@[inline]
 pub fn get_frag_data_location_ext(program u32, name &char) int {
 	return C.glGetFragDataLocationEXT(program, name)
 }
-[inline]
-pub fn get_uniformuiv_ext(program u32, location int, params &u32)  {
+
+@[inline]
+pub fn get_uniformuiv_ext(program u32, location int, params &u32) {
 	C.glGetUniformuivEXT(program, location, params)
 }
-[inline]
-pub fn get_vertex_attrib_iiv_ext(index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_vertex_attrib_iiv_ext(index u32, pname u32, params &int) {
 	C.glGetVertexAttribIivEXT(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attrib_iuiv_ext(index u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_vertex_attrib_iuiv_ext(index u32, pname u32, params &u32) {
 	C.glGetVertexAttribIuivEXT(index, pname, params)
 }
-[inline]
-pub fn uniform1ui_ext(location int, v0 u32)  {
+
+@[inline]
+pub fn uniform1ui_ext(location int, v0 u32) {
 	C.glUniform1uiEXT(location, v0)
 }
-[inline]
-pub fn uniform1uiv_ext(location int, count int, value &u32)  {
+
+@[inline]
+pub fn uniform1uiv_ext(location int, count int, value &u32) {
 	C.glUniform1uivEXT(location, count, value)
 }
-[inline]
-pub fn uniform2ui_ext(location int, v0 u32, v1 u32)  {
+
+@[inline]
+pub fn uniform2ui_ext(location int, v0 u32, v1 u32) {
 	C.glUniform2uiEXT(location, v0, v1)
 }
-[inline]
-pub fn uniform2uiv_ext(location int, count int, value &u32)  {
+
+@[inline]
+pub fn uniform2uiv_ext(location int, count int, value &u32) {
 	C.glUniform2uivEXT(location, count, value)
 }
-[inline]
-pub fn uniform3ui_ext(location int, v0 u32, v1 u32, v2 u32)  {
+
+@[inline]
+pub fn uniform3ui_ext(location int, v0 u32, v1 u32, v2 u32) {
 	C.glUniform3uiEXT(location, v0, v1, v2)
 }
-[inline]
-pub fn uniform3uiv_ext(location int, count int, value &u32)  {
+
+@[inline]
+pub fn uniform3uiv_ext(location int, count int, value &u32) {
 	C.glUniform3uivEXT(location, count, value)
 }
-[inline]
-pub fn uniform4ui_ext(location int, v0 u32, v1 u32, v2 u32, v3 u32)  {
+
+@[inline]
+pub fn uniform4ui_ext(location int, v0 u32, v1 u32, v2 u32, v3 u32) {
 	C.glUniform4uiEXT(location, v0, v1, v2, v3)
 }
-[inline]
-pub fn uniform4uiv_ext(location int, count int, value &u32)  {
+
+@[inline]
+pub fn uniform4uiv_ext(location int, count int, value &u32) {
 	C.glUniform4uivEXT(location, count, value)
 }
-[inline]
-pub fn vertex_attrib_i1i_ext(index u32, x int)  {
+
+@[inline]
+pub fn vertex_attrib_i1i_ext(index u32, x int) {
 	C.glVertexAttribI1iEXT(index, x)
 }
-[inline]
-pub fn vertex_attrib_i1iv_ext(index u32, v &int)  {
+
+@[inline]
+pub fn vertex_attrib_i1iv_ext(index u32, v &int) {
 	C.glVertexAttribI1ivEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i1ui_ext(index u32, x u32)  {
+
+@[inline]
+pub fn vertex_attrib_i1ui_ext(index u32, x u32) {
 	C.glVertexAttribI1uiEXT(index, x)
 }
-[inline]
-pub fn vertex_attrib_i1uiv_ext(index u32, v &u32)  {
+
+@[inline]
+pub fn vertex_attrib_i1uiv_ext(index u32, v &u32) {
 	C.glVertexAttribI1uivEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i2i_ext(index u32, x int, y int)  {
+
+@[inline]
+pub fn vertex_attrib_i2i_ext(index u32, x int, y int) {
 	C.glVertexAttribI2iEXT(index, x, y)
 }
-[inline]
-pub fn vertex_attrib_i2iv_ext(index u32, v &int)  {
+
+@[inline]
+pub fn vertex_attrib_i2iv_ext(index u32, v &int) {
 	C.glVertexAttribI2ivEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i2ui_ext(index u32, x u32, y u32)  {
+
+@[inline]
+pub fn vertex_attrib_i2ui_ext(index u32, x u32, y u32) {
 	C.glVertexAttribI2uiEXT(index, x, y)
 }
-[inline]
-pub fn vertex_attrib_i2uiv_ext(index u32, v &u32)  {
+
+@[inline]
+pub fn vertex_attrib_i2uiv_ext(index u32, v &u32) {
 	C.glVertexAttribI2uivEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i3i_ext(index u32, x int, y int, z int)  {
+
+@[inline]
+pub fn vertex_attrib_i3i_ext(index u32, x int, y int, z int) {
 	C.glVertexAttribI3iEXT(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib_i3iv_ext(index u32, v &int)  {
+
+@[inline]
+pub fn vertex_attrib_i3iv_ext(index u32, v &int) {
 	C.glVertexAttribI3ivEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i3ui_ext(index u32, x u32, y u32, z u32)  {
+
+@[inline]
+pub fn vertex_attrib_i3ui_ext(index u32, x u32, y u32, z u32) {
 	C.glVertexAttribI3uiEXT(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib_i3uiv_ext(index u32, v &u32)  {
+
+@[inline]
+pub fn vertex_attrib_i3uiv_ext(index u32, v &u32) {
 	C.glVertexAttribI3uivEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i4bv_ext(index u32, v &i8)  {
+
+@[inline]
+pub fn vertex_attrib_i4bv_ext(index u32, v &i8) {
 	C.glVertexAttribI4bvEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i4i_ext(index u32, x int, y int, z int, w int)  {
+
+@[inline]
+pub fn vertex_attrib_i4i_ext(index u32, x int, y int, z int, w int) {
 	C.glVertexAttribI4iEXT(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib_i4iv_ext(index u32, v &int)  {
+
+@[inline]
+pub fn vertex_attrib_i4iv_ext(index u32, v &int) {
 	C.glVertexAttribI4ivEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i4sv_ext(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib_i4sv_ext(index u32, v &i16) {
 	C.glVertexAttribI4svEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i4ubv_ext(index u32, v &u8)  {
+
+@[inline]
+pub fn vertex_attrib_i4ubv_ext(index u32, v &u8) {
 	C.glVertexAttribI4ubvEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i4ui_ext(index u32, x u32, y u32, z u32, w u32)  {
+
+@[inline]
+pub fn vertex_attrib_i4ui_ext(index u32, x u32, y u32, z u32, w u32) {
 	C.glVertexAttribI4uiEXT(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib_i4uiv_ext(index u32, v &u32)  {
+
+@[inline]
+pub fn vertex_attrib_i4uiv_ext(index u32, v &u32) {
 	C.glVertexAttribI4uivEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_i4usv_ext(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib_i4usv_ext(index u32, v &u16) {
 	C.glVertexAttribI4usvEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_ipointer_ext(index u32, size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_attrib_ipointer_ext(index u32, size int, gl_type u32, stride int, pointer voidptr) {
 	C.glVertexAttribIPointerEXT(index, size, gl_type, stride, pointer)
 }
-[inline]
-pub fn get_histogram_ext(target u32, reset u8, format u32, gl_type u32, values voidptr)  {
+
+@[inline]
+pub fn get_histogram_ext(target u32, reset u8, format u32, gl_type u32, values voidptr) {
 	C.glGetHistogramEXT(target, reset, format, gl_type, values)
 }
-[inline]
-pub fn get_histogram_parameterfv_ext(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_histogram_parameterfv_ext(target u32, pname u32, params &f32) {
 	C.glGetHistogramParameterfvEXT(target, pname, params)
 }
-[inline]
-pub fn get_histogram_parameteriv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_histogram_parameteriv_ext(target u32, pname u32, params &int) {
 	C.glGetHistogramParameterivEXT(target, pname, params)
 }
-[inline]
-pub fn get_minmax_ext(target u32, reset u8, format u32, gl_type u32, values voidptr)  {
+
+@[inline]
+pub fn get_minmax_ext(target u32, reset u8, format u32, gl_type u32, values voidptr) {
 	C.glGetMinmaxEXT(target, reset, format, gl_type, values)
 }
-[inline]
-pub fn get_minmax_parameterfv_ext(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_minmax_parameterfv_ext(target u32, pname u32, params &f32) {
 	C.glGetMinmaxParameterfvEXT(target, pname, params)
 }
-[inline]
-pub fn get_minmax_parameteriv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_minmax_parameteriv_ext(target u32, pname u32, params &int) {
 	C.glGetMinmaxParameterivEXT(target, pname, params)
 }
-[inline]
-pub fn histogram_ext(target u32, width int, internalformat u32, sink u8)  {
+
+@[inline]
+pub fn histogram_ext(target u32, width int, internalformat u32, sink u8) {
 	C.glHistogramEXT(target, width, internalformat, sink)
 }
-[inline]
-pub fn minmax_ext(target u32, internalformat u32, sink u8)  {
+
+@[inline]
+pub fn minmax_ext(target u32, internalformat u32, sink u8) {
 	C.glMinmaxEXT(target, internalformat, sink)
 }
-[inline]
-pub fn reset_histogram_ext(target u32)  {
+
+@[inline]
+pub fn reset_histogram_ext(target u32) {
 	C.glResetHistogramEXT(target)
 }
-[inline]
-pub fn reset_minmax_ext(target u32)  {
+
+@[inline]
+pub fn reset_minmax_ext(target u32) {
 	C.glResetMinmaxEXT(target)
 }
-[inline]
-pub fn index_func_ext(func u32, ref f32)  {
+
+@[inline]
+pub fn index_func_ext(func u32, ref f32) {
 	C.glIndexFuncEXT(func, ref)
 }
-[inline]
-pub fn index_material_ext(face u32, mode u32)  {
+
+@[inline]
+pub fn index_material_ext(face u32, mode u32) {
 	C.glIndexMaterialEXT(face, mode)
 }
-[inline]
-pub fn vertex_attrib_divisor_ext(index u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_attrib_divisor_ext(index u32, divisor u32) {
 	C.glVertexAttribDivisorEXT(index, divisor)
 }
-[inline]
-pub fn apply_texture_ext(mode u32)  {
+
+@[inline]
+pub fn apply_texture_ext(mode u32) {
 	C.glApplyTextureEXT(mode)
 }
-[inline]
-pub fn texture_light_ext(pname u32)  {
+
+@[inline]
+pub fn texture_light_ext(pname u32) {
 	C.glTextureLightEXT(pname)
 }
-[inline]
-pub fn texture_material_ext(face u32, mode u32)  {
+
+@[inline]
+pub fn texture_material_ext(face u32, mode u32) {
 	C.glTextureMaterialEXT(face, mode)
 }
-[inline]
-pub fn flush_mapped_buffer_range_ext(target u32, offset i64, length i64)  {
+
+@[inline]
+pub fn flush_mapped_buffer_range_ext(target u32, offset i64, length i64) {
 	C.glFlushMappedBufferRangeEXT(target, offset, length)
 }
-[inline]
+
+@[inline]
 pub fn map_buffer_range_ext(target u32, offset i64, length i64, access u32) voidptr {
 	return C.glMapBufferRangeEXT(target, offset, length, access)
 }
-[inline]
-pub fn buffer_storage_mem_ext(target u32, size i64, memory u32, offset u64)  {
+
+@[inline]
+pub fn buffer_storage_mem_ext(target u32, size i64, memory u32, offset u64) {
 	C.glBufferStorageMemEXT(target, size, memory, offset)
 }
-[inline]
-pub fn create_memory_objects_ext(n int, memory_objects &u32)  {
+
+@[inline]
+pub fn create_memory_objects_ext(n int, memory_objects &u32) {
 	C.glCreateMemoryObjectsEXT(n, memory_objects)
 }
-[inline]
-pub fn delete_memory_objects_ext(n int, memory_objects &u32)  {
+
+@[inline]
+pub fn delete_memory_objects_ext(n int, memory_objects &u32) {
 	C.glDeleteMemoryObjectsEXT(n, memory_objects)
 }
-[inline]
-pub fn get_memory_object_parameteriv_ext(memory_object u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_memory_object_parameteriv_ext(memory_object u32, pname u32, params &int) {
 	C.glGetMemoryObjectParameterivEXT(memory_object, pname, params)
 }
-[inline]
-pub fn get_unsigned_bytei_v_ext(target u32, index u32, data &u8)  {
+
+@[inline]
+pub fn get_unsigned_bytei_v_ext(target u32, index u32, data &u8) {
 	C.glGetUnsignedBytei_vEXT(target, index, data)
 }
-[inline]
-pub fn get_unsigned_bytev_ext(pname u32, data &u8)  {
+
+@[inline]
+pub fn get_unsigned_bytev_ext(pname u32, data &u8) {
 	C.glGetUnsignedBytevEXT(pname, data)
 }
-[inline]
+
+@[inline]
 pub fn is_memory_object_ext(memory_object u32) u8 {
 	return C.glIsMemoryObjectEXT(memory_object)
 }
-[inline]
-pub fn memory_object_parameteriv_ext(memory_object u32, pname u32, params &int)  {
+
+@[inline]
+pub fn memory_object_parameteriv_ext(memory_object u32, pname u32, params &int) {
 	C.glMemoryObjectParameterivEXT(memory_object, pname, params)
 }
-[inline]
-pub fn named_buffer_storage_mem_ext(buffer u32, size i64, memory u32, offset u64)  {
+
+@[inline]
+pub fn named_buffer_storage_mem_ext(buffer u32, size i64, memory u32, offset u64) {
 	C.glNamedBufferStorageMemEXT(buffer, size, memory, offset)
 }
-[inline]
-pub fn tex_storage_mem1dext(target u32, levels int, internal_format u32, width int, memory u32, offset u64)  {
+
+@[inline]
+pub fn tex_storage_mem1dext(target u32, levels int, internal_format u32, width int, memory u32, offset u64) {
 	C.glTexStorageMem1DEXT(target, levels, internal_format, width, memory, offset)
 }
-[inline]
-pub fn tex_storage_mem2dext(target u32, levels int, internal_format u32, width int, height int, memory u32, offset u64)  {
+
+@[inline]
+pub fn tex_storage_mem2dext(target u32, levels int, internal_format u32, width int, height int, memory u32, offset u64) {
 	C.glTexStorageMem2DEXT(target, levels, internal_format, width, height, memory, offset)
 }
-[inline]
-pub fn tex_storage_mem2dmultisample_ext(target u32, samples int, internal_format u32, width int, height int, fixed_sample_locations u8, memory u32, offset u64)  {
-	C.glTexStorageMem2DMultisampleEXT(target, samples, internal_format, width, height, fixed_sample_locations, memory, offset)
+
+@[inline]
+pub fn tex_storage_mem2dmultisample_ext(target u32, samples int, internal_format u32, width int, height int, fixed_sample_locations u8, memory u32, offset u64) {
+	C.glTexStorageMem2DMultisampleEXT(target, samples, internal_format, width, height,
+		fixed_sample_locations, memory, offset)
 }
-[inline]
-pub fn tex_storage_mem3dext(target u32, levels int, internal_format u32, width int, height int, depth int, memory u32, offset u64)  {
-	C.glTexStorageMem3DEXT(target, levels, internal_format, width, height, depth, memory, offset)
+
+@[inline]
+pub fn tex_storage_mem3dext(target u32, levels int, internal_format u32, width int, height int, depth int, memory u32, offset u64) {
+	C.glTexStorageMem3DEXT(target, levels, internal_format, width, height, depth, memory,
+		offset)
 }
-[inline]
-pub fn tex_storage_mem3dmultisample_ext(target u32, samples int, internal_format u32, width int, height int, depth int, fixed_sample_locations u8, memory u32, offset u64)  {
-	C.glTexStorageMem3DMultisampleEXT(target, samples, internal_format, width, height, depth, fixed_sample_locations, memory, offset)
+
+@[inline]
+pub fn tex_storage_mem3dmultisample_ext(target u32, samples int, internal_format u32, width int, height int, depth int, fixed_sample_locations u8, memory u32, offset u64) {
+	C.glTexStorageMem3DMultisampleEXT(target, samples, internal_format, width, height,
+		depth, fixed_sample_locations, memory, offset)
 }
-[inline]
-pub fn texture_storage_mem1dext(texture u32, levels int, internal_format u32, width int, memory u32, offset u64)  {
+
+@[inline]
+pub fn texture_storage_mem1dext(texture u32, levels int, internal_format u32, width int, memory u32, offset u64) {
 	C.glTextureStorageMem1DEXT(texture, levels, internal_format, width, memory, offset)
 }
-[inline]
-pub fn texture_storage_mem2dext(texture u32, levels int, internal_format u32, width int, height int, memory u32, offset u64)  {
-	C.glTextureStorageMem2DEXT(texture, levels, internal_format, width, height, memory, offset)
+
+@[inline]
+pub fn texture_storage_mem2dext(texture u32, levels int, internal_format u32, width int, height int, memory u32, offset u64) {
+	C.glTextureStorageMem2DEXT(texture, levels, internal_format, width, height, memory,
+		offset)
 }
-[inline]
-pub fn texture_storage_mem2dmultisample_ext(texture u32, samples int, internal_format u32, width int, height int, fixed_sample_locations u8, memory u32, offset u64)  {
-	C.glTextureStorageMem2DMultisampleEXT(texture, samples, internal_format, width, height, fixed_sample_locations, memory, offset)
+
+@[inline]
+pub fn texture_storage_mem2dmultisample_ext(texture u32, samples int, internal_format u32, width int, height int, fixed_sample_locations u8, memory u32, offset u64) {
+	C.glTextureStorageMem2DMultisampleEXT(texture, samples, internal_format, width, height,
+		fixed_sample_locations, memory, offset)
 }
-[inline]
-pub fn texture_storage_mem3dext(texture u32, levels int, internal_format u32, width int, height int, depth int, memory u32, offset u64)  {
-	C.glTextureStorageMem3DEXT(texture, levels, internal_format, width, height, depth, memory, offset)
+
+@[inline]
+pub fn texture_storage_mem3dext(texture u32, levels int, internal_format u32, width int, height int, depth int, memory u32, offset u64) {
+	C.glTextureStorageMem3DEXT(texture, levels, internal_format, width, height, depth,
+		memory, offset)
 }
-[inline]
-pub fn texture_storage_mem3dmultisample_ext(texture u32, samples int, internal_format u32, width int, height int, depth int, fixed_sample_locations u8, memory u32, offset u64)  {
-	C.glTextureStorageMem3DMultisampleEXT(texture, samples, internal_format, width, height, depth, fixed_sample_locations, memory, offset)
+
+@[inline]
+pub fn texture_storage_mem3dmultisample_ext(texture u32, samples int, internal_format u32, width int, height int, depth int, fixed_sample_locations u8, memory u32, offset u64) {
+	C.glTextureStorageMem3DMultisampleEXT(texture, samples, internal_format, width, height,
+		depth, fixed_sample_locations, memory, offset)
 }
-[inline]
-pub fn import_memory_fd_ext(memory u32, size u64, handle_type u32, fd int)  {
+
+@[inline]
+pub fn import_memory_fd_ext(memory u32, size u64, handle_type u32, fd int) {
 	C.glImportMemoryFdEXT(memory, size, handle_type, fd)
 }
-[inline]
-pub fn import_memory_win32handle_ext(memory u32, size u64, handle_type u32, handle voidptr)  {
+
+@[inline]
+pub fn import_memory_win32handle_ext(memory u32, size u64, handle_type u32, handle voidptr) {
 	C.glImportMemoryWin32HandleEXT(memory, size, handle_type, handle)
 }
-[inline]
-pub fn import_memory_win32name_ext(memory u32, size u64, handle_type u32, name voidptr)  {
+
+@[inline]
+pub fn import_memory_win32name_ext(memory u32, size u64, handle_type u32, name voidptr) {
 	C.glImportMemoryWin32NameEXT(memory, size, handle_type, name)
 }
-[inline]
-pub fn multi_draw_arrays_ext(mode u32, first &int, count &int, primcount int)  {
+
+@[inline]
+pub fn multi_draw_arrays_ext(mode u32, first &int, count &int, primcount int) {
 	C.glMultiDrawArraysEXT(mode, first, count, primcount)
 }
-[inline]
-pub fn multi_draw_elements_ext(mode u32, count &int, gl_type u32, indices &voidptr, primcount int)  {
+
+@[inline]
+pub fn multi_draw_elements_ext(mode u32, count &int, gl_type u32, indices &voidptr, primcount int) {
 	C.glMultiDrawElementsEXT(mode, count, gl_type, indices, primcount)
 }
-[inline]
-pub fn multi_draw_arrays_indirect_ext(mode u32, indirect voidptr, drawcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_arrays_indirect_ext(mode u32, indirect voidptr, drawcount int, stride int) {
 	C.glMultiDrawArraysIndirectEXT(mode, indirect, drawcount, stride)
 }
-[inline]
-pub fn multi_draw_elements_indirect_ext(mode u32, gl_type u32, indirect voidptr, drawcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_elements_indirect_ext(mode u32, gl_type u32, indirect voidptr, drawcount int, stride int) {
 	C.glMultiDrawElementsIndirectEXT(mode, gl_type, indirect, drawcount, stride)
 }
-[inline]
-pub fn sample_mask_ext(value f32, invert u8)  {
+
+@[inline]
+pub fn sample_mask_ext(value f32, invert u8) {
 	C.glSampleMaskEXT(value, invert)
 }
-[inline]
-pub fn sample_pattern_ext(pattern u32)  {
+
+@[inline]
+pub fn sample_pattern_ext(pattern u32) {
 	C.glSamplePatternEXT(pattern)
 }
-[inline]
-pub fn framebuffer_texture2dmultisample_ext(target u32, attachment u32, textarget u32, texture u32, level int, samples int)  {
-	C.glFramebufferTexture2DMultisampleEXT(target, attachment, textarget, texture, level, samples)
+
+@[inline]
+pub fn framebuffer_texture2dmultisample_ext(target u32, attachment u32, textarget u32, texture u32, level int, samples int) {
+	C.glFramebufferTexture2DMultisampleEXT(target, attachment, textarget, texture, level,
+		samples)
 }
-[inline]
-pub fn draw_buffers_indexed_ext(n int, location &u32, indices &int)  {
+
+@[inline]
+pub fn draw_buffers_indexed_ext(n int, location &u32, indices &int) {
 	C.glDrawBuffersIndexedEXT(n, location, indices)
 }
-[inline]
-pub fn get_integeri_v_ext(target u32, index u32, data &int)  {
+
+@[inline]
+pub fn get_integeri_v_ext(target u32, index u32, data &int) {
 	C.glGetIntegeri_vEXT(target, index, data)
 }
-[inline]
-pub fn read_buffer_indexed_ext(src u32, index int)  {
+
+@[inline]
+pub fn read_buffer_indexed_ext(src u32, index int) {
 	C.glReadBufferIndexedEXT(src, index)
 }
-[inline]
-pub fn color_table_ext(target u32, internal_format u32, width int, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn color_table_ext(target u32, internal_format u32, width int, format u32, gl_type u32, data voidptr) {
 	C.glColorTableEXT(target, internal_format, width, format, gl_type, data)
 }
-[inline]
-pub fn get_color_table_ext(target u32, format u32, gl_type u32, data voidptr)  {
+
+@[inline]
+pub fn get_color_table_ext(target u32, format u32, gl_type u32, data voidptr) {
 	C.glGetColorTableEXT(target, format, gl_type, data)
 }
-[inline]
-pub fn get_color_table_parameterfv_ext(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_color_table_parameterfv_ext(target u32, pname u32, params &f32) {
 	C.glGetColorTableParameterfvEXT(target, pname, params)
 }
-[inline]
-pub fn get_color_table_parameteriv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_color_table_parameteriv_ext(target u32, pname u32, params &int) {
 	C.glGetColorTableParameterivEXT(target, pname, params)
 }
-[inline]
-pub fn get_pixel_transform_parameterfv_ext(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_pixel_transform_parameterfv_ext(target u32, pname u32, params &f32) {
 	C.glGetPixelTransformParameterfvEXT(target, pname, params)
 }
-[inline]
-pub fn get_pixel_transform_parameteriv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_pixel_transform_parameteriv_ext(target u32, pname u32, params &int) {
 	C.glGetPixelTransformParameterivEXT(target, pname, params)
 }
-[inline]
-pub fn pixel_transform_parameterf_ext(target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn pixel_transform_parameterf_ext(target u32, pname u32, param f32) {
 	C.glPixelTransformParameterfEXT(target, pname, param)
 }
-[inline]
-pub fn pixel_transform_parameterfv_ext(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn pixel_transform_parameterfv_ext(target u32, pname u32, params &f32) {
 	C.glPixelTransformParameterfvEXT(target, pname, params)
 }
-[inline]
-pub fn pixel_transform_parameteri_ext(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn pixel_transform_parameteri_ext(target u32, pname u32, param int) {
 	C.glPixelTransformParameteriEXT(target, pname, param)
 }
-[inline]
-pub fn pixel_transform_parameteriv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn pixel_transform_parameteriv_ext(target u32, pname u32, params &int) {
 	C.glPixelTransformParameterivEXT(target, pname, params)
 }
-[inline]
-pub fn point_parameterf_ext(pname u32, param f32)  {
+
+@[inline]
+pub fn point_parameterf_ext(pname u32, param f32) {
 	C.glPointParameterfEXT(pname, param)
 }
-[inline]
-pub fn point_parameterfv_ext(pname u32, params &f32)  {
+
+@[inline]
+pub fn point_parameterfv_ext(pname u32, params &f32) {
 	C.glPointParameterfvEXT(pname, params)
 }
-[inline]
-pub fn polygon_offset_ext(factor f32, bias f32)  {
+
+@[inline]
+pub fn polygon_offset_ext(factor f32, bias f32) {
 	C.glPolygonOffsetEXT(factor, bias)
 }
-[inline]
-pub fn polygon_offset_clamp_ext(factor f32, units f32, clamp f32)  {
+
+@[inline]
+pub fn polygon_offset_clamp_ext(factor f32, units f32, clamp f32) {
 	C.glPolygonOffsetClampEXT(factor, units, clamp)
 }
-[inline]
-pub fn primitive_bounding_box_ext(min_x f32, min_y f32, min_z f32, min_w f32, max_x f32, max_y f32, max_z f32, max_w f32)  {
+
+@[inline]
+pub fn primitive_bounding_box_ext(min_x f32, min_y f32, min_z f32, min_w f32, max_x f32, max_y f32, max_z f32, max_w f32) {
 	C.glPrimitiveBoundingBoxEXT(min_x, min_y, min_z, min_w, max_x, max_y, max_z, max_w)
 }
-[inline]
-pub fn provoking_vertex_ext(mode u32)  {
+
+@[inline]
+pub fn provoking_vertex_ext(mode u32) {
 	C.glProvokingVertexEXT(mode)
 }
-[inline]
-pub fn coverage_modulation_nv(components u32)  {
+
+@[inline]
+pub fn coverage_modulation_nv(components u32) {
 	C.glCoverageModulationNV(components)
 }
-[inline]
-pub fn coverage_modulation_table_nv(n int, v &f32)  {
+
+@[inline]
+pub fn coverage_modulation_table_nv(n int, v &f32) {
 	C.glCoverageModulationTableNV(n, v)
 }
-[inline]
-pub fn get_coverage_modulation_table_nv(bufsize int, v &f32)  {
+
+@[inline]
+pub fn get_coverage_modulation_table_nv(bufsize int, v &f32) {
 	C.glGetCoverageModulationTableNV(bufsize, v)
 }
-[inline]
-pub fn raster_samples_ext(samples u32, fixedsamplelocations u8)  {
+
+@[inline]
+pub fn raster_samples_ext(samples u32, fixedsamplelocations u8) {
 	C.glRasterSamplesEXT(samples, fixedsamplelocations)
 }
-[inline]
-pub fn getn_uniformfv_ext(program u32, location int, buf_size int, params &f32)  {
+
+@[inline]
+pub fn getn_uniformfv_ext(program u32, location int, buf_size int, params &f32) {
 	C.glGetnUniformfvEXT(program, location, buf_size, params)
 }
-[inline]
-pub fn getn_uniformiv_ext(program u32, location int, buf_size int, params &int)  {
+
+@[inline]
+pub fn getn_uniformiv_ext(program u32, location int, buf_size int, params &int) {
 	C.glGetnUniformivEXT(program, location, buf_size, params)
 }
-[inline]
-pub fn readn_pixels_ext(x int, y int, width int, height int, format u32, gl_type u32, buf_size int, data voidptr)  {
+
+@[inline]
+pub fn readn_pixels_ext(x int, y int, width int, height int, format u32, gl_type u32, buf_size int, data voidptr) {
 	C.glReadnPixelsEXT(x, y, width, height, format, gl_type, buf_size, data)
 }
-[inline]
-pub fn begin_scene_ext()  {
+
+@[inline]
+pub fn begin_scene_ext() {
 	C.glBeginSceneEXT()
 }
-[inline]
-pub fn end_scene_ext()  {
+
+@[inline]
+pub fn end_scene_ext() {
 	C.glEndSceneEXT()
 }
-[inline]
-pub fn secondary_color3b_ext(red i8, green i8, blue i8)  {
+
+@[inline]
+pub fn secondary_color3b_ext(red i8, green i8, blue i8) {
 	C.glSecondaryColor3bEXT(red, green, blue)
 }
-[inline]
-pub fn secondary_color3bv_ext(v &i8)  {
+
+@[inline]
+pub fn secondary_color3bv_ext(v &i8) {
 	C.glSecondaryColor3bvEXT(v)
 }
-[inline]
-pub fn secondary_color3d_ext(red f64, green f64, blue f64)  {
+
+@[inline]
+pub fn secondary_color3d_ext(red f64, green f64, blue f64) {
 	C.glSecondaryColor3dEXT(red, green, blue)
 }
-[inline]
-pub fn secondary_color3dv_ext(v &f64)  {
+
+@[inline]
+pub fn secondary_color3dv_ext(v &f64) {
 	C.glSecondaryColor3dvEXT(v)
 }
-[inline]
-pub fn secondary_color3f_ext(red f32, green f32, blue f32)  {
+
+@[inline]
+pub fn secondary_color3f_ext(red f32, green f32, blue f32) {
 	C.glSecondaryColor3fEXT(red, green, blue)
 }
-[inline]
-pub fn secondary_color3fv_ext(v &f32)  {
+
+@[inline]
+pub fn secondary_color3fv_ext(v &f32) {
 	C.glSecondaryColor3fvEXT(v)
 }
-[inline]
-pub fn secondary_color3i_ext(red int, green int, blue int)  {
+
+@[inline]
+pub fn secondary_color3i_ext(red int, green int, blue int) {
 	C.glSecondaryColor3iEXT(red, green, blue)
 }
-[inline]
-pub fn secondary_color3iv_ext(v &int)  {
+
+@[inline]
+pub fn secondary_color3iv_ext(v &int) {
 	C.glSecondaryColor3ivEXT(v)
 }
-[inline]
-pub fn secondary_color3s_ext(red i16, green i16, blue i16)  {
+
+@[inline]
+pub fn secondary_color3s_ext(red i16, green i16, blue i16) {
 	C.glSecondaryColor3sEXT(red, green, blue)
 }
-[inline]
-pub fn secondary_color3sv_ext(v &i16)  {
+
+@[inline]
+pub fn secondary_color3sv_ext(v &i16) {
 	C.glSecondaryColor3svEXT(v)
 }
-[inline]
-pub fn secondary_color3ub_ext(red u8, green u8, blue u8)  {
+
+@[inline]
+pub fn secondary_color3ub_ext(red u8, green u8, blue u8) {
 	C.glSecondaryColor3ubEXT(red, green, blue)
 }
-[inline]
-pub fn secondary_color3ubv_ext(v &u8)  {
+
+@[inline]
+pub fn secondary_color3ubv_ext(v &u8) {
 	C.glSecondaryColor3ubvEXT(v)
 }
-[inline]
-pub fn secondary_color3ui_ext(red u32, green u32, blue u32)  {
+
+@[inline]
+pub fn secondary_color3ui_ext(red u32, green u32, blue u32) {
 	C.glSecondaryColor3uiEXT(red, green, blue)
 }
-[inline]
-pub fn secondary_color3uiv_ext(v &u32)  {
+
+@[inline]
+pub fn secondary_color3uiv_ext(v &u32) {
 	C.glSecondaryColor3uivEXT(v)
 }
-[inline]
-pub fn secondary_color3us_ext(red u16, green u16, blue u16)  {
+
+@[inline]
+pub fn secondary_color3us_ext(red u16, green u16, blue u16) {
 	C.glSecondaryColor3usEXT(red, green, blue)
 }
-[inline]
-pub fn secondary_color3usv_ext(v &u16)  {
+
+@[inline]
+pub fn secondary_color3usv_ext(v &u16) {
 	C.glSecondaryColor3usvEXT(v)
 }
-[inline]
-pub fn secondary_color_pointer_ext(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn secondary_color_pointer_ext(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glSecondaryColorPointerEXT(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn delete_semaphores_ext(n int, semaphores &u32)  {
+
+@[inline]
+pub fn delete_semaphores_ext(n int, semaphores &u32) {
 	C.glDeleteSemaphoresEXT(n, semaphores)
 }
-[inline]
-pub fn gen_semaphores_ext(n int, semaphores &u32)  {
+
+@[inline]
+pub fn gen_semaphores_ext(n int, semaphores &u32) {
 	C.glGenSemaphoresEXT(n, semaphores)
 }
-[inline]
-pub fn get_semaphore_parameterui64v_ext(semaphore u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_semaphore_parameterui64v_ext(semaphore u32, pname u32, params &u64) {
 	C.glGetSemaphoreParameterui64vEXT(semaphore, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_semaphore_ext(semaphore u32) u8 {
 	return C.glIsSemaphoreEXT(semaphore)
 }
-[inline]
-pub fn semaphore_parameterui64v_ext(semaphore u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn semaphore_parameterui64v_ext(semaphore u32, pname u32, params &u64) {
 	C.glSemaphoreParameterui64vEXT(semaphore, pname, params)
 }
-[inline]
-pub fn signal_semaphore_ext(semaphore u32, num_buffer_barriers u32, buffers &u32, num_texture_barriers u32, textures &u32, dst_layouts &u32)  {
-	C.glSignalSemaphoreEXT(semaphore, num_buffer_barriers, buffers, num_texture_barriers, textures, dst_layouts)
+
+@[inline]
+pub fn signal_semaphore_ext(semaphore u32, num_buffer_barriers u32, buffers &u32, num_texture_barriers u32, textures &u32, dst_layouts &u32) {
+	C.glSignalSemaphoreEXT(semaphore, num_buffer_barriers, buffers, num_texture_barriers,
+		textures, dst_layouts)
 }
-[inline]
-pub fn wait_semaphore_ext(semaphore u32, num_buffer_barriers u32, buffers &u32, num_texture_barriers u32, textures &u32, src_layouts &u32)  {
-	C.glWaitSemaphoreEXT(semaphore, num_buffer_barriers, buffers, num_texture_barriers, textures, src_layouts)
+
+@[inline]
+pub fn wait_semaphore_ext(semaphore u32, num_buffer_barriers u32, buffers &u32, num_texture_barriers u32, textures &u32, src_layouts &u32) {
+	C.glWaitSemaphoreEXT(semaphore, num_buffer_barriers, buffers, num_texture_barriers,
+		textures, src_layouts)
 }
-[inline]
-pub fn import_semaphore_fd_ext(semaphore u32, handle_type u32, fd int)  {
+
+@[inline]
+pub fn import_semaphore_fd_ext(semaphore u32, handle_type u32, fd int) {
 	C.glImportSemaphoreFdEXT(semaphore, handle_type, fd)
 }
-[inline]
-pub fn import_semaphore_win32handle_ext(semaphore u32, handle_type u32, handle voidptr)  {
+
+@[inline]
+pub fn import_semaphore_win32handle_ext(semaphore u32, handle_type u32, handle voidptr) {
 	C.glImportSemaphoreWin32HandleEXT(semaphore, handle_type, handle)
 }
-[inline]
-pub fn import_semaphore_win32name_ext(semaphore u32, handle_type u32, name voidptr)  {
+
+@[inline]
+pub fn import_semaphore_win32name_ext(semaphore u32, handle_type u32, name voidptr) {
 	C.glImportSemaphoreWin32NameEXT(semaphore, handle_type, name)
 }
-[inline]
-pub fn active_program_ext(program u32)  {
+
+@[inline]
+pub fn active_program_ext(program u32) {
 	C.glActiveProgramEXT(program)
 }
-[inline]
+
+@[inline]
 pub fn create_shader_program_ext(gl_type u32, gl_string &char) u32 {
 	return C.glCreateShaderProgramEXT(gl_type, gl_string)
 }
-[inline]
-pub fn use_shader_program_ext(gl_type u32, program u32)  {
+
+@[inline]
+pub fn use_shader_program_ext(gl_type u32, program u32) {
 	C.glUseShaderProgramEXT(gl_type, program)
 }
-[inline]
-pub fn framebuffer_fetch_barrier_ext()  {
+
+@[inline]
+pub fn framebuffer_fetch_barrier_ext() {
 	C.glFramebufferFetchBarrierEXT()
 }
-[inline]
-pub fn bind_image_texture_ext(index u32, texture u32, level int, layered u8, layer int, access u32, format int)  {
+
+@[inline]
+pub fn bind_image_texture_ext(index u32, texture u32, level int, layered u8, layer int, access u32, format int) {
 	C.glBindImageTextureEXT(index, texture, level, layered, layer, access, format)
 }
-[inline]
-pub fn memory_barrier_ext(barriers u32)  {
+
+@[inline]
+pub fn memory_barrier_ext(barriers u32) {
 	C.glMemoryBarrierEXT(barriers)
 }
-[inline]
-pub fn clear_pixel_local_storageui_ext(offset int, n int, values &u32)  {
+
+@[inline]
+pub fn clear_pixel_local_storageui_ext(offset int, n int, values &u32) {
 	C.glClearPixelLocalStorageuiEXT(offset, n, values)
 }
-[inline]
-pub fn framebuffer_pixel_local_storage_size_ext(target u32, size int)  {
+
+@[inline]
+pub fn framebuffer_pixel_local_storage_size_ext(target u32, size int) {
 	C.glFramebufferPixelLocalStorageSizeEXT(target, size)
 }
-[inline]
+
+@[inline]
 pub fn get_framebuffer_pixel_local_storage_size_ext(target u32) int {
 	return C.glGetFramebufferPixelLocalStorageSizeEXT(target)
 }
-[inline]
-pub fn tex_page_commitment_ext(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, commit u8)  {
-	C.glTexPageCommitmentEXT(target, level, xoffset, yoffset, zoffset, width, height, depth, commit)
+
+@[inline]
+pub fn tex_page_commitment_ext(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, commit u8) {
+	C.glTexPageCommitmentEXT(target, level, xoffset, yoffset, zoffset, width, height,
+		depth, commit)
 }
-[inline]
-pub fn texture_page_commitment_ext(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, commit u8)  {
-	C.glTexturePageCommitmentEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, commit)
+
+@[inline]
+pub fn texture_page_commitment_ext(texture u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, commit u8) {
+	C.glTexturePageCommitmentEXT(texture, level, xoffset, yoffset, zoffset, width, height,
+		depth, commit)
 }
-[inline]
-pub fn active_stencil_face_ext(face u32)  {
+
+@[inline]
+pub fn active_stencil_face_ext(face u32) {
 	C.glActiveStencilFaceEXT(face)
 }
-[inline]
-pub fn tex_sub_image1dext(target u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn tex_sub_image1dext(target u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr) {
 	C.glTexSubImage1DEXT(target, level, xoffset, width, format, gl_type, pixels)
 }
-[inline]
-pub fn tex_sub_image2dext(target u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexSubImage2DEXT(target, level, xoffset, yoffset, width, height, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_sub_image2dext(target u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexSubImage2DEXT(target, level, xoffset, yoffset, width, height, format, gl_type,
+		pixels)
 }
-[inline]
-pub fn tex_sub_image3dext(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexSubImage3DEXT(target, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_sub_image3dext(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexSubImage3DEXT(target, level, xoffset, yoffset, zoffset, width, height, depth,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn patch_parameteri_ext(pname u32, value int)  {
+
+@[inline]
+pub fn patch_parameteri_ext(pname u32, value int) {
 	C.glPatchParameteriEXT(pname, value)
 }
-[inline]
-pub fn tex_image3dext(target u32, level int, internalformat u32, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexImage3DEXT(target, level, internalformat, width, height, depth, border, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_image3dext(target u32, level int, internalformat u32, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexImage3DEXT(target, level, internalformat, width, height, depth, border, format,
+		gl_type, pixels)
 }
-[inline]
-pub fn framebuffer_texture_layer_ext(target u32, attachment u32, texture u32, level int, layer int)  {
+
+@[inline]
+pub fn framebuffer_texture_layer_ext(target u32, attachment u32, texture u32, level int, layer int) {
 	C.glFramebufferTextureLayerEXT(target, attachment, texture, level, layer)
 }
-[inline]
-pub fn get_sampler_parameter_iiv_ext(sampler u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_sampler_parameter_iiv_ext(sampler u32, pname u32, params &int) {
 	C.glGetSamplerParameterIivEXT(sampler, pname, params)
 }
-[inline]
-pub fn get_sampler_parameter_iuiv_ext(sampler u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_sampler_parameter_iuiv_ext(sampler u32, pname u32, params &u32) {
 	C.glGetSamplerParameterIuivEXT(sampler, pname, params)
 }
-[inline]
-pub fn sampler_parameter_iiv_ext(sampler u32, pname u32, params &int)  {
+
+@[inline]
+pub fn sampler_parameter_iiv_ext(sampler u32, pname u32, params &int) {
 	C.glSamplerParameterIivEXT(sampler, pname, params)
 }
-[inline]
-pub fn sampler_parameter_iuiv_ext(sampler u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn sampler_parameter_iuiv_ext(sampler u32, pname u32, params &u32) {
 	C.glSamplerParameterIuivEXT(sampler, pname, params)
 }
-[inline]
-pub fn tex_buffer_ext(target u32, internalformat u32, buffer u32)  {
+
+@[inline]
+pub fn tex_buffer_ext(target u32, internalformat u32, buffer u32) {
 	C.glTexBufferEXT(target, internalformat, buffer)
 }
-[inline]
-pub fn clear_color_ii_ext(red int, green int, blue int, alpha int)  {
+
+@[inline]
+pub fn clear_color_ii_ext(red int, green int, blue int, alpha int) {
 	C.glClearColorIiEXT(red, green, blue, alpha)
 }
-[inline]
-pub fn clear_color_iui_ext(red u32, green u32, blue u32, alpha u32)  {
+
+@[inline]
+pub fn clear_color_iui_ext(red u32, green u32, blue u32, alpha u32) {
 	C.glClearColorIuiEXT(red, green, blue, alpha)
 }
-[inline]
-pub fn get_tex_parameter_iiv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_parameter_iiv_ext(target u32, pname u32, params &int) {
 	C.glGetTexParameterIivEXT(target, pname, params)
 }
-[inline]
-pub fn get_tex_parameter_iuiv_ext(target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_tex_parameter_iuiv_ext(target u32, pname u32, params &u32) {
 	C.glGetTexParameterIuivEXT(target, pname, params)
 }
-[inline]
-pub fn tex_parameter_iiv_ext(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_parameter_iiv_ext(target u32, pname u32, params &int) {
 	C.glTexParameterIivEXT(target, pname, params)
 }
-[inline]
-pub fn tex_parameter_iuiv_ext(target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn tex_parameter_iuiv_ext(target u32, pname u32, params &u32) {
 	C.glTexParameterIuivEXT(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn are_textures_resident_ext(n int, textures &u32, residences &u8) u8 {
 	return C.glAreTexturesResidentEXT(n, textures, residences)
 }
-[inline]
-pub fn bind_texture_ext(target u32, texture u32)  {
+
+@[inline]
+pub fn bind_texture_ext(target u32, texture u32) {
 	C.glBindTextureEXT(target, texture)
 }
-[inline]
-pub fn delete_textures_ext(n int, textures &u32)  {
+
+@[inline]
+pub fn delete_textures_ext(n int, textures &u32) {
 	C.glDeleteTexturesEXT(n, textures)
 }
-[inline]
-pub fn gen_textures_ext(n int, textures &u32)  {
+
+@[inline]
+pub fn gen_textures_ext(n int, textures &u32) {
 	C.glGenTexturesEXT(n, textures)
 }
-[inline]
+
+@[inline]
 pub fn is_texture_ext(texture u32) u8 {
 	return C.glIsTextureEXT(texture)
 }
-[inline]
-pub fn prioritize_textures_ext(n int, textures &u32, priorities &f32)  {
+
+@[inline]
+pub fn prioritize_textures_ext(n int, textures &u32, priorities &f32) {
 	C.glPrioritizeTexturesEXT(n, textures, priorities)
 }
-[inline]
-pub fn texture_normal_ext(mode u32)  {
+
+@[inline]
+pub fn texture_normal_ext(mode u32) {
 	C.glTextureNormalEXT(mode)
 }
-[inline]
-pub fn tex_storage1dext(target u32, levels int, internalformat u32, width int)  {
+
+@[inline]
+pub fn tex_storage1dext(target u32, levels int, internalformat u32, width int) {
 	C.glTexStorage1DEXT(target, levels, internalformat, width)
 }
-[inline]
-pub fn tex_storage2dext(target u32, levels int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn tex_storage2dext(target u32, levels int, internalformat u32, width int, height int) {
 	C.glTexStorage2DEXT(target, levels, internalformat, width, height)
 }
-[inline]
-pub fn tex_storage3dext(target u32, levels int, internalformat u32, width int, height int, depth int)  {
+
+@[inline]
+pub fn tex_storage3dext(target u32, levels int, internalformat u32, width int, height int, depth int) {
 	C.glTexStorage3DEXT(target, levels, internalformat, width, height, depth)
 }
-[inline]
-pub fn texture_storage1dext(texture u32, target u32, levels int, internalformat u32, width int)  {
+
+@[inline]
+pub fn texture_storage1dext(texture u32, target u32, levels int, internalformat u32, width int) {
 	C.glTextureStorage1DEXT(texture, target, levels, internalformat, width)
 }
-[inline]
-pub fn texture_storage2dext(texture u32, target u32, levels int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn texture_storage2dext(texture u32, target u32, levels int, internalformat u32, width int, height int) {
 	C.glTextureStorage2DEXT(texture, target, levels, internalformat, width, height)
 }
-[inline]
-pub fn texture_storage3dext(texture u32, target u32, levels int, internalformat u32, width int, height int, depth int)  {
+
+@[inline]
+pub fn texture_storage3dext(texture u32, target u32, levels int, internalformat u32, width int, height int, depth int) {
 	C.glTextureStorage3DEXT(texture, target, levels, internalformat, width, height, depth)
 }
-[inline]
-pub fn texture_view_ext(texture u32, target u32, origtexture u32, internalformat u32, minlevel u32, numlevels u32, minlayer u32, numlayers u32)  {
-	C.glTextureViewEXT(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers)
+
+@[inline]
+pub fn texture_view_ext(texture u32, target u32, origtexture u32, internalformat u32, minlevel u32, numlevels u32, minlayer u32, numlayers u32) {
+	C.glTextureViewEXT(texture, target, origtexture, internalformat, minlevel, numlevels,
+		minlayer, numlayers)
 }
-[inline]
-pub fn get_query_objecti64v_ext(id u32, pname u32, params &i64)  {
+
+@[inline]
+pub fn get_query_objecti64v_ext(id u32, pname u32, params &i64) {
 	C.glGetQueryObjecti64vEXT(id, pname, params)
 }
-[inline]
-pub fn get_query_objectui64v_ext(id u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_query_objectui64v_ext(id u32, pname u32, params &u64) {
 	C.glGetQueryObjectui64vEXT(id, pname, params)
 }
-[inline]
-pub fn begin_transform_feedback_ext(primitive_mode u32)  {
+
+@[inline]
+pub fn begin_transform_feedback_ext(primitive_mode u32) {
 	C.glBeginTransformFeedbackEXT(primitive_mode)
 }
-[inline]
-pub fn bind_buffer_base_ext(target u32, index u32, buffer u32)  {
+
+@[inline]
+pub fn bind_buffer_base_ext(target u32, index u32, buffer u32) {
 	C.glBindBufferBaseEXT(target, index, buffer)
 }
-[inline]
-pub fn bind_buffer_offset_ext(target u32, index u32, buffer u32, offset i64)  {
+
+@[inline]
+pub fn bind_buffer_offset_ext(target u32, index u32, buffer u32, offset i64) {
 	C.glBindBufferOffsetEXT(target, index, buffer, offset)
 }
-[inline]
-pub fn bind_buffer_range_ext(target u32, index u32, buffer u32, offset i64, size i64)  {
+
+@[inline]
+pub fn bind_buffer_range_ext(target u32, index u32, buffer u32, offset i64, size i64) {
 	C.glBindBufferRangeEXT(target, index, buffer, offset, size)
 }
-[inline]
-pub fn end_transform_feedback_ext()  {
+
+@[inline]
+pub fn end_transform_feedback_ext() {
 	C.glEndTransformFeedbackEXT()
 }
-[inline]
-pub fn get_transform_feedback_varying_ext(program u32, index u32, buf_size int, length &int, size &int, gl_type &u32, name &char)  {
-	C.glGetTransformFeedbackVaryingEXT(program, index, buf_size, length, size, gl_type, name)
+
+@[inline]
+pub fn get_transform_feedback_varying_ext(program u32, index u32, buf_size int, length &int, size &int, gl_type &u32, name &char) {
+	C.glGetTransformFeedbackVaryingEXT(program, index, buf_size, length, size, gl_type,
+		name)
 }
-[inline]
-pub fn transform_feedback_varyings_ext(program u32, count int, varyings &&char, buffer_mode u32)  {
+
+@[inline]
+pub fn transform_feedback_varyings_ext(program u32, count int, varyings &&char, buffer_mode u32) {
 	C.glTransformFeedbackVaryingsEXT(program, count, varyings, buffer_mode)
 }
-[inline]
-pub fn array_element_ext(i int)  {
+
+@[inline]
+pub fn array_element_ext(i int) {
 	C.glArrayElementEXT(i)
 }
-[inline]
-pub fn color_pointer_ext(size int, gl_type u32, stride int, count int, pointer voidptr)  {
+
+@[inline]
+pub fn color_pointer_ext(size int, gl_type u32, stride int, count int, pointer voidptr) {
 	C.glColorPointerEXT(size, gl_type, stride, count, pointer)
 }
-[inline]
-pub fn draw_arrays_ext(mode u32, first int, count int)  {
+
+@[inline]
+pub fn draw_arrays_ext(mode u32, first int, count int) {
 	C.glDrawArraysEXT(mode, first, count)
 }
-[inline]
-pub fn edge_flag_pointer_ext(stride int, count int, pointer &u8)  {
+
+@[inline]
+pub fn edge_flag_pointer_ext(stride int, count int, pointer &u8) {
 	C.glEdgeFlagPointerEXT(stride, count, pointer)
 }
-[inline]
-pub fn index_pointer_ext(gl_type u32, stride int, count int, pointer voidptr)  {
+
+@[inline]
+pub fn index_pointer_ext(gl_type u32, stride int, count int, pointer voidptr) {
 	C.glIndexPointerEXT(gl_type, stride, count, pointer)
 }
-[inline]
-pub fn normal_pointer_ext(gl_type u32, stride int, count int, pointer voidptr)  {
+
+@[inline]
+pub fn normal_pointer_ext(gl_type u32, stride int, count int, pointer voidptr) {
 	C.glNormalPointerEXT(gl_type, stride, count, pointer)
 }
-[inline]
-pub fn tex_coord_pointer_ext(size int, gl_type u32, stride int, count int, pointer voidptr)  {
+
+@[inline]
+pub fn tex_coord_pointer_ext(size int, gl_type u32, stride int, count int, pointer voidptr) {
 	C.glTexCoordPointerEXT(size, gl_type, stride, count, pointer)
 }
-[inline]
-pub fn vertex_pointer_ext(size int, gl_type u32, stride int, count int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_pointer_ext(size int, gl_type u32, stride int, count int, pointer voidptr) {
 	C.glVertexPointerEXT(size, gl_type, stride, count, pointer)
 }
-[inline]
-pub fn bind_array_set_ext(arrayset voidptr)  {
+
+@[inline]
+pub fn bind_array_set_ext(arrayset voidptr) {
 	C.glBindArraySetEXT(arrayset)
 }
-[inline]
+
+@[inline]
 pub fn create_array_set_ext() voidptr {
 	return C.glCreateArraySetExt()
 }
-[inline]
-pub fn delete_array_sets_ext(n int, arrayset &voidptr)  {
+
+@[inline]
+pub fn delete_array_sets_ext(n int, arrayset &voidptr) {
 	C.glDeleteArraySetsEXT(n, arrayset)
 }
-[inline]
-pub fn get_vertex_attrib_ldv_ext(index u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_vertex_attrib_ldv_ext(index u32, pname u32, params &f64) {
 	C.glGetVertexAttribLdvEXT(index, pname, params)
 }
-[inline]
-pub fn vertex_array_vertex_attrib_loffset_ext(vaobj u32, buffer u32, index u32, size int, gl_type u32, stride int, offset i64)  {
-	C.glVertexArrayVertexAttribLOffsetEXT(vaobj, buffer, index, size, gl_type, stride, offset)
+
+@[inline]
+pub fn vertex_array_vertex_attrib_loffset_ext(vaobj u32, buffer u32, index u32, size int, gl_type u32, stride int, offset i64) {
+	C.glVertexArrayVertexAttribLOffsetEXT(vaobj, buffer, index, size, gl_type, stride,
+		offset)
 }
-[inline]
-pub fn vertex_attrib_l1d_ext(index u32, x f64)  {
+
+@[inline]
+pub fn vertex_attrib_l1d_ext(index u32, x f64) {
 	C.glVertexAttribL1dEXT(index, x)
 }
-[inline]
-pub fn vertex_attrib_l1dv_ext(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib_l1dv_ext(index u32, v &f64) {
 	C.glVertexAttribL1dvEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_l2d_ext(index u32, x f64, y f64)  {
+
+@[inline]
+pub fn vertex_attrib_l2d_ext(index u32, x f64, y f64) {
 	C.glVertexAttribL2dEXT(index, x, y)
 }
-[inline]
-pub fn vertex_attrib_l2dv_ext(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib_l2dv_ext(index u32, v &f64) {
 	C.glVertexAttribL2dvEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_l3d_ext(index u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn vertex_attrib_l3d_ext(index u32, x f64, y f64, z f64) {
 	C.glVertexAttribL3dEXT(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib_l3dv_ext(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib_l3dv_ext(index u32, v &f64) {
 	C.glVertexAttribL3dvEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_l4d_ext(index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn vertex_attrib_l4d_ext(index u32, x f64, y f64, z f64, w f64) {
 	C.glVertexAttribL4dEXT(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib_l4dv_ext(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib_l4dv_ext(index u32, v &f64) {
 	C.glVertexAttribL4dvEXT(index, v)
 }
-[inline]
-pub fn vertex_attrib_lpointer_ext(index u32, size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_attrib_lpointer_ext(index u32, size int, gl_type u32, stride int, pointer voidptr) {
 	C.glVertexAttribLPointerEXT(index, size, gl_type, stride, pointer)
 }
-[inline]
-pub fn begin_vertex_shader_ext()  {
+
+@[inline]
+pub fn begin_vertex_shader_ext() {
 	C.glBeginVertexShaderEXT()
 }
-[inline]
+
+@[inline]
 pub fn bind_light_parameter_ext(light u32, value u32) u32 {
 	return C.glBindLightParameterEXT(light, value)
 }
-[inline]
+
+@[inline]
 pub fn bind_material_parameter_ext(face u32, value u32) u32 {
 	return C.glBindMaterialParameterEXT(face, value)
 }
-[inline]
+
+@[inline]
 pub fn bind_parameter_ext(value u32) u32 {
 	return C.glBindParameterEXT(value)
 }
-[inline]
+
+@[inline]
 pub fn bind_tex_gen_parameter_ext(unit u32, coord u32, value u32) u32 {
 	return C.glBindTexGenParameterEXT(unit, coord, value)
 }
-[inline]
+
+@[inline]
 pub fn bind_texture_unit_parameter_ext(unit u32, value u32) u32 {
 	return C.glBindTextureUnitParameterEXT(unit, value)
 }
-[inline]
-pub fn bind_vertex_shader_ext(id u32)  {
+
+@[inline]
+pub fn bind_vertex_shader_ext(id u32) {
 	C.glBindVertexShaderEXT(id)
 }
-[inline]
-pub fn delete_vertex_shader_ext(id u32)  {
+
+@[inline]
+pub fn delete_vertex_shader_ext(id u32) {
 	C.glDeleteVertexShaderEXT(id)
 }
-[inline]
-pub fn disable_variant_client_state_ext(id u32)  {
+
+@[inline]
+pub fn disable_variant_client_state_ext(id u32) {
 	C.glDisableVariantClientStateEXT(id)
 }
-[inline]
-pub fn enable_variant_client_state_ext(id u32)  {
+
+@[inline]
+pub fn enable_variant_client_state_ext(id u32) {
 	C.glEnableVariantClientStateEXT(id)
 }
-[inline]
-pub fn end_vertex_shader_ext()  {
+
+@[inline]
+pub fn end_vertex_shader_ext() {
 	C.glEndVertexShaderEXT()
 }
-[inline]
-pub fn extract_component_ext(res u32, src u32, num u32)  {
+
+@[inline]
+pub fn extract_component_ext(res u32, src u32, num u32) {
 	C.glExtractComponentEXT(res, src, num)
 }
-[inline]
+
+@[inline]
 pub fn gen_symbols_ext(data_type u32, storage_type u32, range u32, components u32) u32 {
 	return C.glGenSymbolsEXT(data_type, storage_type, range, components)
 }
-[inline]
+
+@[inline]
 pub fn gen_vertex_shaders_ext(range u32) u32 {
 	return C.glGenVertexShadersEXT(range)
 }
-[inline]
-pub fn get_invariant_booleanv_ext(id u32, value u32, data &u8)  {
+
+@[inline]
+pub fn get_invariant_booleanv_ext(id u32, value u32, data &u8) {
 	C.glGetInvariantBooleanvEXT(id, value, data)
 }
-[inline]
-pub fn get_invariant_floatv_ext(id u32, value u32, data &f32)  {
+
+@[inline]
+pub fn get_invariant_floatv_ext(id u32, value u32, data &f32) {
 	C.glGetInvariantFloatvEXT(id, value, data)
 }
-[inline]
-pub fn get_invariant_integerv_ext(id u32, value u32, data &int)  {
+
+@[inline]
+pub fn get_invariant_integerv_ext(id u32, value u32, data &int) {
 	C.glGetInvariantIntegervEXT(id, value, data)
 }
-[inline]
-pub fn get_local_constant_booleanv_ext(id u32, value u32, data &u8)  {
+
+@[inline]
+pub fn get_local_constant_booleanv_ext(id u32, value u32, data &u8) {
 	C.glGetLocalConstantBooleanvEXT(id, value, data)
 }
-[inline]
-pub fn get_local_constant_floatv_ext(id u32, value u32, data &f32)  {
+
+@[inline]
+pub fn get_local_constant_floatv_ext(id u32, value u32, data &f32) {
 	C.glGetLocalConstantFloatvEXT(id, value, data)
 }
-[inline]
-pub fn get_local_constant_integerv_ext(id u32, value u32, data &int)  {
+
+@[inline]
+pub fn get_local_constant_integerv_ext(id u32, value u32, data &int) {
 	C.glGetLocalConstantIntegervEXT(id, value, data)
 }
-[inline]
-pub fn get_variant_booleanv_ext(id u32, value u32, data &u8)  {
+
+@[inline]
+pub fn get_variant_booleanv_ext(id u32, value u32, data &u8) {
 	C.glGetVariantBooleanvEXT(id, value, data)
 }
-[inline]
-pub fn get_variant_floatv_ext(id u32, value u32, data &f32)  {
+
+@[inline]
+pub fn get_variant_floatv_ext(id u32, value u32, data &f32) {
 	C.glGetVariantFloatvEXT(id, value, data)
 }
-[inline]
-pub fn get_variant_integerv_ext(id u32, value u32, data &int)  {
+
+@[inline]
+pub fn get_variant_integerv_ext(id u32, value u32, data &int) {
 	C.glGetVariantIntegervEXT(id, value, data)
 }
-[inline]
-pub fn get_variant_pointerv_ext(id u32, value u32, data &voidptr)  {
+
+@[inline]
+pub fn get_variant_pointerv_ext(id u32, value u32, data &voidptr) {
 	C.glGetVariantPointervEXT(id, value, data)
 }
-[inline]
-pub fn insert_component_ext(res u32, src u32, num u32)  {
+
+@[inline]
+pub fn insert_component_ext(res u32, src u32, num u32) {
 	C.glInsertComponentEXT(res, src, num)
 }
-[inline]
+
+@[inline]
 pub fn is_variant_enabled_ext(id u32, cap u32) u8 {
 	return C.glIsVariantEnabledEXT(id, cap)
 }
-[inline]
-pub fn set_invariant_ext(id u32, gl_type u32, addr voidptr)  {
+
+@[inline]
+pub fn set_invariant_ext(id u32, gl_type u32, addr voidptr) {
 	C.glSetInvariantEXT(id, gl_type, addr)
 }
-[inline]
-pub fn set_local_constant_ext(id u32, gl_type u32, addr voidptr)  {
+
+@[inline]
+pub fn set_local_constant_ext(id u32, gl_type u32, addr voidptr) {
 	C.glSetLocalConstantEXT(id, gl_type, addr)
 }
-[inline]
-pub fn shader_op1ext(op u32, res u32, arg1 u32)  {
+
+@[inline]
+pub fn shader_op1ext(op u32, res u32, arg1 u32) {
 	C.glShaderOp1EXT(op, res, arg1)
 }
-[inline]
-pub fn shader_op2ext(op u32, res u32, arg1 u32, arg2 u32)  {
+
+@[inline]
+pub fn shader_op2ext(op u32, res u32, arg1 u32, arg2 u32) {
 	C.glShaderOp2EXT(op, res, arg1, arg2)
 }
-[inline]
-pub fn shader_op3ext(op u32, res u32, arg1 u32, arg2 u32, arg3 u32)  {
+
+@[inline]
+pub fn shader_op3ext(op u32, res u32, arg1 u32, arg2 u32, arg3 u32) {
 	C.glShaderOp3EXT(op, res, arg1, arg2, arg3)
 }
-[inline]
-pub fn swizzle_ext(res u32, gl_in u32, out_x u32, out_y u32, out_z u32, out_w u32)  {
+
+@[inline]
+pub fn swizzle_ext(res u32, gl_in u32, out_x u32, out_y u32, out_z u32, out_w u32) {
 	C.glSwizzleEXT(res, gl_in, out_x, out_y, out_z, out_w)
 }
-[inline]
-pub fn variant_pointer_ext(id u32, gl_type u32, stride u32, addr voidptr)  {
+
+@[inline]
+pub fn variant_pointer_ext(id u32, gl_type u32, stride u32, addr voidptr) {
 	C.glVariantPointerEXT(id, gl_type, stride, addr)
 }
-[inline]
-pub fn variantbv_ext(id u32, addr &i8)  {
+
+@[inline]
+pub fn variantbv_ext(id u32, addr &i8) {
 	C.glVariantbvEXT(id, addr)
 }
-[inline]
-pub fn variantdv_ext(id u32, addr &f64)  {
+
+@[inline]
+pub fn variantdv_ext(id u32, addr &f64) {
 	C.glVariantdvEXT(id, addr)
 }
-[inline]
-pub fn variantfv_ext(id u32, addr &f32)  {
+
+@[inline]
+pub fn variantfv_ext(id u32, addr &f32) {
 	C.glVariantfvEXT(id, addr)
 }
-[inline]
-pub fn variantiv_ext(id u32, addr &int)  {
+
+@[inline]
+pub fn variantiv_ext(id u32, addr &int) {
 	C.glVariantivEXT(id, addr)
 }
-[inline]
-pub fn variantsv_ext(id u32, addr &i16)  {
+
+@[inline]
+pub fn variantsv_ext(id u32, addr &i16) {
 	C.glVariantsvEXT(id, addr)
 }
-[inline]
-pub fn variantubv_ext(id u32, addr &u8)  {
+
+@[inline]
+pub fn variantubv_ext(id u32, addr &u8) {
 	C.glVariantubvEXT(id, addr)
 }
-[inline]
-pub fn variantuiv_ext(id u32, addr &u32)  {
+
+@[inline]
+pub fn variantuiv_ext(id u32, addr &u32) {
 	C.glVariantuivEXT(id, addr)
 }
-[inline]
-pub fn variantusv_ext(id u32, addr &u16)  {
+
+@[inline]
+pub fn variantusv_ext(id u32, addr &u16) {
 	C.glVariantusvEXT(id, addr)
 }
-[inline]
-pub fn write_mask_ext(res u32, gl_in u32, out_x u32, out_y u32, out_z u32, out_w u32)  {
+
+@[inline]
+pub fn write_mask_ext(res u32, gl_in u32, out_x u32, out_y u32, out_z u32, out_w u32) {
 	C.glWriteMaskEXT(res, gl_in, out_x, out_y, out_z, out_w)
 }
-[inline]
-pub fn vertex_weight_pointer_ext(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_weight_pointer_ext(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glVertexWeightPointerEXT(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn vertex_weightf_ext(weight f32)  {
+
+@[inline]
+pub fn vertex_weightf_ext(weight f32) {
 	C.glVertexWeightfEXT(weight)
 }
-[inline]
-pub fn vertex_weightfv_ext(weight &f32)  {
+
+@[inline]
+pub fn vertex_weightfv_ext(weight &f32) {
 	C.glVertexWeightfvEXT(weight)
 }
-[inline]
+
+@[inline]
 pub fn acquire_keyed_mutex_win32ext(memory u32, key u64, timeout u32) u8 {
 	return C.glAcquireKeyedMutexWin32EXT(memory, key, timeout)
 }
-[inline]
+
+@[inline]
 pub fn release_keyed_mutex_win32ext(memory u32, key u64) u8 {
 	return C.glReleaseKeyedMutexWin32EXT(memory, key)
 }
-[inline]
-pub fn window_rectangles_ext(mode u32, count int, box &int)  {
+
+@[inline]
+pub fn window_rectangles_ext(mode u32, count int, box &int) {
 	C.glWindowRectanglesEXT(mode, count, box)
 }
-[inline]
+
+@[inline]
 pub fn import_sync_ext(external_sync_type u32, external_sync i64, flags u32) voidptr {
 	return C.glImportSyncEXT(external_sync_type, external_sync, flags)
 }
-[inline]
-pub fn frame_terminator_gremedy()  {
+
+@[inline]
+pub fn frame_terminator_gremedy() {
 	C.glFrameTerminatorGREMEDY()
 }
-[inline]
-pub fn string_marker_gremedy(len int, gl_string voidptr)  {
+
+@[inline]
+pub fn string_marker_gremedy(len int, gl_string voidptr) {
 	C.glStringMarkerGREMEDY(len, gl_string)
 }
-[inline]
-pub fn get_image_transform_parameterfv_hp(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_image_transform_parameterfv_hp(target u32, pname u32, params &f32) {
 	C.glGetImageTransformParameterfvHP(target, pname, params)
 }
-[inline]
-pub fn get_image_transform_parameteriv_hp(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_image_transform_parameteriv_hp(target u32, pname u32, params &int) {
 	C.glGetImageTransformParameterivHP(target, pname, params)
 }
-[inline]
-pub fn image_transform_parameterf_hp(target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn image_transform_parameterf_hp(target u32, pname u32, param f32) {
 	C.glImageTransformParameterfHP(target, pname, param)
 }
-[inline]
-pub fn image_transform_parameterfv_hp(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn image_transform_parameterfv_hp(target u32, pname u32, params &f32) {
 	C.glImageTransformParameterfvHP(target, pname, params)
 }
-[inline]
-pub fn image_transform_parameteri_hp(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn image_transform_parameteri_hp(target u32, pname u32, param int) {
 	C.glImageTransformParameteriHP(target, pname, param)
 }
-[inline]
-pub fn image_transform_parameteriv_hp(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn image_transform_parameteriv_hp(target u32, pname u32, params &int) {
 	C.glImageTransformParameterivHP(target, pname, params)
 }
-[inline]
-pub fn multi_mode_draw_arrays_ibm(mode &u32, first &int, count &int, primcount int, modestride int)  {
+
+@[inline]
+pub fn multi_mode_draw_arrays_ibm(mode &u32, first &int, count &int, primcount int, modestride int) {
 	C.glMultiModeDrawArraysIBM(mode, first, count, primcount, modestride)
 }
-[inline]
-pub fn multi_mode_draw_elements_ibm(mode &u32, count &int, gl_type u32, indices &voidptr, primcount int, modestride int)  {
+
+@[inline]
+pub fn multi_mode_draw_elements_ibm(mode &u32, count &int, gl_type u32, indices &voidptr, primcount int, modestride int) {
 	C.glMultiModeDrawElementsIBM(mode, count, gl_type, indices, primcount, modestride)
 }
-[inline]
-pub fn color_pointer_list_ibm(size int, gl_type u32, stride int, pointer &voidptr, ptrstride int)  {
+
+@[inline]
+pub fn color_pointer_list_ibm(size int, gl_type u32, stride int, pointer &voidptr, ptrstride int) {
 	C.glColorPointerListIBM(size, gl_type, stride, pointer, ptrstride)
 }
-[inline]
-pub fn edge_flag_pointer_list_ibm(stride int, pointer &&u8, ptrstride int)  {
+
+@[inline]
+pub fn edge_flag_pointer_list_ibm(stride int, pointer &&u8, ptrstride int) {
 	C.glEdgeFlagPointerListIBM(stride, pointer, ptrstride)
 }
-[inline]
-pub fn fog_coord_pointer_list_ibm(gl_type u32, stride int, pointer &voidptr, ptrstride int)  {
+
+@[inline]
+pub fn fog_coord_pointer_list_ibm(gl_type u32, stride int, pointer &voidptr, ptrstride int) {
 	C.glFogCoordPointerListIBM(gl_type, stride, pointer, ptrstride)
 }
-[inline]
-pub fn index_pointer_list_ibm(gl_type u32, stride int, pointer &voidptr, ptrstride int)  {
+
+@[inline]
+pub fn index_pointer_list_ibm(gl_type u32, stride int, pointer &voidptr, ptrstride int) {
 	C.glIndexPointerListIBM(gl_type, stride, pointer, ptrstride)
 }
-[inline]
-pub fn normal_pointer_list_ibm(gl_type u32, stride int, pointer &voidptr, ptrstride int)  {
+
+@[inline]
+pub fn normal_pointer_list_ibm(gl_type u32, stride int, pointer &voidptr, ptrstride int) {
 	C.glNormalPointerListIBM(gl_type, stride, pointer, ptrstride)
 }
-[inline]
-pub fn secondary_color_pointer_list_ibm(size int, gl_type u32, stride int, pointer &voidptr, ptrstride int)  {
+
+@[inline]
+pub fn secondary_color_pointer_list_ibm(size int, gl_type u32, stride int, pointer &voidptr, ptrstride int) {
 	C.glSecondaryColorPointerListIBM(size, gl_type, stride, pointer, ptrstride)
 }
-[inline]
-pub fn tex_coord_pointer_list_ibm(size int, gl_type u32, stride int, pointer &voidptr, ptrstride int)  {
+
+@[inline]
+pub fn tex_coord_pointer_list_ibm(size int, gl_type u32, stride int, pointer &voidptr, ptrstride int) {
 	C.glTexCoordPointerListIBM(size, gl_type, stride, pointer, ptrstride)
 }
-[inline]
-pub fn vertex_pointer_list_ibm(size int, gl_type u32, stride int, pointer &voidptr, ptrstride int)  {
+
+@[inline]
+pub fn vertex_pointer_list_ibm(size int, gl_type u32, stride int, pointer &voidptr, ptrstride int) {
 	C.glVertexPointerListIBM(size, gl_type, stride, pointer, ptrstride)
 }
-[inline]
+
+@[inline]
 pub fn get_texture_handle_img(texture u32) u64 {
 	return C.glGetTextureHandleIMG(texture)
 }
-[inline]
+
+@[inline]
 pub fn get_texture_sampler_handle_img(texture u32, sampler u32) u64 {
 	return C.glGetTextureSamplerHandleIMG(texture, sampler)
 }
-[inline]
-pub fn program_uniform_handleui64img(program u32, location int, value u64)  {
+
+@[inline]
+pub fn program_uniform_handleui64img(program u32, location int, value u64) {
 	C.glProgramUniformHandleui64IMG(program, location, value)
 }
-[inline]
-pub fn program_uniform_handleui64v_img(program u32, location int, count int, values &u64)  {
+
+@[inline]
+pub fn program_uniform_handleui64v_img(program u32, location int, count int, values &u64) {
 	C.glProgramUniformHandleui64vIMG(program, location, count, values)
 }
-[inline]
-pub fn uniform_handleui64img(location int, value u64)  {
+
+@[inline]
+pub fn uniform_handleui64img(location int, value u64) {
 	C.glUniformHandleui64IMG(location, value)
 }
-[inline]
-pub fn uniform_handleui64v_img(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform_handleui64v_img(location int, count int, value &u64) {
 	C.glUniformHandleui64vIMG(location, count, value)
 }
-[inline]
-pub fn framebuffer_texture2ddownsample_img(target u32, attachment u32, textarget u32, texture u32, level int, xscale int, yscale int)  {
-	C.glFramebufferTexture2DDownsampleIMG(target, attachment, textarget, texture, level, xscale, yscale)
+
+@[inline]
+pub fn framebuffer_texture2ddownsample_img(target u32, attachment u32, textarget u32, texture u32, level int, xscale int, yscale int) {
+	C.glFramebufferTexture2DDownsampleIMG(target, attachment, textarget, texture, level,
+		xscale, yscale)
 }
-[inline]
-pub fn framebuffer_texture_layer_downsample_img(target u32, attachment u32, texture u32, level int, layer int, xscale int, yscale int)  {
-	C.glFramebufferTextureLayerDownsampleIMG(target, attachment, texture, level, layer, xscale, yscale)
+
+@[inline]
+pub fn framebuffer_texture_layer_downsample_img(target u32, attachment u32, texture u32, level int, layer int, xscale int, yscale int) {
+	C.glFramebufferTextureLayerDownsampleIMG(target, attachment, texture, level, layer,
+		xscale, yscale)
 }
-[inline]
-pub fn framebuffer_texture2dmultisample_img(target u32, attachment u32, textarget u32, texture u32, level int, samples int)  {
-	C.glFramebufferTexture2DMultisampleIMG(target, attachment, textarget, texture, level, samples)
+
+@[inline]
+pub fn framebuffer_texture2dmultisample_img(target u32, attachment u32, textarget u32, texture u32, level int, samples int) {
+	C.glFramebufferTexture2DMultisampleIMG(target, attachment, textarget, texture, level,
+		samples)
 }
-[inline]
-pub fn renderbuffer_storage_multisample_img(target u32, samples int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage_multisample_img(target u32, samples int, internalformat u32, width int, height int) {
 	C.glRenderbufferStorageMultisampleIMG(target, samples, internalformat, width, height)
 }
-[inline]
+
+@[inline]
 pub fn map_texture2dintel(texture u32, level int, access u32, stride &int, layout &u32) voidptr {
 	return C.glMapTexture2DINTEL(texture, level, access, stride, layout)
 }
-[inline]
-pub fn sync_texture_intel(texture u32)  {
+
+@[inline]
+pub fn sync_texture_intel(texture u32) {
 	C.glSyncTextureINTEL(texture)
 }
-[inline]
-pub fn unmap_texture2dintel(texture u32, level int)  {
+
+@[inline]
+pub fn unmap_texture2dintel(texture u32, level int) {
 	C.glUnmapTexture2DINTEL(texture, level)
 }
-[inline]
-pub fn color_pointerv_intel(size int, gl_type u32, pointer &voidptr)  {
+
+@[inline]
+pub fn color_pointerv_intel(size int, gl_type u32, pointer &voidptr) {
 	C.glColorPointervINTEL(size, gl_type, pointer)
 }
-[inline]
-pub fn normal_pointerv_intel(gl_type u32, pointer &voidptr)  {
+
+@[inline]
+pub fn normal_pointerv_intel(gl_type u32, pointer &voidptr) {
 	C.glNormalPointervINTEL(gl_type, pointer)
 }
-[inline]
-pub fn tex_coord_pointerv_intel(size int, gl_type u32, pointer &voidptr)  {
+
+@[inline]
+pub fn tex_coord_pointerv_intel(size int, gl_type u32, pointer &voidptr) {
 	C.glTexCoordPointervINTEL(size, gl_type, pointer)
 }
-[inline]
-pub fn vertex_pointerv_intel(size int, gl_type u32, pointer &voidptr)  {
+
+@[inline]
+pub fn vertex_pointerv_intel(size int, gl_type u32, pointer &voidptr) {
 	C.glVertexPointervINTEL(size, gl_type, pointer)
 }
-[inline]
-pub fn begin_perf_query_intel(query_handle u32)  {
+
+@[inline]
+pub fn begin_perf_query_intel(query_handle u32) {
 	C.glBeginPerfQueryINTEL(query_handle)
 }
-[inline]
-pub fn create_perf_query_intel(query_id u32, query_handle &u32)  {
+
+@[inline]
+pub fn create_perf_query_intel(query_id u32, query_handle &u32) {
 	C.glCreatePerfQueryINTEL(query_id, query_handle)
 }
-[inline]
-pub fn delete_perf_query_intel(query_handle u32)  {
+
+@[inline]
+pub fn delete_perf_query_intel(query_handle u32) {
 	C.glDeletePerfQueryINTEL(query_handle)
 }
-[inline]
-pub fn end_perf_query_intel(query_handle u32)  {
+
+@[inline]
+pub fn end_perf_query_intel(query_handle u32) {
 	C.glEndPerfQueryINTEL(query_handle)
 }
-[inline]
-pub fn get_first_perf_query_id_intel(query_id &u32)  {
+
+@[inline]
+pub fn get_first_perf_query_id_intel(query_id &u32) {
 	C.glGetFirstPerfQueryIdINTEL(query_id)
 }
-[inline]
-pub fn get_next_perf_query_id_intel(query_id u32, next_query_id &u32)  {
+
+@[inline]
+pub fn get_next_perf_query_id_intel(query_id u32, next_query_id &u32) {
 	C.glGetNextPerfQueryIdINTEL(query_id, next_query_id)
 }
-[inline]
-pub fn get_perf_counter_info_intel(query_id u32, counter_id u32, counter_name_length u32, counter_name &char, counter_desc_length u32, counter_desc &char, counter_offset &u32, counter_data_size &u32, counter_type_enum &u32, counter_data_type_enum &u32, raw_counter_max_value &u64)  {
-	C.glGetPerfCounterInfoINTEL(query_id, counter_id, counter_name_length, counter_name, counter_desc_length, counter_desc, counter_offset, counter_data_size, counter_type_enum, counter_data_type_enum, raw_counter_max_value)
+
+@[inline]
+pub fn get_perf_counter_info_intel(query_id u32, counter_id u32, counter_name_length u32, counter_name &char, counter_desc_length u32, counter_desc &char, counter_offset &u32, counter_data_size &u32, counter_type_enum &u32, counter_data_type_enum &u32, raw_counter_max_value &u64) {
+	C.glGetPerfCounterInfoINTEL(query_id, counter_id, counter_name_length, counter_name,
+		counter_desc_length, counter_desc, counter_offset, counter_data_size, counter_type_enum,
+		counter_data_type_enum, raw_counter_max_value)
 }
-[inline]
-pub fn get_perf_query_data_intel(query_handle u32, flags u32, data_size int, data voidptr, bytes_written &u32)  {
+
+@[inline]
+pub fn get_perf_query_data_intel(query_handle u32, flags u32, data_size int, data voidptr, bytes_written &u32) {
 	C.glGetPerfQueryDataINTEL(query_handle, flags, data_size, data, bytes_written)
 }
-[inline]
-pub fn get_perf_query_id_by_name_intel(query_name &char, query_id &u32)  {
+
+@[inline]
+pub fn get_perf_query_id_by_name_intel(query_name &char, query_id &u32) {
 	C.glGetPerfQueryIdByNameINTEL(query_name, query_id)
 }
-[inline]
-pub fn get_perf_query_info_intel(query_id u32, query_name_length u32, query_name &char, data_size &u32, no_counters &u32, no_instances &u32, caps_mask &u32)  {
-	C.glGetPerfQueryInfoINTEL(query_id, query_name_length, query_name, data_size, no_counters, no_instances, caps_mask)
+
+@[inline]
+pub fn get_perf_query_info_intel(query_id u32, query_name_length u32, query_name &char, data_size &u32, no_counters &u32, no_instances &u32, caps_mask &u32) {
+	C.glGetPerfQueryInfoINTEL(query_id, query_name_length, query_name, data_size, no_counters,
+		no_instances, caps_mask)
 }
-[inline]
-pub fn tex_scissor_func_intel(target u32, lfunc u32, hfunc u32)  {
+
+@[inline]
+pub fn tex_scissor_func_intel(target u32, lfunc u32, hfunc u32) {
 	C.glTexScissorFuncINTEL(target, lfunc, hfunc)
 }
-[inline]
-pub fn tex_scissor_intel(target u32, tlow f32, thigh f32)  {
+
+@[inline]
+pub fn tex_scissor_intel(target u32, tlow f32, thigh f32) {
 	C.glTexScissorINTEL(target, tlow, thigh)
 }
-[inline]
-pub fn blend_barrier_khr()  {
+
+@[inline]
+pub fn blend_barrier_khr() {
 	C.glBlendBarrierKHR()
 }
-[inline]
-pub fn debug_message_callback(callback /* GLDEBUGPROC */ voidptr, user_param voidptr)  {
+
+@[inline]
+pub fn debug_message_callback(
+	// GLDEBUGPROC
+	callback voidptr, 	user_param voidptr) {
 	C.glDebugMessageCallback(callback, user_param)
 }
-[inline]
-pub fn debug_message_control(source u32, gl_type u32, severity u32, count int, ids &u32, enabled u8)  {
+
+@[inline]
+pub fn debug_message_control(source u32, gl_type u32, severity u32, count int, ids &u32, enabled u8) {
 	C.glDebugMessageControl(source, gl_type, severity, count, ids, enabled)
 }
-[inline]
-pub fn debug_message_insert(source u32, gl_type u32, id u32, severity u32, length int, buf &char)  {
+
+@[inline]
+pub fn debug_message_insert(source u32, gl_type u32, id u32, severity u32, length int, buf &char) {
 	C.glDebugMessageInsert(source, gl_type, id, severity, length, buf)
 }
-[inline]
+
+@[inline]
 pub fn get_debug_message_log(count u32, buf_size int, sources &u32, types &u32, ids &u32, severities &u32, lengths &int, message_log &char) u32 {
-	return C.glGetDebugMessageLog(count, buf_size, sources, types, ids, severities, lengths, message_log)
+	return C.glGetDebugMessageLog(count, buf_size, sources, types, ids, severities, lengths,
+		message_log)
 }
-[inline]
-pub fn get_object_label(identifier u32, name u32, buf_size int, length &int, label &char)  {
+
+@[inline]
+pub fn get_object_label(identifier u32, name u32, buf_size int, length &int, label &char) {
 	C.glGetObjectLabel(identifier, name, buf_size, length, label)
 }
-[inline]
-pub fn get_object_ptr_label(ptr voidptr, buf_size int, length &int, label &char)  {
+
+@[inline]
+pub fn get_object_ptr_label(ptr voidptr, buf_size int, length &int, label &char) {
 	C.glGetObjectPtrLabel(ptr, buf_size, length, label)
 }
-[inline]
-pub fn object_label(identifier u32, name u32, length int, label &char)  {
+
+@[inline]
+pub fn object_label(identifier u32, name u32, length int, label &char) {
 	C.glObjectLabel(identifier, name, length, label)
 }
-[inline]
-pub fn object_ptr_label(ptr voidptr, length int, label &char)  {
+
+@[inline]
+pub fn object_ptr_label(ptr voidptr, length int, label &char) {
 	C.glObjectPtrLabel(ptr, length, label)
 }
-[inline]
-pub fn pop_debug_group()  {
+
+@[inline]
+pub fn pop_debug_group() {
 	C.glPopDebugGroup()
 }
-[inline]
-pub fn push_debug_group(source u32, id u32, length int, message &char)  {
+
+@[inline]
+pub fn push_debug_group(source u32, id u32, length int, message &char) {
 	C.glPushDebugGroup(source, id, length, message)
 }
-[inline]
-pub fn max_shader_compiler_threads_khr(count u32)  {
+
+@[inline]
+pub fn max_shader_compiler_threads_khr(count u32) {
 	C.glMaxShaderCompilerThreadsKHR(count)
 }
-[inline]
-pub fn getn_uniformfv(program u32, location int, buf_size int, params &f32)  {
+
+@[inline]
+pub fn getn_uniformfv(program u32, location int, buf_size int, params &f32) {
 	C.glGetnUniformfv(program, location, buf_size, params)
 }
-[inline]
-pub fn getn_uniformiv(program u32, location int, buf_size int, params &int)  {
+
+@[inline]
+pub fn getn_uniformiv(program u32, location int, buf_size int, params &int) {
 	C.glGetnUniformiv(program, location, buf_size, params)
 }
-[inline]
-pub fn getn_uniformuiv(program u32, location int, buf_size int, params &u32)  {
+
+@[inline]
+pub fn getn_uniformuiv(program u32, location int, buf_size int, params &u32) {
 	C.glGetnUniformuiv(program, location, buf_size, params)
 }
-[inline]
-pub fn readn_pixels(x int, y int, width int, height int, format u32, gl_type u32, buf_size int, data voidptr)  {
+
+@[inline]
+pub fn readn_pixels(x int, y int, width int, height int, format u32, gl_type u32, buf_size int, data voidptr) {
 	C.glReadnPixels(x, y, width, height, format, gl_type, buf_size, data)
 }
-[inline]
+
+@[inline]
 pub fn buffer_region_enabled() u32 {
 	return C.glBufferRegionEnabled()
 }
-[inline]
-pub fn delete_buffer_region(region u32)  {
+
+@[inline]
+pub fn delete_buffer_region(region u32) {
 	C.glDeleteBufferRegion(region)
 }
-[inline]
-pub fn draw_buffer_region(region u32, x int, y int, width int, height int, x_dest int, y_dest int)  {
+
+@[inline]
+pub fn draw_buffer_region(region u32, x int, y int, width int, height int, x_dest int, y_dest int) {
 	C.glDrawBufferRegion(region, x, y, width, height, x_dest, y_dest)
 }
-[inline]
+
+@[inline]
 pub fn new_buffer_region(region u32) u32 {
 	return C.glNewBufferRegion(region)
 }
-[inline]
-pub fn read_buffer_region(region u32, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn read_buffer_region(region u32, x int, y int, width int, height int) {
 	C.glReadBufferRegion(region, x, y, width, height)
 }
-[inline]
-pub fn framebuffer_parameteri_mesa(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn framebuffer_parameteri_mesa(target u32, pname u32, param int) {
 	C.glFramebufferParameteriMESA(target, pname, param)
 }
-[inline]
-pub fn get_framebuffer_parameteriv_mesa(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_framebuffer_parameteriv_mesa(target u32, pname u32, params &int) {
 	C.glGetFramebufferParameterivMESA(target, pname, params)
 }
-[inline]
-pub fn resize_buffers_mesa()  {
+
+@[inline]
+pub fn resize_buffers_mesa() {
 	C.glResizeBuffersMESA()
 }
-[inline]
-pub fn window_pos2d_mesa(x f64, y f64)  {
+
+@[inline]
+pub fn window_pos2d_mesa(x f64, y f64) {
 	C.glWindowPos2dMESA(x, y)
 }
-[inline]
-pub fn window_pos2dv_mesa(p &f64)  {
+
+@[inline]
+pub fn window_pos2dv_mesa(p &f64) {
 	C.glWindowPos2dvMESA(p)
 }
-[inline]
-pub fn window_pos2f_mesa(x f32, y f32)  {
+
+@[inline]
+pub fn window_pos2f_mesa(x f32, y f32) {
 	C.glWindowPos2fMESA(x, y)
 }
-[inline]
-pub fn window_pos2fv_mesa(p &f32)  {
+
+@[inline]
+pub fn window_pos2fv_mesa(p &f32) {
 	C.glWindowPos2fvMESA(p)
 }
-[inline]
-pub fn window_pos2i_mesa(x int, y int)  {
+
+@[inline]
+pub fn window_pos2i_mesa(x int, y int) {
 	C.glWindowPos2iMESA(x, y)
 }
-[inline]
-pub fn window_pos2iv_mesa(p &int)  {
+
+@[inline]
+pub fn window_pos2iv_mesa(p &int) {
 	C.glWindowPos2ivMESA(p)
 }
-[inline]
-pub fn window_pos2s_mesa(x i16, y i16)  {
+
+@[inline]
+pub fn window_pos2s_mesa(x i16, y i16) {
 	C.glWindowPos2sMESA(x, y)
 }
-[inline]
-pub fn window_pos2sv_mesa(p &i16)  {
+
+@[inline]
+pub fn window_pos2sv_mesa(p &i16) {
 	C.glWindowPos2svMESA(p)
 }
-[inline]
-pub fn window_pos3d_mesa(x f64, y f64, z f64)  {
+
+@[inline]
+pub fn window_pos3d_mesa(x f64, y f64, z f64) {
 	C.glWindowPos3dMESA(x, y, z)
 }
-[inline]
-pub fn window_pos3dv_mesa(p &f64)  {
+
+@[inline]
+pub fn window_pos3dv_mesa(p &f64) {
 	C.glWindowPos3dvMESA(p)
 }
-[inline]
-pub fn window_pos3f_mesa(x f32, y f32, z f32)  {
+
+@[inline]
+pub fn window_pos3f_mesa(x f32, y f32, z f32) {
 	C.glWindowPos3fMESA(x, y, z)
 }
-[inline]
-pub fn window_pos3fv_mesa(p &f32)  {
+
+@[inline]
+pub fn window_pos3fv_mesa(p &f32) {
 	C.glWindowPos3fvMESA(p)
 }
-[inline]
-pub fn window_pos3i_mesa(x int, y int, z int)  {
+
+@[inline]
+pub fn window_pos3i_mesa(x int, y int, z int) {
 	C.glWindowPos3iMESA(x, y, z)
 }
-[inline]
-pub fn window_pos3iv_mesa(p &int)  {
+
+@[inline]
+pub fn window_pos3iv_mesa(p &int) {
 	C.glWindowPos3ivMESA(p)
 }
-[inline]
-pub fn window_pos3s_mesa(x i16, y i16, z i16)  {
+
+@[inline]
+pub fn window_pos3s_mesa(x i16, y i16, z i16) {
 	C.glWindowPos3sMESA(x, y, z)
 }
-[inline]
-pub fn window_pos3sv_mesa(p &i16)  {
+
+@[inline]
+pub fn window_pos3sv_mesa(p &i16) {
 	C.glWindowPos3svMESA(p)
 }
-[inline]
-pub fn window_pos4d_mesa(x f64, y f64, z f64, xyzabc /* no name. */ f64)  {
-	C.glWindowPos4dMESA(x, y, z, xyzabc /* no name. */)
+
+@[inline]
+pub fn window_pos4d_mesa(x f64, y f64, z f64, // no name.
+xyzabc f64) {
+	C.glWindowPos4dMESA(x, y, z, xyzabc)
 }
-[inline]
-pub fn window_pos4dv_mesa(p &f64)  {
+
+@[inline]
+pub fn window_pos4dv_mesa(p &f64) {
 	C.glWindowPos4dvMESA(p)
 }
-[inline]
-pub fn window_pos4f_mesa(x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn window_pos4f_mesa(x f32, y f32, z f32, w f32) {
 	C.glWindowPos4fMESA(x, y, z, w)
 }
-[inline]
-pub fn window_pos4fv_mesa(p &f32)  {
+
+@[inline]
+pub fn window_pos4fv_mesa(p &f32) {
 	C.glWindowPos4fvMESA(p)
 }
-[inline]
-pub fn window_pos4i_mesa(x int, y int, z int, w int)  {
+
+@[inline]
+pub fn window_pos4i_mesa(x int, y int, z int, w int) {
 	C.glWindowPos4iMESA(x, y, z, w)
 }
-[inline]
-pub fn window_pos4iv_mesa(p &int)  {
+
+@[inline]
+pub fn window_pos4iv_mesa(p &int) {
 	C.glWindowPos4ivMESA(p)
 }
-[inline]
-pub fn window_pos4s_mesa(x i16, y i16, z i16, w i16)  {
+
+@[inline]
+pub fn window_pos4s_mesa(x i16, y i16, z i16, w i16) {
 	C.glWindowPos4sMESA(x, y, z, w)
 }
-[inline]
-pub fn window_pos4sv_mesa(p &i16)  {
+
+@[inline]
+pub fn window_pos4sv_mesa(p &i16) {
 	C.glWindowPos4svMESA(p)
 }
-[inline]
-pub fn begin_conditional_render_nvx(id u32)  {
+
+@[inline]
+pub fn begin_conditional_render_nvx(id u32) {
 	C.glBeginConditionalRenderNVX(id)
 }
-[inline]
-pub fn end_conditional_render_nvx()  {
+
+@[inline]
+pub fn end_conditional_render_nvx() {
 	C.glEndConditionalRenderNVX()
 }
-[inline]
+
+@[inline]
 pub fn async_copy_buffer_sub_data_nvx(wait_semaphore_count int, wait_semaphore_array &u32, fence_value_array &u64, read_gpu u32, write_gpu_mask u32, read_buffer u32, write_buffer u32, read_offset i64, write_offset i64, size i64, signal_semaphore_count int, signal_semaphore_array &u32, signal_value_array &u64) voidptr {
-	return C.glAsyncCopyBufferSubDataNVX(wait_semaphore_count, wait_semaphore_array, fence_value_array, read_gpu, write_gpu_mask, read_buffer, write_buffer, read_offset, write_offset, size, signal_semaphore_count, signal_semaphore_array, signal_value_array)
+	return C.glAsyncCopyBufferSubDataNVX(wait_semaphore_count, wait_semaphore_array, fence_value_array,
+		read_gpu, write_gpu_mask, read_buffer, write_buffer, read_offset, write_offset,
+		size, signal_semaphore_count, signal_semaphore_array, signal_value_array)
 }
-[inline]
+
+@[inline]
 pub fn async_copy_image_sub_data_nvx(wait_semaphore_count int, wait_semaphore_array &u32, wait_value_array &u64, src_gpu u32, dst_gpu_mask u32, src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int, signal_semaphore_count int, signal_semaphore_array &u32, signal_value_array &u64) u32 {
-	return C.glAsyncCopyImageSubDataNVX(wait_semaphore_count, wait_semaphore_array, wait_value_array, src_gpu, dst_gpu_mask, src_name, src_target, src_level, src_x, src_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth, signal_semaphore_count, signal_semaphore_array, signal_value_array)
+	return C.glAsyncCopyImageSubDataNVX(wait_semaphore_count, wait_semaphore_array, wait_value_array,
+		src_gpu, dst_gpu_mask, src_name, src_target, src_level, src_x, src_y, src_z, dst_name,
+		dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth,
+		signal_semaphore_count, signal_semaphore_array, signal_value_array)
 }
-[inline]
-pub fn multicast_scissor_arrayv_nvx(gpu u32, first u32, count int, v &int)  {
+
+@[inline]
+pub fn multicast_scissor_arrayv_nvx(gpu u32, first u32, count int, v &int) {
 	C.glMulticastScissorArrayvNVX(gpu, first, count, v)
 }
-[inline]
-pub fn multicast_viewport_arrayv_nvx(gpu u32, first u32, count int, v &f32)  {
+
+@[inline]
+pub fn multicast_viewport_arrayv_nvx(gpu u32, first u32, count int, v &f32) {
 	C.glMulticastViewportArrayvNVX(gpu, first, count, v)
 }
-[inline]
-pub fn multicast_viewport_position_wscale_nvx(gpu u32, index u32, xcoeff f32, ycoeff f32)  {
+
+@[inline]
+pub fn multicast_viewport_position_wscale_nvx(gpu u32, index u32, xcoeff f32, ycoeff f32) {
 	C.glMulticastViewportPositionWScaleNVX(gpu, index, xcoeff, ycoeff)
 }
-[inline]
-pub fn upload_gpu_mask_nvx(mask u32)  {
+
+@[inline]
+pub fn upload_gpu_mask_nvx(mask u32) {
 	C.glUploadGpuMaskNVX(mask)
 }
-[inline]
-pub fn lgpucopy_image_sub_data_nvx(source_gpu u32, destination_gpu_mask u32, src_name u32, src_target u32, src_level int, src_x int, srx_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, width int, height int, depth int)  {
-	C.glLGPUCopyImageSubDataNVX(source_gpu, destination_gpu_mask, src_name, src_target, src_level, src_x, srx_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y, dst_z, width, height, depth)
+
+@[inline]
+pub fn lgpucopy_image_sub_data_nvx(source_gpu u32, destination_gpu_mask u32, src_name u32, src_target u32, src_level int, src_x int, srx_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, width int, height int, depth int) {
+	C.glLGPUCopyImageSubDataNVX(source_gpu, destination_gpu_mask, src_name, src_target,
+		src_level, src_x, srx_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y,
+		dst_z, width, height, depth)
 }
-[inline]
-pub fn lgpuinterlock_nvx()  {
+
+@[inline]
+pub fn lgpuinterlock_nvx() {
 	C.glLGPUInterlockNVX()
 }
-[inline]
-pub fn lgpunamed_buffer_sub_data_nvx(gpu_mask u32, buffer u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn lgpunamed_buffer_sub_data_nvx(gpu_mask u32, buffer u32, offset i64, size i64, data voidptr) {
 	C.glLGPUNamedBufferSubDataNVX(gpu_mask, buffer, offset, size, data)
 }
-[inline]
-pub fn client_wait_semaphoreui64nvx(fence_object_count int, semaphore_array &u32, fence_value_array &u64)  {
+
+@[inline]
+pub fn client_wait_semaphoreui64nvx(fence_object_count int, semaphore_array &u32, fence_value_array &u64) {
 	C.glClientWaitSemaphoreui64NVX(fence_object_count, semaphore_array, fence_value_array)
 }
-[inline]
-pub fn signal_semaphoreui64nvx(signal_gpu u32, fence_object_count int, semaphore_array &u32, fence_value_array &u64)  {
+
+@[inline]
+pub fn signal_semaphoreui64nvx(signal_gpu u32, fence_object_count int, semaphore_array &u32, fence_value_array &u64) {
 	C.glSignalSemaphoreui64NVX(signal_gpu, fence_object_count, semaphore_array, fence_value_array)
 }
-[inline]
-pub fn wait_semaphoreui64nvx(wait_gpu u32, fence_object_count int, semaphore_array &u32, fence_value_array &u64)  {
+
+@[inline]
+pub fn wait_semaphoreui64nvx(wait_gpu u32, fence_object_count int, semaphore_array &u32, fence_value_array &u64) {
 	C.glWaitSemaphoreui64NVX(wait_gpu, fence_object_count, semaphore_array, fence_value_array)
 }
-[inline]
-pub fn stereo_parameterf_nv(pname u32, param f32)  {
+
+@[inline]
+pub fn stereo_parameterf_nv(pname u32, param f32) {
 	C.glStereoParameterfNV(pname, param)
 }
-[inline]
-pub fn stereo_parameteri_nv(pname u32, param int)  {
+
+@[inline]
+pub fn stereo_parameteri_nv(pname u32, param int) {
 	C.glStereoParameteriNV(pname, param)
 }
-[inline]
-pub fn alpha_to_coverage_dither_control_nv(mode u32)  {
+
+@[inline]
+pub fn alpha_to_coverage_dither_control_nv(mode u32) {
 	C.glAlphaToCoverageDitherControlNV(mode)
 }
-[inline]
-pub fn multi_draw_arrays_indirect_bindless_nv(mode u32, indirect voidptr, draw_count int, stride int, vertex_buffer_count int)  {
+
+@[inline]
+pub fn multi_draw_arrays_indirect_bindless_nv(mode u32, indirect voidptr, draw_count int, stride int, vertex_buffer_count int) {
 	C.glMultiDrawArraysIndirectBindlessNV(mode, indirect, draw_count, stride, vertex_buffer_count)
 }
-[inline]
-pub fn multi_draw_elements_indirect_bindless_nv(mode u32, gl_type u32, indirect voidptr, draw_count int, stride int, vertex_buffer_count int)  {
-	C.glMultiDrawElementsIndirectBindlessNV(mode, gl_type, indirect, draw_count, stride, vertex_buffer_count)
+
+@[inline]
+pub fn multi_draw_elements_indirect_bindless_nv(mode u32, gl_type u32, indirect voidptr, draw_count int, stride int, vertex_buffer_count int) {
+	C.glMultiDrawElementsIndirectBindlessNV(mode, gl_type, indirect, draw_count, stride,
+		vertex_buffer_count)
 }
-[inline]
-pub fn multi_draw_arrays_indirect_bindless_count_nv(mode u32, indirect voidptr, draw_count i64, max_draw_count int, stride int, vertex_buffer_count int)  {
-	C.glMultiDrawArraysIndirectBindlessCountNV(mode, indirect, draw_count, max_draw_count, stride, vertex_buffer_count)
+
+@[inline]
+pub fn multi_draw_arrays_indirect_bindless_count_nv(mode u32, indirect voidptr, draw_count i64, max_draw_count int, stride int, vertex_buffer_count int) {
+	C.glMultiDrawArraysIndirectBindlessCountNV(mode, indirect, draw_count, max_draw_count,
+		stride, vertex_buffer_count)
 }
-[inline]
-pub fn multi_draw_elements_indirect_bindless_count_nv(mode u32, gl_type u32, indirect voidptr, draw_count i64, max_draw_count int, stride int, vertex_buffer_count int)  {
-	C.glMultiDrawElementsIndirectBindlessCountNV(mode, gl_type, indirect, draw_count, max_draw_count, stride, vertex_buffer_count)
+
+@[inline]
+pub fn multi_draw_elements_indirect_bindless_count_nv(mode u32, gl_type u32, indirect voidptr, draw_count i64, max_draw_count int, stride int, vertex_buffer_count int) {
+	C.glMultiDrawElementsIndirectBindlessCountNV(mode, gl_type, indirect, draw_count,
+		max_draw_count, stride, vertex_buffer_count)
 }
-[inline]
+
+@[inline]
 pub fn get_image_handle_nv(texture u32, level int, layered u8, layer int, format u32) u64 {
 	return C.glGetImageHandleNV(texture, level, layered, layer, format)
 }
-[inline]
+
+@[inline]
 pub fn get_texture_handle_nv(texture u32) u64 {
 	return C.glGetTextureHandleNV(texture)
 }
-[inline]
+
+@[inline]
 pub fn get_texture_sampler_handle_nv(texture u32, sampler u32) u64 {
 	return C.glGetTextureSamplerHandleNV(texture, sampler)
 }
-[inline]
+
+@[inline]
 pub fn is_image_handle_resident_nv(handle u64) u8 {
 	return C.glIsImageHandleResidentNV(handle)
 }
-[inline]
+
+@[inline]
 pub fn is_texture_handle_resident_nv(handle u64) u8 {
 	return C.glIsTextureHandleResidentNV(handle)
 }
-[inline]
-pub fn make_image_handle_non_resident_nv(handle u64)  {
+
+@[inline]
+pub fn make_image_handle_non_resident_nv(handle u64) {
 	C.glMakeImageHandleNonResidentNV(handle)
 }
-[inline]
-pub fn make_image_handle_resident_nv(handle u64, access u32)  {
+
+@[inline]
+pub fn make_image_handle_resident_nv(handle u64, access u32) {
 	C.glMakeImageHandleResidentNV(handle, access)
 }
-[inline]
-pub fn make_texture_handle_non_resident_nv(handle u64)  {
+
+@[inline]
+pub fn make_texture_handle_non_resident_nv(handle u64) {
 	C.glMakeTextureHandleNonResidentNV(handle)
 }
-[inline]
-pub fn make_texture_handle_resident_nv(handle u64)  {
+
+@[inline]
+pub fn make_texture_handle_resident_nv(handle u64) {
 	C.glMakeTextureHandleResidentNV(handle)
 }
-[inline]
-pub fn program_uniform_handleui64nv(program u32, location int, value u64)  {
+
+@[inline]
+pub fn program_uniform_handleui64nv(program u32, location int, value u64) {
 	C.glProgramUniformHandleui64NV(program, location, value)
 }
-[inline]
-pub fn program_uniform_handleui64v_nv(program u32, location int, count int, values &u64)  {
+
+@[inline]
+pub fn program_uniform_handleui64v_nv(program u32, location int, count int, values &u64) {
 	C.glProgramUniformHandleui64vNV(program, location, count, values)
 }
-[inline]
-pub fn uniform_handleui64nv(location int, value u64)  {
+
+@[inline]
+pub fn uniform_handleui64nv(location int, value u64) {
 	C.glUniformHandleui64NV(location, value)
 }
-[inline]
-pub fn uniform_handleui64v_nv(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform_handleui64v_nv(location int, count int, value &u64) {
 	C.glUniformHandleui64vNV(location, count, value)
 }
-[inline]
-pub fn blend_barrier_nv()  {
+
+@[inline]
+pub fn blend_barrier_nv() {
 	C.glBlendBarrierNV()
 }
-[inline]
-pub fn blend_parameteri_nv(pname u32, value int)  {
+
+@[inline]
+pub fn blend_parameteri_nv(pname u32, value int) {
 	C.glBlendParameteriNV(pname, value)
 }
-[inline]
-pub fn viewport_position_wscale_nv(index u32, xcoeff f32, ycoeff f32)  {
+
+@[inline]
+pub fn viewport_position_wscale_nv(index u32, xcoeff f32, ycoeff f32) {
 	C.glViewportPositionWScaleNV(index, xcoeff, ycoeff)
 }
-[inline]
-pub fn call_command_list_nv(list u32)  {
+
+@[inline]
+pub fn call_command_list_nv(list u32) {
 	C.glCallCommandListNV(list)
 }
-[inline]
-pub fn command_list_segments_nv(list u32, segments u32)  {
+
+@[inline]
+pub fn command_list_segments_nv(list u32, segments u32) {
 	C.glCommandListSegmentsNV(list, segments)
 }
-[inline]
-pub fn compile_command_list_nv(list u32)  {
+
+@[inline]
+pub fn compile_command_list_nv(list u32) {
 	C.glCompileCommandListNV(list)
 }
-[inline]
-pub fn create_command_lists_nv(n int, lists &u32)  {
+
+@[inline]
+pub fn create_command_lists_nv(n int, lists &u32) {
 	C.glCreateCommandListsNV(n, lists)
 }
-[inline]
-pub fn create_states_nv(n int, states &u32)  {
+
+@[inline]
+pub fn create_states_nv(n int, states &u32) {
 	C.glCreateStatesNV(n, states)
 }
-[inline]
-pub fn delete_command_lists_nv(n int, lists &u32)  {
+
+@[inline]
+pub fn delete_command_lists_nv(n int, lists &u32) {
 	C.glDeleteCommandListsNV(n, lists)
 }
-[inline]
-pub fn delete_states_nv(n int, states &u32)  {
+
+@[inline]
+pub fn delete_states_nv(n int, states &u32) {
 	C.glDeleteStatesNV(n, states)
 }
-[inline]
-pub fn draw_commands_address_nv(primitive_mode u32, indirects &u64, sizes &int, count u32)  {
+
+@[inline]
+pub fn draw_commands_address_nv(primitive_mode u32, indirects &u64, sizes &int, count u32) {
 	C.glDrawCommandsAddressNV(primitive_mode, indirects, sizes, count)
 }
-[inline]
-pub fn draw_commands_nv(primitive_mode u32, buffer u32, indirects &i64, sizes &int, count u32)  {
+
+@[inline]
+pub fn draw_commands_nv(primitive_mode u32, buffer u32, indirects &i64, sizes &int, count u32) {
 	C.glDrawCommandsNV(primitive_mode, buffer, indirects, sizes, count)
 }
-[inline]
-pub fn draw_commands_states_address_nv(indirects &u64, sizes &int, states &u32, fbos &u32, count u32)  {
+
+@[inline]
+pub fn draw_commands_states_address_nv(indirects &u64, sizes &int, states &u32, fbos &u32, count u32) {
 	C.glDrawCommandsStatesAddressNV(indirects, sizes, states, fbos, count)
 }
-[inline]
-pub fn draw_commands_states_nv(buffer u32, indirects &i64, sizes &int, states &u32, fbos &u32, count u32)  {
+
+@[inline]
+pub fn draw_commands_states_nv(buffer u32, indirects &i64, sizes &int, states &u32, fbos &u32, count u32) {
 	C.glDrawCommandsStatesNV(buffer, indirects, sizes, states, fbos, count)
 }
-[inline]
+
+@[inline]
 pub fn get_command_header_nv(token_id u32, size u32) u32 {
 	return C.glGetCommandHeaderNV(token_id, size)
 }
-[inline]
+
+@[inline]
 pub fn get_stage_index_nv(shadertype u32) u16 {
 	return C.glGetStageIndexNV(shadertype)
 }
-[inline]
+
+@[inline]
 pub fn is_command_list_nv(list u32) u8 {
 	return C.glIsCommandListNV(list)
 }
-[inline]
+
+@[inline]
 pub fn is_state_nv(state u32) u8 {
 	return C.glIsStateNV(state)
 }
-[inline]
-pub fn list_draw_commands_states_client_nv(list u32, segment u32, indirects &voidptr, sizes &int, states &u32, fbos &u32, count u32)  {
-	C.glListDrawCommandsStatesClientNV(list, segment, indirects, sizes, states, fbos, count)
+
+@[inline]
+pub fn list_draw_commands_states_client_nv(list u32, segment u32, indirects &voidptr, sizes &int, states &u32, fbos &u32, count u32) {
+	C.glListDrawCommandsStatesClientNV(list, segment, indirects, sizes, states, fbos,
+		count)
 }
-[inline]
-pub fn state_capture_nv(state u32, mode u32)  {
+
+@[inline]
+pub fn state_capture_nv(state u32, mode u32) {
 	C.glStateCaptureNV(state, mode)
 }
-[inline]
-pub fn begin_conditional_render_nv(id u32, mode u32)  {
+
+@[inline]
+pub fn begin_conditional_render_nv(id u32, mode u32) {
 	C.glBeginConditionalRenderNV(id, mode)
 }
-[inline]
-pub fn end_conditional_render_nv()  {
+
+@[inline]
+pub fn end_conditional_render_nv() {
 	C.glEndConditionalRenderNV()
 }
-[inline]
-pub fn subpixel_precision_bias_nv(xbits u32, ybits u32)  {
+
+@[inline]
+pub fn subpixel_precision_bias_nv(xbits u32, ybits u32) {
 	C.glSubpixelPrecisionBiasNV(xbits, ybits)
 }
-[inline]
-pub fn conservative_raster_parameterf_nv(pname u32, value f32)  {
+
+@[inline]
+pub fn conservative_raster_parameterf_nv(pname u32, value f32) {
 	C.glConservativeRasterParameterfNV(pname, value)
 }
-[inline]
-pub fn conservative_raster_parameteri_nv(pname u32, param int)  {
+
+@[inline]
+pub fn conservative_raster_parameteri_nv(pname u32, param int) {
 	C.glConservativeRasterParameteriNV(pname, param)
 }
-[inline]
-pub fn copy_buffer_sub_data_nv(readtarget u32, writetarget u32, readoffset i64, writeoffset i64, size i64)  {
+
+@[inline]
+pub fn copy_buffer_sub_data_nv(readtarget u32, writetarget u32, readoffset i64, writeoffset i64, size i64) {
 	C.glCopyBufferSubDataNV(readtarget, writetarget, readoffset, writeoffset, size)
 }
-[inline]
-pub fn copy_image_sub_data_nv(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, width int, height int, depth int)  {
-	C.glCopyImageSubDataNV(src_name, src_target, src_level, src_x, src_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y, dst_z, width, height, depth)
+
+@[inline]
+pub fn copy_image_sub_data_nv(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, width int, height int, depth int) {
+	C.glCopyImageSubDataNV(src_name, src_target, src_level, src_x, src_y, src_z, dst_name,
+		dst_target, dst_level, dst_x, dst_y, dst_z, width, height, depth)
 }
-[inline]
-pub fn clear_depthd_nv(depth f64)  {
+
+@[inline]
+pub fn clear_depthd_nv(depth f64) {
 	C.glClearDepthdNV(depth)
 }
-[inline]
-pub fn depth_boundsd_nv(zmin f64, zmax f64)  {
+
+@[inline]
+pub fn depth_boundsd_nv(zmin f64, zmax f64) {
 	C.glDepthBoundsdNV(zmin, zmax)
 }
-[inline]
-pub fn depth_ranged_nv(z_near f64, z_far f64)  {
+
+@[inline]
+pub fn depth_ranged_nv(z_near f64, z_far f64) {
 	C.glDepthRangedNV(z_near, z_far)
 }
-[inline]
-pub fn draw_buffers_nv(n int, bufs &u32)  {
+
+@[inline]
+pub fn draw_buffers_nv(n int, bufs &u32) {
 	C.glDrawBuffersNV(n, bufs)
 }
-[inline]
-pub fn draw_arrays_instanced_nv(mode u32, first int, count int, primcount int)  {
+
+@[inline]
+pub fn draw_arrays_instanced_nv(mode u32, first int, count int, primcount int) {
 	C.glDrawArraysInstancedNV(mode, first, count, primcount)
 }
-[inline]
-pub fn draw_elements_instanced_nv(mode u32, count int, gl_type u32, indices voidptr, primcount int)  {
+
+@[inline]
+pub fn draw_elements_instanced_nv(mode u32, count int, gl_type u32, indices voidptr, primcount int) {
 	C.glDrawElementsInstancedNV(mode, count, gl_type, indices, primcount)
 }
-[inline]
-pub fn draw_texture_nv(texture u32, sampler u32, x0 f32, y0 f32, x1 f32, y1 f32, z f32, s0 f32, t0 f32, s1 f32, t1 f32)  {
+
+@[inline]
+pub fn draw_texture_nv(texture u32, sampler u32, x0 f32, y0 f32, x1 f32, y1 f32, z f32, s0 f32, t0 f32, s1 f32, t1 f32) {
 	C.glDrawTextureNV(texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1)
 }
-[inline]
-pub fn draw_vk_image_nv(vk_image u64, sampler u32, x0 f32, y0 f32, x1 f32, y1 f32, z f32, s0 f32, t0 f32, s1 f32, t1 f32)  {
+
+@[inline]
+pub fn draw_vk_image_nv(vk_image u64, sampler u32, x0 f32, y0 f32, x1 f32, y1 f32, z f32, s0 f32, t0 f32, s1 f32, t1 f32) {
 	C.glDrawVkImageNV(vk_image, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1)
 }
-[inline]
-pub fn get_vk_proc_addr_nv(name &char) /* GLVULKANPROCNV */ voidptr {
+
+// @returns GLVULKANPROCNV
+@[inline]
+pub fn get_vk_proc_addr_nv(name &char) voidptr {
 	return C.glGetVkProcAddrNV(name)
 }
-[inline]
-pub fn signal_vk_fence_nv(vk_fence u64)  {
+
+@[inline]
+pub fn signal_vk_fence_nv(vk_fence u64) {
 	C.glSignalVkFenceNV(vk_fence)
 }
-[inline]
-pub fn signal_vk_semaphore_nv(vk_semaphore u64)  {
+
+@[inline]
+pub fn signal_vk_semaphore_nv(vk_semaphore u64) {
 	C.glSignalVkSemaphoreNV(vk_semaphore)
 }
-[inline]
-pub fn wait_vk_semaphore_nv(vk_semaphore u64)  {
+
+@[inline]
+pub fn wait_vk_semaphore_nv(vk_semaphore u64) {
 	C.glWaitVkSemaphoreNV(vk_semaphore)
 }
-[inline]
-pub fn eval_maps_nv(target u32, mode u32)  {
+
+@[inline]
+pub fn eval_maps_nv(target u32, mode u32) {
 	C.glEvalMapsNV(target, mode)
 }
-[inline]
-pub fn get_map_attrib_parameterfv_nv(target u32, index u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_map_attrib_parameterfv_nv(target u32, index u32, pname u32, params &f32) {
 	C.glGetMapAttribParameterfvNV(target, index, pname, params)
 }
-[inline]
-pub fn get_map_attrib_parameteriv_nv(target u32, index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_map_attrib_parameteriv_nv(target u32, index u32, pname u32, params &int) {
 	C.glGetMapAttribParameterivNV(target, index, pname, params)
 }
-[inline]
-pub fn get_map_control_points_nv(target u32, index u32, gl_type u32, ustride int, vstride int, packed u8, points voidptr)  {
+
+@[inline]
+pub fn get_map_control_points_nv(target u32, index u32, gl_type u32, ustride int, vstride int, packed u8, points voidptr) {
 	C.glGetMapControlPointsNV(target, index, gl_type, ustride, vstride, packed, points)
 }
-[inline]
-pub fn get_map_parameterfv_nv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_map_parameterfv_nv(target u32, pname u32, params &f32) {
 	C.glGetMapParameterfvNV(target, pname, params)
 }
-[inline]
-pub fn get_map_parameteriv_nv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_map_parameteriv_nv(target u32, pname u32, params &int) {
 	C.glGetMapParameterivNV(target, pname, params)
 }
-[inline]
-pub fn map_control_points_nv(target u32, index u32, gl_type u32, ustride int, vstride int, uorder int, vorder int, packed u8, points voidptr)  {
-	C.glMapControlPointsNV(target, index, gl_type, ustride, vstride, uorder, vorder, packed, points)
+
+@[inline]
+pub fn map_control_points_nv(target u32, index u32, gl_type u32, ustride int, vstride int, uorder int, vorder int, packed u8, points voidptr) {
+	C.glMapControlPointsNV(target, index, gl_type, ustride, vstride, uorder, vorder, packed,
+		points)
 }
-[inline]
-pub fn map_parameterfv_nv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn map_parameterfv_nv(target u32, pname u32, params &f32) {
 	C.glMapParameterfvNV(target, pname, params)
 }
-[inline]
-pub fn map_parameteriv_nv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn map_parameteriv_nv(target u32, pname u32, params &int) {
 	C.glMapParameterivNV(target, pname, params)
 }
-[inline]
-pub fn get_multisamplefv_nv(pname u32, index u32, val &f32)  {
+
+@[inline]
+pub fn get_multisamplefv_nv(pname u32, index u32, val &f32) {
 	C.glGetMultisamplefvNV(pname, index, val)
 }
-[inline]
-pub fn sample_mask_indexed_nv(index u32, mask u32)  {
+
+@[inline]
+pub fn sample_mask_indexed_nv(index u32, mask u32) {
 	C.glSampleMaskIndexedNV(index, mask)
 }
-[inline]
-pub fn tex_renderbuffer_nv(target u32, renderbuffer u32)  {
+
+@[inline]
+pub fn tex_renderbuffer_nv(target u32, renderbuffer u32) {
 	C.glTexRenderbufferNV(target, renderbuffer)
 }
-[inline]
-pub fn delete_fences_nv(n int, fences &u32)  {
+
+@[inline]
+pub fn delete_fences_nv(n int, fences &u32) {
 	C.glDeleteFencesNV(n, fences)
 }
-[inline]
-pub fn finish_fence_nv(fence u32)  {
+
+@[inline]
+pub fn finish_fence_nv(fence u32) {
 	C.glFinishFenceNV(fence)
 }
-[inline]
-pub fn gen_fences_nv(n int, fences &u32)  {
+
+@[inline]
+pub fn gen_fences_nv(n int, fences &u32) {
 	C.glGenFencesNV(n, fences)
 }
-[inline]
-pub fn get_fenceiv_nv(fence u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_fenceiv_nv(fence u32, pname u32, params &int) {
 	C.glGetFenceivNV(fence, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_fence_nv(fence u32) u8 {
 	return C.glIsFenceNV(fence)
 }
-[inline]
-pub fn set_fence_nv(fence u32, condition u32)  {
+
+@[inline]
+pub fn set_fence_nv(fence u32, condition u32) {
 	C.glSetFenceNV(fence, condition)
 }
-[inline]
+
+@[inline]
 pub fn test_fence_nv(fence u32) u8 {
 	return C.glTestFenceNV(fence)
 }
-[inline]
-pub fn fragment_coverage_color_nv(color u32)  {
+
+@[inline]
+pub fn fragment_coverage_color_nv(color u32) {
 	C.glFragmentCoverageColorNV(color)
 }
-[inline]
-pub fn get_program_named_parameterdv_nv(id u32, len int, name &u8, params &f64)  {
+
+@[inline]
+pub fn get_program_named_parameterdv_nv(id u32, len int, name &u8, params &f64) {
 	C.glGetProgramNamedParameterdvNV(id, len, name, params)
 }
-[inline]
-pub fn get_program_named_parameterfv_nv(id u32, len int, name &u8, params &f32)  {
+
+@[inline]
+pub fn get_program_named_parameterfv_nv(id u32, len int, name &u8, params &f32) {
 	C.glGetProgramNamedParameterfvNV(id, len, name, params)
 }
-[inline]
-pub fn program_named_parameter4d_nv(id u32, len int, name &u8, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn program_named_parameter4d_nv(id u32, len int, name &u8, x f64, y f64, z f64, w f64) {
 	C.glProgramNamedParameter4dNV(id, len, name, x, y, z, w)
 }
-[inline]
-pub fn program_named_parameter4dv_nv(id u32, len int, name &u8, v &f64)  {
+
+@[inline]
+pub fn program_named_parameter4dv_nv(id u32, len int, name &u8, v &f64) {
 	C.glProgramNamedParameter4dvNV(id, len, name, v)
 }
-[inline]
-pub fn program_named_parameter4f_nv(id u32, len int, name &u8, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn program_named_parameter4f_nv(id u32, len int, name &u8, x f32, y f32, z f32, w f32) {
 	C.glProgramNamedParameter4fNV(id, len, name, x, y, z, w)
 }
-[inline]
-pub fn program_named_parameter4fv_nv(id u32, len int, name &u8, v &f32)  {
+
+@[inline]
+pub fn program_named_parameter4fv_nv(id u32, len int, name &u8, v &f32) {
 	C.glProgramNamedParameter4fvNV(id, len, name, v)
 }
-[inline]
-pub fn blit_framebuffer_nv(src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32)  {
-	C.glBlitFramebufferNV(src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1, mask, filter)
+
+@[inline]
+pub fn blit_framebuffer_nv(src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32) {
+	C.glBlitFramebufferNV(src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1,
+		mask, filter)
 }
-[inline]
-pub fn renderbuffer_storage_multisample_nv(target u32, samples int, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage_multisample_nv(target u32, samples int, internalformat u32, width int, height int) {
 	C.glRenderbufferStorageMultisampleNV(target, samples, internalformat, width, height)
 }
-[inline]
-pub fn renderbuffer_storage_multisample_coverage_nv(target u32, coverage_samples int, color_samples int, internalformat u32, width int, height int)  {
-	C.glRenderbufferStorageMultisampleCoverageNV(target, coverage_samples, color_samples, internalformat, width, height)
+
+@[inline]
+pub fn renderbuffer_storage_multisample_coverage_nv(target u32, coverage_samples int, color_samples int, internalformat u32, width int, height int) {
+	C.glRenderbufferStorageMultisampleCoverageNV(target, coverage_samples, color_samples,
+		internalformat, width, height)
 }
-[inline]
-pub fn program_vertex_limit_nv(target u32, limit int)  {
+
+@[inline]
+pub fn program_vertex_limit_nv(target u32, limit int) {
 	C.glProgramVertexLimitNV(target, limit)
 }
-[inline]
-pub fn multicast_barrier_nv()  {
+
+@[inline]
+pub fn multicast_barrier_nv() {
 	C.glMulticastBarrierNV()
 }
-[inline]
-pub fn multicast_blit_framebuffer_nv(src_gpu u32, dst_gpu u32, src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32)  {
-	C.glMulticastBlitFramebufferNV(src_gpu, dst_gpu, src_x0, src_y0, src_x1, src_y1, dst_x0, dst_y0, dst_x1, dst_y1, mask, filter)
+
+@[inline]
+pub fn multicast_blit_framebuffer_nv(src_gpu u32, dst_gpu u32, src_x0 int, src_y0 int, src_x1 int, src_y1 int, dst_x0 int, dst_y0 int, dst_x1 int, dst_y1 int, mask u32, filter u32) {
+	C.glMulticastBlitFramebufferNV(src_gpu, dst_gpu, src_x0, src_y0, src_x1, src_y1, dst_x0,
+		dst_y0, dst_x1, dst_y1, mask, filter)
 }
-[inline]
-pub fn multicast_buffer_sub_data_nv(gpu_mask u32, buffer u32, offset i64, size i64, data voidptr)  {
+
+@[inline]
+pub fn multicast_buffer_sub_data_nv(gpu_mask u32, buffer u32, offset i64, size i64, data voidptr) {
 	C.glMulticastBufferSubDataNV(gpu_mask, buffer, offset, size, data)
 }
-[inline]
-pub fn multicast_copy_buffer_sub_data_nv(read_gpu u32, write_gpu_mask u32, read_buffer u32, write_buffer u32, read_offset i64, write_offset i64, size i64)  {
-	C.glMulticastCopyBufferSubDataNV(read_gpu, write_gpu_mask, read_buffer, write_buffer, read_offset, write_offset, size)
+
+@[inline]
+pub fn multicast_copy_buffer_sub_data_nv(read_gpu u32, write_gpu_mask u32, read_buffer u32, write_buffer u32, read_offset i64, write_offset i64, size i64) {
+	C.glMulticastCopyBufferSubDataNV(read_gpu, write_gpu_mask, read_buffer, write_buffer,
+		read_offset, write_offset, size)
 }
-[inline]
-pub fn multicast_copy_image_sub_data_nv(src_gpu u32, dst_gpu_mask u32, src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int)  {
-	C.glMulticastCopyImageSubDataNV(src_gpu, dst_gpu_mask, src_name, src_target, src_level, src_x, src_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth)
+
+@[inline]
+pub fn multicast_copy_image_sub_data_nv(src_gpu u32, dst_gpu_mask u32, src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int) {
+	C.glMulticastCopyImageSubDataNV(src_gpu, dst_gpu_mask, src_name, src_target, src_level,
+		src_x, src_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y, dst_z, src_width,
+		src_height, src_depth)
 }
-[inline]
-pub fn multicast_framebuffer_sample_locationsfv_nv(gpu u32, framebuffer u32, start u32, count int, v &f32)  {
+
+@[inline]
+pub fn multicast_framebuffer_sample_locationsfv_nv(gpu u32, framebuffer u32, start u32, count int, v &f32) {
 	C.glMulticastFramebufferSampleLocationsfvNV(gpu, framebuffer, start, count, v)
 }
-[inline]
-pub fn multicast_get_query_objecti64v_nv(gpu u32, id u32, pname u32, params &i64)  {
+
+@[inline]
+pub fn multicast_get_query_objecti64v_nv(gpu u32, id u32, pname u32, params &i64) {
 	C.glMulticastGetQueryObjecti64vNV(gpu, id, pname, params)
 }
-[inline]
-pub fn multicast_get_query_objectiv_nv(gpu u32, id u32, pname u32, params &int)  {
+
+@[inline]
+pub fn multicast_get_query_objectiv_nv(gpu u32, id u32, pname u32, params &int) {
 	C.glMulticastGetQueryObjectivNV(gpu, id, pname, params)
 }
-[inline]
-pub fn multicast_get_query_objectui64v_nv(gpu u32, id u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn multicast_get_query_objectui64v_nv(gpu u32, id u32, pname u32, params &u64) {
 	C.glMulticastGetQueryObjectui64vNV(gpu, id, pname, params)
 }
-[inline]
-pub fn multicast_get_query_objectuiv_nv(gpu u32, id u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn multicast_get_query_objectuiv_nv(gpu u32, id u32, pname u32, params &u32) {
 	C.glMulticastGetQueryObjectuivNV(gpu, id, pname, params)
 }
-[inline]
-pub fn multicast_wait_sync_nv(signal_gpu u32, wait_gpu_mask u32)  {
+
+@[inline]
+pub fn multicast_wait_sync_nv(signal_gpu u32, wait_gpu_mask u32) {
 	C.glMulticastWaitSyncNV(signal_gpu, wait_gpu_mask)
 }
-[inline]
-pub fn render_gpu_mask_nv(mask u32)  {
+
+@[inline]
+pub fn render_gpu_mask_nv(mask u32) {
 	C.glRenderGpuMaskNV(mask)
 }
-[inline]
-pub fn program_env_parameter_i4i_nv(target u32, index u32, x int, y int, z int, w int)  {
+
+@[inline]
+pub fn program_env_parameter_i4i_nv(target u32, index u32, x int, y int, z int, w int) {
 	C.glProgramEnvParameterI4iNV(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_env_parameter_i4iv_nv(target u32, index u32, params &int)  {
+
+@[inline]
+pub fn program_env_parameter_i4iv_nv(target u32, index u32, params &int) {
 	C.glProgramEnvParameterI4ivNV(target, index, params)
 }
-[inline]
-pub fn program_env_parameter_i4ui_nv(target u32, index u32, x u32, y u32, z u32, w u32)  {
+
+@[inline]
+pub fn program_env_parameter_i4ui_nv(target u32, index u32, x u32, y u32, z u32, w u32) {
 	C.glProgramEnvParameterI4uiNV(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_env_parameter_i4uiv_nv(target u32, index u32, params &u32)  {
+
+@[inline]
+pub fn program_env_parameter_i4uiv_nv(target u32, index u32, params &u32) {
 	C.glProgramEnvParameterI4uivNV(target, index, params)
 }
-[inline]
-pub fn program_env_parameters_i4iv_nv(target u32, index u32, count int, params &int)  {
+
+@[inline]
+pub fn program_env_parameters_i4iv_nv(target u32, index u32, count int, params &int) {
 	C.glProgramEnvParametersI4ivNV(target, index, count, params)
 }
-[inline]
-pub fn program_env_parameters_i4uiv_nv(target u32, index u32, count int, params &u32)  {
+
+@[inline]
+pub fn program_env_parameters_i4uiv_nv(target u32, index u32, count int, params &u32) {
 	C.glProgramEnvParametersI4uivNV(target, index, count, params)
 }
-[inline]
-pub fn program_local_parameter_i4i_nv(target u32, index u32, x int, y int, z int, w int)  {
+
+@[inline]
+pub fn program_local_parameter_i4i_nv(target u32, index u32, x int, y int, z int, w int) {
 	C.glProgramLocalParameterI4iNV(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_local_parameter_i4iv_nv(target u32, index u32, params &int)  {
+
+@[inline]
+pub fn program_local_parameter_i4iv_nv(target u32, index u32, params &int) {
 	C.glProgramLocalParameterI4ivNV(target, index, params)
 }
-[inline]
-pub fn program_local_parameter_i4ui_nv(target u32, index u32, x u32, y u32, z u32, w u32)  {
+
+@[inline]
+pub fn program_local_parameter_i4ui_nv(target u32, index u32, x u32, y u32, z u32, w u32) {
 	C.glProgramLocalParameterI4uiNV(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_local_parameter_i4uiv_nv(target u32, index u32, params &u32)  {
+
+@[inline]
+pub fn program_local_parameter_i4uiv_nv(target u32, index u32, params &u32) {
 	C.glProgramLocalParameterI4uivNV(target, index, params)
 }
-[inline]
-pub fn program_local_parameters_i4iv_nv(target u32, index u32, count int, params &int)  {
+
+@[inline]
+pub fn program_local_parameters_i4iv_nv(target u32, index u32, count int, params &int) {
 	C.glProgramLocalParametersI4ivNV(target, index, count, params)
 }
-[inline]
-pub fn program_local_parameters_i4uiv_nv(target u32, index u32, count int, params &u32)  {
+
+@[inline]
+pub fn program_local_parameters_i4uiv_nv(target u32, index u32, count int, params &u32) {
 	C.glProgramLocalParametersI4uivNV(target, index, count, params)
 }
-[inline]
-pub fn get_uniformi64v_nv(program u32, location int, params &i64)  {
+
+@[inline]
+pub fn get_uniformi64v_nv(program u32, location int, params &i64) {
 	C.glGetUniformi64vNV(program, location, params)
 }
-[inline]
-pub fn get_uniformui64v_nv(program u32, location int, params &u64)  {
+
+@[inline]
+pub fn get_uniformui64v_nv(program u32, location int, params &u64) {
 	C.glGetUniformui64vNV(program, location, params)
 }
-[inline]
-pub fn program_uniform1i64nv(program u32, location int, x i64)  {
+
+@[inline]
+pub fn program_uniform1i64nv(program u32, location int, x i64) {
 	C.glProgramUniform1i64NV(program, location, x)
 }
-[inline]
-pub fn program_uniform1i64v_nv(program u32, location int, count int, value &i64)  {
+
+@[inline]
+pub fn program_uniform1i64v_nv(program u32, location int, count int, value &i64) {
 	C.glProgramUniform1i64vNV(program, location, count, value)
 }
-[inline]
-pub fn program_uniform1ui64nv(program u32, location int, x u64)  {
+
+@[inline]
+pub fn program_uniform1ui64nv(program u32, location int, x u64) {
 	C.glProgramUniform1ui64NV(program, location, x)
 }
-[inline]
-pub fn program_uniform1ui64v_nv(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniform1ui64v_nv(program u32, location int, count int, value &u64) {
 	C.glProgramUniform1ui64vNV(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2i64nv(program u32, location int, x i64, y i64)  {
+
+@[inline]
+pub fn program_uniform2i64nv(program u32, location int, x i64, y i64) {
 	C.glProgramUniform2i64NV(program, location, x, y)
 }
-[inline]
-pub fn program_uniform2i64v_nv(program u32, location int, count int, value &i64)  {
+
+@[inline]
+pub fn program_uniform2i64v_nv(program u32, location int, count int, value &i64) {
 	C.glProgramUniform2i64vNV(program, location, count, value)
 }
-[inline]
-pub fn program_uniform2ui64nv(program u32, location int, x u64, y u64)  {
+
+@[inline]
+pub fn program_uniform2ui64nv(program u32, location int, x u64, y u64) {
 	C.glProgramUniform2ui64NV(program, location, x, y)
 }
-[inline]
-pub fn program_uniform2ui64v_nv(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniform2ui64v_nv(program u32, location int, count int, value &u64) {
 	C.glProgramUniform2ui64vNV(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3i64nv(program u32, location int, x i64, y i64, z i64)  {
+
+@[inline]
+pub fn program_uniform3i64nv(program u32, location int, x i64, y i64, z i64) {
 	C.glProgramUniform3i64NV(program, location, x, y, z)
 }
-[inline]
-pub fn program_uniform3i64v_nv(program u32, location int, count int, value &i64)  {
+
+@[inline]
+pub fn program_uniform3i64v_nv(program u32, location int, count int, value &i64) {
 	C.glProgramUniform3i64vNV(program, location, count, value)
 }
-[inline]
-pub fn program_uniform3ui64nv(program u32, location int, x u64, y u64, z u64)  {
+
+@[inline]
+pub fn program_uniform3ui64nv(program u32, location int, x u64, y u64, z u64) {
 	C.glProgramUniform3ui64NV(program, location, x, y, z)
 }
-[inline]
-pub fn program_uniform3ui64v_nv(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniform3ui64v_nv(program u32, location int, count int, value &u64) {
 	C.glProgramUniform3ui64vNV(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4i64nv(program u32, location int, x i64, y i64, z i64, w i64)  {
+
+@[inline]
+pub fn program_uniform4i64nv(program u32, location int, x i64, y i64, z i64, w i64) {
 	C.glProgramUniform4i64NV(program, location, x, y, z, w)
 }
-[inline]
-pub fn program_uniform4i64v_nv(program u32, location int, count int, value &i64)  {
+
+@[inline]
+pub fn program_uniform4i64v_nv(program u32, location int, count int, value &i64) {
 	C.glProgramUniform4i64vNV(program, location, count, value)
 }
-[inline]
-pub fn program_uniform4ui64nv(program u32, location int, x u64, y u64, z u64, w u64)  {
+
+@[inline]
+pub fn program_uniform4ui64nv(program u32, location int, x u64, y u64, z u64, w u64) {
 	C.glProgramUniform4ui64NV(program, location, x, y, z, w)
 }
-[inline]
-pub fn program_uniform4ui64v_nv(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniform4ui64v_nv(program u32, location int, count int, value &u64) {
 	C.glProgramUniform4ui64vNV(program, location, count, value)
 }
-[inline]
-pub fn uniform1i64nv(location int, x i64)  {
+
+@[inline]
+pub fn uniform1i64nv(location int, x i64) {
 	C.glUniform1i64NV(location, x)
 }
-[inline]
-pub fn uniform1i64v_nv(location int, count int, value &i64)  {
+
+@[inline]
+pub fn uniform1i64v_nv(location int, count int, value &i64) {
 	C.glUniform1i64vNV(location, count, value)
 }
-[inline]
-pub fn uniform1ui64nv(location int, x u64)  {
+
+@[inline]
+pub fn uniform1ui64nv(location int, x u64) {
 	C.glUniform1ui64NV(location, x)
 }
-[inline]
-pub fn uniform1ui64v_nv(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform1ui64v_nv(location int, count int, value &u64) {
 	C.glUniform1ui64vNV(location, count, value)
 }
-[inline]
-pub fn uniform2i64nv(location int, x i64, y i64)  {
+
+@[inline]
+pub fn uniform2i64nv(location int, x i64, y i64) {
 	C.glUniform2i64NV(location, x, y)
 }
-[inline]
-pub fn uniform2i64v_nv(location int, count int, value &i64)  {
+
+@[inline]
+pub fn uniform2i64v_nv(location int, count int, value &i64) {
 	C.glUniform2i64vNV(location, count, value)
 }
-[inline]
-pub fn uniform2ui64nv(location int, x u64, y u64)  {
+
+@[inline]
+pub fn uniform2ui64nv(location int, x u64, y u64) {
 	C.glUniform2ui64NV(location, x, y)
 }
-[inline]
-pub fn uniform2ui64v_nv(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform2ui64v_nv(location int, count int, value &u64) {
 	C.glUniform2ui64vNV(location, count, value)
 }
-[inline]
-pub fn uniform3i64nv(location int, x i64, y i64, z i64)  {
+
+@[inline]
+pub fn uniform3i64nv(location int, x i64, y i64, z i64) {
 	C.glUniform3i64NV(location, x, y, z)
 }
-[inline]
-pub fn uniform3i64v_nv(location int, count int, value &i64)  {
+
+@[inline]
+pub fn uniform3i64v_nv(location int, count int, value &i64) {
 	C.glUniform3i64vNV(location, count, value)
 }
-[inline]
-pub fn uniform3ui64nv(location int, x u64, y u64, z u64)  {
+
+@[inline]
+pub fn uniform3ui64nv(location int, x u64, y u64, z u64) {
 	C.glUniform3ui64NV(location, x, y, z)
 }
-[inline]
-pub fn uniform3ui64v_nv(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform3ui64v_nv(location int, count int, value &u64) {
 	C.glUniform3ui64vNV(location, count, value)
 }
-[inline]
-pub fn uniform4i64nv(location int, x i64, y i64, z i64, w i64)  {
+
+@[inline]
+pub fn uniform4i64nv(location int, x i64, y i64, z i64, w i64) {
 	C.glUniform4i64NV(location, x, y, z, w)
 }
-[inline]
-pub fn uniform4i64v_nv(location int, count int, value &i64)  {
+
+@[inline]
+pub fn uniform4i64v_nv(location int, count int, value &i64) {
 	C.glUniform4i64vNV(location, count, value)
 }
-[inline]
-pub fn uniform4ui64nv(location int, x u64, y u64, z u64, w u64)  {
+
+@[inline]
+pub fn uniform4ui64nv(location int, x u64, y u64, z u64, w u64) {
 	C.glUniform4ui64NV(location, x, y, z, w)
 }
-[inline]
-pub fn uniform4ui64v_nv(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniform4ui64v_nv(location int, count int, value &u64) {
 	C.glUniform4ui64vNV(location, count, value)
 }
-[inline]
-pub fn color3h_nv(red u16, green u16, blue u16)  {
+
+@[inline]
+pub fn color3h_nv(red u16, green u16, blue u16) {
 	C.glColor3hNV(red, green, blue)
 }
-[inline]
-pub fn color3hv_nv(v &u16)  {
+
+@[inline]
+pub fn color3hv_nv(v &u16) {
 	C.glColor3hvNV(v)
 }
-[inline]
-pub fn color4h_nv(red u16, green u16, blue u16, alpha u16)  {
+
+@[inline]
+pub fn color4h_nv(red u16, green u16, blue u16, alpha u16) {
 	C.glColor4hNV(red, green, blue, alpha)
 }
-[inline]
-pub fn color4hv_nv(v &u16)  {
+
+@[inline]
+pub fn color4hv_nv(v &u16) {
 	C.glColor4hvNV(v)
 }
-[inline]
-pub fn fog_coordh_nv(fog u16)  {
+
+@[inline]
+pub fn fog_coordh_nv(fog u16) {
 	C.glFogCoordhNV(fog)
 }
-[inline]
-pub fn fog_coordhv_nv(fog &u16)  {
+
+@[inline]
+pub fn fog_coordhv_nv(fog &u16) {
 	C.glFogCoordhvNV(fog)
 }
-[inline]
-pub fn multi_tex_coord1h_nv(target u32, s u16)  {
+
+@[inline]
+pub fn multi_tex_coord1h_nv(target u32, s u16) {
 	C.glMultiTexCoord1hNV(target, s)
 }
-[inline]
-pub fn multi_tex_coord1hv_nv(target u32, v &u16)  {
+
+@[inline]
+pub fn multi_tex_coord1hv_nv(target u32, v &u16) {
 	C.glMultiTexCoord1hvNV(target, v)
 }
-[inline]
-pub fn multi_tex_coord2h_nv(target u32, s u16, t u16)  {
+
+@[inline]
+pub fn multi_tex_coord2h_nv(target u32, s u16, t u16) {
 	C.glMultiTexCoord2hNV(target, s, t)
 }
-[inline]
-pub fn multi_tex_coord2hv_nv(target u32, v &u16)  {
+
+@[inline]
+pub fn multi_tex_coord2hv_nv(target u32, v &u16) {
 	C.glMultiTexCoord2hvNV(target, v)
 }
-[inline]
-pub fn multi_tex_coord3h_nv(target u32, s u16, t u16, r u16)  {
+
+@[inline]
+pub fn multi_tex_coord3h_nv(target u32, s u16, t u16, r u16) {
 	C.glMultiTexCoord3hNV(target, s, t, r)
 }
-[inline]
-pub fn multi_tex_coord3hv_nv(target u32, v &u16)  {
+
+@[inline]
+pub fn multi_tex_coord3hv_nv(target u32, v &u16) {
 	C.glMultiTexCoord3hvNV(target, v)
 }
-[inline]
-pub fn multi_tex_coord4h_nv(target u32, s u16, t u16, r u16, q u16)  {
+
+@[inline]
+pub fn multi_tex_coord4h_nv(target u32, s u16, t u16, r u16, q u16) {
 	C.glMultiTexCoord4hNV(target, s, t, r, q)
 }
-[inline]
-pub fn multi_tex_coord4hv_nv(target u32, v &u16)  {
+
+@[inline]
+pub fn multi_tex_coord4hv_nv(target u32, v &u16) {
 	C.glMultiTexCoord4hvNV(target, v)
 }
-[inline]
-pub fn normal3h_nv(nx u16, ny u16, nz u16)  {
+
+@[inline]
+pub fn normal3h_nv(nx u16, ny u16, nz u16) {
 	C.glNormal3hNV(nx, ny, nz)
 }
-[inline]
-pub fn normal3hv_nv(v &u16)  {
+
+@[inline]
+pub fn normal3hv_nv(v &u16) {
 	C.glNormal3hvNV(v)
 }
-[inline]
-pub fn secondary_color3h_nv(red u16, green u16, blue u16)  {
+
+@[inline]
+pub fn secondary_color3h_nv(red u16, green u16, blue u16) {
 	C.glSecondaryColor3hNV(red, green, blue)
 }
-[inline]
-pub fn secondary_color3hv_nv(v &u16)  {
+
+@[inline]
+pub fn secondary_color3hv_nv(v &u16) {
 	C.glSecondaryColor3hvNV(v)
 }
-[inline]
-pub fn tex_coord1h_nv(s u16)  {
+
+@[inline]
+pub fn tex_coord1h_nv(s u16) {
 	C.glTexCoord1hNV(s)
 }
-[inline]
-pub fn tex_coord1hv_nv(v &u16)  {
+
+@[inline]
+pub fn tex_coord1hv_nv(v &u16) {
 	C.glTexCoord1hvNV(v)
 }
-[inline]
-pub fn tex_coord2h_nv(s u16, t u16)  {
+
+@[inline]
+pub fn tex_coord2h_nv(s u16, t u16) {
 	C.glTexCoord2hNV(s, t)
 }
-[inline]
-pub fn tex_coord2hv_nv(v &u16)  {
+
+@[inline]
+pub fn tex_coord2hv_nv(v &u16) {
 	C.glTexCoord2hvNV(v)
 }
-[inline]
-pub fn tex_coord3h_nv(s u16, t u16, r u16)  {
+
+@[inline]
+pub fn tex_coord3h_nv(s u16, t u16, r u16) {
 	C.glTexCoord3hNV(s, t, r)
 }
-[inline]
-pub fn tex_coord3hv_nv(v &u16)  {
+
+@[inline]
+pub fn tex_coord3hv_nv(v &u16) {
 	C.glTexCoord3hvNV(v)
 }
-[inline]
-pub fn tex_coord4h_nv(s u16, t u16, r u16, q u16)  {
+
+@[inline]
+pub fn tex_coord4h_nv(s u16, t u16, r u16, q u16) {
 	C.glTexCoord4hNV(s, t, r, q)
 }
-[inline]
-pub fn tex_coord4hv_nv(v &u16)  {
+
+@[inline]
+pub fn tex_coord4hv_nv(v &u16) {
 	C.glTexCoord4hvNV(v)
 }
-[inline]
-pub fn vertex2h_nv(x u16, y u16)  {
+
+@[inline]
+pub fn vertex2h_nv(x u16, y u16) {
 	C.glVertex2hNV(x, y)
 }
-[inline]
-pub fn vertex2hv_nv(v &u16)  {
+
+@[inline]
+pub fn vertex2hv_nv(v &u16) {
 	C.glVertex2hvNV(v)
 }
-[inline]
-pub fn vertex3h_nv(x u16, y u16, z u16)  {
+
+@[inline]
+pub fn vertex3h_nv(x u16, y u16, z u16) {
 	C.glVertex3hNV(x, y, z)
 }
-[inline]
-pub fn vertex3hv_nv(v &u16)  {
+
+@[inline]
+pub fn vertex3hv_nv(v &u16) {
 	C.glVertex3hvNV(v)
 }
-[inline]
-pub fn vertex4h_nv(x u16, y u16, z u16, w u16)  {
+
+@[inline]
+pub fn vertex4h_nv(x u16, y u16, z u16, w u16) {
 	C.glVertex4hNV(x, y, z, w)
 }
-[inline]
-pub fn vertex4hv_nv(v &u16)  {
+
+@[inline]
+pub fn vertex4hv_nv(v &u16) {
 	C.glVertex4hvNV(v)
 }
-[inline]
-pub fn vertex_attrib1h_nv(index u32, x u16)  {
+
+@[inline]
+pub fn vertex_attrib1h_nv(index u32, x u16) {
 	C.glVertexAttrib1hNV(index, x)
 }
-[inline]
-pub fn vertex_attrib1hv_nv(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib1hv_nv(index u32, v &u16) {
 	C.glVertexAttrib1hvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib2h_nv(index u32, x u16, y u16)  {
+
+@[inline]
+pub fn vertex_attrib2h_nv(index u32, x u16, y u16) {
 	C.glVertexAttrib2hNV(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2hv_nv(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib2hv_nv(index u32, v &u16) {
 	C.glVertexAttrib2hvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib3h_nv(index u32, x u16, y u16, z u16)  {
+
+@[inline]
+pub fn vertex_attrib3h_nv(index u32, x u16, y u16, z u16) {
 	C.glVertexAttrib3hNV(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3hv_nv(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib3hv_nv(index u32, v &u16) {
 	C.glVertexAttrib3hvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib4h_nv(index u32, x u16, y u16, z u16, w u16)  {
+
+@[inline]
+pub fn vertex_attrib4h_nv(index u32, x u16, y u16, z u16, w u16) {
 	C.glVertexAttrib4hNV(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4hv_nv(index u32, v &u16)  {
+
+@[inline]
+pub fn vertex_attrib4hv_nv(index u32, v &u16) {
 	C.glVertexAttrib4hvNV(index, v)
 }
-[inline]
-pub fn vertex_attribs1hv_nv(index u32, n int, v &u16)  {
+
+@[inline]
+pub fn vertex_attribs1hv_nv(index u32, n int, v &u16) {
 	C.glVertexAttribs1hvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs2hv_nv(index u32, n int, v &u16)  {
+
+@[inline]
+pub fn vertex_attribs2hv_nv(index u32, n int, v &u16) {
 	C.glVertexAttribs2hvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs3hv_nv(index u32, n int, v &u16)  {
+
+@[inline]
+pub fn vertex_attribs3hv_nv(index u32, n int, v &u16) {
 	C.glVertexAttribs3hvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs4hv_nv(index u32, n int, v &u16)  {
+
+@[inline]
+pub fn vertex_attribs4hv_nv(index u32, n int, v &u16) {
 	C.glVertexAttribs4hvNV(index, n, v)
 }
-[inline]
-pub fn vertex_weighth_nv(weight u16)  {
+
+@[inline]
+pub fn vertex_weighth_nv(weight u16) {
 	C.glVertexWeighthNV(weight)
 }
-[inline]
-pub fn vertex_weighthv_nv(weight &u16)  {
+
+@[inline]
+pub fn vertex_weighthv_nv(weight &u16) {
 	C.glVertexWeighthvNV(weight)
 }
-[inline]
-pub fn vertex_attrib_divisor_nv(index u32, divisor u32)  {
+
+@[inline]
+pub fn vertex_attrib_divisor_nv(index u32, divisor u32) {
 	C.glVertexAttribDivisorNV(index, divisor)
 }
-[inline]
-pub fn get_internalformat_sampleiv_nv(target u32, internalformat u32, samples int, pname u32, buf_size int, params &int)  {
-	C.glGetInternalformatSampleivNV(target, internalformat, samples, pname, buf_size, params)
+
+@[inline]
+pub fn get_internalformat_sampleiv_nv(target u32, internalformat u32, samples int, pname u32, buf_size int, params &int) {
+	C.glGetInternalformatSampleivNV(target, internalformat, samples, pname, buf_size,
+		params)
 }
-[inline]
-pub fn buffer_attach_memory_nv(target u32, memory u32, offset u64)  {
+
+@[inline]
+pub fn buffer_attach_memory_nv(target u32, memory u32, offset u64) {
 	C.glBufferAttachMemoryNV(target, memory, offset)
 }
-[inline]
-pub fn get_memory_object_detached_resourcesuiv_nv(memory u32, pname u32, first int, count int, params &u32)  {
+
+@[inline]
+pub fn get_memory_object_detached_resourcesuiv_nv(memory u32, pname u32, first int, count int, params &u32) {
 	C.glGetMemoryObjectDetachedResourcesuivNV(memory, pname, first, count, params)
 }
-[inline]
-pub fn named_buffer_attach_memory_nv(buffer u32, memory u32, offset u64)  {
+
+@[inline]
+pub fn named_buffer_attach_memory_nv(buffer u32, memory u32, offset u64) {
 	C.glNamedBufferAttachMemoryNV(buffer, memory, offset)
 }
-[inline]
-pub fn reset_memory_object_parameter_nv(memory u32, pname u32)  {
+
+@[inline]
+pub fn reset_memory_object_parameter_nv(memory u32, pname u32) {
 	C.glResetMemoryObjectParameterNV(memory, pname)
 }
-[inline]
-pub fn tex_attach_memory_nv(target u32, memory u32, offset u64)  {
+
+@[inline]
+pub fn tex_attach_memory_nv(target u32, memory u32, offset u64) {
 	C.glTexAttachMemoryNV(target, memory, offset)
 }
-[inline]
-pub fn texture_attach_memory_nv(texture u32, memory u32, offset u64)  {
+
+@[inline]
+pub fn texture_attach_memory_nv(texture u32, memory u32, offset u64) {
 	C.glTextureAttachMemoryNV(texture, memory, offset)
 }
-[inline]
-pub fn draw_mesh_tasks_indirect_nv(indirect i64)  {
+
+@[inline]
+pub fn draw_mesh_tasks_indirect_nv(indirect i64) {
 	C.glDrawMeshTasksIndirectNV(indirect)
 }
-[inline]
-pub fn draw_mesh_tasks_nv(first u32, count u32)  {
+
+@[inline]
+pub fn draw_mesh_tasks_nv(first u32, count u32) {
 	C.glDrawMeshTasksNV(first, count)
 }
-[inline]
-pub fn multi_draw_mesh_tasks_indirect_count_nv(indirect i64, drawcount i64, maxdrawcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_mesh_tasks_indirect_count_nv(indirect i64, drawcount i64, maxdrawcount int, stride int) {
 	C.glMultiDrawMeshTasksIndirectCountNV(indirect, drawcount, maxdrawcount, stride)
 }
-[inline]
-pub fn multi_draw_mesh_tasks_indirect_nv(indirect i64, drawcount int, stride int)  {
+
+@[inline]
+pub fn multi_draw_mesh_tasks_indirect_nv(indirect i64, drawcount int, stride int) {
 	C.glMultiDrawMeshTasksIndirectNV(indirect, drawcount, stride)
 }
-[inline]
-pub fn uniform_matrix2x3fv_nv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix2x3fv_nv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix2x3fvNV(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix2x4fv_nv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix2x4fv_nv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix2x4fvNV(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3x2fv_nv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix3x2fv_nv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix3x2fvNV(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix3x4fv_nv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix3x4fv_nv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix3x4fvNV(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4x2fv_nv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix4x2fv_nv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix4x2fvNV(location, count, transpose, value)
 }
-[inline]
-pub fn uniform_matrix4x3fv_nv(location int, count int, transpose u8, value &f32)  {
+
+@[inline]
+pub fn uniform_matrix4x3fv_nv(location int, count int, transpose u8, value &f32) {
 	C.glUniformMatrix4x3fvNV(location, count, transpose, value)
 }
-[inline]
-pub fn begin_occlusion_query_nv(id u32)  {
+
+@[inline]
+pub fn begin_occlusion_query_nv(id u32) {
 	C.glBeginOcclusionQueryNV(id)
 }
-[inline]
-pub fn delete_occlusion_queries_nv(n int, ids &u32)  {
+
+@[inline]
+pub fn delete_occlusion_queries_nv(n int, ids &u32) {
 	C.glDeleteOcclusionQueriesNV(n, ids)
 }
-[inline]
-pub fn end_occlusion_query_nv()  {
+
+@[inline]
+pub fn end_occlusion_query_nv() {
 	C.glEndOcclusionQueryNV()
 }
-[inline]
-pub fn gen_occlusion_queries_nv(n int, ids &u32)  {
+
+@[inline]
+pub fn gen_occlusion_queries_nv(n int, ids &u32) {
 	C.glGenOcclusionQueriesNV(n, ids)
 }
-[inline]
-pub fn get_occlusion_queryiv_nv(id u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_occlusion_queryiv_nv(id u32, pname u32, params &int) {
 	C.glGetOcclusionQueryivNV(id, pname, params)
 }
-[inline]
-pub fn get_occlusion_queryuiv_nv(id u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_occlusion_queryuiv_nv(id u32, pname u32, params &u32) {
 	C.glGetOcclusionQueryuivNV(id, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_occlusion_query_nv(id u32) u8 {
 	return C.glIsOcclusionQueryNV(id)
 }
-[inline]
-pub fn program_buffer_parameters_iiv_nv(target u32, buffer u32, index u32, count int, params &int)  {
+
+@[inline]
+pub fn program_buffer_parameters_iiv_nv(target u32, buffer u32, index u32, count int, params &int) {
 	C.glProgramBufferParametersIivNV(target, buffer, index, count, params)
 }
-[inline]
-pub fn program_buffer_parameters_iuiv_nv(target u32, buffer u32, index u32, count int, params &u32)  {
+
+@[inline]
+pub fn program_buffer_parameters_iuiv_nv(target u32, buffer u32, index u32, count int, params &u32) {
 	C.glProgramBufferParametersIuivNV(target, buffer, index, count, params)
 }
-[inline]
-pub fn program_buffer_parametersfv_nv(target u32, buffer u32, index u32, count int, params &f32)  {
+
+@[inline]
+pub fn program_buffer_parametersfv_nv(target u32, buffer u32, index u32, count int, params &f32) {
 	C.glProgramBufferParametersfvNV(target, buffer, index, count, params)
 }
-[inline]
-pub fn copy_path_nv(result_path u32, src_path u32)  {
+
+@[inline]
+pub fn copy_path_nv(result_path u32, src_path u32) {
 	C.glCopyPathNV(result_path, src_path)
 }
-[inline]
-pub fn cover_fill_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, cover_mode u32, transform_type u32, transform_values &f32)  {
-	C.glCoverFillPathInstancedNV(num_paths, path_name_type, paths, path_base, cover_mode, transform_type, transform_values)
+
+@[inline]
+pub fn cover_fill_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, cover_mode u32, transform_type u32, transform_values &f32) {
+	C.glCoverFillPathInstancedNV(num_paths, path_name_type, paths, path_base, cover_mode,
+		transform_type, transform_values)
 }
-[inline]
-pub fn cover_fill_path_nv(path u32, cover_mode u32)  {
+
+@[inline]
+pub fn cover_fill_path_nv(path u32, cover_mode u32) {
 	C.glCoverFillPathNV(path, cover_mode)
 }
-[inline]
-pub fn cover_stroke_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, cover_mode u32, transform_type u32, transform_values &f32)  {
-	C.glCoverStrokePathInstancedNV(num_paths, path_name_type, paths, path_base, cover_mode, transform_type, transform_values)
+
+@[inline]
+pub fn cover_stroke_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, cover_mode u32, transform_type u32, transform_values &f32) {
+	C.glCoverStrokePathInstancedNV(num_paths, path_name_type, paths, path_base, cover_mode,
+		transform_type, transform_values)
 }
-[inline]
-pub fn cover_stroke_path_nv(path u32, cover_mode u32)  {
+
+@[inline]
+pub fn cover_stroke_path_nv(path u32, cover_mode u32) {
 	C.glCoverStrokePathNV(path, cover_mode)
 }
-[inline]
-pub fn delete_paths_nv(path u32, range int)  {
+
+@[inline]
+pub fn delete_paths_nv(path u32, range int) {
 	C.glDeletePathsNV(path, range)
 }
-[inline]
+
+@[inline]
 pub fn gen_paths_nv(range int) u32 {
 	return C.glGenPathsNV(range)
 }
-[inline]
-pub fn get_path_color_genfv_nv(color u32, pname u32, value &f32)  {
+
+@[inline]
+pub fn get_path_color_genfv_nv(color u32, pname u32, value &f32) {
 	C.glGetPathColorGenfvNV(color, pname, value)
 }
-[inline]
-pub fn get_path_color_geniv_nv(color u32, pname u32, value &int)  {
+
+@[inline]
+pub fn get_path_color_geniv_nv(color u32, pname u32, value &int) {
 	C.glGetPathColorGenivNV(color, pname, value)
 }
-[inline]
-pub fn get_path_commands_nv(path u32, commands &u8)  {
+
+@[inline]
+pub fn get_path_commands_nv(path u32, commands &u8) {
 	C.glGetPathCommandsNV(path, commands)
 }
-[inline]
-pub fn get_path_coords_nv(path u32, coords &f32)  {
+
+@[inline]
+pub fn get_path_coords_nv(path u32, coords &f32) {
 	C.glGetPathCoordsNV(path, coords)
 }
-[inline]
-pub fn get_path_dash_array_nv(path u32, dash_array &f32)  {
+
+@[inline]
+pub fn get_path_dash_array_nv(path u32, dash_array &f32) {
 	C.glGetPathDashArrayNV(path, dash_array)
 }
-[inline]
+
+@[inline]
 pub fn get_path_length_nv(path u32, start_segment int, num_segments int) f32 {
 	return C.glGetPathLengthNV(path, start_segment, num_segments)
 }
-[inline]
-pub fn get_path_metric_range_nv(metric_query_mask u32, first_path_name u32, num_paths int, stride int, metrics &f32)  {
+
+@[inline]
+pub fn get_path_metric_range_nv(metric_query_mask u32, first_path_name u32, num_paths int, stride int, metrics &f32) {
 	C.glGetPathMetricRangeNV(metric_query_mask, first_path_name, num_paths, stride, metrics)
 }
-[inline]
-pub fn get_path_metrics_nv(metric_query_mask u32, num_paths int, path_name_type u32, paths voidptr, path_base u32, stride int, metrics &f32)  {
-	C.glGetPathMetricsNV(metric_query_mask, num_paths, path_name_type, paths, path_base, stride, metrics)
+
+@[inline]
+pub fn get_path_metrics_nv(metric_query_mask u32, num_paths int, path_name_type u32, paths voidptr, path_base u32, stride int, metrics &f32) {
+	C.glGetPathMetricsNV(metric_query_mask, num_paths, path_name_type, paths, path_base,
+		stride, metrics)
 }
-[inline]
-pub fn get_path_parameterfv_nv(path u32, pname u32, value &f32)  {
+
+@[inline]
+pub fn get_path_parameterfv_nv(path u32, pname u32, value &f32) {
 	C.glGetPathParameterfvNV(path, pname, value)
 }
-[inline]
-pub fn get_path_parameteriv_nv(path u32, pname u32, value &int)  {
+
+@[inline]
+pub fn get_path_parameteriv_nv(path u32, pname u32, value &int) {
 	C.glGetPathParameterivNV(path, pname, value)
 }
-[inline]
-pub fn get_path_spacing_nv(path_list_mode u32, num_paths int, path_name_type u32, paths voidptr, path_base u32, advance_scale f32, kerning_scale f32, transform_type u32, returned_spacing &f32)  {
-	C.glGetPathSpacingNV(path_list_mode, num_paths, path_name_type, paths, path_base, advance_scale, kerning_scale, transform_type, returned_spacing)
+
+@[inline]
+pub fn get_path_spacing_nv(path_list_mode u32, num_paths int, path_name_type u32, paths voidptr, path_base u32, advance_scale f32, kerning_scale f32, transform_type u32, returned_spacing &f32) {
+	C.glGetPathSpacingNV(path_list_mode, num_paths, path_name_type, paths, path_base,
+		advance_scale, kerning_scale, transform_type, returned_spacing)
 }
-[inline]
-pub fn get_path_tex_genfv_nv(tex_coord_set u32, pname u32, value &f32)  {
+
+@[inline]
+pub fn get_path_tex_genfv_nv(tex_coord_set u32, pname u32, value &f32) {
 	C.glGetPathTexGenfvNV(tex_coord_set, pname, value)
 }
-[inline]
-pub fn get_path_tex_geniv_nv(tex_coord_set u32, pname u32, value &int)  {
+
+@[inline]
+pub fn get_path_tex_geniv_nv(tex_coord_set u32, pname u32, value &int) {
 	C.glGetPathTexGenivNV(tex_coord_set, pname, value)
 }
-[inline]
-pub fn get_program_resourcefv_nv(program u32, program_interface u32, index u32, prop_count int, props &u32, buf_size int, length &int, params &f32)  {
-	C.glGetProgramResourcefvNV(program, program_interface, index, prop_count, props, buf_size, length, params)
+
+@[inline]
+pub fn get_program_resourcefv_nv(program u32, program_interface u32, index u32, prop_count int, props &u32, buf_size int, length &int, params &f32) {
+	C.glGetProgramResourcefvNV(program, program_interface, index, prop_count, props, buf_size,
+		length, params)
 }
-[inline]
-pub fn interpolate_paths_nv(result_path u32, path_a u32, path_b u32, weight f32)  {
+
+@[inline]
+pub fn interpolate_paths_nv(result_path u32, path_a u32, path_b u32, weight f32) {
 	C.glInterpolatePathsNV(result_path, path_a, path_b, weight)
 }
-[inline]
+
+@[inline]
 pub fn is_path_nv(path u32) u8 {
 	return C.glIsPathNV(path)
 }
-[inline]
+
+@[inline]
 pub fn is_point_in_fill_path_nv(path u32, mask u32, x f32, y f32) u8 {
 	return C.glIsPointInFillPathNV(path, mask, x, y)
 }
-[inline]
+
+@[inline]
 pub fn is_point_in_stroke_path_nv(path u32, x f32, y f32) u8 {
 	return C.glIsPointInStrokePathNV(path, x, y)
 }
-[inline]
-pub fn matrix_load3x2f_nv(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_load3x2f_nv(matrix_mode u32, m &f32) {
 	C.glMatrixLoad3x2fNV(matrix_mode, m)
 }
-[inline]
-pub fn matrix_load3x3f_nv(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_load3x3f_nv(matrix_mode u32, m &f32) {
 	C.glMatrixLoad3x3fNV(matrix_mode, m)
 }
-[inline]
-pub fn matrix_load_transpose3x3f_nv(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_load_transpose3x3f_nv(matrix_mode u32, m &f32) {
 	C.glMatrixLoadTranspose3x3fNV(matrix_mode, m)
 }
-[inline]
-pub fn matrix_mult3x2f_nv(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_mult3x2f_nv(matrix_mode u32, m &f32) {
 	C.glMatrixMult3x2fNV(matrix_mode, m)
 }
-[inline]
-pub fn matrix_mult3x3f_nv(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_mult3x3f_nv(matrix_mode u32, m &f32) {
 	C.glMatrixMult3x3fNV(matrix_mode, m)
 }
-[inline]
-pub fn matrix_mult_transpose3x3f_nv(matrix_mode u32, m &f32)  {
+
+@[inline]
+pub fn matrix_mult_transpose3x3f_nv(matrix_mode u32, m &f32) {
 	C.glMatrixMultTranspose3x3fNV(matrix_mode, m)
 }
-[inline]
-pub fn path_color_gen_nv(color u32, gen_mode u32, color_format u32, coeffs &f32)  {
+
+@[inline]
+pub fn path_color_gen_nv(color u32, gen_mode u32, color_format u32, coeffs &f32) {
 	C.glPathColorGenNV(color, gen_mode, color_format, coeffs)
 }
-[inline]
-pub fn path_commands_nv(path u32, num_commands int, commands &u8, num_coords int, coord_type u32, coords voidptr)  {
+
+@[inline]
+pub fn path_commands_nv(path u32, num_commands int, commands &u8, num_coords int, coord_type u32, coords voidptr) {
 	C.glPathCommandsNV(path, num_commands, commands, num_coords, coord_type, coords)
 }
-[inline]
-pub fn path_coords_nv(path u32, num_coords int, coord_type u32, coords voidptr)  {
+
+@[inline]
+pub fn path_coords_nv(path u32, num_coords int, coord_type u32, coords voidptr) {
 	C.glPathCoordsNV(path, num_coords, coord_type, coords)
 }
-[inline]
-pub fn path_cover_depth_func_nv(zfunc u32)  {
+
+@[inline]
+pub fn path_cover_depth_func_nv(zfunc u32) {
 	C.glPathCoverDepthFuncNV(zfunc)
 }
-[inline]
-pub fn path_dash_array_nv(path u32, dash_count int, dash_array &f32)  {
+
+@[inline]
+pub fn path_dash_array_nv(path u32, dash_count int, dash_array &f32) {
 	C.glPathDashArrayNV(path, dash_count, dash_array)
 }
-[inline]
-pub fn path_fog_gen_nv(gen_mode u32)  {
+
+@[inline]
+pub fn path_fog_gen_nv(gen_mode u32) {
 	C.glPathFogGenNV(gen_mode)
 }
-[inline]
+
+@[inline]
 pub fn path_glyph_index_array_nv(first_path_name u32, font_target u32, font_name voidptr, font_style u32, first_glyph_index u32, num_glyphs int, path_parameter_template u32, em_scale f32) u32 {
-	return C.glPathGlyphIndexArrayNV(first_path_name, font_target, font_name, font_style, first_glyph_index, num_glyphs, path_parameter_template, em_scale)
+	return C.glPathGlyphIndexArrayNV(first_path_name, font_target, font_name, font_style,
+		first_glyph_index, num_glyphs, path_parameter_template, em_scale)
 }
-[inline]
+
+@[inline]
 pub fn path_glyph_index_range_nv(font_target u32, font_name voidptr, font_style u32, path_parameter_template u32, em_scale f32, base_and_count [2]u32) u32 {
-	return C.glPathGlyphIndexRangeNV(font_target, font_name, font_style, path_parameter_template, em_scale, base_and_count)
+	return C.glPathGlyphIndexRangeNV(font_target, font_name, font_style, path_parameter_template,
+		em_scale, base_and_count)
 }
-[inline]
-pub fn path_glyph_range_nv(first_path_name u32, font_target u32, font_name voidptr, font_style u32, first_glyph u32, num_glyphs int, handle_missing_glyphs u32, path_parameter_template u32, em_scale f32)  {
-	C.glPathGlyphRangeNV(first_path_name, font_target, font_name, font_style, first_glyph, num_glyphs, handle_missing_glyphs, path_parameter_template, em_scale)
+
+@[inline]
+pub fn path_glyph_range_nv(first_path_name u32, font_target u32, font_name voidptr, font_style u32, first_glyph u32, num_glyphs int, handle_missing_glyphs u32, path_parameter_template u32, em_scale f32) {
+	C.glPathGlyphRangeNV(first_path_name, font_target, font_name, font_style, first_glyph,
+		num_glyphs, handle_missing_glyphs, path_parameter_template, em_scale)
 }
-[inline]
-pub fn path_glyphs_nv(first_path_name u32, font_target u32, font_name voidptr, font_style u32, num_glyphs int, gl_type u32, charcodes voidptr, handle_missing_glyphs u32, path_parameter_template u32, em_scale f32)  {
-	C.glPathGlyphsNV(first_path_name, font_target, font_name, font_style, num_glyphs, gl_type, charcodes, handle_missing_glyphs, path_parameter_template, em_scale)
+
+@[inline]
+pub fn path_glyphs_nv(first_path_name u32, font_target u32, font_name voidptr, font_style u32, num_glyphs int, gl_type u32, charcodes voidptr, handle_missing_glyphs u32, path_parameter_template u32, em_scale f32) {
+	C.glPathGlyphsNV(first_path_name, font_target, font_name, font_style, num_glyphs,
+		gl_type, charcodes, handle_missing_glyphs, path_parameter_template, em_scale)
 }
-[inline]
+
+@[inline]
 pub fn path_memory_glyph_index_array_nv(first_path_name u32, font_target u32, font_size i64, font_data voidptr, face_index int, first_glyph_index u32, num_glyphs int, path_parameter_template u32, em_scale f32) u32 {
-	return C.glPathMemoryGlyphIndexArrayNV(first_path_name, font_target, font_size, font_data, face_index, first_glyph_index, num_glyphs, path_parameter_template, em_scale)
+	return C.glPathMemoryGlyphIndexArrayNV(first_path_name, font_target, font_size, font_data,
+		face_index, first_glyph_index, num_glyphs, path_parameter_template, em_scale)
 }
-[inline]
-pub fn path_parameterf_nv(path u32, pname u32, value f32)  {
+
+@[inline]
+pub fn path_parameterf_nv(path u32, pname u32, value f32) {
 	C.glPathParameterfNV(path, pname, value)
 }
-[inline]
-pub fn path_parameterfv_nv(path u32, pname u32, value &f32)  {
+
+@[inline]
+pub fn path_parameterfv_nv(path u32, pname u32, value &f32) {
 	C.glPathParameterfvNV(path, pname, value)
 }
-[inline]
-pub fn path_parameteri_nv(path u32, pname u32, value int)  {
+
+@[inline]
+pub fn path_parameteri_nv(path u32, pname u32, value int) {
 	C.glPathParameteriNV(path, pname, value)
 }
-[inline]
-pub fn path_parameteriv_nv(path u32, pname u32, value &int)  {
+
+@[inline]
+pub fn path_parameteriv_nv(path u32, pname u32, value &int) {
 	C.glPathParameterivNV(path, pname, value)
 }
-[inline]
-pub fn path_stencil_depth_offset_nv(factor f32, units f32)  {
+
+@[inline]
+pub fn path_stencil_depth_offset_nv(factor f32, units f32) {
 	C.glPathStencilDepthOffsetNV(factor, units)
 }
-[inline]
-pub fn path_stencil_func_nv(func u32, ref int, mask u32)  {
+
+@[inline]
+pub fn path_stencil_func_nv(func u32, ref int, mask u32) {
 	C.glPathStencilFuncNV(func, ref, mask)
 }
-[inline]
-pub fn path_string_nv(path u32, format u32, length int, path_string voidptr)  {
+
+@[inline]
+pub fn path_string_nv(path u32, format u32, length int, path_string voidptr) {
 	C.glPathStringNV(path, format, length, path_string)
 }
-[inline]
-pub fn path_sub_commands_nv(path u32, command_start int, commands_to_delete int, num_commands int, commands &u8, num_coords int, coord_type u32, coords voidptr)  {
-	C.glPathSubCommandsNV(path, command_start, commands_to_delete, num_commands, commands, num_coords, coord_type, coords)
+
+@[inline]
+pub fn path_sub_commands_nv(path u32, command_start int, commands_to_delete int, num_commands int, commands &u8, num_coords int, coord_type u32, coords voidptr) {
+	C.glPathSubCommandsNV(path, command_start, commands_to_delete, num_commands, commands,
+		num_coords, coord_type, coords)
 }
-[inline]
-pub fn path_sub_coords_nv(path u32, coord_start int, num_coords int, coord_type u32, coords voidptr)  {
+
+@[inline]
+pub fn path_sub_coords_nv(path u32, coord_start int, num_coords int, coord_type u32, coords voidptr) {
 	C.glPathSubCoordsNV(path, coord_start, num_coords, coord_type, coords)
 }
-[inline]
-pub fn path_tex_gen_nv(tex_coord_set u32, gen_mode u32, components int, coeffs &f32)  {
+
+@[inline]
+pub fn path_tex_gen_nv(tex_coord_set u32, gen_mode u32, components int, coeffs &f32) {
 	C.glPathTexGenNV(tex_coord_set, gen_mode, components, coeffs)
 }
-[inline]
+
+@[inline]
 pub fn point_along_path_nv(path u32, start_segment int, num_segments int, distance f32, x &f32, y &f32, tangent_x &f32, tangent_y &f32) u8 {
-	return C.glPointAlongPathNV(path, start_segment, num_segments, distance, x, y, tangent_x, tangent_y)
+	return C.glPointAlongPathNV(path, start_segment, num_segments, distance, x, y, tangent_x,
+		tangent_y)
 }
-[inline]
-pub fn program_path_fragment_input_gen_nv(program u32, location int, gen_mode u32, components int, coeffs &f32)  {
+
+@[inline]
+pub fn program_path_fragment_input_gen_nv(program u32, location int, gen_mode u32, components int, coeffs &f32) {
 	C.glProgramPathFragmentInputGenNV(program, location, gen_mode, components, coeffs)
 }
-[inline]
-pub fn stencil_fill_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, fill_mode u32, mask u32, transform_type u32, transform_values &f32)  {
-	C.glStencilFillPathInstancedNV(num_paths, path_name_type, paths, path_base, fill_mode, mask, transform_type, transform_values)
+
+@[inline]
+pub fn stencil_fill_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, fill_mode u32, mask u32, transform_type u32, transform_values &f32) {
+	C.glStencilFillPathInstancedNV(num_paths, path_name_type, paths, path_base, fill_mode,
+		mask, transform_type, transform_values)
 }
-[inline]
-pub fn stencil_fill_path_nv(path u32, fill_mode u32, mask u32)  {
+
+@[inline]
+pub fn stencil_fill_path_nv(path u32, fill_mode u32, mask u32) {
 	C.glStencilFillPathNV(path, fill_mode, mask)
 }
-[inline]
-pub fn stencil_stroke_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, reference int, mask u32, transform_type u32, transform_values &f32)  {
-	C.glStencilStrokePathInstancedNV(num_paths, path_name_type, paths, path_base, reference, mask, transform_type, transform_values)
+
+@[inline]
+pub fn stencil_stroke_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, reference int, mask u32, transform_type u32, transform_values &f32) {
+	C.glStencilStrokePathInstancedNV(num_paths, path_name_type, paths, path_base, reference,
+		mask, transform_type, transform_values)
 }
-[inline]
-pub fn stencil_stroke_path_nv(path u32, reference int, mask u32)  {
+
+@[inline]
+pub fn stencil_stroke_path_nv(path u32, reference int, mask u32) {
 	C.glStencilStrokePathNV(path, reference, mask)
 }
-[inline]
-pub fn stencil_then_cover_fill_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, fill_mode u32, mask u32, cover_mode u32, transform_type u32, transform_values &f32)  {
-	C.glStencilThenCoverFillPathInstancedNV(num_paths, path_name_type, paths, path_base, fill_mode, mask, cover_mode, transform_type, transform_values)
+
+@[inline]
+pub fn stencil_then_cover_fill_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, fill_mode u32, mask u32, cover_mode u32, transform_type u32, transform_values &f32) {
+	C.glStencilThenCoverFillPathInstancedNV(num_paths, path_name_type, paths, path_base,
+		fill_mode, mask, cover_mode, transform_type, transform_values)
 }
-[inline]
-pub fn stencil_then_cover_fill_path_nv(path u32, fill_mode u32, mask u32, cover_mode u32)  {
+
+@[inline]
+pub fn stencil_then_cover_fill_path_nv(path u32, fill_mode u32, mask u32, cover_mode u32) {
 	C.glStencilThenCoverFillPathNV(path, fill_mode, mask, cover_mode)
 }
-[inline]
-pub fn stencil_then_cover_stroke_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, reference int, mask u32, cover_mode u32, transform_type u32, transform_values &f32)  {
-	C.glStencilThenCoverStrokePathInstancedNV(num_paths, path_name_type, paths, path_base, reference, mask, cover_mode, transform_type, transform_values)
+
+@[inline]
+pub fn stencil_then_cover_stroke_path_instanced_nv(num_paths int, path_name_type u32, paths voidptr, path_base u32, reference int, mask u32, cover_mode u32, transform_type u32, transform_values &f32) {
+	C.glStencilThenCoverStrokePathInstancedNV(num_paths, path_name_type, paths, path_base,
+		reference, mask, cover_mode, transform_type, transform_values)
 }
-[inline]
-pub fn stencil_then_cover_stroke_path_nv(path u32, reference int, mask u32, cover_mode u32)  {
+
+@[inline]
+pub fn stencil_then_cover_stroke_path_nv(path u32, reference int, mask u32, cover_mode u32) {
 	C.glStencilThenCoverStrokePathNV(path, reference, mask, cover_mode)
 }
-[inline]
-pub fn transform_path_nv(result_path u32, src_path u32, transform_type u32, transform_values &f32)  {
+
+@[inline]
+pub fn transform_path_nv(result_path u32, src_path u32, transform_type u32, transform_values &f32) {
 	C.glTransformPathNV(result_path, src_path, transform_type, transform_values)
 }
-[inline]
-pub fn weight_paths_nv(result_path u32, num_paths int, paths &u32, weights &f32)  {
+
+@[inline]
+pub fn weight_paths_nv(result_path u32, num_paths int, paths &u32, weights &f32) {
 	C.glWeightPathsNV(result_path, num_paths, paths, weights)
 }
-[inline]
-pub fn flush_pixel_data_range_nv(target u32)  {
+
+@[inline]
+pub fn flush_pixel_data_range_nv(target u32) {
 	C.glFlushPixelDataRangeNV(target)
 }
-[inline]
-pub fn pixel_data_range_nv(target u32, length int, pointer voidptr)  {
+
+@[inline]
+pub fn pixel_data_range_nv(target u32, length int, pointer voidptr) {
 	C.glPixelDataRangeNV(target, length, pointer)
 }
-[inline]
-pub fn point_parameteri_nv(pname u32, param int)  {
+
+@[inline]
+pub fn point_parameteri_nv(pname u32, param int) {
 	C.glPointParameteriNV(pname, param)
 }
-[inline]
-pub fn point_parameteriv_nv(pname u32, params &int)  {
+
+@[inline]
+pub fn point_parameteriv_nv(pname u32, params &int) {
 	C.glPointParameterivNV(pname, params)
 }
-[inline]
-pub fn polygon_mode_nv(face u32, mode u32)  {
+
+@[inline]
+pub fn polygon_mode_nv(face u32, mode u32) {
 	C.glPolygonModeNV(face, mode)
 }
-[inline]
-pub fn get_videoi64v_nv(video_slot u32, pname u32, params &i64)  {
+
+@[inline]
+pub fn get_videoi64v_nv(video_slot u32, pname u32, params &i64) {
 	C.glGetVideoi64vNV(video_slot, pname, params)
 }
-[inline]
-pub fn get_videoiv_nv(video_slot u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_videoiv_nv(video_slot u32, pname u32, params &int) {
 	C.glGetVideoivNV(video_slot, pname, params)
 }
-[inline]
-pub fn get_videoui64v_nv(video_slot u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_videoui64v_nv(video_slot u32, pname u32, params &u64) {
 	C.glGetVideoui64vNV(video_slot, pname, params)
 }
-[inline]
-pub fn get_videouiv_nv(video_slot u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_videouiv_nv(video_slot u32, pname u32, params &u32) {
 	C.glGetVideouivNV(video_slot, pname, params)
 }
-[inline]
-pub fn present_frame_dual_fill_nv(video_slot u32, min_present_time u64, begin_present_time_id u32, present_duration_id u32, gl_type u32, target0 u32, fill0 u32, target1 u32, fill1 u32, target2 u32, fill2 u32, target3 u32, fill3 u32)  {
-	C.glPresentFrameDualFillNV(video_slot, min_present_time, begin_present_time_id, present_duration_id, gl_type, target0, fill0, target1, fill1, target2, fill2, target3, fill3)
+
+@[inline]
+pub fn present_frame_dual_fill_nv(video_slot u32, min_present_time u64, begin_present_time_id u32, present_duration_id u32, gl_type u32, target0 u32, fill0 u32, target1 u32, fill1 u32, target2 u32, fill2 u32, target3 u32, fill3 u32) {
+	C.glPresentFrameDualFillNV(video_slot, min_present_time, begin_present_time_id, present_duration_id,
+		gl_type, target0, fill0, target1, fill1, target2, fill2, target3, fill3)
 }
-[inline]
-pub fn present_frame_keyed_nv(video_slot u32, min_present_time u64, begin_present_time_id u32, present_duration_id u32, gl_type u32, target0 u32, fill0 u32, key0 u32, target1 u32, fill1 u32, key1 u32)  {
-	C.glPresentFrameKeyedNV(video_slot, min_present_time, begin_present_time_id, present_duration_id, gl_type, target0, fill0, key0, target1, fill1, key1)
+
+@[inline]
+pub fn present_frame_keyed_nv(video_slot u32, min_present_time u64, begin_present_time_id u32, present_duration_id u32, gl_type u32, target0 u32, fill0 u32, key0 u32, target1 u32, fill1 u32, key1 u32) {
+	C.glPresentFrameKeyedNV(video_slot, min_present_time, begin_present_time_id, present_duration_id,
+		gl_type, target0, fill0, key0, target1, fill1, key1)
 }
-[inline]
-pub fn primitive_restart_index_nv(index u32)  {
+
+@[inline]
+pub fn primitive_restart_index_nv(index u32) {
 	C.glPrimitiveRestartIndexNV(index)
 }
-[inline]
-pub fn primitive_restart_nv()  {
+
+@[inline]
+pub fn primitive_restart_nv() {
 	C.glPrimitiveRestartNV()
 }
-[inline]
-pub fn read_buffer_nv(mode u32)  {
+
+@[inline]
+pub fn read_buffer_nv(mode u32) {
 	C.glReadBufferNV(mode)
 }
-[inline]
-pub fn combiner_input_nv(stage u32, portion u32, variable u32, input u32, mapping u32, component_usage u32)  {
+
+@[inline]
+pub fn combiner_input_nv(stage u32, portion u32, variable u32, input u32, mapping u32, component_usage u32) {
 	C.glCombinerInputNV(stage, portion, variable, input, mapping, component_usage)
 }
-[inline]
-pub fn combiner_output_nv(stage u32, portion u32, ab_output u32, cd_output u32, sum_output u32, scale u32, bias u32, ab_dot_product u8, cd_dot_product u8, mux_sum u8)  {
-	C.glCombinerOutputNV(stage, portion, ab_output, cd_output, sum_output, scale, bias, ab_dot_product, cd_dot_product, mux_sum)
+
+@[inline]
+pub fn combiner_output_nv(stage u32, portion u32, ab_output u32, cd_output u32, sum_output u32, scale u32, bias u32, ab_dot_product u8, cd_dot_product u8, mux_sum u8) {
+	C.glCombinerOutputNV(stage, portion, ab_output, cd_output, sum_output, scale, bias,
+		ab_dot_product, cd_dot_product, mux_sum)
 }
-[inline]
-pub fn combiner_parameterf_nv(pname u32, param f32)  {
+
+@[inline]
+pub fn combiner_parameterf_nv(pname u32, param f32) {
 	C.glCombinerParameterfNV(pname, param)
 }
-[inline]
-pub fn combiner_parameterfv_nv(pname u32, params &f32)  {
+
+@[inline]
+pub fn combiner_parameterfv_nv(pname u32, params &f32) {
 	C.glCombinerParameterfvNV(pname, params)
 }
-[inline]
-pub fn combiner_parameteri_nv(pname u32, param int)  {
+
+@[inline]
+pub fn combiner_parameteri_nv(pname u32, param int) {
 	C.glCombinerParameteriNV(pname, param)
 }
-[inline]
-pub fn combiner_parameteriv_nv(pname u32, params &int)  {
+
+@[inline]
+pub fn combiner_parameteriv_nv(pname u32, params &int) {
 	C.glCombinerParameterivNV(pname, params)
 }
-[inline]
-pub fn final_combiner_input_nv(variable u32, input u32, mapping u32, component_usage u32)  {
+
+@[inline]
+pub fn final_combiner_input_nv(variable u32, input u32, mapping u32, component_usage u32) {
 	C.glFinalCombinerInputNV(variable, input, mapping, component_usage)
 }
-[inline]
-pub fn get_combiner_input_parameterfv_nv(stage u32, portion u32, variable u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_combiner_input_parameterfv_nv(stage u32, portion u32, variable u32, pname u32, params &f32) {
 	C.glGetCombinerInputParameterfvNV(stage, portion, variable, pname, params)
 }
-[inline]
-pub fn get_combiner_input_parameteriv_nv(stage u32, portion u32, variable u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_combiner_input_parameteriv_nv(stage u32, portion u32, variable u32, pname u32, params &int) {
 	C.glGetCombinerInputParameterivNV(stage, portion, variable, pname, params)
 }
-[inline]
-pub fn get_combiner_output_parameterfv_nv(stage u32, portion u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_combiner_output_parameterfv_nv(stage u32, portion u32, pname u32, params &f32) {
 	C.glGetCombinerOutputParameterfvNV(stage, portion, pname, params)
 }
-[inline]
-pub fn get_combiner_output_parameteriv_nv(stage u32, portion u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_combiner_output_parameteriv_nv(stage u32, portion u32, pname u32, params &int) {
 	C.glGetCombinerOutputParameterivNV(stage, portion, pname, params)
 }
-[inline]
-pub fn get_final_combiner_input_parameterfv_nv(variable u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_final_combiner_input_parameterfv_nv(variable u32, pname u32, params &f32) {
 	C.glGetFinalCombinerInputParameterfvNV(variable, pname, params)
 }
-[inline]
-pub fn get_final_combiner_input_parameteriv_nv(variable u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_final_combiner_input_parameteriv_nv(variable u32, pname u32, params &int) {
 	C.glGetFinalCombinerInputParameterivNV(variable, pname, params)
 }
-[inline]
-pub fn combiner_stage_parameterfv_nv(stage u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn combiner_stage_parameterfv_nv(stage u32, pname u32, params &f32) {
 	C.glCombinerStageParameterfvNV(stage, pname, params)
 }
-[inline]
-pub fn get_combiner_stage_parameterfv_nv(stage u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_combiner_stage_parameterfv_nv(stage u32, pname u32, params &f32) {
 	C.glGetCombinerStageParameterfvNV(stage, pname, params)
 }
-[inline]
-pub fn framebuffer_sample_locationsfv_nv(target u32, start u32, count int, v &f32)  {
+
+@[inline]
+pub fn framebuffer_sample_locationsfv_nv(target u32, start u32, count int, v &f32) {
 	C.glFramebufferSampleLocationsfvNV(target, start, count, v)
 }
-[inline]
-pub fn named_framebuffer_sample_locationsfv_nv(framebuffer u32, start u32, count int, v &f32)  {
+
+@[inline]
+pub fn named_framebuffer_sample_locationsfv_nv(framebuffer u32, start u32, count int, v &f32) {
 	C.glNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, v)
 }
-[inline]
-pub fn resolve_depth_values_nv()  {
+
+@[inline]
+pub fn resolve_depth_values_nv() {
 	C.glResolveDepthValuesNV()
 }
-[inline]
-pub fn scissor_exclusive_arrayv_nv(first u32, count int, v &int)  {
+
+@[inline]
+pub fn scissor_exclusive_arrayv_nv(first u32, count int, v &int) {
 	C.glScissorExclusiveArrayvNV(first, count, v)
 }
-[inline]
-pub fn scissor_exclusive_nv(x int, y int, width int, height int)  {
+
+@[inline]
+pub fn scissor_exclusive_nv(x int, y int, width int, height int) {
 	C.glScissorExclusiveNV(x, y, width, height)
 }
-[inline]
-pub fn get_buffer_parameterui64v_nv(target u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_buffer_parameterui64v_nv(target u32, pname u32, params &u64) {
 	C.glGetBufferParameterui64vNV(target, pname, params)
 }
-[inline]
-pub fn get_integerui64v_nv(value u32, result &u64)  {
+
+@[inline]
+pub fn get_integerui64v_nv(value u32, result &u64) {
 	C.glGetIntegerui64vNV(value, result)
 }
-[inline]
-pub fn get_named_buffer_parameterui64v_nv(buffer u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_named_buffer_parameterui64v_nv(buffer u32, pname u32, params &u64) {
 	C.glGetNamedBufferParameterui64vNV(buffer, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_buffer_resident_nv(target u32) u8 {
 	return C.glIsBufferResidentNV(target)
 }
-[inline]
+
+@[inline]
 pub fn is_named_buffer_resident_nv(buffer u32) u8 {
 	return C.glIsNamedBufferResidentNV(buffer)
 }
-[inline]
-pub fn make_buffer_non_resident_nv(target u32)  {
+
+@[inline]
+pub fn make_buffer_non_resident_nv(target u32) {
 	C.glMakeBufferNonResidentNV(target)
 }
-[inline]
-pub fn make_buffer_resident_nv(target u32, access u32)  {
+
+@[inline]
+pub fn make_buffer_resident_nv(target u32, access u32) {
 	C.glMakeBufferResidentNV(target, access)
 }
-[inline]
-pub fn make_named_buffer_non_resident_nv(buffer u32)  {
+
+@[inline]
+pub fn make_named_buffer_non_resident_nv(buffer u32) {
 	C.glMakeNamedBufferNonResidentNV(buffer)
 }
-[inline]
-pub fn make_named_buffer_resident_nv(buffer u32, access u32)  {
+
+@[inline]
+pub fn make_named_buffer_resident_nv(buffer u32, access u32) {
 	C.glMakeNamedBufferResidentNV(buffer, access)
 }
-[inline]
-pub fn program_uniformui64nv(program u32, location int, value u64)  {
+
+@[inline]
+pub fn program_uniformui64nv(program u32, location int, value u64) {
 	C.glProgramUniformui64NV(program, location, value)
 }
-[inline]
-pub fn program_uniformui64v_nv(program u32, location int, count int, value &u64)  {
+
+@[inline]
+pub fn program_uniformui64v_nv(program u32, location int, count int, value &u64) {
 	C.glProgramUniformui64vNV(program, location, count, value)
 }
-[inline]
-pub fn uniformui64nv(location int, value u64)  {
+
+@[inline]
+pub fn uniformui64nv(location int, value u64) {
 	C.glUniformui64NV(location, value)
 }
-[inline]
-pub fn uniformui64v_nv(location int, count int, value &u64)  {
+
+@[inline]
+pub fn uniformui64v_nv(location int, count int, value &u64) {
 	C.glUniformui64vNV(location, count, value)
 }
-[inline]
-pub fn bind_shading_rate_image_nv(texture u32)  {
+
+@[inline]
+pub fn bind_shading_rate_image_nv(texture u32) {
 	C.glBindShadingRateImageNV(texture)
 }
-[inline]
-pub fn get_shading_rate_image_palette_nv(viewport u32, entry u32, rate &u32)  {
+
+@[inline]
+pub fn get_shading_rate_image_palette_nv(viewport u32, entry u32, rate &u32) {
 	C.glGetShadingRateImagePaletteNV(viewport, entry, rate)
 }
-[inline]
-pub fn get_shading_rate_sample_locationiv_nv(rate u32, samples u32, index u32, location &int)  {
+
+@[inline]
+pub fn get_shading_rate_sample_locationiv_nv(rate u32, samples u32, index u32, location &int) {
 	C.glGetShadingRateSampleLocationivNV(rate, samples, index, location)
 }
-[inline]
-pub fn shading_rate_image_barrier_nv(order u32)  {
+
+@[inline]
+pub fn shading_rate_image_barrier_nv(order u32) {
 	C.glShadingRateImageBarrierNV(order)
 }
-[inline]
-pub fn shading_rate_image_palette_nv(viewport u32, first u32, count int, rates &u32)  {
+
+@[inline]
+pub fn shading_rate_image_palette_nv(viewport u32, first u32, count int, rates &u32) {
 	C.glShadingRateImagePaletteNV(viewport, first, count, rates)
 }
-[inline]
-pub fn shading_rate_sample_order_custom_nv(rate u32, samples u32, locations &int)  {
+
+@[inline]
+pub fn shading_rate_sample_order_custom_nv(rate u32, samples u32, locations &int) {
 	C.glShadingRateSampleOrderCustomNV(rate, samples, locations)
 }
-[inline]
-pub fn compressed_tex_image3dnv(target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr)  {
-	C.glCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, image_size, data)
+
+@[inline]
+pub fn compressed_tex_image3dnv(target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr) {
+	C.glCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border,
+		image_size, data)
 }
-[inline]
-pub fn compressed_tex_sub_image3dnv(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, image_size, data)
+
+@[inline]
+pub fn compressed_tex_sub_image3dnv(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr) {
+	C.glCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height,
+		depth, format, image_size, data)
 }
-[inline]
-pub fn copy_tex_sub_image3dnv(target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn copy_tex_sub_image3dnv(target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int) {
 	C.glCopyTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, x, y, width, height)
 }
-[inline]
-pub fn framebuffer_texture_layer_nv(target u32, attachment u32, texture u32, level int, layer int)  {
+
+@[inline]
+pub fn framebuffer_texture_layer_nv(target u32, attachment u32, texture u32, level int, layer int) {
 	C.glFramebufferTextureLayerNV(target, attachment, texture, level, layer)
 }
-[inline]
-pub fn tex_image3dnv(target u32, level int, internal_format u32, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexImage3DNV(target, level, internal_format, width, height, depth, border, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_image3dnv(target u32, level int, internal_format u32, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexImage3DNV(target, level, internal_format, width, height, depth, border, format,
+		gl_type, pixels)
 }
-[inline]
-pub fn tex_sub_image3dnv(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_sub_image3dnv(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn texture_barrier_nv()  {
+
+@[inline]
+pub fn texture_barrier_nv() {
 	C.glTextureBarrierNV()
 }
-[inline]
-pub fn tex_image2dmultisample_coverage_nv(target u32, coverage_samples int, color_samples int, internal_format int, width int, height int, fixed_sample_locations u8)  {
-	C.glTexImage2DMultisampleCoverageNV(target, coverage_samples, color_samples, internal_format, width, height, fixed_sample_locations)
+
+@[inline]
+pub fn tex_image2dmultisample_coverage_nv(target u32, coverage_samples int, color_samples int, internal_format int, width int, height int, fixed_sample_locations u8) {
+	C.glTexImage2DMultisampleCoverageNV(target, coverage_samples, color_samples, internal_format,
+		width, height, fixed_sample_locations)
 }
-[inline]
-pub fn tex_image3dmultisample_coverage_nv(target u32, coverage_samples int, color_samples int, internal_format int, width int, height int, depth int, fixed_sample_locations u8)  {
-	C.glTexImage3DMultisampleCoverageNV(target, coverage_samples, color_samples, internal_format, width, height, depth, fixed_sample_locations)
+
+@[inline]
+pub fn tex_image3dmultisample_coverage_nv(target u32, coverage_samples int, color_samples int, internal_format int, width int, height int, depth int, fixed_sample_locations u8) {
+	C.glTexImage3DMultisampleCoverageNV(target, coverage_samples, color_samples, internal_format,
+		width, height, depth, fixed_sample_locations)
 }
-[inline]
-pub fn texture_image2dmultisample_coverage_nv(texture u32, target u32, coverage_samples int, color_samples int, internal_format int, width int, height int, fixed_sample_locations u8)  {
-	C.glTextureImage2DMultisampleCoverageNV(texture, target, coverage_samples, color_samples, internal_format, width, height, fixed_sample_locations)
+
+@[inline]
+pub fn texture_image2dmultisample_coverage_nv(texture u32, target u32, coverage_samples int, color_samples int, internal_format int, width int, height int, fixed_sample_locations u8) {
+	C.glTextureImage2DMultisampleCoverageNV(texture, target, coverage_samples, color_samples,
+		internal_format, width, height, fixed_sample_locations)
 }
-[inline]
-pub fn texture_image2dmultisample_nv(texture u32, target u32, samples int, internal_format int, width int, height int, fixed_sample_locations u8)  {
-	C.glTextureImage2DMultisampleNV(texture, target, samples, internal_format, width, height, fixed_sample_locations)
+
+@[inline]
+pub fn texture_image2dmultisample_nv(texture u32, target u32, samples int, internal_format int, width int, height int, fixed_sample_locations u8) {
+	C.glTextureImage2DMultisampleNV(texture, target, samples, internal_format, width,
+		height, fixed_sample_locations)
 }
-[inline]
-pub fn texture_image3dmultisample_coverage_nv(texture u32, target u32, coverage_samples int, color_samples int, internal_format int, width int, height int, depth int, fixed_sample_locations u8)  {
-	C.glTextureImage3DMultisampleCoverageNV(texture, target, coverage_samples, color_samples, internal_format, width, height, depth, fixed_sample_locations)
+
+@[inline]
+pub fn texture_image3dmultisample_coverage_nv(texture u32, target u32, coverage_samples int, color_samples int, internal_format int, width int, height int, depth int, fixed_sample_locations u8) {
+	C.glTextureImage3DMultisampleCoverageNV(texture, target, coverage_samples, color_samples,
+		internal_format, width, height, depth, fixed_sample_locations)
 }
-[inline]
-pub fn texture_image3dmultisample_nv(texture u32, target u32, samples int, internal_format int, width int, height int, depth int, fixed_sample_locations u8)  {
-	C.glTextureImage3DMultisampleNV(texture, target, samples, internal_format, width, height, depth, fixed_sample_locations)
+
+@[inline]
+pub fn texture_image3dmultisample_nv(texture u32, target u32, samples int, internal_format int, width int, height int, depth int, fixed_sample_locations u8) {
+	C.glTextureImage3DMultisampleNV(texture, target, samples, internal_format, width,
+		height, depth, fixed_sample_locations)
 }
-[inline]
-pub fn active_varying_nv(program u32, name &char)  {
+
+@[inline]
+pub fn active_varying_nv(program u32, name &char) {
 	C.glActiveVaryingNV(program, name)
 }
-[inline]
-pub fn begin_transform_feedback_nv(primitive_mode u32)  {
+
+@[inline]
+pub fn begin_transform_feedback_nv(primitive_mode u32) {
 	C.glBeginTransformFeedbackNV(primitive_mode)
 }
-[inline]
-pub fn bind_buffer_base_nv(target u32, index u32, buffer u32)  {
+
+@[inline]
+pub fn bind_buffer_base_nv(target u32, index u32, buffer u32) {
 	C.glBindBufferBaseNV(target, index, buffer)
 }
-[inline]
-pub fn bind_buffer_offset_nv(target u32, index u32, buffer u32, offset i64)  {
+
+@[inline]
+pub fn bind_buffer_offset_nv(target u32, index u32, buffer u32, offset i64) {
 	C.glBindBufferOffsetNV(target, index, buffer, offset)
 }
-[inline]
-pub fn bind_buffer_range_nv(target u32, index u32, buffer u32, offset i64, size i64)  {
+
+@[inline]
+pub fn bind_buffer_range_nv(target u32, index u32, buffer u32, offset i64, size i64) {
 	C.glBindBufferRangeNV(target, index, buffer, offset, size)
 }
-[inline]
-pub fn end_transform_feedback_nv()  {
+
+@[inline]
+pub fn end_transform_feedback_nv() {
 	C.glEndTransformFeedbackNV()
 }
-[inline]
-pub fn get_active_varying_nv(program u32, index u32, buf_size int, length &int, size &int, gl_type &u32, name &char)  {
+
+@[inline]
+pub fn get_active_varying_nv(program u32, index u32, buf_size int, length &int, size &int, gl_type &u32, name &char) {
 	C.glGetActiveVaryingNV(program, index, buf_size, length, size, gl_type, name)
 }
-[inline]
-pub fn get_transform_feedback_varying_nv(program u32, index u32, location &int)  {
+
+@[inline]
+pub fn get_transform_feedback_varying_nv(program u32, index u32, location &int) {
 	C.glGetTransformFeedbackVaryingNV(program, index, location)
 }
-[inline]
+
+@[inline]
 pub fn get_varying_location_nv(program u32, name &char) int {
 	return C.glGetVaryingLocationNV(program, name)
 }
-[inline]
-pub fn transform_feedback_attribs_nv(count u32, attribs &int, buffer_mode u32)  {
+
+@[inline]
+pub fn transform_feedback_attribs_nv(count u32, attribs &int, buffer_mode u32) {
 	C.glTransformFeedbackAttribsNV(count, attribs, buffer_mode)
 }
-[inline]
-pub fn transform_feedback_varyings_nv(program u32, count int, locations &int, buffer_mode u32)  {
+
+@[inline]
+pub fn transform_feedback_varyings_nv(program u32, count int, locations &int, buffer_mode u32) {
 	C.glTransformFeedbackVaryingsNV(program, count, locations, buffer_mode)
 }
-[inline]
-pub fn bind_transform_feedback_nv(target u32, id u32)  {
+
+@[inline]
+pub fn bind_transform_feedback_nv(target u32, id u32) {
 	C.glBindTransformFeedbackNV(target, id)
 }
-[inline]
-pub fn delete_transform_feedbacks_nv(n int, ids &u32)  {
+
+@[inline]
+pub fn delete_transform_feedbacks_nv(n int, ids &u32) {
 	C.glDeleteTransformFeedbacksNV(n, ids)
 }
-[inline]
-pub fn draw_transform_feedback_nv(mode u32, id u32)  {
+
+@[inline]
+pub fn draw_transform_feedback_nv(mode u32, id u32) {
 	C.glDrawTransformFeedbackNV(mode, id)
 }
-[inline]
-pub fn gen_transform_feedbacks_nv(n int, ids &u32)  {
+
+@[inline]
+pub fn gen_transform_feedbacks_nv(n int, ids &u32) {
 	C.glGenTransformFeedbacksNV(n, ids)
 }
-[inline]
+
+@[inline]
 pub fn is_transform_feedback_nv(id u32) u8 {
 	return C.glIsTransformFeedbackNV(id)
 }
-[inline]
-pub fn pause_transform_feedback_nv()  {
+
+@[inline]
+pub fn pause_transform_feedback_nv() {
 	C.glPauseTransformFeedbackNV()
 }
-[inline]
-pub fn resume_transform_feedback_nv()  {
+
+@[inline]
+pub fn resume_transform_feedback_nv() {
 	C.glResumeTransformFeedbackNV()
 }
-[inline]
-pub fn vdpaufini_nv()  {
+
+@[inline]
+pub fn vdpaufini_nv() {
 	C.glVDPAUFiniNV()
 }
-[inline]
-pub fn vdpauget_surfaceiv_nv(surface i64, pname u32, buf_size int, length &int, values &int)  {
+
+@[inline]
+pub fn vdpauget_surfaceiv_nv(surface i64, pname u32, buf_size int, length &int, values &int) {
 	C.glVDPAUGetSurfaceivNV(surface, pname, buf_size, length, values)
 }
-[inline]
-pub fn vdpauinit_nv(vdp_device voidptr, get_proc_address voidptr)  {
+
+@[inline]
+pub fn vdpauinit_nv(vdp_device voidptr, get_proc_address voidptr) {
 	C.glVDPAUInitNV(vdp_device, get_proc_address)
 }
-[inline]
-pub fn vdpauis_surface_nv(surface i64)  {
+
+@[inline]
+pub fn vdpauis_surface_nv(surface i64) {
 	C.glVDPAUIsSurfaceNV(surface)
 }
-[inline]
-pub fn vdpaumap_surfaces_nv(num_surfaces int, surfaces &i64)  {
+
+@[inline]
+pub fn vdpaumap_surfaces_nv(num_surfaces int, surfaces &i64) {
 	C.glVDPAUMapSurfacesNV(num_surfaces, surfaces)
 }
-[inline]
+
+@[inline]
 pub fn vdpauregister_output_surface_nv(vdp_surface voidptr, target u32, num_texture_names int, texture_names &u32) i64 {
 	return C.glVDPAURegisterOutputSurfaceNV(vdp_surface, target, num_texture_names, texture_names)
 }
-[inline]
+
+@[inline]
 pub fn vdpauregister_video_surface_nv(vdp_surface voidptr, target u32, num_texture_names int, texture_names &u32) i64 {
 	return C.glVDPAURegisterVideoSurfaceNV(vdp_surface, target, num_texture_names, texture_names)
 }
-[inline]
-pub fn vdpausurface_access_nv(surface i64, access u32)  {
+
+@[inline]
+pub fn vdpausurface_access_nv(surface i64, access u32) {
 	C.glVDPAUSurfaceAccessNV(surface, access)
 }
-[inline]
-pub fn vdpauunmap_surfaces_nv(num_surface int, surfaces &i64)  {
+
+@[inline]
+pub fn vdpauunmap_surfaces_nv(num_surface int, surfaces &i64) {
 	C.glVDPAUUnmapSurfacesNV(num_surface, surfaces)
 }
-[inline]
-pub fn vdpauunregister_surface_nv(surface i64)  {
+
+@[inline]
+pub fn vdpauunregister_surface_nv(surface i64) {
 	C.glVDPAUUnregisterSurfaceNV(surface)
 }
-[inline]
+
+@[inline]
 pub fn vdpauregister_video_surface_with_picture_structure_nv(vdp_surface voidptr, target u32, num_texture_names int, texture_names &u32, is_frame_structure u8) i64 {
-	return C.glVDPAURegisterVideoSurfaceWithPictureStructureNV(vdp_surface, target, num_texture_names, texture_names, is_frame_structure)
+	return C.glVDPAURegisterVideoSurfaceWithPictureStructureNV(vdp_surface, target, num_texture_names,
+		texture_names, is_frame_structure)
 }
-[inline]
-pub fn flush_vertex_array_range_nv()  {
+
+@[inline]
+pub fn flush_vertex_array_range_nv() {
 	C.glFlushVertexArrayRangeNV()
 }
-[inline]
-pub fn vertex_array_range_nv(length int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_array_range_nv(length int, pointer voidptr) {
 	C.glVertexArrayRangeNV(length, pointer)
 }
-[inline]
-pub fn get_vertex_attrib_li64v_nv(index u32, pname u32, params &i64)  {
+
+@[inline]
+pub fn get_vertex_attrib_li64v_nv(index u32, pname u32, params &i64) {
 	C.glGetVertexAttribLi64vNV(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attrib_lui64v_nv(index u32, pname u32, params &u64)  {
+
+@[inline]
+pub fn get_vertex_attrib_lui64v_nv(index u32, pname u32, params &u64) {
 	C.glGetVertexAttribLui64vNV(index, pname, params)
 }
-[inline]
-pub fn vertex_attrib_l1i64nv(index u32, x i64)  {
+
+@[inline]
+pub fn vertex_attrib_l1i64nv(index u32, x i64) {
 	C.glVertexAttribL1i64NV(index, x)
 }
-[inline]
-pub fn vertex_attrib_l1i64v_nv(index u32, v &i64)  {
+
+@[inline]
+pub fn vertex_attrib_l1i64v_nv(index u32, v &i64) {
 	C.glVertexAttribL1i64vNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_l1ui64nv(index u32, x u64)  {
+
+@[inline]
+pub fn vertex_attrib_l1ui64nv(index u32, x u64) {
 	C.glVertexAttribL1ui64NV(index, x)
 }
-[inline]
-pub fn vertex_attrib_l1ui64v_nv(index u32, v &u64)  {
+
+@[inline]
+pub fn vertex_attrib_l1ui64v_nv(index u32, v &u64) {
 	C.glVertexAttribL1ui64vNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_l2i64nv(index u32, x i64, y i64)  {
+
+@[inline]
+pub fn vertex_attrib_l2i64nv(index u32, x i64, y i64) {
 	C.glVertexAttribL2i64NV(index, x, y)
 }
-[inline]
-pub fn vertex_attrib_l2i64v_nv(index u32, v &i64)  {
+
+@[inline]
+pub fn vertex_attrib_l2i64v_nv(index u32, v &i64) {
 	C.glVertexAttribL2i64vNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_l2ui64nv(index u32, x u64, y u64)  {
+
+@[inline]
+pub fn vertex_attrib_l2ui64nv(index u32, x u64, y u64) {
 	C.glVertexAttribL2ui64NV(index, x, y)
 }
-[inline]
-pub fn vertex_attrib_l2ui64v_nv(index u32, v &u64)  {
+
+@[inline]
+pub fn vertex_attrib_l2ui64v_nv(index u32, v &u64) {
 	C.glVertexAttribL2ui64vNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_l3i64nv(index u32, x i64, y i64, z i64)  {
+
+@[inline]
+pub fn vertex_attrib_l3i64nv(index u32, x i64, y i64, z i64) {
 	C.glVertexAttribL3i64NV(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib_l3i64v_nv(index u32, v &i64)  {
+
+@[inline]
+pub fn vertex_attrib_l3i64v_nv(index u32, v &i64) {
 	C.glVertexAttribL3i64vNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_l3ui64nv(index u32, x u64, y u64, z u64)  {
+
+@[inline]
+pub fn vertex_attrib_l3ui64nv(index u32, x u64, y u64, z u64) {
 	C.glVertexAttribL3ui64NV(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib_l3ui64v_nv(index u32, v &u64)  {
+
+@[inline]
+pub fn vertex_attrib_l3ui64v_nv(index u32, v &u64) {
 	C.glVertexAttribL3ui64vNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_l4i64nv(index u32, x i64, y i64, z i64, w i64)  {
+
+@[inline]
+pub fn vertex_attrib_l4i64nv(index u32, x i64, y i64, z i64, w i64) {
 	C.glVertexAttribL4i64NV(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib_l4i64v_nv(index u32, v &i64)  {
+
+@[inline]
+pub fn vertex_attrib_l4i64v_nv(index u32, v &i64) {
 	C.glVertexAttribL4i64vNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_l4ui64nv(index u32, x u64, y u64, z u64, w u64)  {
+
+@[inline]
+pub fn vertex_attrib_l4ui64nv(index u32, x u64, y u64, z u64, w u64) {
 	C.glVertexAttribL4ui64NV(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib_l4ui64v_nv(index u32, v &u64)  {
+
+@[inline]
+pub fn vertex_attrib_l4ui64v_nv(index u32, v &u64) {
 	C.glVertexAttribL4ui64vNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_lformat_nv(index u32, size int, gl_type u32, stride int)  {
+
+@[inline]
+pub fn vertex_attrib_lformat_nv(index u32, size int, gl_type u32, stride int) {
 	C.glVertexAttribLFormatNV(index, size, gl_type, stride)
 }
-[inline]
-pub fn buffer_address_range_nv(pname u32, index u32, address u64, length i64)  {
+
+@[inline]
+pub fn buffer_address_range_nv(pname u32, index u32, address u64, length i64) {
 	C.glBufferAddressRangeNV(pname, index, address, length)
 }
-[inline]
-pub fn color_format_nv(size int, gl_type u32, stride int)  {
+
+@[inline]
+pub fn color_format_nv(size int, gl_type u32, stride int) {
 	C.glColorFormatNV(size, gl_type, stride)
 }
-[inline]
-pub fn edge_flag_format_nv(stride int)  {
+
+@[inline]
+pub fn edge_flag_format_nv(stride int) {
 	C.glEdgeFlagFormatNV(stride)
 }
-[inline]
-pub fn fog_coord_format_nv(gl_type u32, stride int)  {
+
+@[inline]
+pub fn fog_coord_format_nv(gl_type u32, stride int) {
 	C.glFogCoordFormatNV(gl_type, stride)
 }
-[inline]
-pub fn get_integerui64i_v_nv(value u32, index u32, result &u64)  {
+
+@[inline]
+pub fn get_integerui64i_v_nv(value u32, index u32, result &u64) {
 	C.glGetIntegerui64i_vNV(value, index, result)
 }
-[inline]
-pub fn index_format_nv(gl_type u32, stride int)  {
+
+@[inline]
+pub fn index_format_nv(gl_type u32, stride int) {
 	C.glIndexFormatNV(gl_type, stride)
 }
-[inline]
-pub fn normal_format_nv(gl_type u32, stride int)  {
+
+@[inline]
+pub fn normal_format_nv(gl_type u32, stride int) {
 	C.glNormalFormatNV(gl_type, stride)
 }
-[inline]
-pub fn secondary_color_format_nv(size int, gl_type u32, stride int)  {
+
+@[inline]
+pub fn secondary_color_format_nv(size int, gl_type u32, stride int) {
 	C.glSecondaryColorFormatNV(size, gl_type, stride)
 }
-[inline]
-pub fn tex_coord_format_nv(size int, gl_type u32, stride int)  {
+
+@[inline]
+pub fn tex_coord_format_nv(size int, gl_type u32, stride int) {
 	C.glTexCoordFormatNV(size, gl_type, stride)
 }
-[inline]
-pub fn vertex_attrib_format_nv(index u32, size int, gl_type u32, normalized u8, stride int)  {
+
+@[inline]
+pub fn vertex_attrib_format_nv(index u32, size int, gl_type u32, normalized u8, stride int) {
 	C.glVertexAttribFormatNV(index, size, gl_type, normalized, stride)
 }
-[inline]
-pub fn vertex_attrib_iformat_nv(index u32, size int, gl_type u32, stride int)  {
+
+@[inline]
+pub fn vertex_attrib_iformat_nv(index u32, size int, gl_type u32, stride int) {
 	C.glVertexAttribIFormatNV(index, size, gl_type, stride)
 }
-[inline]
-pub fn vertex_format_nv(size int, gl_type u32, stride int)  {
+
+@[inline]
+pub fn vertex_format_nv(size int, gl_type u32, stride int) {
 	C.glVertexFormatNV(size, gl_type, stride)
 }
-[inline]
+
+@[inline]
 pub fn are_programs_resident_nv(n int, ids &u32, residences &u8) u8 {
 	return C.glAreProgramsResidentNV(n, ids, residences)
 }
-[inline]
-pub fn bind_program_nv(target u32, id u32)  {
+
+@[inline]
+pub fn bind_program_nv(target u32, id u32) {
 	C.glBindProgramNV(target, id)
 }
-[inline]
-pub fn delete_programs_nv(n int, ids &u32)  {
+
+@[inline]
+pub fn delete_programs_nv(n int, ids &u32) {
 	C.glDeleteProgramsNV(n, ids)
 }
-[inline]
-pub fn execute_program_nv(target u32, id u32, params &f32)  {
+
+@[inline]
+pub fn execute_program_nv(target u32, id u32, params &f32) {
 	C.glExecuteProgramNV(target, id, params)
 }
-[inline]
-pub fn gen_programs_nv(n int, ids &u32)  {
+
+@[inline]
+pub fn gen_programs_nv(n int, ids &u32) {
 	C.glGenProgramsNV(n, ids)
 }
-[inline]
-pub fn get_program_parameterdv_nv(target u32, index u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_program_parameterdv_nv(target u32, index u32, pname u32, params &f64) {
 	C.glGetProgramParameterdvNV(target, index, pname, params)
 }
-[inline]
-pub fn get_program_parameterfv_nv(target u32, index u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_program_parameterfv_nv(target u32, index u32, pname u32, params &f32) {
 	C.glGetProgramParameterfvNV(target, index, pname, params)
 }
-[inline]
-pub fn get_program_string_nv(id u32, pname u32, program &u8)  {
+
+@[inline]
+pub fn get_program_string_nv(id u32, pname u32, program &u8) {
 	C.glGetProgramStringNV(id, pname, program)
 }
-[inline]
-pub fn get_programiv_nv(id u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_programiv_nv(id u32, pname u32, params &int) {
 	C.glGetProgramivNV(id, pname, params)
 }
-[inline]
-pub fn get_track_matrixiv_nv(target u32, address u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_track_matrixiv_nv(target u32, address u32, pname u32, params &int) {
 	C.glGetTrackMatrixivNV(target, address, pname, params)
 }
-[inline]
-pub fn get_vertex_attrib_pointerv_nv(index u32, pname u32, pointer &voidptr)  {
+
+@[inline]
+pub fn get_vertex_attrib_pointerv_nv(index u32, pname u32, pointer &voidptr) {
 	C.glGetVertexAttribPointervNV(index, pname, pointer)
 }
-[inline]
-pub fn get_vertex_attribdv_nv(index u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_vertex_attribdv_nv(index u32, pname u32, params &f64) {
 	C.glGetVertexAttribdvNV(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attribfv_nv(index u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_vertex_attribfv_nv(index u32, pname u32, params &f32) {
 	C.glGetVertexAttribfvNV(index, pname, params)
 }
-[inline]
-pub fn get_vertex_attribiv_nv(index u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_vertex_attribiv_nv(index u32, pname u32, params &int) {
 	C.glGetVertexAttribivNV(index, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_program_nv(id u32) u8 {
 	return C.glIsProgramNV(id)
 }
-[inline]
-pub fn load_program_nv(target u32, id u32, len int, program &u8)  {
+
+@[inline]
+pub fn load_program_nv(target u32, id u32, len int, program &u8) {
 	C.glLoadProgramNV(target, id, len, program)
 }
-[inline]
-pub fn program_parameter4d_nv(target u32, index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn program_parameter4d_nv(target u32, index u32, x f64, y f64, z f64, w f64) {
 	C.glProgramParameter4dNV(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_parameter4dv_nv(target u32, index u32, params &f64)  {
+
+@[inline]
+pub fn program_parameter4dv_nv(target u32, index u32, params &f64) {
 	C.glProgramParameter4dvNV(target, index, params)
 }
-[inline]
-pub fn program_parameter4f_nv(target u32, index u32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn program_parameter4f_nv(target u32, index u32, x f32, y f32, z f32, w f32) {
 	C.glProgramParameter4fNV(target, index, x, y, z, w)
 }
-[inline]
-pub fn program_parameter4fv_nv(target u32, index u32, params &f32)  {
+
+@[inline]
+pub fn program_parameter4fv_nv(target u32, index u32, params &f32) {
 	C.glProgramParameter4fvNV(target, index, params)
 }
-[inline]
-pub fn program_parameters4dv_nv(target u32, index u32, num int, params &f64)  {
+
+@[inline]
+pub fn program_parameters4dv_nv(target u32, index u32, num int, params &f64) {
 	C.glProgramParameters4dvNV(target, index, num, params)
 }
-[inline]
-pub fn program_parameters4fv_nv(target u32, index u32, num int, params &f32)  {
+
+@[inline]
+pub fn program_parameters4fv_nv(target u32, index u32, num int, params &f32) {
 	C.glProgramParameters4fvNV(target, index, num, params)
 }
-[inline]
-pub fn request_resident_programs_nv(n int, ids &u32)  {
+
+@[inline]
+pub fn request_resident_programs_nv(n int, ids &u32) {
 	C.glRequestResidentProgramsNV(n, ids)
 }
-[inline]
-pub fn track_matrix_nv(target u32, address u32, matrix u32, transform u32)  {
+
+@[inline]
+pub fn track_matrix_nv(target u32, address u32, matrix u32, transform u32) {
 	C.glTrackMatrixNV(target, address, matrix, transform)
 }
-[inline]
-pub fn vertex_attrib1d_nv(index u32, x f64)  {
+
+@[inline]
+pub fn vertex_attrib1d_nv(index u32, x f64) {
 	C.glVertexAttrib1dNV(index, x)
 }
-[inline]
-pub fn vertex_attrib1dv_nv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib1dv_nv(index u32, v &f64) {
 	C.glVertexAttrib1dvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib1f_nv(index u32, x f32)  {
+
+@[inline]
+pub fn vertex_attrib1f_nv(index u32, x f32) {
 	C.glVertexAttrib1fNV(index, x)
 }
-[inline]
-pub fn vertex_attrib1fv_nv(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib1fv_nv(index u32, v &f32) {
 	C.glVertexAttrib1fvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib1s_nv(index u32, x i16)  {
+
+@[inline]
+pub fn vertex_attrib1s_nv(index u32, x i16) {
 	C.glVertexAttrib1sNV(index, x)
 }
-[inline]
-pub fn vertex_attrib1sv_nv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib1sv_nv(index u32, v &i16) {
 	C.glVertexAttrib1svNV(index, v)
 }
-[inline]
-pub fn vertex_attrib2d_nv(index u32, x f64, y f64)  {
+
+@[inline]
+pub fn vertex_attrib2d_nv(index u32, x f64, y f64) {
 	C.glVertexAttrib2dNV(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2dv_nv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib2dv_nv(index u32, v &f64) {
 	C.glVertexAttrib2dvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib2f_nv(index u32, x f32, y f32)  {
+
+@[inline]
+pub fn vertex_attrib2f_nv(index u32, x f32, y f32) {
 	C.glVertexAttrib2fNV(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2fv_nv(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib2fv_nv(index u32, v &f32) {
 	C.glVertexAttrib2fvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib2s_nv(index u32, x i16, y i16)  {
+
+@[inline]
+pub fn vertex_attrib2s_nv(index u32, x i16, y i16) {
 	C.glVertexAttrib2sNV(index, x, y)
 }
-[inline]
-pub fn vertex_attrib2sv_nv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib2sv_nv(index u32, v &i16) {
 	C.glVertexAttrib2svNV(index, v)
 }
-[inline]
-pub fn vertex_attrib3d_nv(index u32, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn vertex_attrib3d_nv(index u32, x f64, y f64, z f64) {
 	C.glVertexAttrib3dNV(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3dv_nv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib3dv_nv(index u32, v &f64) {
 	C.glVertexAttrib3dvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib3f_nv(index u32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn vertex_attrib3f_nv(index u32, x f32, y f32, z f32) {
 	C.glVertexAttrib3fNV(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3fv_nv(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib3fv_nv(index u32, v &f32) {
 	C.glVertexAttrib3fvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib3s_nv(index u32, x i16, y i16, z i16)  {
+
+@[inline]
+pub fn vertex_attrib3s_nv(index u32, x i16, y i16, z i16) {
 	C.glVertexAttrib3sNV(index, x, y, z)
 }
-[inline]
-pub fn vertex_attrib3sv_nv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib3sv_nv(index u32, v &i16) {
 	C.glVertexAttrib3svNV(index, v)
 }
-[inline]
-pub fn vertex_attrib4d_nv(index u32, x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn vertex_attrib4d_nv(index u32, x f64, y f64, z f64, w f64) {
 	C.glVertexAttrib4dNV(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4dv_nv(index u32, v &f64)  {
+
+@[inline]
+pub fn vertex_attrib4dv_nv(index u32, v &f64) {
 	C.glVertexAttrib4dvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib4f_nv(index u32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn vertex_attrib4f_nv(index u32, x f32, y f32, z f32, w f32) {
 	C.glVertexAttrib4fNV(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4fv_nv(index u32, v &f32)  {
+
+@[inline]
+pub fn vertex_attrib4fv_nv(index u32, v &f32) {
 	C.glVertexAttrib4fvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib4s_nv(index u32, x i16, y i16, z i16, w i16)  {
+
+@[inline]
+pub fn vertex_attrib4s_nv(index u32, x i16, y i16, z i16, w i16) {
 	C.glVertexAttrib4sNV(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4sv_nv(index u32, v &i16)  {
+
+@[inline]
+pub fn vertex_attrib4sv_nv(index u32, v &i16) {
 	C.glVertexAttrib4svNV(index, v)
 }
-[inline]
-pub fn vertex_attrib4ub_nv(index u32, x u8, y u8, z u8, w u8)  {
+
+@[inline]
+pub fn vertex_attrib4ub_nv(index u32, x u8, y u8, z u8, w u8) {
 	C.glVertexAttrib4ubNV(index, x, y, z, w)
 }
-[inline]
-pub fn vertex_attrib4ubv_nv(index u32, v &u8)  {
+
+@[inline]
+pub fn vertex_attrib4ubv_nv(index u32, v &u8) {
 	C.glVertexAttrib4ubvNV(index, v)
 }
-[inline]
-pub fn vertex_attrib_pointer_nv(index u32, size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_attrib_pointer_nv(index u32, size int, gl_type u32, stride int, pointer voidptr) {
 	C.glVertexAttribPointerNV(index, size, gl_type, stride, pointer)
 }
-[inline]
-pub fn vertex_attribs1dv_nv(index u32, n int, v &f64)  {
+
+@[inline]
+pub fn vertex_attribs1dv_nv(index u32, n int, v &f64) {
 	C.glVertexAttribs1dvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs1fv_nv(index u32, n int, v &f32)  {
+
+@[inline]
+pub fn vertex_attribs1fv_nv(index u32, n int, v &f32) {
 	C.glVertexAttribs1fvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs1sv_nv(index u32, n int, v &i16)  {
+
+@[inline]
+pub fn vertex_attribs1sv_nv(index u32, n int, v &i16) {
 	C.glVertexAttribs1svNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs2dv_nv(index u32, n int, v &f64)  {
+
+@[inline]
+pub fn vertex_attribs2dv_nv(index u32, n int, v &f64) {
 	C.glVertexAttribs2dvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs2fv_nv(index u32, n int, v &f32)  {
+
+@[inline]
+pub fn vertex_attribs2fv_nv(index u32, n int, v &f32) {
 	C.glVertexAttribs2fvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs2sv_nv(index u32, n int, v &i16)  {
+
+@[inline]
+pub fn vertex_attribs2sv_nv(index u32, n int, v &i16) {
 	C.glVertexAttribs2svNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs3dv_nv(index u32, n int, v &f64)  {
+
+@[inline]
+pub fn vertex_attribs3dv_nv(index u32, n int, v &f64) {
 	C.glVertexAttribs3dvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs3fv_nv(index u32, n int, v &f32)  {
+
+@[inline]
+pub fn vertex_attribs3fv_nv(index u32, n int, v &f32) {
 	C.glVertexAttribs3fvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs3sv_nv(index u32, n int, v &i16)  {
+
+@[inline]
+pub fn vertex_attribs3sv_nv(index u32, n int, v &i16) {
 	C.glVertexAttribs3svNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs4dv_nv(index u32, n int, v &f64)  {
+
+@[inline]
+pub fn vertex_attribs4dv_nv(index u32, n int, v &f64) {
 	C.glVertexAttribs4dvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs4fv_nv(index u32, n int, v &f32)  {
+
+@[inline]
+pub fn vertex_attribs4fv_nv(index u32, n int, v &f32) {
 	C.glVertexAttribs4fvNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs4sv_nv(index u32, n int, v &i16)  {
+
+@[inline]
+pub fn vertex_attribs4sv_nv(index u32, n int, v &i16) {
 	C.glVertexAttribs4svNV(index, n, v)
 }
-[inline]
-pub fn vertex_attribs4ubv_nv(index u32, n int, v &u8)  {
+
+@[inline]
+pub fn vertex_attribs4ubv_nv(index u32, n int, v &u8) {
 	C.glVertexAttribs4ubvNV(index, n, v)
 }
-[inline]
-pub fn begin_video_capture_nv(video_capture_slot u32)  {
+
+@[inline]
+pub fn begin_video_capture_nv(video_capture_slot u32) {
 	C.glBeginVideoCaptureNV(video_capture_slot)
 }
-[inline]
-pub fn bind_video_capture_stream_buffer_nv(video_capture_slot u32, stream u32, frame_region u32, offset i64)  {
+
+@[inline]
+pub fn bind_video_capture_stream_buffer_nv(video_capture_slot u32, stream u32, frame_region u32, offset i64) {
 	C.glBindVideoCaptureStreamBufferNV(video_capture_slot, stream, frame_region, offset)
 }
-[inline]
-pub fn bind_video_capture_stream_texture_nv(video_capture_slot u32, stream u32, frame_region u32, target u32, texture u32)  {
-	C.glBindVideoCaptureStreamTextureNV(video_capture_slot, stream, frame_region, target, texture)
+
+@[inline]
+pub fn bind_video_capture_stream_texture_nv(video_capture_slot u32, stream u32, frame_region u32, target u32, texture u32) {
+	C.glBindVideoCaptureStreamTextureNV(video_capture_slot, stream, frame_region, target,
+		texture)
 }
-[inline]
-pub fn end_video_capture_nv(video_capture_slot u32)  {
+
+@[inline]
+pub fn end_video_capture_nv(video_capture_slot u32) {
 	C.glEndVideoCaptureNV(video_capture_slot)
 }
-[inline]
-pub fn get_video_capture_streamdv_nv(video_capture_slot u32, stream u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_video_capture_streamdv_nv(video_capture_slot u32, stream u32, pname u32, params &f64) {
 	C.glGetVideoCaptureStreamdvNV(video_capture_slot, stream, pname, params)
 }
-[inline]
-pub fn get_video_capture_streamfv_nv(video_capture_slot u32, stream u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_video_capture_streamfv_nv(video_capture_slot u32, stream u32, pname u32, params &f32) {
 	C.glGetVideoCaptureStreamfvNV(video_capture_slot, stream, pname, params)
 }
-[inline]
-pub fn get_video_capture_streamiv_nv(video_capture_slot u32, stream u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_video_capture_streamiv_nv(video_capture_slot u32, stream u32, pname u32, params &int) {
 	C.glGetVideoCaptureStreamivNV(video_capture_slot, stream, pname, params)
 }
-[inline]
-pub fn get_video_captureiv_nv(video_capture_slot u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_video_captureiv_nv(video_capture_slot u32, pname u32, params &int) {
 	C.glGetVideoCaptureivNV(video_capture_slot, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn video_capture_nv(video_capture_slot u32, sequence_num &u32, capture_time &u64) u32 {
 	return C.glVideoCaptureNV(video_capture_slot, sequence_num, capture_time)
 }
-[inline]
-pub fn video_capture_stream_parameterdv_nv(video_capture_slot u32, stream u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn video_capture_stream_parameterdv_nv(video_capture_slot u32, stream u32, pname u32, params &f64) {
 	C.glVideoCaptureStreamParameterdvNV(video_capture_slot, stream, pname, params)
 }
-[inline]
-pub fn video_capture_stream_parameterfv_nv(video_capture_slot u32, stream u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn video_capture_stream_parameterfv_nv(video_capture_slot u32, stream u32, pname u32, params &f32) {
 	C.glVideoCaptureStreamParameterfvNV(video_capture_slot, stream, pname, params)
 }
-[inline]
-pub fn video_capture_stream_parameteriv_nv(video_capture_slot u32, stream u32, pname u32, params &int)  {
+
+@[inline]
+pub fn video_capture_stream_parameteriv_nv(video_capture_slot u32, stream u32, pname u32, params &int) {
 	C.glVideoCaptureStreamParameterivNV(video_capture_slot, stream, pname, params)
 }
-[inline]
-pub fn depth_range_arrayfv_nv(first u32, count int, v &f32)  {
+
+@[inline]
+pub fn depth_range_arrayfv_nv(first u32, count int, v &f32) {
 	C.glDepthRangeArrayfvNV(first, count, v)
 }
-[inline]
-pub fn depth_range_indexedf_nv(index u32, n f32, f f32)  {
+
+@[inline]
+pub fn depth_range_indexedf_nv(index u32, n f32, f f32) {
 	C.glDepthRangeIndexedfNV(index, n, f)
 }
-[inline]
-pub fn disablei_nv(target u32, index u32)  {
+
+@[inline]
+pub fn disablei_nv(target u32, index u32) {
 	C.glDisableiNV(target, index)
 }
-[inline]
-pub fn enablei_nv(target u32, index u32)  {
+
+@[inline]
+pub fn enablei_nv(target u32, index u32) {
 	C.glEnableiNV(target, index)
 }
-[inline]
-pub fn get_floati_v_nv(target u32, index u32, data &f32)  {
+
+@[inline]
+pub fn get_floati_v_nv(target u32, index u32, data &f32) {
 	C.glGetFloati_vNV(target, index, data)
 }
-[inline]
+
+@[inline]
 pub fn is_enabledi_nv(target u32, index u32) u8 {
 	return C.glIsEnablediNV(target, index)
 }
-[inline]
-pub fn scissor_arrayv_nv(first u32, count int, v &int)  {
+
+@[inline]
+pub fn scissor_arrayv_nv(first u32, count int, v &int) {
 	C.glScissorArrayvNV(first, count, v)
 }
-[inline]
-pub fn scissor_indexed_nv(index u32, left int, bottom int, width int, height int)  {
+
+@[inline]
+pub fn scissor_indexed_nv(index u32, left int, bottom int, width int, height int) {
 	C.glScissorIndexedNV(index, left, bottom, width, height)
 }
-[inline]
-pub fn scissor_indexedv_nv(index u32, v &int)  {
+
+@[inline]
+pub fn scissor_indexedv_nv(index u32, v &int) {
 	C.glScissorIndexedvNV(index, v)
 }
-[inline]
-pub fn viewport_arrayv_nv(first u32, count int, v &f32)  {
+
+@[inline]
+pub fn viewport_arrayv_nv(first u32, count int, v &f32) {
 	C.glViewportArrayvNV(first, count, v)
 }
-[inline]
-pub fn viewport_indexedf_nv(index u32, x f32, y f32, w f32, h f32)  {
+
+@[inline]
+pub fn viewport_indexedf_nv(index u32, x f32, y f32, w f32, h f32) {
 	C.glViewportIndexedfNV(index, x, y, w, h)
 }
-[inline]
-pub fn viewport_indexedfv_nv(index u32, v &f32)  {
+
+@[inline]
+pub fn viewport_indexedfv_nv(index u32, v &f32) {
 	C.glViewportIndexedfvNV(index, v)
 }
-[inline]
-pub fn viewport_swizzle_nv(index u32, swizzlex u32, swizzley u32, swizzlez u32, swizzlew u32)  {
+
+@[inline]
+pub fn viewport_swizzle_nv(index u32, swizzlex u32, swizzley u32, swizzlez u32, swizzlew u32) {
 	C.glViewportSwizzleNV(index, swizzlex, swizzley, swizzlez, swizzlew)
 }
-[inline]
-pub fn eglimage_target_renderbuffer_storage_oes(target u32, image voidptr)  {
+
+@[inline]
+pub fn eglimage_target_renderbuffer_storage_oes(target u32, image voidptr) {
 	C.glEGLImageTargetRenderbufferStorageOES(target, image)
 }
-[inline]
-pub fn eglimage_target_texture2does(target u32, image voidptr)  {
+
+@[inline]
+pub fn eglimage_target_texture2does(target u32, image voidptr) {
 	C.glEGLImageTargetTexture2DOES(target, image)
 }
-[inline]
-pub fn blend_equation_separate_oes(mode_rgb u32, mode_alpha u32)  {
+
+@[inline]
+pub fn blend_equation_separate_oes(mode_rgb u32, mode_alpha u32) {
 	C.glBlendEquationSeparateOES(mode_rgb, mode_alpha)
 }
-[inline]
-pub fn blend_func_separate_oes(sfactor_rgb u32, dfactor_rgb u32, sfactor_alpha u32, dfactor_alpha u32)  {
+
+@[inline]
+pub fn blend_func_separate_oes(sfactor_rgb u32, dfactor_rgb u32, sfactor_alpha u32, dfactor_alpha u32) {
 	C.glBlendFuncSeparateOES(sfactor_rgb, dfactor_rgb, sfactor_alpha, dfactor_alpha)
 }
-[inline]
-pub fn blend_equation_oes(mode u32)  {
+
+@[inline]
+pub fn blend_equation_oes(mode u32) {
 	C.glBlendEquationOES(mode)
 }
-[inline]
-pub fn copy_image_sub_data_oes(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int)  {
-	C.glCopyImageSubDataOES(src_name, src_target, src_level, src_x, src_y, src_z, dst_name, dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth)
+
+@[inline]
+pub fn copy_image_sub_data_oes(src_name u32, src_target u32, src_level int, src_x int, src_y int, src_z int, dst_name u32, dst_target u32, dst_level int, dst_x int, dst_y int, dst_z int, src_width int, src_height int, src_depth int) {
+	C.glCopyImageSubDataOES(src_name, src_target, src_level, src_x, src_y, src_z, dst_name,
+		dst_target, dst_level, dst_x, dst_y, dst_z, src_width, src_height, src_depth)
 }
-[inline]
-pub fn blend_equation_separatei_oes(buf u32, mode_rgb u32, mode_alpha u32)  {
+
+@[inline]
+pub fn blend_equation_separatei_oes(buf u32, mode_rgb u32, mode_alpha u32) {
 	C.glBlendEquationSeparateiOES(buf, mode_rgb, mode_alpha)
 }
-[inline]
-pub fn blend_equationi_oes(buf u32, mode u32)  {
+
+@[inline]
+pub fn blend_equationi_oes(buf u32, mode u32) {
 	C.glBlendEquationiOES(buf, mode)
 }
-[inline]
-pub fn blend_func_separatei_oes(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32)  {
+
+@[inline]
+pub fn blend_func_separatei_oes(buf u32, src_rgb u32, dst_rgb u32, src_alpha u32, dst_alpha u32) {
 	C.glBlendFuncSeparateiOES(buf, src_rgb, dst_rgb, src_alpha, dst_alpha)
 }
-[inline]
-pub fn blend_funci_oes(buf u32, src u32, dst u32)  {
+
+@[inline]
+pub fn blend_funci_oes(buf u32, src u32, dst u32) {
 	C.glBlendFunciOES(buf, src, dst)
 }
-[inline]
-pub fn color_maski_oes(buf u32, r u8, g u8, b u8, a u8)  {
+
+@[inline]
+pub fn color_maski_oes(buf u32, r u8, g u8, b u8, a u8) {
 	C.glColorMaskiOES(buf, r, g, b, a)
 }
-[inline]
-pub fn disablei_oes(target u32, index u32)  {
+
+@[inline]
+pub fn disablei_oes(target u32, index u32) {
 	C.glDisableiOES(target, index)
 }
-[inline]
-pub fn enablei_oes(target u32, index u32)  {
+
+@[inline]
+pub fn enablei_oes(target u32, index u32) {
 	C.glEnableiOES(target, index)
 }
-[inline]
+
+@[inline]
 pub fn is_enabledi_oes(target u32, index u32) u8 {
 	return C.glIsEnablediOES(target, index)
 }
-[inline]
-pub fn bind_framebuffer_oes(target u32, framebuffer u32)  {
+
+@[inline]
+pub fn bind_framebuffer_oes(target u32, framebuffer u32) {
 	C.glBindFramebufferOES(target, framebuffer)
 }
-[inline]
-pub fn bind_renderbuffer_oes(target u32, renderbuffer u32)  {
+
+@[inline]
+pub fn bind_renderbuffer_oes(target u32, renderbuffer u32) {
 	C.glBindRenderbufferOES(target, renderbuffer)
 }
-[inline]
+
+@[inline]
 pub fn check_framebuffer_status_oes(target u32) u32 {
 	return C.glCheckFramebufferStatusOES(target)
 }
-[inline]
-pub fn delete_framebuffers_oes(n int, framebuffers &u32)  {
+
+@[inline]
+pub fn delete_framebuffers_oes(n int, framebuffers &u32) {
 	C.glDeleteFramebuffersOES(n, framebuffers)
 }
-[inline]
-pub fn delete_renderbuffers_oes(n int, renderbuffers &u32)  {
+
+@[inline]
+pub fn delete_renderbuffers_oes(n int, renderbuffers &u32) {
 	C.glDeleteRenderbuffersOES(n, renderbuffers)
 }
-[inline]
-pub fn framebuffer_renderbuffer_oes(target u32, attachment u32, renderbuffertarget u32, renderbuffer u32)  {
+
+@[inline]
+pub fn framebuffer_renderbuffer_oes(target u32, attachment u32, renderbuffertarget u32, renderbuffer u32) {
 	C.glFramebufferRenderbufferOES(target, attachment, renderbuffertarget, renderbuffer)
 }
-[inline]
-pub fn framebuffer_texture2does(target u32, attachment u32, textarget u32, texture u32, level int)  {
+
+@[inline]
+pub fn framebuffer_texture2does(target u32, attachment u32, textarget u32, texture u32, level int) {
 	C.glFramebufferTexture2DOES(target, attachment, textarget, texture, level)
 }
-[inline]
-pub fn gen_framebuffers_oes(n int, framebuffers &u32)  {
+
+@[inline]
+pub fn gen_framebuffers_oes(n int, framebuffers &u32) {
 	C.glGenFramebuffersOES(n, framebuffers)
 }
-[inline]
-pub fn gen_renderbuffers_oes(n int, renderbuffers &u32)  {
+
+@[inline]
+pub fn gen_renderbuffers_oes(n int, renderbuffers &u32) {
 	C.glGenRenderbuffersOES(n, renderbuffers)
 }
-[inline]
-pub fn generate_mipmap_oes(target u32)  {
+
+@[inline]
+pub fn generate_mipmap_oes(target u32) {
 	C.glGenerateMipmapOES(target)
 }
-[inline]
-pub fn get_framebuffer_attachment_parameteriv_oes(target u32, attachment u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_framebuffer_attachment_parameteriv_oes(target u32, attachment u32, pname u32, params &int) {
 	C.glGetFramebufferAttachmentParameterivOES(target, attachment, pname, params)
 }
-[inline]
-pub fn get_renderbuffer_parameteriv_oes(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_renderbuffer_parameteriv_oes(target u32, pname u32, params &int) {
 	C.glGetRenderbufferParameterivOES(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn is_framebuffer_oes(framebuffer u32) u8 {
 	return C.glIsFramebufferOES(framebuffer)
 }
-[inline]
+
+@[inline]
 pub fn is_renderbuffer_oes(renderbuffer u32) u8 {
 	return C.glIsRenderbufferOES(renderbuffer)
 }
-[inline]
-pub fn renderbuffer_storage_oes(target u32, internalformat u32, width int, height int)  {
+
+@[inline]
+pub fn renderbuffer_storage_oes(target u32, internalformat u32, width int, height int) {
 	C.glRenderbufferStorageOES(target, internalformat, width, height)
 }
-[inline]
-pub fn get_program_binary_oes(program u32, buf_size int, length &int, binary_format &u32, binary voidptr)  {
+
+@[inline]
+pub fn get_program_binary_oes(program u32, buf_size int, length &int, binary_format &u32, binary voidptr) {
 	C.glGetProgramBinaryOES(program, buf_size, length, binary_format, binary)
 }
-[inline]
-pub fn program_binary_oes(program u32, binary_format u32, binary voidptr, length int)  {
+
+@[inline]
+pub fn program_binary_oes(program u32, binary_format u32, binary voidptr, length int) {
 	C.glProgramBinaryOES(program, binary_format, binary, length)
 }
-[inline]
-pub fn get_buffer_pointerv_oes(target u32, pname u32, params &voidptr)  {
+
+@[inline]
+pub fn get_buffer_pointerv_oes(target u32, pname u32, params &voidptr) {
 	C.glGetBufferPointervOES(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn map_buffer_oes(target u32, access u32) voidptr {
 	return C.glMapBufferOES(target, access)
 }
-[inline]
+
+@[inline]
 pub fn unmap_buffer_oes(target u32) u8 {
 	return C.glUnmapBufferOES(target)
 }
-[inline]
-pub fn current_palette_matrix_oes(index u32)  {
+
+@[inline]
+pub fn current_palette_matrix_oes(index u32) {
 	C.glCurrentPaletteMatrixOES(index)
 }
-[inline]
-pub fn matrix_index_pointer_oes(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn matrix_index_pointer_oes(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glMatrixIndexPointerOES(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn weight_pointer_oes(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn weight_pointer_oes(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glWeightPointerOES(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn min_sample_shading_oes(value f32)  {
+
+@[inline]
+pub fn min_sample_shading_oes(value f32) {
 	C.glMinSampleShadingOES(value)
 }
-[inline]
-pub fn clear_depthf_oes(depth f32)  {
+
+@[inline]
+pub fn clear_depthf_oes(depth f32) {
 	C.glClearDepthfOES(depth)
 }
-[inline]
-pub fn clip_planef_oes(plane u32, equation &f32)  {
+
+@[inline]
+pub fn clip_planef_oes(plane u32, equation &f32) {
 	C.glClipPlanefOES(plane, equation)
 }
-[inline]
-pub fn depth_rangef_oes(n f32, f f32)  {
+
+@[inline]
+pub fn depth_rangef_oes(n f32, f f32) {
 	C.glDepthRangefOES(n, f)
 }
-[inline]
-pub fn frustumf_oes(l f32, r f32, b f32, t f32, n f32, f f32)  {
+
+@[inline]
+pub fn frustumf_oes(l f32, r f32, b f32, t f32, n f32, f f32) {
 	C.glFrustumfOES(l, r, b, t, n, f)
 }
-[inline]
-pub fn get_clip_planef_oes(plane u32, equation &f32)  {
+
+@[inline]
+pub fn get_clip_planef_oes(plane u32, equation &f32) {
 	C.glGetClipPlanefOES(plane, equation)
 }
-[inline]
-pub fn orthof_oes(l f32, r f32, b f32, t f32, n f32, f f32)  {
+
+@[inline]
+pub fn orthof_oes(l f32, r f32, b f32, t f32, n f32, f f32) {
 	C.glOrthofOES(l, r, b, t, n, f)
 }
-[inline]
-pub fn compressed_tex_image3does(target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr)  {
-	C.glCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border, image_size, data)
+
+@[inline]
+pub fn compressed_tex_image3does(target u32, level int, internalformat u32, width int, height int, depth int, border int, image_size int, data voidptr) {
+	C.glCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border,
+		image_size, data)
 }
-[inline]
-pub fn compressed_tex_sub_image3does(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr)  {
-	C.glCompressedTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, image_size, data)
+
+@[inline]
+pub fn compressed_tex_sub_image3does(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, image_size int, data voidptr) {
+	C.glCompressedTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height,
+		depth, format, image_size, data)
 }
-[inline]
-pub fn copy_tex_sub_image3does(target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn copy_tex_sub_image3does(target u32, level int, xoffset int, yoffset int, zoffset int, x int, y int, width int, height int) {
 	C.glCopyTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, x, y, width, height)
 }
-[inline]
-pub fn framebuffer_texture3does(target u32, attachment u32, textarget u32, texture u32, level int, zoffset int)  {
+
+@[inline]
+pub fn framebuffer_texture3does(target u32, attachment u32, textarget u32, texture u32, level int, zoffset int) {
 	C.glFramebufferTexture3DOES(target, attachment, textarget, texture, level, zoffset)
 }
-[inline]
-pub fn tex_image3does(target u32, level int, internal_format u32, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexImage3DOES(target, level, internal_format, width, height, depth, border, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_image3does(target u32, level int, internal_format u32, width int, height int, depth int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexImage3DOES(target, level, internal_format, width, height, depth, border, format,
+		gl_type, pixels)
 }
-[inline]
-pub fn tex_sub_image3does(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_sub_image3does(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn get_sampler_parameter_iiv_oes(sampler u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_sampler_parameter_iiv_oes(sampler u32, pname u32, params &int) {
 	C.glGetSamplerParameterIivOES(sampler, pname, params)
 }
-[inline]
-pub fn get_sampler_parameter_iuiv_oes(sampler u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_sampler_parameter_iuiv_oes(sampler u32, pname u32, params &u32) {
 	C.glGetSamplerParameterIuivOES(sampler, pname, params)
 }
-[inline]
-pub fn get_tex_parameter_iiv_oes(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_parameter_iiv_oes(target u32, pname u32, params &int) {
 	C.glGetTexParameterIivOES(target, pname, params)
 }
-[inline]
-pub fn get_tex_parameter_iuiv_oes(target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn get_tex_parameter_iuiv_oes(target u32, pname u32, params &u32) {
 	C.glGetTexParameterIuivOES(target, pname, params)
 }
-[inline]
-pub fn sampler_parameter_iiv_oes(sampler u32, pname u32, params &int)  {
+
+@[inline]
+pub fn sampler_parameter_iiv_oes(sampler u32, pname u32, params &int) {
 	C.glSamplerParameterIivOES(sampler, pname, params)
 }
-[inline]
-pub fn sampler_parameter_iuiv_oes(sampler u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn sampler_parameter_iuiv_oes(sampler u32, pname u32, params &u32) {
 	C.glSamplerParameterIuivOES(sampler, pname, params)
 }
-[inline]
-pub fn tex_parameter_iiv_oes(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_parameter_iiv_oes(target u32, pname u32, params &int) {
 	C.glTexParameterIivOES(target, pname, params)
 }
-[inline]
-pub fn tex_parameter_iuiv_oes(target u32, pname u32, params &u32)  {
+
+@[inline]
+pub fn tex_parameter_iuiv_oes(target u32, pname u32, params &u32) {
 	C.glTexParameterIuivOES(target, pname, params)
 }
-[inline]
-pub fn tex_buffer_oes(target u32, internalformat u32, buffer u32)  {
+
+@[inline]
+pub fn tex_buffer_oes(target u32, internalformat u32, buffer u32) {
 	C.glTexBufferOES(target, internalformat, buffer)
 }
-[inline]
-pub fn tex_buffer_range_oes(target u32, internalformat u32, buffer u32, offset i64, size i64)  {
+
+@[inline]
+pub fn tex_buffer_range_oes(target u32, internalformat u32, buffer u32, offset i64, size i64) {
 	C.glTexBufferRangeOES(target, internalformat, buffer, offset, size)
 }
-[inline]
-pub fn get_tex_genfv_oes(coord u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_tex_genfv_oes(coord u32, pname u32, params &f32) {
 	C.glGetTexGenfvOES(coord, pname, params)
 }
-[inline]
-pub fn get_tex_geniv_oes(coord u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_geniv_oes(coord u32, pname u32, params &int) {
 	C.glGetTexGenivOES(coord, pname, params)
 }
-[inline]
-pub fn get_tex_genxv_oes(coord u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_genxv_oes(coord u32, pname u32, params &int) {
 	C.glGetTexGenxvOES(coord, pname, params)
 }
-[inline]
-pub fn tex_genf_oes(coord u32, pname u32, param f32)  {
+
+@[inline]
+pub fn tex_genf_oes(coord u32, pname u32, param f32) {
 	C.glTexGenfOES(coord, pname, param)
 }
-[inline]
-pub fn tex_genfv_oes(coord u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn tex_genfv_oes(coord u32, pname u32, params &f32) {
 	C.glTexGenfvOES(coord, pname, params)
 }
-[inline]
-pub fn tex_geni_oes(coord u32, pname u32, param int)  {
+
+@[inline]
+pub fn tex_geni_oes(coord u32, pname u32, param int) {
 	C.glTexGeniOES(coord, pname, param)
 }
-[inline]
-pub fn tex_geniv_oes(coord u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_geniv_oes(coord u32, pname u32, params &int) {
 	C.glTexGenivOES(coord, pname, params)
 }
-[inline]
-pub fn tex_genx_oes(coord u32, pname u32, param int)  {
+
+@[inline]
+pub fn tex_genx_oes(coord u32, pname u32, param int) {
 	C.glTexGenxOES(coord, pname, param)
 }
-[inline]
-pub fn tex_genxv_oes(coord u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_genxv_oes(coord u32, pname u32, params &int) {
 	C.glTexGenxvOES(coord, pname, params)
 }
-[inline]
-pub fn tex_storage3dmultisample_oes(target u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8)  {
-	C.glTexStorage3DMultisampleOES(target, samples, internalformat, width, height, depth, fixedsamplelocations)
+
+@[inline]
+pub fn tex_storage3dmultisample_oes(target u32, samples int, internalformat u32, width int, height int, depth int, fixedsamplelocations u8) {
+	C.glTexStorage3DMultisampleOES(target, samples, internalformat, width, height, depth,
+		fixedsamplelocations)
 }
-[inline]
-pub fn texture_view_oes(texture u32, target u32, origtexture u32, internalformat u32, minlevel u32, numlevels u32, minlayer u32, numlayers u32)  {
-	C.glTextureViewOES(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers)
+
+@[inline]
+pub fn texture_view_oes(texture u32, target u32, origtexture u32, internalformat u32, minlevel u32, numlevels u32, minlayer u32, numlayers u32) {
+	C.glTextureViewOES(texture, target, origtexture, internalformat, minlevel, numlevels,
+		minlayer, numlayers)
 }
-[inline]
-pub fn bind_vertex_array_oes(array u32)  {
+
+@[inline]
+pub fn bind_vertex_array_oes(array u32) {
 	C.glBindVertexArrayOES(array)
 }
-[inline]
-pub fn delete_vertex_arrays_oes(n int, arrays &u32)  {
+
+@[inline]
+pub fn delete_vertex_arrays_oes(n int, arrays &u32) {
 	C.glDeleteVertexArraysOES(n, arrays)
 }
-[inline]
-pub fn gen_vertex_arrays_oes(n int, arrays &u32)  {
+
+@[inline]
+pub fn gen_vertex_arrays_oes(n int, arrays &u32) {
 	C.glGenVertexArraysOES(n, arrays)
 }
-[inline]
+
+@[inline]
 pub fn is_vertex_array_oes(array u32) u8 {
 	return C.glIsVertexArrayOES(array)
 }
-[inline]
-pub fn framebuffer_texture_multiview_ovr(target u32, attachment u32, texture u32, level int, base_view_index int, num_views int)  {
-	C.glFramebufferTextureMultiviewOVR(target, attachment, texture, level, base_view_index, num_views)
+
+@[inline]
+pub fn framebuffer_texture_multiview_ovr(target u32, attachment u32, texture u32, level int, base_view_index int, num_views int) {
+	C.glFramebufferTextureMultiviewOVR(target, attachment, texture, level, base_view_index,
+		num_views)
 }
-[inline]
-pub fn named_framebuffer_texture_multiview_ovr(framebuffer u32, attachment u32, texture u32, level int, base_view_index int, num_views int)  {
-	C.glNamedFramebufferTextureMultiviewOVR(framebuffer, attachment, texture, level, base_view_index, num_views)
+
+@[inline]
+pub fn named_framebuffer_texture_multiview_ovr(framebuffer u32, attachment u32, texture u32, level int, base_view_index int, num_views int) {
+	C.glNamedFramebufferTextureMultiviewOVR(framebuffer, attachment, texture, level, base_view_index,
+		num_views)
 }
-[inline]
-pub fn framebuffer_texture_multisample_multiview_ovr(target u32, attachment u32, texture u32, level int, samples int, base_view_index int, num_views int)  {
-	C.glFramebufferTextureMultisampleMultiviewOVR(target, attachment, texture, level, samples, base_view_index, num_views)
+
+@[inline]
+pub fn framebuffer_texture_multisample_multiview_ovr(target u32, attachment u32, texture u32, level int, samples int, base_view_index int, num_views int) {
+	C.glFramebufferTextureMultisampleMultiviewOVR(target, attachment, texture, level,
+		samples, base_view_index, num_views)
 }
-[inline]
-pub fn alpha_func_qcom(func u32, ref f32)  {
+
+@[inline]
+pub fn alpha_func_qcom(func u32, ref f32) {
 	C.glAlphaFuncQCOM(func, ref)
 }
-[inline]
-pub fn disable_driver_control_qcom(driver_control u32)  {
+
+@[inline]
+pub fn disable_driver_control_qcom(driver_control u32) {
 	C.glDisableDriverControlQCOM(driver_control)
 }
-[inline]
-pub fn enable_driver_control_qcom(driver_control u32)  {
+
+@[inline]
+pub fn enable_driver_control_qcom(driver_control u32) {
 	C.glEnableDriverControlQCOM(driver_control)
 }
-[inline]
-pub fn get_driver_control_string_qcom(driver_control u32, buf_size int, length &int, driver_control_string &char)  {
+
+@[inline]
+pub fn get_driver_control_string_qcom(driver_control u32, buf_size int, length &int, driver_control_string &char) {
 	C.glGetDriverControlStringQCOM(driver_control, buf_size, length, driver_control_string)
 }
-[inline]
-pub fn get_driver_controls_qcom(num &int, size int, driver_controls &u32)  {
+
+@[inline]
+pub fn get_driver_controls_qcom(num &int, size int, driver_controls &u32) {
 	C.glGetDriverControlsQCOM(num, size, driver_controls)
 }
-[inline]
-pub fn ext_get_buffer_pointerv_qcom(target u32, params &voidptr)  {
+
+@[inline]
+pub fn ext_get_buffer_pointerv_qcom(target u32, params &voidptr) {
 	C.glExtGetBufferPointervQCOM(target, params)
 }
-[inline]
-pub fn ext_get_buffers_qcom(buffers &u32, max_buffers int, num_buffers &int)  {
+
+@[inline]
+pub fn ext_get_buffers_qcom(buffers &u32, max_buffers int, num_buffers &int) {
 	C.glExtGetBuffersQCOM(buffers, max_buffers, num_buffers)
 }
-[inline]
-pub fn ext_get_framebuffers_qcom(framebuffers &u32, max_framebuffers int, num_framebuffers &int)  {
+
+@[inline]
+pub fn ext_get_framebuffers_qcom(framebuffers &u32, max_framebuffers int, num_framebuffers &int) {
 	C.glExtGetFramebuffersQCOM(framebuffers, max_framebuffers, num_framebuffers)
 }
-[inline]
-pub fn ext_get_renderbuffers_qcom(renderbuffers &u32, max_renderbuffers int, num_renderbuffers &int)  {
+
+@[inline]
+pub fn ext_get_renderbuffers_qcom(renderbuffers &u32, max_renderbuffers int, num_renderbuffers &int) {
 	C.glExtGetRenderbuffersQCOM(renderbuffers, max_renderbuffers, num_renderbuffers)
 }
-[inline]
-pub fn ext_get_tex_level_parameteriv_qcom(texture u32, face u32, level int, pname u32, params &int)  {
+
+@[inline]
+pub fn ext_get_tex_level_parameteriv_qcom(texture u32, face u32, level int, pname u32, params &int) {
 	C.glExtGetTexLevelParameterivQCOM(texture, face, level, pname, params)
 }
-[inline]
-pub fn ext_get_tex_sub_image_qcom(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, texels voidptr)  {
-	C.glExtGetTexSubImageQCOM(target, level, xoffset, yoffset, zoffset, width, height, depth, format, gl_type, texels)
+
+@[inline]
+pub fn ext_get_tex_sub_image_qcom(target u32, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format u32, gl_type u32, texels voidptr) {
+	C.glExtGetTexSubImageQCOM(target, level, xoffset, yoffset, zoffset, width, height,
+		depth, format, gl_type, texels)
 }
-[inline]
-pub fn ext_get_textures_qcom(textures &u32, max_textures int, num_textures &int)  {
+
+@[inline]
+pub fn ext_get_textures_qcom(textures &u32, max_textures int, num_textures &int) {
 	C.glExtGetTexturesQCOM(textures, max_textures, num_textures)
 }
-[inline]
-pub fn ext_tex_object_state_overridei_qcom(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn ext_tex_object_state_overridei_qcom(target u32, pname u32, param int) {
 	C.glExtTexObjectStateOverrideiQCOM(target, pname, param)
 }
-[inline]
-pub fn ext_get_program_binary_source_qcom(program u32, shadertype u32, source &char, length &int)  {
+
+@[inline]
+pub fn ext_get_program_binary_source_qcom(program u32, shadertype u32, source &char, length &int) {
 	C.glExtGetProgramBinarySourceQCOM(program, shadertype, source, length)
 }
-[inline]
-pub fn ext_get_programs_qcom(programs &u32, max_programs int, num_programs &int)  {
+
+@[inline]
+pub fn ext_get_programs_qcom(programs &u32, max_programs int, num_programs &int) {
 	C.glExtGetProgramsQCOM(programs, max_programs, num_programs)
 }
-[inline]
-pub fn ext_get_shaders_qcom(shaders &u32, max_shaders int, num_shaders &int)  {
+
+@[inline]
+pub fn ext_get_shaders_qcom(shaders &u32, max_shaders int, num_shaders &int) {
 	C.glExtGetShadersQCOM(shaders, max_shaders, num_shaders)
 }
-[inline]
+
+@[inline]
 pub fn ext_is_program_binary_qcom(program u32) u8 {
 	return C.glExtIsProgramBinaryQCOM(program)
 }
-[inline]
-pub fn framebuffer_foveation_config_qcom(fbo u32, num_layers u32, focal_points_per_layer u32, requested_features u32, provided_features &u32)  {
-	C.glFramebufferFoveationConfigQCOM(fbo, num_layers, focal_points_per_layer, requested_features, provided_features)
+
+@[inline]
+pub fn framebuffer_foveation_config_qcom(fbo u32, num_layers u32, focal_points_per_layer u32, requested_features u32, provided_features &u32) {
+	C.glFramebufferFoveationConfigQCOM(fbo, num_layers, focal_points_per_layer, requested_features,
+		provided_features)
 }
-[inline]
-pub fn framebuffer_foveation_parameters_qcom(fbo u32, layer u32, focal_point u32, focal_x f32, focal_y f32, gain_x f32, gain_y f32, fovea_area f32)  {
-	C.glFramebufferFoveationParametersQCOM(fbo, layer, focal_point, focal_x, focal_y, gain_x, gain_y, fovea_area)
+
+@[inline]
+pub fn framebuffer_foveation_parameters_qcom(fbo u32, layer u32, focal_point u32, focal_x f32, focal_y f32, gain_x f32, gain_y f32, fovea_area f32) {
+	C.glFramebufferFoveationParametersQCOM(fbo, layer, focal_point, focal_x, focal_y,
+		gain_x, gain_y, fovea_area)
 }
-[inline]
-pub fn framebuffer_fetch_barrier_qcom()  {
+
+@[inline]
+pub fn framebuffer_fetch_barrier_qcom() {
 	C.glFramebufferFetchBarrierQCOM()
 }
-[inline]
-pub fn texture_foveation_parameters_qcom(texture u32, layer u32, focal_point u32, focal_x f32, focal_y f32, gain_x f32, gain_y f32, fovea_area f32)  {
-	C.glTextureFoveationParametersQCOM(texture, layer, focal_point, focal_x, focal_y, gain_x, gain_y, fovea_area)
+
+@[inline]
+pub fn texture_foveation_parameters_qcom(texture u32, layer u32, focal_point u32, focal_x f32, focal_y f32, gain_x f32, gain_y f32, fovea_area f32) {
+	C.glTextureFoveationParametersQCOM(texture, layer, focal_point, focal_x, focal_y,
+		gain_x, gain_y, fovea_area)
 }
-[inline]
-pub fn end_tiling_qcom(preserve_mask u32)  {
+
+@[inline]
+pub fn end_tiling_qcom(preserve_mask u32) {
 	C.glEndTilingQCOM(preserve_mask)
 }
-[inline]
-pub fn start_tiling_qcom(x u32, y u32, width u32, height u32, preserve_mask u32)  {
+
+@[inline]
+pub fn start_tiling_qcom(x u32, y u32, width u32, height u32, preserve_mask u32) {
 	C.glStartTilingQCOM(x, y, width, height, preserve_mask)
 }
-[inline]
-pub fn alpha_funcx(func u32, ref int)  {
+
+@[inline]
+pub fn alpha_funcx(func u32, ref int) {
 	C.glAlphaFuncx(func, ref)
 }
-[inline]
-pub fn clear_colorx(red int, green int, blue int, alpha int)  {
+
+@[inline]
+pub fn clear_colorx(red int, green int, blue int, alpha int) {
 	C.glClearColorx(red, green, blue, alpha)
 }
-[inline]
-pub fn clear_depthx(depth int)  {
+
+@[inline]
+pub fn clear_depthx(depth int) {
 	C.glClearDepthx(depth)
 }
-[inline]
-pub fn color4x(red int, green int, blue int, alpha int)  {
+
+@[inline]
+pub fn color4x(red int, green int, blue int, alpha int) {
 	C.glColor4x(red, green, blue, alpha)
 }
-[inline]
-pub fn depth_rangex(z_near int, z_far int)  {
+
+@[inline]
+pub fn depth_rangex(z_near int, z_far int) {
 	C.glDepthRangex(z_near, z_far)
 }
-[inline]
-pub fn fogx(pname u32, param int)  {
+
+@[inline]
+pub fn fogx(pname u32, param int) {
 	C.glFogx(pname, param)
 }
-[inline]
-pub fn fogxv(pname u32, params &int)  {
+
+@[inline]
+pub fn fogxv(pname u32, params &int) {
 	C.glFogxv(pname, params)
 }
-[inline]
-pub fn frustumf(left f32, right f32, bottom f32, top f32, z_near f32, z_far f32)  {
+
+@[inline]
+pub fn frustumf(left f32, right f32, bottom f32, top f32, z_near f32, z_far f32) {
 	C.glFrustumf(left, right, bottom, top, z_near, z_far)
 }
-[inline]
-pub fn frustumx(left int, right int, bottom int, top int, z_near int, z_far int)  {
+
+@[inline]
+pub fn frustumx(left int, right int, bottom int, top int, z_near int, z_far int) {
 	C.glFrustumx(left, right, bottom, top, z_near, z_far)
 }
-[inline]
-pub fn light_modelx(pname u32, param int)  {
+
+@[inline]
+pub fn light_modelx(pname u32, param int) {
 	C.glLightModelx(pname, param)
 }
-[inline]
-pub fn light_modelxv(pname u32, params &int)  {
+
+@[inline]
+pub fn light_modelxv(pname u32, params &int) {
 	C.glLightModelxv(pname, params)
 }
-[inline]
-pub fn lightx(light u32, pname u32, param int)  {
+
+@[inline]
+pub fn lightx(light u32, pname u32, param int) {
 	C.glLightx(light, pname, param)
 }
-[inline]
-pub fn lightxv(light u32, pname u32, params &int)  {
+
+@[inline]
+pub fn lightxv(light u32, pname u32, params &int) {
 	C.glLightxv(light, pname, params)
 }
-[inline]
-pub fn line_widthx(width int)  {
+
+@[inline]
+pub fn line_widthx(width int) {
 	C.glLineWidthx(width)
 }
-[inline]
-pub fn load_matrixx(m &int)  {
+
+@[inline]
+pub fn load_matrixx(m &int) {
 	C.glLoadMatrixx(m)
 }
-[inline]
-pub fn materialx(face u32, pname u32, param int)  {
+
+@[inline]
+pub fn materialx(face u32, pname u32, param int) {
 	C.glMaterialx(face, pname, param)
 }
-[inline]
-pub fn materialxv(face u32, pname u32, params &int)  {
+
+@[inline]
+pub fn materialxv(face u32, pname u32, params &int) {
 	C.glMaterialxv(face, pname, params)
 }
-[inline]
-pub fn mult_matrixx(m &int)  {
+
+@[inline]
+pub fn mult_matrixx(m &int) {
 	C.glMultMatrixx(m)
 }
-[inline]
-pub fn multi_tex_coord4x(target u32, s int, t int, r int, q int)  {
+
+@[inline]
+pub fn multi_tex_coord4x(target u32, s int, t int, r int, q int) {
 	C.glMultiTexCoord4x(target, s, t, r, q)
 }
-[inline]
-pub fn normal3x(nx int, ny int, nz int)  {
+
+@[inline]
+pub fn normal3x(nx int, ny int, nz int) {
 	C.glNormal3x(nx, ny, nz)
 }
-[inline]
-pub fn orthof(left f32, right f32, bottom f32, top f32, z_near f32, z_far f32)  {
+
+@[inline]
+pub fn orthof(left f32, right f32, bottom f32, top f32, z_near f32, z_far f32) {
 	C.glOrthof(left, right, bottom, top, z_near, z_far)
 }
-[inline]
-pub fn orthox(left int, right int, bottom int, top int, z_near int, z_far int)  {
+
+@[inline]
+pub fn orthox(left int, right int, bottom int, top int, z_near int, z_far int) {
 	C.glOrthox(left, right, bottom, top, z_near, z_far)
 }
-[inline]
-pub fn point_sizex(size int)  {
+
+@[inline]
+pub fn point_sizex(size int) {
 	C.glPointSizex(size)
 }
-[inline]
-pub fn polygon_offsetx(factor int, units int)  {
+
+@[inline]
+pub fn polygon_offsetx(factor int, units int) {
 	C.glPolygonOffsetx(factor, units)
 }
-[inline]
-pub fn rotatex(angle int, x int, y int, z int)  {
+
+@[inline]
+pub fn rotatex(angle int, x int, y int, z int) {
 	C.glRotatex(angle, x, y, z)
 }
-[inline]
-pub fn sample_coveragex(value int, invert u8)  {
+
+@[inline]
+pub fn sample_coveragex(value int, invert u8) {
 	C.glSampleCoveragex(value, invert)
 }
-[inline]
-pub fn scalex(x int, y int, z int)  {
+
+@[inline]
+pub fn scalex(x int, y int, z int) {
 	C.glScalex(x, y, z)
 }
-[inline]
-pub fn tex_envx(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn tex_envx(target u32, pname u32, param int) {
 	C.glTexEnvx(target, pname, param)
 }
-[inline]
-pub fn tex_envxv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_envxv(target u32, pname u32, params &int) {
 	C.glTexEnvxv(target, pname, params)
 }
-[inline]
-pub fn tex_parameterx(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn tex_parameterx(target u32, pname u32, param int) {
 	C.glTexParameterx(target, pname, param)
 }
-[inline]
-pub fn translatex(x int, y int, z int)  {
+
+@[inline]
+pub fn translatex(x int, y int, z int) {
 	C.glTranslatex(x, y, z)
 }
-[inline]
-pub fn clip_planef(plane u32, equation &f32)  {
+
+@[inline]
+pub fn clip_planef(plane u32, equation &f32) {
 	C.glClipPlanef(plane, equation)
 }
-[inline]
-pub fn clip_planex(plane u32, equation &int)  {
+
+@[inline]
+pub fn clip_planex(plane u32, equation &int) {
 	C.glClipPlanex(plane, equation)
 }
-[inline]
-pub fn get_clip_planef(pname u32, eqn [4]f32)  {
+
+@[inline]
+pub fn get_clip_planef(pname u32, eqn [4]f32) {
 	C.glGetClipPlanef(pname, eqn)
 }
-[inline]
-pub fn get_clip_planex(pname u32, eqn [4]int)  {
+
+@[inline]
+pub fn get_clip_planex(pname u32, eqn [4]int) {
 	C.glGetClipPlanex(pname, eqn)
 }
-[inline]
-pub fn get_fixedv(pname u32, params &int)  {
+
+@[inline]
+pub fn get_fixedv(pname u32, params &int) {
 	C.glGetFixedv(pname, params)
 }
-[inline]
-pub fn get_lightxv(light u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_lightxv(light u32, pname u32, params &int) {
 	C.glGetLightxv(light, pname, params)
 }
-[inline]
-pub fn get_materialxv(face u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_materialxv(face u32, pname u32, params &int) {
 	C.glGetMaterialxv(face, pname, params)
 }
-[inline]
-pub fn get_tex_envxv(env u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_envxv(env u32, pname u32, params &int) {
 	C.glGetTexEnvxv(env, pname, params)
 }
-[inline]
-pub fn get_tex_parameterxv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_parameterxv(target u32, pname u32, params &int) {
 	C.glGetTexParameterxv(target, pname, params)
 }
-[inline]
-pub fn point_parameterx(pname u32, param int)  {
+
+@[inline]
+pub fn point_parameterx(pname u32, param int) {
 	C.glPointParameterx(pname, param)
 }
-[inline]
-pub fn point_parameterxv(pname u32, params &int)  {
+
+@[inline]
+pub fn point_parameterxv(pname u32, params &int) {
 	C.glPointParameterxv(pname, params)
 }
-[inline]
-pub fn point_size_pointer_oes(gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn point_size_pointer_oes(gl_type u32, stride int, pointer voidptr) {
 	C.glPointSizePointerOES(gl_type, stride, pointer)
 }
-[inline]
-pub fn tex_parameterxv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_parameterxv(target u32, pname u32, params &int) {
 	C.glTexParameterxv(target, pname, params)
 }
-[inline]
+
+@[inline]
 pub fn error_string_regal(error u32) &char {
 	return C.glErrorStringREGAL(error)
 }
-[inline]
+
+@[inline]
 pub fn get_extension_regal(ext &char) u8 {
 	return C.glGetExtensionREGAL(ext)
 }
-[inline]
+
+@[inline]
 pub fn is_supported_regal(ext &char) u8 {
 	return C.glIsSupportedREGAL(ext)
 }
-[inline]
-pub fn log_message_callback_regal(callback /* GLLOGPROCREGAL */ voidptr)  {
+
+@[inline]
+pub fn log_message_callback_regal(
+	// GLLOGPROCREGAL
+	callback voidptr) {
 	C.glLogMessageCallbackREGAL(callback)
 }
-[inline]
+
+@[inline]
 pub fn get_proc_address_regal(name &char) voidptr {
 	return C.glGetProcAddressREGAL(name)
 }
-[inline]
-pub fn detail_tex_func_sgis(target u32, n int, points &f32)  {
+
+@[inline]
+pub fn detail_tex_func_sgis(target u32, n int, points &f32) {
 	C.glDetailTexFuncSGIS(target, n, points)
 }
-[inline]
-pub fn get_detail_tex_func_sgis(target u32, points &f32)  {
+
+@[inline]
+pub fn get_detail_tex_func_sgis(target u32, points &f32) {
 	C.glGetDetailTexFuncSGIS(target, points)
 }
-[inline]
-pub fn fog_func_sgis(n int, points &f32)  {
+
+@[inline]
+pub fn fog_func_sgis(n int, points &f32) {
 	C.glFogFuncSGIS(n, points)
 }
-[inline]
-pub fn get_fog_func_sgis(points &f32)  {
+
+@[inline]
+pub fn get_fog_func_sgis(points &f32) {
 	C.glGetFogFuncSGIS(points)
 }
-[inline]
-pub fn sample_mask_sgis(value f32, invert u8)  {
+
+@[inline]
+pub fn sample_mask_sgis(value f32, invert u8) {
 	C.glSampleMaskSGIS(value, invert)
 }
-[inline]
-pub fn sample_pattern_sgis(pattern u32)  {
+
+@[inline]
+pub fn sample_pattern_sgis(pattern u32) {
 	C.glSamplePatternSGIS(pattern)
 }
-[inline]
-pub fn interleaved_texture_coord_sets_sgis(factor int)  {
+
+@[inline]
+pub fn interleaved_texture_coord_sets_sgis(factor int) {
 	C.glInterleavedTextureCoordSetsSGIS(factor)
 }
-[inline]
-pub fn select_texture_coord_set_sgis(target u32)  {
+
+@[inline]
+pub fn select_texture_coord_set_sgis(target u32) {
 	C.glSelectTextureCoordSetSGIS(target)
 }
-[inline]
-pub fn select_texture_sgis(target u32)  {
+
+@[inline]
+pub fn select_texture_sgis(target u32) {
 	C.glSelectTextureSGIS(target)
 }
-[inline]
-pub fn select_texture_transform_sgis(target u32)  {
+
+@[inline]
+pub fn select_texture_transform_sgis(target u32) {
 	C.glSelectTextureTransformSGIS(target)
 }
-[inline]
-pub fn multisample_sub_rect_pos_sgis(x int, y int)  {
+
+@[inline]
+pub fn multisample_sub_rect_pos_sgis(x int, y int) {
 	C.glMultisampleSubRectPosSGIS(x, y)
 }
-[inline]
-pub fn get_sharpen_tex_func_sgis(target u32, points &f32)  {
+
+@[inline]
+pub fn get_sharpen_tex_func_sgis(target u32, points &f32) {
 	C.glGetSharpenTexFuncSGIS(target, points)
 }
-[inline]
-pub fn sharpen_tex_func_sgis(target u32, n int, points &f32)  {
+
+@[inline]
+pub fn sharpen_tex_func_sgis(target u32, n int, points &f32) {
 	C.glSharpenTexFuncSGIS(target, n, points)
 }
-[inline]
-pub fn tex_image4dsgis(target u32, level int, internalformat u32, width int, height int, depth int, extent int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexImage4DSGIS(target, level, internalformat, width, height, depth, extent, border, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_image4dsgis(target u32, level int, internalformat u32, width int, height int, depth int, extent int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexImage4DSGIS(target, level, internalformat, width, height, depth, extent, border,
+		format, gl_type, pixels)
 }
-[inline]
-pub fn tex_sub_image4dsgis(target u32, level int, xoffset int, yoffset int, zoffset int, woffset int, width int, height int, depth int, extent int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexSubImage4DSGIS(target, level, xoffset, yoffset, zoffset, woffset, width, height, depth, extent, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_sub_image4dsgis(target u32, level int, xoffset int, yoffset int, zoffset int, woffset int, width int, height int, depth int, extent int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexSubImage4DSGIS(target, level, xoffset, yoffset, zoffset, woffset, width, height,
+		depth, extent, format, gl_type, pixels)
 }
-[inline]
-pub fn get_tex_filter_func_sgis(target u32, filter u32, weights &f32)  {
+
+@[inline]
+pub fn get_tex_filter_func_sgis(target u32, filter u32, weights &f32) {
 	C.glGetTexFilterFuncSGIS(target, filter, weights)
 }
-[inline]
-pub fn tex_filter_func_sgis(target u32, filter u32, n int, weights &f32)  {
+
+@[inline]
+pub fn tex_filter_func_sgis(target u32, filter u32, n int, weights &f32) {
 	C.glTexFilterFuncSGIS(target, filter, n, weights)
 }
-[inline]
-pub fn async_marker_sgix(marker u32)  {
+
+@[inline]
+pub fn async_marker_sgix(marker u32) {
 	C.glAsyncMarkerSGIX(marker)
 }
-[inline]
-pub fn delete_async_markers_sgix(marker u32, range int)  {
+
+@[inline]
+pub fn delete_async_markers_sgix(marker u32, range int) {
 	C.glDeleteAsyncMarkersSGIX(marker, range)
 }
-[inline]
+
+@[inline]
 pub fn finish_async_sgix(markerp &u32) int {
 	return C.glFinishAsyncSGIX(markerp)
 }
-[inline]
+
+@[inline]
 pub fn gen_async_markers_sgix(range int) u32 {
 	return C.glGenAsyncMarkersSGIX(range)
 }
-[inline]
+
+@[inline]
 pub fn is_async_marker_sgix(marker u32) u8 {
 	return C.glIsAsyncMarkerSGIX(marker)
 }
-[inline]
+
+@[inline]
 pub fn poll_async_sgix(markerp &u32) int {
 	return C.glPollAsyncSGIX(markerp)
 }
-[inline]
-pub fn address_space(space u32, mask u32)  {
+
+@[inline]
+pub fn address_space(space u32, mask u32) {
 	C.glAddressSpace(space, mask)
 }
-[inline]
+
+@[inline]
 pub fn data_pipe(space u32) int {
 	return C.glDataPipe(space)
 }
-[inline]
-pub fn flush_raster_sgix()  {
+
+@[inline]
+pub fn flush_raster_sgix() {
 	C.glFlushRasterSGIX()
 }
-[inline]
-pub fn fog_layers_sgix(n int, points &f32)  {
+
+@[inline]
+pub fn fog_layers_sgix(n int, points &f32) {
 	C.glFogLayersSGIX(n, points)
 }
-[inline]
-pub fn get_fog_layers_sgix(points &f32)  {
+
+@[inline]
+pub fn get_fog_layers_sgix(points &f32) {
 	C.glGetFogLayersSGIX(points)
 }
-[inline]
-pub fn texture_fog_sgix(pname u32)  {
+
+@[inline]
+pub fn texture_fog_sgix(pname u32) {
 	C.glTextureFogSGIX(pname)
 }
-[inline]
-pub fn fragment_color_material_sgix(face u32, mode u32)  {
+
+@[inline]
+pub fn fragment_color_material_sgix(face u32, mode u32) {
 	C.glFragmentColorMaterialSGIX(face, mode)
 }
-[inline]
-pub fn fragment_light_modelf_sgix(pname u32, param f32)  {
+
+@[inline]
+pub fn fragment_light_modelf_sgix(pname u32, param f32) {
 	C.glFragmentLightModelfSGIX(pname, param)
 }
-[inline]
-pub fn fragment_light_modelfv_sgix(pname u32, params &f32)  {
+
+@[inline]
+pub fn fragment_light_modelfv_sgix(pname u32, params &f32) {
 	C.glFragmentLightModelfvSGIX(pname, params)
 }
-[inline]
-pub fn fragment_light_modeli_sgix(pname u32, param int)  {
+
+@[inline]
+pub fn fragment_light_modeli_sgix(pname u32, param int) {
 	C.glFragmentLightModeliSGIX(pname, param)
 }
-[inline]
-pub fn fragment_light_modeliv_sgix(pname u32, params &int)  {
+
+@[inline]
+pub fn fragment_light_modeliv_sgix(pname u32, params &int) {
 	C.glFragmentLightModelivSGIX(pname, params)
 }
-[inline]
-pub fn fragment_lightf_sgix(light u32, pname u32, param f32)  {
+
+@[inline]
+pub fn fragment_lightf_sgix(light u32, pname u32, param f32) {
 	C.glFragmentLightfSGIX(light, pname, param)
 }
-[inline]
-pub fn fragment_lightfv_sgix(light u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn fragment_lightfv_sgix(light u32, pname u32, params &f32) {
 	C.glFragmentLightfvSGIX(light, pname, params)
 }
-[inline]
-pub fn fragment_lighti_sgix(light u32, pname u32, param int)  {
+
+@[inline]
+pub fn fragment_lighti_sgix(light u32, pname u32, param int) {
 	C.glFragmentLightiSGIX(light, pname, param)
 }
-[inline]
-pub fn fragment_lightiv_sgix(light u32, pname u32, params &int)  {
+
+@[inline]
+pub fn fragment_lightiv_sgix(light u32, pname u32, params &int) {
 	C.glFragmentLightivSGIX(light, pname, params)
 }
-[inline]
-pub fn fragment_materialf_sgix(face u32, pname u32, param f32)  {
+
+@[inline]
+pub fn fragment_materialf_sgix(face u32, pname u32, param f32) {
 	C.glFragmentMaterialfSGIX(face, pname, param)
 }
-[inline]
-pub fn fragment_materialfv_sgix(face u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn fragment_materialfv_sgix(face u32, pname u32, params &f32) {
 	C.glFragmentMaterialfvSGIX(face, pname, params)
 }
-[inline]
-pub fn fragment_materiali_sgix(face u32, pname u32, param int)  {
+
+@[inline]
+pub fn fragment_materiali_sgix(face u32, pname u32, param int) {
 	C.glFragmentMaterialiSGIX(face, pname, param)
 }
-[inline]
-pub fn fragment_materialiv_sgix(face u32, pname u32, params &int)  {
+
+@[inline]
+pub fn fragment_materialiv_sgix(face u32, pname u32, params &int) {
 	C.glFragmentMaterialivSGIX(face, pname, params)
 }
-[inline]
-pub fn get_fragment_lightfv_sgix(light u32, value u32, data &f32)  {
+
+@[inline]
+pub fn get_fragment_lightfv_sgix(light u32, value u32, data &f32) {
 	C.glGetFragmentLightfvSGIX(light, value, data)
 }
-[inline]
-pub fn get_fragment_lightiv_sgix(light u32, value u32, data &int)  {
+
+@[inline]
+pub fn get_fragment_lightiv_sgix(light u32, value u32, data &int) {
 	C.glGetFragmentLightivSGIX(light, value, data)
 }
-[inline]
-pub fn get_fragment_materialfv_sgix(face u32, pname u32, data &f32)  {
+
+@[inline]
+pub fn get_fragment_materialfv_sgix(face u32, pname u32, data &f32) {
 	C.glGetFragmentMaterialfvSGIX(face, pname, data)
 }
-[inline]
-pub fn get_fragment_materialiv_sgix(face u32, pname u32, data &int)  {
+
+@[inline]
+pub fn get_fragment_materialiv_sgix(face u32, pname u32, data &int) {
 	C.glGetFragmentMaterialivSGIX(face, pname, data)
 }
-[inline]
-pub fn frame_zoom_sgix(factor int)  {
+
+@[inline]
+pub fn frame_zoom_sgix(factor int) {
 	C.glFrameZoomSGIX(factor)
 }
-[inline]
-pub fn igloo_interface_sgix(pname u32, param voidptr)  {
+
+@[inline]
+pub fn igloo_interface_sgix(pname u32, param voidptr) {
 	C.glIglooInterfaceSGIX(pname, param)
 }
-[inline]
-pub fn alloc_mpegpredictors_sgix(width int, height int, n int, predictors &u32)  {
+
+@[inline]
+pub fn alloc_mpegpredictors_sgix(width int, height int, n int, predictors &u32) {
 	C.glAllocMPEGPredictorsSGIX(width, height, n, predictors)
 }
-[inline]
-pub fn delete_mpegpredictors_sgix(n int, predictors &u32)  {
+
+@[inline]
+pub fn delete_mpegpredictors_sgix(n int, predictors &u32) {
 	C.glDeleteMPEGPredictorsSGIX(n, predictors)
 }
-[inline]
-pub fn gen_mpegpredictors_sgix(n int, predictors &u32)  {
+
+@[inline]
+pub fn gen_mpegpredictors_sgix(n int, predictors &u32) {
 	C.glGenMPEGPredictorsSGIX(n, predictors)
 }
-[inline]
-pub fn get_mpegparameterfv_sgix(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_mpegparameterfv_sgix(target u32, pname u32, params &f32) {
 	C.glGetMPEGParameterfvSGIX(target, pname, params)
 }
-[inline]
-pub fn get_mpegparameteriv_sgix(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_mpegparameteriv_sgix(target u32, pname u32, params &int) {
 	C.glGetMPEGParameterivSGIX(target, pname, params)
 }
-[inline]
-pub fn get_mpegpredictor_sgix(target u32, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn get_mpegpredictor_sgix(target u32, format u32, gl_type u32, pixels voidptr) {
 	C.glGetMPEGPredictorSGIX(target, format, gl_type, pixels)
 }
-[inline]
-pub fn get_mpegquant_tableubv(target u32, values &u8)  {
+
+@[inline]
+pub fn get_mpegquant_tableubv(target u32, values &u8) {
 	C.glGetMPEGQuantTableubv(target, values)
 }
-[inline]
+
+@[inline]
 pub fn is_mpegpredictor_sgix(predictor u32) u8 {
 	return C.glIsMPEGPredictorSGIX(predictor)
 }
-[inline]
-pub fn mpegpredictor_sgix(target u32, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn mpegpredictor_sgix(target u32, format u32, gl_type u32, pixels voidptr) {
 	C.glMPEGPredictorSGIX(target, format, gl_type, pixels)
 }
-[inline]
-pub fn mpegquant_tableubv(target u32, values &u8)  {
+
+@[inline]
+pub fn mpegquant_tableubv(target u32, values &u8) {
 	C.glMPEGQuantTableubv(target, values)
 }
-[inline]
-pub fn swap_mpegpredictors_sgix(target0 u32, target1 u32)  {
+
+@[inline]
+pub fn swap_mpegpredictors_sgix(target0 u32, target1 u32) {
 	C.glSwapMPEGPredictorsSGIX(target0, target1)
 }
-[inline]
-pub fn get_nonlin_lightfv_sgix(light u32, pname u32, terms &int, data &f32)  {
+
+@[inline]
+pub fn get_nonlin_lightfv_sgix(light u32, pname u32, terms &int, data &f32) {
 	C.glGetNonlinLightfvSGIX(light, pname, terms, data)
 }
-[inline]
-pub fn get_nonlin_materialfv_sgix(face u32, pname u32, terms &int, data &f32)  {
+
+@[inline]
+pub fn get_nonlin_materialfv_sgix(face u32, pname u32, terms &int, data &f32) {
 	C.glGetNonlinMaterialfvSGIX(face, pname, terms, data)
 }
-[inline]
-pub fn nonlin_lightfv_sgix(light u32, pname u32, terms int, params &f32)  {
+
+@[inline]
+pub fn nonlin_lightfv_sgix(light u32, pname u32, terms int, params &f32) {
 	C.glNonlinLightfvSGIX(light, pname, terms, params)
 }
-[inline]
-pub fn nonlin_materialfv_sgix(face u32, pname u32, terms int, params &f32)  {
+
+@[inline]
+pub fn nonlin_materialfv_sgix(face u32, pname u32, terms int, params &f32) {
 	C.glNonlinMaterialfvSGIX(face, pname, terms, params)
 }
-[inline]
-pub fn pixel_tex_gen_sgix(mode u32)  {
+
+@[inline]
+pub fn pixel_tex_gen_sgix(mode u32) {
 	C.glPixelTexGenSGIX(mode)
 }
-[inline]
-pub fn deform_sgix(mask u32)  {
+
+@[inline]
+pub fn deform_sgix(mask u32) {
 	C.glDeformSGIX(mask)
 }
-[inline]
-pub fn load_identity_deformation_map_sgix(mask u32)  {
+
+@[inline]
+pub fn load_identity_deformation_map_sgix(mask u32) {
 	C.glLoadIdentityDeformationMapSGIX(mask)
 }
-[inline]
-pub fn mesh_breadth_sgix(breadth int)  {
+
+@[inline]
+pub fn mesh_breadth_sgix(breadth int) {
 	C.glMeshBreadthSGIX(breadth)
 }
-[inline]
-pub fn mesh_stride_sgix(stride int)  {
+
+@[inline]
+pub fn mesh_stride_sgix(stride int) {
 	C.glMeshStrideSGIX(stride)
 }
-[inline]
-pub fn reference_plane_sgix(equation &f64)  {
+
+@[inline]
+pub fn reference_plane_sgix(equation &f64) {
 	C.glReferencePlaneSGIX(equation)
 }
-[inline]
-pub fn sprite_parameterf_sgix(pname u32, param f32)  {
+
+@[inline]
+pub fn sprite_parameterf_sgix(pname u32, param f32) {
 	C.glSpriteParameterfSGIX(pname, param)
 }
-[inline]
-pub fn sprite_parameterfv_sgix(pname u32, params &f32)  {
+
+@[inline]
+pub fn sprite_parameterfv_sgix(pname u32, params &f32) {
 	C.glSpriteParameterfvSGIX(pname, params)
 }
-[inline]
-pub fn sprite_parameteri_sgix(pname u32, param int)  {
+
+@[inline]
+pub fn sprite_parameteri_sgix(pname u32, param int) {
 	C.glSpriteParameteriSGIX(pname, param)
 }
-[inline]
-pub fn sprite_parameteriv_sgix(pname u32, params &int)  {
+
+@[inline]
+pub fn sprite_parameteriv_sgix(pname u32, params &int) {
 	C.glSpriteParameterivSGIX(pname, params)
 }
-[inline]
-pub fn tag_sample_buffer_sgix()  {
+
+@[inline]
+pub fn tag_sample_buffer_sgix() {
 	C.glTagSampleBufferSGIX()
 }
-[inline]
-pub fn get_vector_operation_sgix(operation u32)  {
+
+@[inline]
+pub fn get_vector_operation_sgix(operation u32) {
 	C.glGetVectorOperationSGIX(operation)
 }
-[inline]
-pub fn vector_operation_sgix(operation u32)  {
+
+@[inline]
+pub fn vector_operation_sgix(operation u32) {
 	C.glVectorOperationSGIX(operation)
 }
-[inline]
+
+@[inline]
 pub fn are_vertex_arrays_resident_sgix(n int, arrays &u32, residences &u8) u8 {
 	return C.glAreVertexArraysResidentSGIX(n, arrays, residences)
 }
-[inline]
-pub fn bind_vertex_array_sgix(array u32)  {
+
+@[inline]
+pub fn bind_vertex_array_sgix(array u32) {
 	C.glBindVertexArraySGIX(array)
 }
-[inline]
-pub fn delete_vertex_arrays_sgix(n int, arrays &u32)  {
+
+@[inline]
+pub fn delete_vertex_arrays_sgix(n int, arrays &u32) {
 	C.glDeleteVertexArraysSGIX(n, arrays)
 }
-[inline]
-pub fn gen_vertex_arrays_sgix(n int, arrays &u32)  {
+
+@[inline]
+pub fn gen_vertex_arrays_sgix(n int, arrays &u32) {
 	C.glGenVertexArraysSGIX(n, arrays)
 }
-[inline]
+
+@[inline]
 pub fn is_vertex_array_sgix(array u32) u8 {
 	return C.glIsVertexArraySGIX(array)
 }
-[inline]
-pub fn prioritize_vertex_arrays_sgix(n int, arrays &u32, priorities &f32)  {
+
+@[inline]
+pub fn prioritize_vertex_arrays_sgix(n int, arrays &u32, priorities &f32) {
 	C.glPrioritizeVertexArraysSGIX(n, arrays, priorities)
 }
-[inline]
-pub fn color_table_parameterfv_sgi(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn color_table_parameterfv_sgi(target u32, pname u32, params &f32) {
 	C.glColorTableParameterfvSGI(target, pname, params)
 }
-[inline]
-pub fn color_table_parameteriv_sgi(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn color_table_parameteriv_sgi(target u32, pname u32, params &int) {
 	C.glColorTableParameterivSGI(target, pname, params)
 }
-[inline]
-pub fn color_table_sgi(target u32, internalformat u32, width int, format u32, gl_type u32, table voidptr)  {
+
+@[inline]
+pub fn color_table_sgi(target u32, internalformat u32, width int, format u32, gl_type u32, table voidptr) {
 	C.glColorTableSGI(target, internalformat, width, format, gl_type, table)
 }
-[inline]
-pub fn copy_color_table_sgi(target u32, internalformat u32, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_color_table_sgi(target u32, internalformat u32, x int, y int, width int) {
 	C.glCopyColorTableSGI(target, internalformat, x, y, width)
 }
-[inline]
-pub fn get_color_table_parameterfv_sgi(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_color_table_parameterfv_sgi(target u32, pname u32, params &f32) {
 	C.glGetColorTableParameterfvSGI(target, pname, params)
 }
-[inline]
-pub fn get_color_table_parameteriv_sgi(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_color_table_parameteriv_sgi(target u32, pname u32, params &int) {
 	C.glGetColorTableParameterivSGI(target, pname, params)
 }
-[inline]
-pub fn get_color_table_sgi(target u32, format u32, gl_type u32, table voidptr)  {
+
+@[inline]
+pub fn get_color_table_sgi(target u32, format u32, gl_type u32, table voidptr) {
 	C.glGetColorTableSGI(target, format, gl_type, table)
 }
-[inline]
-pub fn get_pixel_transform_parameterfv_sgi(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_pixel_transform_parameterfv_sgi(target u32, pname u32, params &f32) {
 	C.glGetPixelTransformParameterfvSGI(target, pname, params)
 }
-[inline]
-pub fn get_pixel_transform_parameteriv_sgi(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_pixel_transform_parameteriv_sgi(target u32, pname u32, params &int) {
 	C.glGetPixelTransformParameterivSGI(target, pname, params)
 }
-[inline]
-pub fn pixel_transform_parameterf_sgi(target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn pixel_transform_parameterf_sgi(target u32, pname u32, param f32) {
 	C.glPixelTransformParameterfSGI(target, pname, param)
 }
-[inline]
-pub fn pixel_transform_parameterfv_sgi(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn pixel_transform_parameterfv_sgi(target u32, pname u32, params &f32) {
 	C.glPixelTransformParameterfvSGI(target, pname, params)
 }
-[inline]
-pub fn pixel_transform_parameteri_sgi(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn pixel_transform_parameteri_sgi(target u32, pname u32, param int) {
 	C.glPixelTransformParameteriSGI(target, pname, param)
 }
-[inline]
-pub fn pixel_transform_parameteriv_sgi(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn pixel_transform_parameteriv_sgi(target u32, pname u32, params &int) {
 	C.glPixelTransformParameterivSGI(target, pname, params)
 }
-[inline]
-pub fn pixel_transform_sgi(target u32)  {
+
+@[inline]
+pub fn pixel_transform_sgi(target u32) {
 	C.glPixelTransformSGI(target)
 }
-[inline]
-pub fn finish_texture_sunx()  {
+
+@[inline]
+pub fn finish_texture_sunx() {
 	C.glFinishTextureSUNX()
 }
-[inline]
-pub fn global_alpha_factorb_sun(factor i8)  {
+
+@[inline]
+pub fn global_alpha_factorb_sun(factor i8) {
 	C.glGlobalAlphaFactorbSUN(factor)
 }
-[inline]
-pub fn global_alpha_factord_sun(factor f64)  {
+
+@[inline]
+pub fn global_alpha_factord_sun(factor f64) {
 	C.glGlobalAlphaFactordSUN(factor)
 }
-[inline]
-pub fn global_alpha_factorf_sun(factor f32)  {
+
+@[inline]
+pub fn global_alpha_factorf_sun(factor f32) {
 	C.glGlobalAlphaFactorfSUN(factor)
 }
-[inline]
-pub fn global_alpha_factori_sun(factor int)  {
+
+@[inline]
+pub fn global_alpha_factori_sun(factor int) {
 	C.glGlobalAlphaFactoriSUN(factor)
 }
-[inline]
-pub fn global_alpha_factors_sun(factor i16)  {
+
+@[inline]
+pub fn global_alpha_factors_sun(factor i16) {
 	C.glGlobalAlphaFactorsSUN(factor)
 }
-[inline]
-pub fn global_alpha_factorub_sun(factor u8)  {
+
+@[inline]
+pub fn global_alpha_factorub_sun(factor u8) {
 	C.glGlobalAlphaFactorubSUN(factor)
 }
-[inline]
-pub fn global_alpha_factorui_sun(factor u32)  {
+
+@[inline]
+pub fn global_alpha_factorui_sun(factor u32) {
 	C.glGlobalAlphaFactoruiSUN(factor)
 }
-[inline]
-pub fn global_alpha_factorus_sun(factor u16)  {
+
+@[inline]
+pub fn global_alpha_factorus_sun(factor u16) {
 	C.glGlobalAlphaFactorusSUN(factor)
 }
-[inline]
-pub fn read_video_pixels_sun(x int, y int, width int, height int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn read_video_pixels_sun(x int, y int, width int, height int, format u32, gl_type u32, pixels voidptr) {
 	C.glReadVideoPixelsSUN(x, y, width, height, format, gl_type, pixels)
 }
-[inline]
-pub fn replacement_code_pointer_sun(gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn replacement_code_pointer_sun(gl_type u32, stride int, pointer voidptr) {
 	C.glReplacementCodePointerSUN(gl_type, stride, pointer)
 }
-[inline]
-pub fn replacement_codeub_sun(code u8)  {
+
+@[inline]
+pub fn replacement_codeub_sun(code u8) {
 	C.glReplacementCodeubSUN(code)
 }
-[inline]
-pub fn replacement_codeubv_sun(code &u8)  {
+
+@[inline]
+pub fn replacement_codeubv_sun(code &u8) {
 	C.glReplacementCodeubvSUN(code)
 }
-[inline]
-pub fn replacement_codeui_sun(code u32)  {
+
+@[inline]
+pub fn replacement_codeui_sun(code u32) {
 	C.glReplacementCodeuiSUN(code)
 }
-[inline]
-pub fn replacement_codeuiv_sun(code &u32)  {
+
+@[inline]
+pub fn replacement_codeuiv_sun(code &u32) {
 	C.glReplacementCodeuivSUN(code)
 }
-[inline]
-pub fn replacement_codeus_sun(code u16)  {
+
+@[inline]
+pub fn replacement_codeus_sun(code u16) {
 	C.glReplacementCodeusSUN(code)
 }
-[inline]
-pub fn replacement_codeusv_sun(code &u16)  {
+
+@[inline]
+pub fn replacement_codeusv_sun(code &u16) {
 	C.glReplacementCodeusvSUN(code)
 }
-[inline]
-pub fn color3f_vertex3f_sun(r f32, g f32, b f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn color3f_vertex3f_sun(r f32, g f32, b f32, x f32, y f32, z f32) {
 	C.glColor3fVertex3fSUN(r, g, b, x, y, z)
 }
-[inline]
-pub fn color3f_vertex3fv_sun(c &f32, v &f32)  {
+
+@[inline]
+pub fn color3f_vertex3fv_sun(c &f32, v &f32) {
 	C.glColor3fVertex3fvSUN(c, v)
 }
-[inline]
-pub fn color4f_normal3f_vertex3f_sun(r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn color4f_normal3f_vertex3f_sun(r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32) {
 	C.glColor4fNormal3fVertex3fSUN(r, g, b, a, nx, ny, nz, x, y, z)
 }
-[inline]
-pub fn color4f_normal3f_vertex3fv_sun(c &f32, n &f32, v &f32)  {
+
+@[inline]
+pub fn color4f_normal3f_vertex3fv_sun(c &f32, n &f32, v &f32) {
 	C.glColor4fNormal3fVertex3fvSUN(c, n, v)
 }
-[inline]
-pub fn color4ub_vertex2f_sun(r u8, g u8, b u8, a u8, x f32, y f32)  {
+
+@[inline]
+pub fn color4ub_vertex2f_sun(r u8, g u8, b u8, a u8, x f32, y f32) {
 	C.glColor4ubVertex2fSUN(r, g, b, a, x, y)
 }
-[inline]
-pub fn color4ub_vertex2fv_sun(c &u8, v &f32)  {
+
+@[inline]
+pub fn color4ub_vertex2fv_sun(c &u8, v &f32) {
 	C.glColor4ubVertex2fvSUN(c, v)
 }
-[inline]
-pub fn color4ub_vertex3f_sun(r u8, g u8, b u8, a u8, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn color4ub_vertex3f_sun(r u8, g u8, b u8, a u8, x f32, y f32, z f32) {
 	C.glColor4ubVertex3fSUN(r, g, b, a, x, y, z)
 }
-[inline]
-pub fn color4ub_vertex3fv_sun(c &u8, v &f32)  {
+
+@[inline]
+pub fn color4ub_vertex3fv_sun(c &u8, v &f32) {
 	C.glColor4ubVertex3fvSUN(c, v)
 }
-[inline]
-pub fn normal3f_vertex3f_sun(nx f32, ny f32, nz f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn normal3f_vertex3f_sun(nx f32, ny f32, nz f32, x f32, y f32, z f32) {
 	C.glNormal3fVertex3fSUN(nx, ny, nz, x, y, z)
 }
-[inline]
-pub fn normal3f_vertex3fv_sun(n &f32, v &f32)  {
+
+@[inline]
+pub fn normal3f_vertex3fv_sun(n &f32, v &f32) {
 	C.glNormal3fVertex3fvSUN(n, v)
 }
-[inline]
-pub fn replacement_codeui_color3f_vertex3f_sun(rc u32, r f32, g f32, b f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn replacement_codeui_color3f_vertex3f_sun(rc u32, r f32, g f32, b f32, x f32, y f32, z f32) {
 	C.glReplacementCodeuiColor3fVertex3fSUN(rc, r, g, b, x, y, z)
 }
-[inline]
-pub fn replacement_codeui_color3f_vertex3fv_sun(rc &u32, c &f32, v &f32)  {
+
+@[inline]
+pub fn replacement_codeui_color3f_vertex3fv_sun(rc &u32, c &f32, v &f32) {
 	C.glReplacementCodeuiColor3fVertex3fvSUN(rc, c, v)
 }
-[inline]
-pub fn replacement_codeui_color4f_normal3f_vertex3f_sun(rc u32, r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32)  {
-	C.glReplacementCodeuiColor4fNormal3fVertex3fSUN(rc, r, g, b, a, nx, ny, nz, x, y, z)
+
+@[inline]
+pub fn replacement_codeui_color4f_normal3f_vertex3f_sun(rc u32, r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32) {
+	C.glReplacementCodeuiColor4fNormal3fVertex3fSUN(rc, r, g, b, a, nx, ny, nz, x, y,
+		z)
 }
-[inline]
-pub fn replacement_codeui_color4f_normal3f_vertex3fv_sun(rc &u32, c &f32, n &f32, v &f32)  {
+
+@[inline]
+pub fn replacement_codeui_color4f_normal3f_vertex3fv_sun(rc &u32, c &f32, n &f32, v &f32) {
 	C.glReplacementCodeuiColor4fNormal3fVertex3fvSUN(rc, c, n, v)
 }
-[inline]
-pub fn replacement_codeui_color4ub_vertex3f_sun(rc u32, r u8, g u8, b u8, a u8, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn replacement_codeui_color4ub_vertex3f_sun(rc u32, r u8, g u8, b u8, a u8, x f32, y f32, z f32) {
 	C.glReplacementCodeuiColor4ubVertex3fSUN(rc, r, g, b, a, x, y, z)
 }
-[inline]
-pub fn replacement_codeui_color4ub_vertex3fv_sun(rc &u32, c &u8, v &f32)  {
+
+@[inline]
+pub fn replacement_codeui_color4ub_vertex3fv_sun(rc &u32, c &u8, v &f32) {
 	C.glReplacementCodeuiColor4ubVertex3fvSUN(rc, c, v)
 }
-[inline]
-pub fn replacement_codeui_normal3f_vertex3f_sun(rc u32, nx f32, ny f32, nz f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn replacement_codeui_normal3f_vertex3f_sun(rc u32, nx f32, ny f32, nz f32, x f32, y f32, z f32) {
 	C.glReplacementCodeuiNormal3fVertex3fSUN(rc, nx, ny, nz, x, y, z)
 }
-[inline]
-pub fn replacement_codeui_normal3f_vertex3fv_sun(rc &u32, n &f32, v &f32)  {
+
+@[inline]
+pub fn replacement_codeui_normal3f_vertex3fv_sun(rc &u32, n &f32, v &f32) {
 	C.glReplacementCodeuiNormal3fVertex3fvSUN(rc, n, v)
 }
-[inline]
-pub fn replacement_codeui_tex_coord2f_color4f_normal3f_vertex3f_sun(rc u32, s f32, t f32, r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32)  {
-	C.glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(rc, s, t, r, g, b, a, nx, ny, nz, x, y, z)
+
+@[inline]
+pub fn replacement_codeui_tex_coord2f_color4f_normal3f_vertex3f_sun(rc u32, s f32, t f32, r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32) {
+	C.glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(rc, s, t, r, g, b, a, nx,
+		ny, nz, x, y, z)
 }
-[inline]
-pub fn replacement_codeui_tex_coord2f_color4f_normal3f_vertex3fv_sun(rc &u32, tc &f32, c &f32, n &f32, v &f32)  {
+
+@[inline]
+pub fn replacement_codeui_tex_coord2f_color4f_normal3f_vertex3fv_sun(rc &u32, tc &f32, c &f32, n &f32, v &f32) {
 	C.glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(rc, tc, c, n, v)
 }
-[inline]
-pub fn replacement_codeui_tex_coord2f_normal3f_vertex3f_sun(rc u32, s f32, t f32, nx f32, ny f32, nz f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn replacement_codeui_tex_coord2f_normal3f_vertex3f_sun(rc u32, s f32, t f32, nx f32, ny f32, nz f32, x f32, y f32, z f32) {
 	C.glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(rc, s, t, nx, ny, nz, x, y, z)
 }
-[inline]
-pub fn replacement_codeui_tex_coord2f_normal3f_vertex3fv_sun(rc &u32, tc &f32, n &f32, v &f32)  {
+
+@[inline]
+pub fn replacement_codeui_tex_coord2f_normal3f_vertex3fv_sun(rc &u32, tc &f32, n &f32, v &f32) {
 	C.glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(rc, tc, n, v)
 }
-[inline]
-pub fn replacement_codeui_tex_coord2f_vertex3f_sun(rc u32, s f32, t f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn replacement_codeui_tex_coord2f_vertex3f_sun(rc u32, s f32, t f32, x f32, y f32, z f32) {
 	C.glReplacementCodeuiTexCoord2fVertex3fSUN(rc, s, t, x, y, z)
 }
-[inline]
-pub fn replacement_codeui_tex_coord2f_vertex3fv_sun(rc &u32, tc &f32, v &f32)  {
+
+@[inline]
+pub fn replacement_codeui_tex_coord2f_vertex3fv_sun(rc &u32, tc &f32, v &f32) {
 	C.glReplacementCodeuiTexCoord2fVertex3fvSUN(rc, tc, v)
 }
-[inline]
-pub fn replacement_codeui_vertex3f_sun(rc u32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn replacement_codeui_vertex3f_sun(rc u32, x f32, y f32, z f32) {
 	C.glReplacementCodeuiVertex3fSUN(rc, x, y, z)
 }
-[inline]
-pub fn replacement_codeui_vertex3fv_sun(rc &u32, v &f32)  {
+
+@[inline]
+pub fn replacement_codeui_vertex3fv_sun(rc &u32, v &f32) {
 	C.glReplacementCodeuiVertex3fvSUN(rc, v)
 }
-[inline]
-pub fn tex_coord2f_color3f_vertex3f_sun(s f32, t f32, r f32, g f32, b f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn tex_coord2f_color3f_vertex3f_sun(s f32, t f32, r f32, g f32, b f32, x f32, y f32, z f32) {
 	C.glTexCoord2fColor3fVertex3fSUN(s, t, r, g, b, x, y, z)
 }
-[inline]
-pub fn tex_coord2f_color3f_vertex3fv_sun(tc &f32, c &f32, v &f32)  {
+
+@[inline]
+pub fn tex_coord2f_color3f_vertex3fv_sun(tc &f32, c &f32, v &f32) {
 	C.glTexCoord2fColor3fVertex3fvSUN(tc, c, v)
 }
-[inline]
-pub fn tex_coord2f_color4f_normal3f_vertex3f_sun(s f32, t f32, r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn tex_coord2f_color4f_normal3f_vertex3f_sun(s f32, t f32, r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32) {
 	C.glTexCoord2fColor4fNormal3fVertex3fSUN(s, t, r, g, b, a, nx, ny, nz, x, y, z)
 }
-[inline]
-pub fn tex_coord2f_color4f_normal3f_vertex3fv_sun(tc &f32, c &f32, n &f32, v &f32)  {
+
+@[inline]
+pub fn tex_coord2f_color4f_normal3f_vertex3fv_sun(tc &f32, c &f32, n &f32, v &f32) {
 	C.glTexCoord2fColor4fNormal3fVertex3fvSUN(tc, c, n, v)
 }
-[inline]
-pub fn tex_coord2f_color4ub_vertex3f_sun(s f32, t f32, r u8, g u8, b u8, a u8, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn tex_coord2f_color4ub_vertex3f_sun(s f32, t f32, r u8, g u8, b u8, a u8, x f32, y f32, z f32) {
 	C.glTexCoord2fColor4ubVertex3fSUN(s, t, r, g, b, a, x, y, z)
 }
-[inline]
-pub fn tex_coord2f_color4ub_vertex3fv_sun(tc &f32, c &u8, v &f32)  {
+
+@[inline]
+pub fn tex_coord2f_color4ub_vertex3fv_sun(tc &f32, c &u8, v &f32) {
 	C.glTexCoord2fColor4ubVertex3fvSUN(tc, c, v)
 }
-[inline]
-pub fn tex_coord2f_normal3f_vertex3f_sun(s f32, t f32, nx f32, ny f32, nz f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn tex_coord2f_normal3f_vertex3f_sun(s f32, t f32, nx f32, ny f32, nz f32, x f32, y f32, z f32) {
 	C.glTexCoord2fNormal3fVertex3fSUN(s, t, nx, ny, nz, x, y, z)
 }
-[inline]
-pub fn tex_coord2f_normal3f_vertex3fv_sun(tc &f32, n &f32, v &f32)  {
+
+@[inline]
+pub fn tex_coord2f_normal3f_vertex3fv_sun(tc &f32, n &f32, v &f32) {
 	C.glTexCoord2fNormal3fVertex3fvSUN(tc, n, v)
 }
-[inline]
-pub fn tex_coord2f_vertex3f_sun(s f32, t f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn tex_coord2f_vertex3f_sun(s f32, t f32, x f32, y f32, z f32) {
 	C.glTexCoord2fVertex3fSUN(s, t, x, y, z)
 }
-[inline]
-pub fn tex_coord2f_vertex3fv_sun(tc &f32, v &f32)  {
+
+@[inline]
+pub fn tex_coord2f_vertex3fv_sun(tc &f32, v &f32) {
 	C.glTexCoord2fVertex3fvSUN(tc, v)
 }
-[inline]
-pub fn tex_coord4f_color4f_normal3f_vertex4f_sun(s f32, t f32, p f32, q f32, r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32, w f32)  {
-	C.glTexCoord4fColor4fNormal3fVertex4fSUN(s, t, p, q, r, g, b, a, nx, ny, nz, x, y, z, w)
+
+@[inline]
+pub fn tex_coord4f_color4f_normal3f_vertex4f_sun(s f32, t f32, p f32, q f32, r f32, g f32, b f32, a f32, nx f32, ny f32, nz f32, x f32, y f32, z f32, w f32) {
+	C.glTexCoord4fColor4fNormal3fVertex4fSUN(s, t, p, q, r, g, b, a, nx, ny, nz, x, y,
+		z, w)
 }
-[inline]
-pub fn tex_coord4f_color4f_normal3f_vertex4fv_sun(tc &f32, c &f32, n &f32, v &f32)  {
+
+@[inline]
+pub fn tex_coord4f_color4f_normal3f_vertex4fv_sun(tc &f32, c &f32, n &f32, v &f32) {
 	C.glTexCoord4fColor4fNormal3fVertex4fvSUN(tc, c, n, v)
 }
-[inline]
-pub fn tex_coord4f_vertex4f_sun(s f32, t f32, p f32, q f32, x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn tex_coord4f_vertex4f_sun(s f32, t f32, p f32, q f32, x f32, y f32, z f32, w f32) {
 	C.glTexCoord4fVertex4fSUN(s, t, p, q, x, y, z, w)
 }
-[inline]
-pub fn tex_coord4f_vertex4fv_sun(tc &f32, v &f32)  {
+
+@[inline]
+pub fn tex_coord4f_vertex4fv_sun(tc &f32, v &f32) {
 	C.glTexCoord4fVertex4fvSUN(tc, v)
 }
-[inline]
-pub fn add_swap_hint_rect_win(x int, y int, width int, height int)  {
+
+@[inline]
+pub fn add_swap_hint_rect_win(x int, y int, width int, height int) {
 	C.glAddSwapHintRectWIN(x, y, width, height)
 }
-[inline]
-pub fn accum(op u32, value f32)  {
+
+@[inline]
+pub fn accum(op u32, value f32) {
 	C.glAccum(op, value)
 }
-[inline]
-pub fn alpha_func(func u32, ref f32)  {
+
+@[inline]
+pub fn alpha_func(func u32, ref f32) {
 	C.glAlphaFunc(func, ref)
 }
-[inline]
+
+@[inline]
 pub fn are_textures_resident(n int, textures &u32, residences &u8) u8 {
 	return C.glAreTexturesResident(n, textures, residences)
 }
-[inline]
-pub fn array_element(i int)  {
+
+@[inline]
+pub fn array_element(i int) {
 	C.glArrayElement(i)
 }
-[inline]
-pub fn begin(mode u32)  {
+
+@[inline]
+pub fn begin(mode u32) {
 	C.glBegin(mode)
 }
-[inline]
-pub fn bind_texture(target u32, texture u32)  {
+
+@[inline]
+pub fn bind_texture(target u32, texture u32) {
 	C.glBindTexture(target, texture)
 }
-[inline]
-pub fn bitmap(width int, height int, xorig f32, yorig f32, xmove f32, ymove f32, bitmap &u8)  {
+
+@[inline]
+pub fn bitmap(width int, height int, xorig f32, yorig f32, xmove f32, ymove f32, bitmap &u8) {
 	C.glBitmap(width, height, xorig, yorig, xmove, ymove, bitmap)
 }
-[inline]
-pub fn blend_func(sfactor u32, dfactor u32)  {
+
+@[inline]
+pub fn blend_func(sfactor u32, dfactor u32) {
 	C.glBlendFunc(sfactor, dfactor)
 }
-[inline]
-pub fn call_list(list u32)  {
+
+@[inline]
+pub fn call_list(list u32) {
 	C.glCallList(list)
 }
-[inline]
-pub fn call_lists(n int, gl_type u32, lists voidptr)  {
+
+@[inline]
+pub fn call_lists(n int, gl_type u32, lists voidptr) {
 	C.glCallLists(n, gl_type, lists)
 }
-[inline]
-pub fn clear(mask u32)  {
+
+@[inline]
+pub fn clear(mask u32) {
 	C.glClear(mask)
 }
-[inline]
-pub fn clear_accum(red f32, green f32, blue f32, alpha f32)  {
+
+@[inline]
+pub fn clear_accum(red f32, green f32, blue f32, alpha f32) {
 	C.glClearAccum(red, green, blue, alpha)
 }
-[inline]
-pub fn clear_color(red f32, green f32, blue f32, alpha f32)  {
+
+@[inline]
+pub fn clear_color(red f32, green f32, blue f32, alpha f32) {
 	C.glClearColor(red, green, blue, alpha)
 }
-[inline]
-pub fn clear_depth(depth f64)  {
+
+@[inline]
+pub fn clear_depth(depth f64) {
 	C.glClearDepth(depth)
 }
-[inline]
-pub fn clear_index(c f32)  {
+
+@[inline]
+pub fn clear_index(c f32) {
 	C.glClearIndex(c)
 }
-[inline]
-pub fn clear_stencil(s int)  {
+
+@[inline]
+pub fn clear_stencil(s int) {
 	C.glClearStencil(s)
 }
-[inline]
-pub fn clip_plane(plane u32, equation &f64)  {
+
+@[inline]
+pub fn clip_plane(plane u32, equation &f64) {
 	C.glClipPlane(plane, equation)
 }
-[inline]
-pub fn color3b(red i8, green i8, blue i8)  {
+
+@[inline]
+pub fn color3b(red i8, green i8, blue i8) {
 	C.glColor3b(red, green, blue)
 }
-[inline]
-pub fn color3bv(v &i8)  {
+
+@[inline]
+pub fn color3bv(v &i8) {
 	C.glColor3bv(v)
 }
-[inline]
-pub fn color3d(red f64, green f64, blue f64)  {
+
+@[inline]
+pub fn color3d(red f64, green f64, blue f64) {
 	C.glColor3d(red, green, blue)
 }
-[inline]
-pub fn color3dv(v &f64)  {
+
+@[inline]
+pub fn color3dv(v &f64) {
 	C.glColor3dv(v)
 }
-[inline]
-pub fn color3f(red f32, green f32, blue f32)  {
+
+@[inline]
+pub fn color3f(red f32, green f32, blue f32) {
 	C.glColor3f(red, green, blue)
 }
-[inline]
-pub fn color3fv(v &f32)  {
+
+@[inline]
+pub fn color3fv(v &f32) {
 	C.glColor3fv(v)
 }
-[inline]
-pub fn color3i(red int, green int, blue int)  {
+
+@[inline]
+pub fn color3i(red int, green int, blue int) {
 	C.glColor3i(red, green, blue)
 }
-[inline]
-pub fn color3iv(v &int)  {
+
+@[inline]
+pub fn color3iv(v &int) {
 	C.glColor3iv(v)
 }
-[inline]
-pub fn color3s(red i16, green i16, blue i16)  {
+
+@[inline]
+pub fn color3s(red i16, green i16, blue i16) {
 	C.glColor3s(red, green, blue)
 }
-[inline]
-pub fn color3sv(v &i16)  {
+
+@[inline]
+pub fn color3sv(v &i16) {
 	C.glColor3sv(v)
 }
-[inline]
-pub fn color3ub(red u8, green u8, blue u8)  {
+
+@[inline]
+pub fn color3ub(red u8, green u8, blue u8) {
 	C.glColor3ub(red, green, blue)
 }
-[inline]
-pub fn color3ubv(v &u8)  {
+
+@[inline]
+pub fn color3ubv(v &u8) {
 	C.glColor3ubv(v)
 }
-[inline]
-pub fn color3ui(red u32, green u32, blue u32)  {
+
+@[inline]
+pub fn color3ui(red u32, green u32, blue u32) {
 	C.glColor3ui(red, green, blue)
 }
-[inline]
-pub fn color3uiv(v &u32)  {
+
+@[inline]
+pub fn color3uiv(v &u32) {
 	C.glColor3uiv(v)
 }
-[inline]
-pub fn color3us(red u16, green u16, blue u16)  {
+
+@[inline]
+pub fn color3us(red u16, green u16, blue u16) {
 	C.glColor3us(red, green, blue)
 }
-[inline]
-pub fn color3usv(v &u16)  {
+
+@[inline]
+pub fn color3usv(v &u16) {
 	C.glColor3usv(v)
 }
-[inline]
-pub fn color4b(red i8, green i8, blue i8, alpha i8)  {
+
+@[inline]
+pub fn color4b(red i8, green i8, blue i8, alpha i8) {
 	C.glColor4b(red, green, blue, alpha)
 }
-[inline]
-pub fn color4bv(v &i8)  {
+
+@[inline]
+pub fn color4bv(v &i8) {
 	C.glColor4bv(v)
 }
-[inline]
-pub fn color4d(red f64, green f64, blue f64, alpha f64)  {
+
+@[inline]
+pub fn color4d(red f64, green f64, blue f64, alpha f64) {
 	C.glColor4d(red, green, blue, alpha)
 }
-[inline]
-pub fn color4dv(v &f64)  {
+
+@[inline]
+pub fn color4dv(v &f64) {
 	C.glColor4dv(v)
 }
-[inline]
-pub fn color4f(red f32, green f32, blue f32, alpha f32)  {
+
+@[inline]
+pub fn color4f(red f32, green f32, blue f32, alpha f32) {
 	C.glColor4f(red, green, blue, alpha)
 }
-[inline]
-pub fn color4fv(v &f32)  {
+
+@[inline]
+pub fn color4fv(v &f32) {
 	C.glColor4fv(v)
 }
-[inline]
-pub fn color4i(red int, green int, blue int, alpha int)  {
+
+@[inline]
+pub fn color4i(red int, green int, blue int, alpha int) {
 	C.glColor4i(red, green, blue, alpha)
 }
-[inline]
-pub fn color4iv(v &int)  {
+
+@[inline]
+pub fn color4iv(v &int) {
 	C.glColor4iv(v)
 }
-[inline]
-pub fn color4s(red i16, green i16, blue i16, alpha i16)  {
+
+@[inline]
+pub fn color4s(red i16, green i16, blue i16, alpha i16) {
 	C.glColor4s(red, green, blue, alpha)
 }
-[inline]
-pub fn color4sv(v &i16)  {
+
+@[inline]
+pub fn color4sv(v &i16) {
 	C.glColor4sv(v)
 }
-[inline]
-pub fn color4ub(red u8, green u8, blue u8, alpha u8)  {
+
+@[inline]
+pub fn color4ub(red u8, green u8, blue u8, alpha u8) {
 	C.glColor4ub(red, green, blue, alpha)
 }
-[inline]
-pub fn color4ubv(v &u8)  {
+
+@[inline]
+pub fn color4ubv(v &u8) {
 	C.glColor4ubv(v)
 }
-[inline]
-pub fn color4ui(red u32, green u32, blue u32, alpha u32)  {
+
+@[inline]
+pub fn color4ui(red u32, green u32, blue u32, alpha u32) {
 	C.glColor4ui(red, green, blue, alpha)
 }
-[inline]
-pub fn color4uiv(v &u32)  {
+
+@[inline]
+pub fn color4uiv(v &u32) {
 	C.glColor4uiv(v)
 }
-[inline]
-pub fn color4us(red u16, green u16, blue u16, alpha u16)  {
+
+@[inline]
+pub fn color4us(red u16, green u16, blue u16, alpha u16) {
 	C.glColor4us(red, green, blue, alpha)
 }
-[inline]
-pub fn color4usv(v &u16)  {
+
+@[inline]
+pub fn color4usv(v &u16) {
 	C.glColor4usv(v)
 }
-[inline]
-pub fn color_mask(red u8, green u8, blue u8, alpha u8)  {
+
+@[inline]
+pub fn color_mask(red u8, green u8, blue u8, alpha u8) {
 	C.glColorMask(red, green, blue, alpha)
 }
-[inline]
-pub fn color_material(face u32, mode u32)  {
+
+@[inline]
+pub fn color_material(face u32, mode u32) {
 	C.glColorMaterial(face, mode)
 }
-[inline]
-pub fn color_pointer(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn color_pointer(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glColorPointer(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn copy_pixels(x int, y int, width int, height int, gl_type u32)  {
+
+@[inline]
+pub fn copy_pixels(x int, y int, width int, height int, gl_type u32) {
 	C.glCopyPixels(x, y, width, height, gl_type)
 }
-[inline]
-pub fn copy_tex_image1d(target u32, level int, internal_format u32, x int, y int, width int, border int)  {
+
+@[inline]
+pub fn copy_tex_image1d(target u32, level int, internal_format u32, x int, y int, width int, border int) {
 	C.glCopyTexImage1D(target, level, internal_format, x, y, width, border)
 }
-[inline]
-pub fn copy_tex_image2d(target u32, level int, internal_format u32, x int, y int, width int, height int, border int)  {
+
+@[inline]
+pub fn copy_tex_image2d(target u32, level int, internal_format u32, x int, y int, width int, height int, border int) {
 	C.glCopyTexImage2D(target, level, internal_format, x, y, width, height, border)
 }
-[inline]
-pub fn copy_tex_sub_image1d(target u32, level int, xoffset int, x int, y int, width int)  {
+
+@[inline]
+pub fn copy_tex_sub_image1d(target u32, level int, xoffset int, x int, y int, width int) {
 	C.glCopyTexSubImage1D(target, level, xoffset, x, y, width)
 }
-[inline]
-pub fn copy_tex_sub_image2d(target u32, level int, xoffset int, yoffset int, x int, y int, width int, height int)  {
+
+@[inline]
+pub fn copy_tex_sub_image2d(target u32, level int, xoffset int, yoffset int, x int, y int, width int, height int) {
 	C.glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height)
 }
-[inline]
-pub fn cull_face(mode u32)  {
+
+@[inline]
+pub fn cull_face(mode u32) {
 	C.glCullFace(mode)
 }
-[inline]
-pub fn delete_lists(list u32, range int)  {
+
+@[inline]
+pub fn delete_lists(list u32, range int) {
 	C.glDeleteLists(list, range)
 }
-[inline]
-pub fn delete_textures(n int, textures &u32)  {
+
+@[inline]
+pub fn delete_textures(n int, textures &u32) {
 	C.glDeleteTextures(n, textures)
 }
-[inline]
-pub fn depth_func(func u32)  {
+
+@[inline]
+pub fn depth_func(func u32) {
 	C.glDepthFunc(func)
 }
-[inline]
-pub fn depth_mask(flag u8)  {
+
+@[inline]
+pub fn depth_mask(flag u8) {
 	C.glDepthMask(flag)
 }
-[inline]
-pub fn depth_range(z_near f64, z_far f64)  {
+
+@[inline]
+pub fn depth_range(z_near f64, z_far f64) {
 	C.glDepthRange(z_near, z_far)
 }
-[inline]
-pub fn disable(cap u32)  {
+
+@[inline]
+pub fn disable(cap u32) {
 	C.glDisable(cap)
 }
-[inline]
-pub fn disable_client_state(array u32)  {
+
+@[inline]
+pub fn disable_client_state(array u32) {
 	C.glDisableClientState(array)
 }
-[inline]
-pub fn draw_arrays(mode u32, first int, count int)  {
+
+@[inline]
+pub fn draw_arrays(mode u32, first int, count int) {
 	C.glDrawArrays(mode, first, count)
 }
-[inline]
-pub fn draw_buffer(mode u32)  {
+
+@[inline]
+pub fn draw_buffer(mode u32) {
 	C.glDrawBuffer(mode)
 }
-[inline]
-pub fn draw_elements(mode u32, count int, gl_type u32, indices voidptr)  {
+
+@[inline]
+pub fn draw_elements(mode u32, count int, gl_type u32, indices voidptr) {
 	C.glDrawElements(mode, count, gl_type, indices)
 }
-[inline]
-pub fn draw_pixels(width int, height int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn draw_pixels(width int, height int, format u32, gl_type u32, pixels voidptr) {
 	C.glDrawPixels(width, height, format, gl_type, pixels)
 }
-[inline]
-pub fn edge_flag(flag u8)  {
+
+@[inline]
+pub fn edge_flag(flag u8) {
 	C.glEdgeFlag(flag)
 }
-[inline]
-pub fn edge_flag_pointer(stride int, pointer voidptr)  {
+
+@[inline]
+pub fn edge_flag_pointer(stride int, pointer voidptr) {
 	C.glEdgeFlagPointer(stride, pointer)
 }
-[inline]
-pub fn edge_flagv(flag &u8)  {
+
+@[inline]
+pub fn edge_flagv(flag &u8) {
 	C.glEdgeFlagv(flag)
 }
-[inline]
-pub fn enable(cap u32)  {
+
+@[inline]
+pub fn enable(cap u32) {
 	C.glEnable(cap)
 }
-[inline]
-pub fn enable_client_state(array u32)  {
+
+@[inline]
+pub fn enable_client_state(array u32) {
 	C.glEnableClientState(array)
 }
-[inline]
-pub fn end()  {
+
+@[inline]
+pub fn end() {
 	C.glEnd()
 }
-[inline]
-pub fn end_list()  {
+
+@[inline]
+pub fn end_list() {
 	C.glEndList()
 }
-[inline]
-pub fn eval_coord1d(u f64)  {
+
+@[inline]
+pub fn eval_coord1d(u f64) {
 	C.glEvalCoord1d(u)
 }
-[inline]
-pub fn eval_coord1dv(u &f64)  {
+
+@[inline]
+pub fn eval_coord1dv(u &f64) {
 	C.glEvalCoord1dv(u)
 }
-[inline]
-pub fn eval_coord1f(u f32)  {
+
+@[inline]
+pub fn eval_coord1f(u f32) {
 	C.glEvalCoord1f(u)
 }
-[inline]
-pub fn eval_coord1fv(u &f32)  {
+
+@[inline]
+pub fn eval_coord1fv(u &f32) {
 	C.glEvalCoord1fv(u)
 }
-[inline]
-pub fn eval_coord2d(u f64, v f64)  {
+
+@[inline]
+pub fn eval_coord2d(u f64, v f64) {
 	C.glEvalCoord2d(u, v)
 }
-[inline]
-pub fn eval_coord2dv(u &f64)  {
+
+@[inline]
+pub fn eval_coord2dv(u &f64) {
 	C.glEvalCoord2dv(u)
 }
-[inline]
-pub fn eval_coord2f(u f32, v f32)  {
+
+@[inline]
+pub fn eval_coord2f(u f32, v f32) {
 	C.glEvalCoord2f(u, v)
 }
-[inline]
-pub fn eval_coord2fv(u &f32)  {
+
+@[inline]
+pub fn eval_coord2fv(u &f32) {
 	C.glEvalCoord2fv(u)
 }
-[inline]
-pub fn eval_mesh1(mode u32, i1 int, i2 int)  {
+
+@[inline]
+pub fn eval_mesh1(mode u32, i1 int, i2 int) {
 	C.glEvalMesh1(mode, i1, i2)
 }
-[inline]
-pub fn eval_mesh2(mode u32, i1 int, i2 int, j1 int, j2 int)  {
+
+@[inline]
+pub fn eval_mesh2(mode u32, i1 int, i2 int, j1 int, j2 int) {
 	C.glEvalMesh2(mode, i1, i2, j1, j2)
 }
-[inline]
-pub fn eval_point1(i int)  {
+
+@[inline]
+pub fn eval_point1(i int) {
 	C.glEvalPoint1(i)
 }
-[inline]
-pub fn eval_point2(i int, j int)  {
+
+@[inline]
+pub fn eval_point2(i int, j int) {
 	C.glEvalPoint2(i, j)
 }
-[inline]
-pub fn feedback_buffer(size int, gl_type u32, buffer &f32)  {
+
+@[inline]
+pub fn feedback_buffer(size int, gl_type u32, buffer &f32) {
 	C.glFeedbackBuffer(size, gl_type, buffer)
 }
-[inline]
-pub fn finish()  {
+
+@[inline]
+pub fn finish() {
 	C.glFinish()
 }
-[inline]
-pub fn flush()  {
+
+@[inline]
+pub fn flush() {
 	C.glFlush()
 }
-[inline]
-pub fn fogf(pname u32, param f32)  {
+
+@[inline]
+pub fn fogf(pname u32, param f32) {
 	C.glFogf(pname, param)
 }
-[inline]
-pub fn fogfv(pname u32, params &f32)  {
+
+@[inline]
+pub fn fogfv(pname u32, params &f32) {
 	C.glFogfv(pname, params)
 }
-[inline]
-pub fn fogi(pname u32, param int)  {
+
+@[inline]
+pub fn fogi(pname u32, param int) {
 	C.glFogi(pname, param)
 }
-[inline]
-pub fn fogiv(pname u32, params &int)  {
+
+@[inline]
+pub fn fogiv(pname u32, params &int) {
 	C.glFogiv(pname, params)
 }
-[inline]
-pub fn front_face(mode u32)  {
+
+@[inline]
+pub fn front_face(mode u32) {
 	C.glFrontFace(mode)
 }
-[inline]
-pub fn frustum(left f64, right f64, bottom f64, top f64, z_near f64, z_far f64)  {
+
+@[inline]
+pub fn frustum(left f64, right f64, bottom f64, top f64, z_near f64, z_far f64) {
 	C.glFrustum(left, right, bottom, top, z_near, z_far)
 }
-[inline]
+
+@[inline]
 pub fn gen_lists(range int) u32 {
 	return C.glGenLists(range)
 }
-[inline]
-pub fn gen_textures(n int, textures &u32)  {
+
+@[inline]
+pub fn gen_textures(n int, textures &u32) {
 	C.glGenTextures(n, textures)
 }
-[inline]
-pub fn get_booleanv(pname u32, params &u8)  {
+
+@[inline]
+pub fn get_booleanv(pname u32, params &u8) {
 	C.glGetBooleanv(pname, params)
 }
-[inline]
-pub fn get_clip_plane(plane u32, equation &f64)  {
+
+@[inline]
+pub fn get_clip_plane(plane u32, equation &f64) {
 	C.glGetClipPlane(plane, equation)
 }
-[inline]
-pub fn get_doublev(pname u32, params &f64)  {
+
+@[inline]
+pub fn get_doublev(pname u32, params &f64) {
 	C.glGetDoublev(pname, params)
 }
-[inline]
+
+@[inline]
 pub fn get_error() u32 {
 	return C.glGetError()
 }
-[inline]
-pub fn get_floatv(pname u32, params &f32)  {
+
+@[inline]
+pub fn get_floatv(pname u32, params &f32) {
 	C.glGetFloatv(pname, params)
 }
-[inline]
-pub fn get_integerv(pname u32, params &int)  {
+
+@[inline]
+pub fn get_integerv(pname u32, params &int) {
 	C.glGetIntegerv(pname, params)
 }
-[inline]
-pub fn get_lightfv(light u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_lightfv(light u32, pname u32, params &f32) {
 	C.glGetLightfv(light, pname, params)
 }
-[inline]
-pub fn get_lightiv(light u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_lightiv(light u32, pname u32, params &int) {
 	C.glGetLightiv(light, pname, params)
 }
-[inline]
-pub fn get_mapdv(target u32, query u32, v &f64)  {
+
+@[inline]
+pub fn get_mapdv(target u32, query u32, v &f64) {
 	C.glGetMapdv(target, query, v)
 }
-[inline]
-pub fn get_mapfv(target u32, query u32, v &f32)  {
+
+@[inline]
+pub fn get_mapfv(target u32, query u32, v &f32) {
 	C.glGetMapfv(target, query, v)
 }
-[inline]
-pub fn get_mapiv(target u32, query u32, v &int)  {
+
+@[inline]
+pub fn get_mapiv(target u32, query u32, v &int) {
 	C.glGetMapiv(target, query, v)
 }
-[inline]
-pub fn get_materialfv(face u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_materialfv(face u32, pname u32, params &f32) {
 	C.glGetMaterialfv(face, pname, params)
 }
-[inline]
-pub fn get_materialiv(face u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_materialiv(face u32, pname u32, params &int) {
 	C.glGetMaterialiv(face, pname, params)
 }
-[inline]
-pub fn get_pixel_mapfv(gl_map u32, values &f32)  {
+
+@[inline]
+pub fn get_pixel_mapfv(gl_map u32, values &f32) {
 	C.glGetPixelMapfv(gl_map, values)
 }
-[inline]
-pub fn get_pixel_mapuiv(gl_map u32, values &u32)  {
+
+@[inline]
+pub fn get_pixel_mapuiv(gl_map u32, values &u32) {
 	C.glGetPixelMapuiv(gl_map, values)
 }
-[inline]
-pub fn get_pixel_mapusv(gl_map u32, values &u16)  {
+
+@[inline]
+pub fn get_pixel_mapusv(gl_map u32, values &u16) {
 	C.glGetPixelMapusv(gl_map, values)
 }
-[inline]
-pub fn get_pointerv(pname u32, params &voidptr)  {
+
+@[inline]
+pub fn get_pointerv(pname u32, params &voidptr) {
 	C.glGetPointerv(pname, params)
 }
-[inline]
-pub fn get_polygon_stipple(mask &u8)  {
+
+@[inline]
+pub fn get_polygon_stipple(mask &u8) {
 	C.glGetPolygonStipple(mask)
 }
-[inline]
+
+@[inline]
 pub fn get_string(name u32) &u8 {
 	return C.glGetString(name)
 }
-[inline]
-pub fn get_tex_envfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_tex_envfv(target u32, pname u32, params &f32) {
 	C.glGetTexEnvfv(target, pname, params)
 }
-[inline]
-pub fn get_tex_enviv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_enviv(target u32, pname u32, params &int) {
 	C.glGetTexEnviv(target, pname, params)
 }
-[inline]
-pub fn get_tex_gendv(coord u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn get_tex_gendv(coord u32, pname u32, params &f64) {
 	C.glGetTexGendv(coord, pname, params)
 }
-[inline]
-pub fn get_tex_genfv(coord u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_tex_genfv(coord u32, pname u32, params &f32) {
 	C.glGetTexGenfv(coord, pname, params)
 }
-[inline]
-pub fn get_tex_geniv(coord u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_geniv(coord u32, pname u32, params &int) {
 	C.glGetTexGeniv(coord, pname, params)
 }
-[inline]
-pub fn get_tex_image(target u32, level int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn get_tex_image(target u32, level int, format u32, gl_type u32, pixels voidptr) {
 	C.glGetTexImage(target, level, format, gl_type, pixels)
 }
-[inline]
-pub fn get_tex_level_parameterfv(target u32, level int, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_tex_level_parameterfv(target u32, level int, pname u32, params &f32) {
 	C.glGetTexLevelParameterfv(target, level, pname, params)
 }
-[inline]
-pub fn get_tex_level_parameteriv(target u32, level int, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_level_parameteriv(target u32, level int, pname u32, params &int) {
 	C.glGetTexLevelParameteriv(target, level, pname, params)
 }
-[inline]
-pub fn get_tex_parameterfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn get_tex_parameterfv(target u32, pname u32, params &f32) {
 	C.glGetTexParameterfv(target, pname, params)
 }
-[inline]
-pub fn get_tex_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn get_tex_parameteriv(target u32, pname u32, params &int) {
 	C.glGetTexParameteriv(target, pname, params)
 }
-[inline]
-pub fn hint(target u32, mode u32)  {
+
+@[inline]
+pub fn hint(target u32, mode u32) {
 	C.glHint(target, mode)
 }
-[inline]
-pub fn index_mask(mask u32)  {
+
+@[inline]
+pub fn index_mask(mask u32) {
 	C.glIndexMask(mask)
 }
-[inline]
-pub fn index_pointer(gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn index_pointer(gl_type u32, stride int, pointer voidptr) {
 	C.glIndexPointer(gl_type, stride, pointer)
 }
-[inline]
-pub fn indexd(c f64)  {
+
+@[inline]
+pub fn indexd(c f64) {
 	C.glIndexd(c)
 }
-[inline]
-pub fn indexdv(c &f64)  {
+
+@[inline]
+pub fn indexdv(c &f64) {
 	C.glIndexdv(c)
 }
-[inline]
-pub fn indexf(c f32)  {
+
+@[inline]
+pub fn indexf(c f32) {
 	C.glIndexf(c)
 }
-[inline]
-pub fn indexfv(c &f32)  {
+
+@[inline]
+pub fn indexfv(c &f32) {
 	C.glIndexfv(c)
 }
-[inline]
-pub fn indexi(c int)  {
+
+@[inline]
+pub fn indexi(c int) {
 	C.glIndexi(c)
 }
-[inline]
-pub fn indexiv(c &int)  {
+
+@[inline]
+pub fn indexiv(c &int) {
 	C.glIndexiv(c)
 }
-[inline]
-pub fn indexs(c i16)  {
+
+@[inline]
+pub fn indexs(c i16) {
 	C.glIndexs(c)
 }
-[inline]
-pub fn indexsv(c &i16)  {
+
+@[inline]
+pub fn indexsv(c &i16) {
 	C.glIndexsv(c)
 }
-[inline]
-pub fn indexub(c u8)  {
+
+@[inline]
+pub fn indexub(c u8) {
 	C.glIndexub(c)
 }
-[inline]
-pub fn indexubv(c &u8)  {
+
+@[inline]
+pub fn indexubv(c &u8) {
 	C.glIndexubv(c)
 }
-[inline]
-pub fn init_names()  {
+
+@[inline]
+pub fn init_names() {
 	C.glInitNames()
 }
-[inline]
-pub fn interleaved_arrays(format u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn interleaved_arrays(format u32, stride int, pointer voidptr) {
 	C.glInterleavedArrays(format, stride, pointer)
 }
-[inline]
+
+@[inline]
 pub fn is_enabled(cap u32) u8 {
 	return C.glIsEnabled(cap)
 }
-[inline]
+
+@[inline]
 pub fn is_list(list u32) u8 {
 	return C.glIsList(list)
 }
-[inline]
+
+@[inline]
 pub fn is_texture(texture u32) u8 {
 	return C.glIsTexture(texture)
 }
-[inline]
-pub fn light_modelf(pname u32, param f32)  {
+
+@[inline]
+pub fn light_modelf(pname u32, param f32) {
 	C.glLightModelf(pname, param)
 }
-[inline]
-pub fn light_modelfv(pname u32, params &f32)  {
+
+@[inline]
+pub fn light_modelfv(pname u32, params &f32) {
 	C.glLightModelfv(pname, params)
 }
-[inline]
-pub fn light_modeli(pname u32, param int)  {
+
+@[inline]
+pub fn light_modeli(pname u32, param int) {
 	C.glLightModeli(pname, param)
 }
-[inline]
-pub fn light_modeliv(pname u32, params &int)  {
+
+@[inline]
+pub fn light_modeliv(pname u32, params &int) {
 	C.glLightModeliv(pname, params)
 }
-[inline]
-pub fn lightf(light u32, pname u32, param f32)  {
+
+@[inline]
+pub fn lightf(light u32, pname u32, param f32) {
 	C.glLightf(light, pname, param)
 }
-[inline]
-pub fn lightfv(light u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn lightfv(light u32, pname u32, params &f32) {
 	C.glLightfv(light, pname, params)
 }
-[inline]
-pub fn lighti(light u32, pname u32, param int)  {
+
+@[inline]
+pub fn lighti(light u32, pname u32, param int) {
 	C.glLighti(light, pname, param)
 }
-[inline]
-pub fn lightiv(light u32, pname u32, params &int)  {
+
+@[inline]
+pub fn lightiv(light u32, pname u32, params &int) {
 	C.glLightiv(light, pname, params)
 }
-[inline]
-pub fn line_stipple(factor int, pattern u16)  {
+
+@[inline]
+pub fn line_stipple(factor int, pattern u16) {
 	C.glLineStipple(factor, pattern)
 }
-[inline]
-pub fn line_width(width f32)  {
+
+@[inline]
+pub fn line_width(width f32) {
 	C.glLineWidth(width)
 }
-[inline]
-pub fn list_base(base u32)  {
+
+@[inline]
+pub fn list_base(base u32) {
 	C.glListBase(base)
 }
-[inline]
-pub fn load_identity()  {
+
+@[inline]
+pub fn load_identity() {
 	C.glLoadIdentity()
 }
-[inline]
-pub fn load_matrixd(m &f64)  {
+
+@[inline]
+pub fn load_matrixd(m &f64) {
 	C.glLoadMatrixd(m)
 }
-[inline]
-pub fn load_matrixf(m &f32)  {
+
+@[inline]
+pub fn load_matrixf(m &f32) {
 	C.glLoadMatrixf(m)
 }
-[inline]
-pub fn load_name(name u32)  {
+
+@[inline]
+pub fn load_name(name u32) {
 	C.glLoadName(name)
 }
-[inline]
-pub fn logic_op(opcode u32)  {
+
+@[inline]
+pub fn logic_op(opcode u32) {
 	C.glLogicOp(opcode)
 }
-[inline]
-pub fn map1d(target u32, u1 f64, u2 f64, stride int, order int, points &f64)  {
+
+@[inline]
+pub fn map1d(target u32, u1 f64, u2 f64, stride int, order int, points &f64) {
 	C.glMap1d(target, u1, u2, stride, order, points)
 }
-[inline]
-pub fn map1f(target u32, u1 f32, u2 f32, stride int, order int, points &f32)  {
+
+@[inline]
+pub fn map1f(target u32, u1 f32, u2 f32, stride int, order int, points &f32) {
 	C.glMap1f(target, u1, u2, stride, order, points)
 }
-[inline]
-pub fn map2d(target u32, u1 f64, u2 f64, ustride int, uorder int, v1 f64, v2 f64, vstride int, vorder int, points &f64)  {
+
+@[inline]
+pub fn map2d(target u32, u1 f64, u2 f64, ustride int, uorder int, v1 f64, v2 f64, vstride int, vorder int, points &f64) {
 	C.glMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points)
 }
-[inline]
-pub fn map2f(target u32, u1 f32, u2 f32, ustride int, uorder int, v1 f32, v2 f32, vstride int, vorder int, points &f32)  {
+
+@[inline]
+pub fn map2f(target u32, u1 f32, u2 f32, ustride int, uorder int, v1 f32, v2 f32, vstride int, vorder int, points &f32) {
 	C.glMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points)
 }
-[inline]
-pub fn map_grid1d(un int, u1 f64, u2 f64)  {
+
+@[inline]
+pub fn map_grid1d(un int, u1 f64, u2 f64) {
 	C.glMapGrid1d(un, u1, u2)
 }
-[inline]
-pub fn map_grid1f(un int, u1 f32, u2 f32)  {
+
+@[inline]
+pub fn map_grid1f(un int, u1 f32, u2 f32) {
 	C.glMapGrid1f(un, u1, u2)
 }
-[inline]
-pub fn map_grid2d(un int, u1 f64, u2 f64, vn int, v1 f64, v2 f64)  {
+
+@[inline]
+pub fn map_grid2d(un int, u1 f64, u2 f64, vn int, v1 f64, v2 f64) {
 	C.glMapGrid2d(un, u1, u2, vn, v1, v2)
 }
-[inline]
-pub fn map_grid2f(un int, u1 f32, u2 f32, vn int, v1 f32, v2 f32)  {
+
+@[inline]
+pub fn map_grid2f(un int, u1 f32, u2 f32, vn int, v1 f32, v2 f32) {
 	C.glMapGrid2f(un, u1, u2, vn, v1, v2)
 }
-[inline]
-pub fn materialf(face u32, pname u32, param f32)  {
+
+@[inline]
+pub fn materialf(face u32, pname u32, param f32) {
 	C.glMaterialf(face, pname, param)
 }
-[inline]
-pub fn materialfv(face u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn materialfv(face u32, pname u32, params &f32) {
 	C.glMaterialfv(face, pname, params)
 }
-[inline]
-pub fn materiali(face u32, pname u32, param int)  {
+
+@[inline]
+pub fn materiali(face u32, pname u32, param int) {
 	C.glMateriali(face, pname, param)
 }
-[inline]
-pub fn materialiv(face u32, pname u32, params &int)  {
+
+@[inline]
+pub fn materialiv(face u32, pname u32, params &int) {
 	C.glMaterialiv(face, pname, params)
 }
-[inline]
-pub fn matrix_mode(mode u32)  {
+
+@[inline]
+pub fn matrix_mode(mode u32) {
 	C.glMatrixMode(mode)
 }
-[inline]
-pub fn mult_matrixd(m &f64)  {
+
+@[inline]
+pub fn mult_matrixd(m &f64) {
 	C.glMultMatrixd(m)
 }
-[inline]
-pub fn mult_matrixf(m &f32)  {
+
+@[inline]
+pub fn mult_matrixf(m &f32) {
 	C.glMultMatrixf(m)
 }
-[inline]
-pub fn new_list(list u32, mode u32)  {
+
+@[inline]
+pub fn new_list(list u32, mode u32) {
 	C.glNewList(list, mode)
 }
-[inline]
-pub fn normal3b(nx i8, ny i8, nz i8)  {
+
+@[inline]
+pub fn normal3b(nx i8, ny i8, nz i8) {
 	C.glNormal3b(nx, ny, nz)
 }
-[inline]
-pub fn normal3bv(v &i8)  {
+
+@[inline]
+pub fn normal3bv(v &i8) {
 	C.glNormal3bv(v)
 }
-[inline]
-pub fn normal3d(nx f64, ny f64, nz f64)  {
+
+@[inline]
+pub fn normal3d(nx f64, ny f64, nz f64) {
 	C.glNormal3d(nx, ny, nz)
 }
-[inline]
-pub fn normal3dv(v &f64)  {
+
+@[inline]
+pub fn normal3dv(v &f64) {
 	C.glNormal3dv(v)
 }
-[inline]
-pub fn normal3f(nx f32, ny f32, nz f32)  {
+
+@[inline]
+pub fn normal3f(nx f32, ny f32, nz f32) {
 	C.glNormal3f(nx, ny, nz)
 }
-[inline]
-pub fn normal3fv(v &f32)  {
+
+@[inline]
+pub fn normal3fv(v &f32) {
 	C.glNormal3fv(v)
 }
-[inline]
-pub fn normal3i(nx int, ny int, nz int)  {
+
+@[inline]
+pub fn normal3i(nx int, ny int, nz int) {
 	C.glNormal3i(nx, ny, nz)
 }
-[inline]
-pub fn normal3iv(v &int)  {
+
+@[inline]
+pub fn normal3iv(v &int) {
 	C.glNormal3iv(v)
 }
-[inline]
-pub fn normal3s(nx i16, ny i16, nz i16)  {
+
+@[inline]
+pub fn normal3s(nx i16, ny i16, nz i16) {
 	C.glNormal3s(nx, ny, nz)
 }
-[inline]
-pub fn normal3sv(v &i16)  {
+
+@[inline]
+pub fn normal3sv(v &i16) {
 	C.glNormal3sv(v)
 }
-[inline]
-pub fn normal_pointer(gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn normal_pointer(gl_type u32, stride int, pointer voidptr) {
 	C.glNormalPointer(gl_type, stride, pointer)
 }
-[inline]
-pub fn ortho(left f64, right f64, bottom f64, top f64, z_near f64, z_far f64)  {
+
+@[inline]
+pub fn ortho(left f64, right f64, bottom f64, top f64, z_near f64, z_far f64) {
 	C.glOrtho(left, right, bottom, top, z_near, z_far)
 }
-[inline]
-pub fn pass_through(token f32)  {
+
+@[inline]
+pub fn pass_through(token f32) {
 	C.glPassThrough(token)
 }
-[inline]
-pub fn pixel_mapfv(gl_map u32, mapsize int, values &f32)  {
+
+@[inline]
+pub fn pixel_mapfv(gl_map u32, mapsize int, values &f32) {
 	C.glPixelMapfv(gl_map, mapsize, values)
 }
-[inline]
-pub fn pixel_mapuiv(gl_map u32, mapsize int, values &u32)  {
+
+@[inline]
+pub fn pixel_mapuiv(gl_map u32, mapsize int, values &u32) {
 	C.glPixelMapuiv(gl_map, mapsize, values)
 }
-[inline]
-pub fn pixel_mapusv(gl_map u32, mapsize int, values &u16)  {
+
+@[inline]
+pub fn pixel_mapusv(gl_map u32, mapsize int, values &u16) {
 	C.glPixelMapusv(gl_map, mapsize, values)
 }
-[inline]
-pub fn pixel_storef(pname u32, param f32)  {
+
+@[inline]
+pub fn pixel_storef(pname u32, param f32) {
 	C.glPixelStoref(pname, param)
 }
-[inline]
-pub fn pixel_storei(pname u32, param int)  {
+
+@[inline]
+pub fn pixel_storei(pname u32, param int) {
 	C.glPixelStorei(pname, param)
 }
-[inline]
-pub fn pixel_transferf(pname u32, param f32)  {
+
+@[inline]
+pub fn pixel_transferf(pname u32, param f32) {
 	C.glPixelTransferf(pname, param)
 }
-[inline]
-pub fn pixel_transferi(pname u32, param int)  {
+
+@[inline]
+pub fn pixel_transferi(pname u32, param int) {
 	C.glPixelTransferi(pname, param)
 }
-[inline]
-pub fn pixel_zoom(xfactor f32, yfactor f32)  {
+
+@[inline]
+pub fn pixel_zoom(xfactor f32, yfactor f32) {
 	C.glPixelZoom(xfactor, yfactor)
 }
-[inline]
-pub fn point_size(size f32)  {
+
+@[inline]
+pub fn point_size(size f32) {
 	C.glPointSize(size)
 }
-[inline]
-pub fn polygon_mode(face u32, mode u32)  {
+
+@[inline]
+pub fn polygon_mode(face u32, mode u32) {
 	C.glPolygonMode(face, mode)
 }
-[inline]
-pub fn polygon_offset(factor f32, units f32)  {
+
+@[inline]
+pub fn polygon_offset(factor f32, units f32) {
 	C.glPolygonOffset(factor, units)
 }
-[inline]
-pub fn polygon_stipple(mask &u8)  {
+
+@[inline]
+pub fn polygon_stipple(mask &u8) {
 	C.glPolygonStipple(mask)
 }
-[inline]
-pub fn pop_attrib()  {
+
+@[inline]
+pub fn pop_attrib() {
 	C.glPopAttrib()
 }
-[inline]
-pub fn pop_client_attrib()  {
+
+@[inline]
+pub fn pop_client_attrib() {
 	C.glPopClientAttrib()
 }
-[inline]
-pub fn pop_matrix()  {
+
+@[inline]
+pub fn pop_matrix() {
 	C.glPopMatrix()
 }
-[inline]
-pub fn pop_name()  {
+
+@[inline]
+pub fn pop_name() {
 	C.glPopName()
 }
-[inline]
-pub fn prioritize_textures(n int, textures &u32, priorities &f32)  {
+
+@[inline]
+pub fn prioritize_textures(n int, textures &u32, priorities &f32) {
 	C.glPrioritizeTextures(n, textures, priorities)
 }
-[inline]
-pub fn push_attrib(mask u32)  {
+
+@[inline]
+pub fn push_attrib(mask u32) {
 	C.glPushAttrib(mask)
 }
-[inline]
-pub fn push_client_attrib(mask u32)  {
+
+@[inline]
+pub fn push_client_attrib(mask u32) {
 	C.glPushClientAttrib(mask)
 }
-[inline]
-pub fn push_matrix()  {
+
+@[inline]
+pub fn push_matrix() {
 	C.glPushMatrix()
 }
-[inline]
-pub fn push_name(name u32)  {
+
+@[inline]
+pub fn push_name(name u32) {
 	C.glPushName(name)
 }
-[inline]
-pub fn raster_pos2d(x f64, y f64)  {
+
+@[inline]
+pub fn raster_pos2d(x f64, y f64) {
 	C.glRasterPos2d(x, y)
 }
-[inline]
-pub fn raster_pos2dv(v &f64)  {
+
+@[inline]
+pub fn raster_pos2dv(v &f64) {
 	C.glRasterPos2dv(v)
 }
-[inline]
-pub fn raster_pos2f(x f32, y f32)  {
+
+@[inline]
+pub fn raster_pos2f(x f32, y f32) {
 	C.glRasterPos2f(x, y)
 }
-[inline]
-pub fn raster_pos2fv(v &f32)  {
+
+@[inline]
+pub fn raster_pos2fv(v &f32) {
 	C.glRasterPos2fv(v)
 }
-[inline]
-pub fn raster_pos2i(x int, y int)  {
+
+@[inline]
+pub fn raster_pos2i(x int, y int) {
 	C.glRasterPos2i(x, y)
 }
-[inline]
-pub fn raster_pos2iv(v &int)  {
+
+@[inline]
+pub fn raster_pos2iv(v &int) {
 	C.glRasterPos2iv(v)
 }
-[inline]
-pub fn raster_pos2s(x i16, y i16)  {
+
+@[inline]
+pub fn raster_pos2s(x i16, y i16) {
 	C.glRasterPos2s(x, y)
 }
-[inline]
-pub fn raster_pos2sv(v &i16)  {
+
+@[inline]
+pub fn raster_pos2sv(v &i16) {
 	C.glRasterPos2sv(v)
 }
-[inline]
-pub fn raster_pos3d(x f64, y f64, z f64)  {
+
+@[inline]
+pub fn raster_pos3d(x f64, y f64, z f64) {
 	C.glRasterPos3d(x, y, z)
 }
-[inline]
-pub fn raster_pos3dv(v &f64)  {
+
+@[inline]
+pub fn raster_pos3dv(v &f64) {
 	C.glRasterPos3dv(v)
 }
-[inline]
-pub fn raster_pos3f(x f32, y f32, z f32)  {
+
+@[inline]
+pub fn raster_pos3f(x f32, y f32, z f32) {
 	C.glRasterPos3f(x, y, z)
 }
-[inline]
-pub fn raster_pos3fv(v &f32)  {
+
+@[inline]
+pub fn raster_pos3fv(v &f32) {
 	C.glRasterPos3fv(v)
 }
-[inline]
-pub fn raster_pos3i(x int, y int, z int)  {
+
+@[inline]
+pub fn raster_pos3i(x int, y int, z int) {
 	C.glRasterPos3i(x, y, z)
 }
-[inline]
-pub fn raster_pos3iv(v &int)  {
+
+@[inline]
+pub fn raster_pos3iv(v &int) {
 	C.glRasterPos3iv(v)
 }
-[inline]
-pub fn raster_pos3s(x i16, y i16, z i16)  {
+
+@[inline]
+pub fn raster_pos3s(x i16, y i16, z i16) {
 	C.glRasterPos3s(x, y, z)
 }
-[inline]
-pub fn raster_pos3sv(v &i16)  {
+
+@[inline]
+pub fn raster_pos3sv(v &i16) {
 	C.glRasterPos3sv(v)
 }
-[inline]
-pub fn raster_pos4d(x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn raster_pos4d(x f64, y f64, z f64, w f64) {
 	C.glRasterPos4d(x, y, z, w)
 }
-[inline]
-pub fn raster_pos4dv(v &f64)  {
+
+@[inline]
+pub fn raster_pos4dv(v &f64) {
 	C.glRasterPos4dv(v)
 }
-[inline]
-pub fn raster_pos4f(x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn raster_pos4f(x f32, y f32, z f32, w f32) {
 	C.glRasterPos4f(x, y, z, w)
 }
-[inline]
-pub fn raster_pos4fv(v &f32)  {
+
+@[inline]
+pub fn raster_pos4fv(v &f32) {
 	C.glRasterPos4fv(v)
 }
-[inline]
-pub fn raster_pos4i(x int, y int, z int, w int)  {
+
+@[inline]
+pub fn raster_pos4i(x int, y int, z int, w int) {
 	C.glRasterPos4i(x, y, z, w)
 }
-[inline]
-pub fn raster_pos4iv(v &int)  {
+
+@[inline]
+pub fn raster_pos4iv(v &int) {
 	C.glRasterPos4iv(v)
 }
-[inline]
-pub fn raster_pos4s(x i16, y i16, z i16, w i16)  {
+
+@[inline]
+pub fn raster_pos4s(x i16, y i16, z i16, w i16) {
 	C.glRasterPos4s(x, y, z, w)
 }
-[inline]
-pub fn raster_pos4sv(v &i16)  {
+
+@[inline]
+pub fn raster_pos4sv(v &i16) {
 	C.glRasterPos4sv(v)
 }
-[inline]
-pub fn read_buffer(mode u32)  {
+
+@[inline]
+pub fn read_buffer(mode u32) {
 	C.glReadBuffer(mode)
 }
-[inline]
-pub fn read_pixels(x int, y int, width int, height int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn read_pixels(x int, y int, width int, height int, format u32, gl_type u32, pixels voidptr) {
 	C.glReadPixels(x, y, width, height, format, gl_type, pixels)
 }
-[inline]
-pub fn rectd(x1 f64, y1 f64, x2 f64, y2 f64)  {
+
+@[inline]
+pub fn rectd(x1 f64, y1 f64, x2 f64, y2 f64) {
 	C.glRectd(x1, y1, x2, y2)
 }
-[inline]
-pub fn rectdv(v1 &f64, v2 &f64)  {
+
+@[inline]
+pub fn rectdv(v1 &f64, v2 &f64) {
 	C.glRectdv(v1, v2)
 }
-[inline]
-pub fn rectf(x1 f32, y1 f32, x2 f32, y2 f32)  {
+
+@[inline]
+pub fn rectf(x1 f32, y1 f32, x2 f32, y2 f32) {
 	C.glRectf(x1, y1, x2, y2)
 }
-[inline]
-pub fn rectfv(v1 &f32, v2 &f32)  {
+
+@[inline]
+pub fn rectfv(v1 &f32, v2 &f32) {
 	C.glRectfv(v1, v2)
 }
-[inline]
-pub fn recti(x1 int, y1 int, x2 int, y2 int)  {
+
+@[inline]
+pub fn recti(x1 int, y1 int, x2 int, y2 int) {
 	C.glRecti(x1, y1, x2, y2)
 }
-[inline]
-pub fn rectiv(v1 &int, v2 &int)  {
+
+@[inline]
+pub fn rectiv(v1 &int, v2 &int) {
 	C.glRectiv(v1, v2)
 }
-[inline]
-pub fn rects(x1 i16, y1 i16, x2 i16, y2 i16)  {
+
+@[inline]
+pub fn rects(x1 i16, y1 i16, x2 i16, y2 i16) {
 	C.glRects(x1, y1, x2, y2)
 }
-[inline]
-pub fn rectsv(v1 &i16, v2 &i16)  {
+
+@[inline]
+pub fn rectsv(v1 &i16, v2 &i16) {
 	C.glRectsv(v1, v2)
 }
-[inline]
+
+@[inline]
 pub fn render_mode(mode u32) int {
 	return C.glRenderMode(mode)
 }
-[inline]
-pub fn rotated(angle f64, x f64, y f64, z f64)  {
+
+@[inline]
+pub fn rotated(angle f64, x f64, y f64, z f64) {
 	C.glRotated(angle, x, y, z)
 }
-[inline]
-pub fn rotatef(angle f32, x f32, y f32, z f32)  {
+
+@[inline]
+pub fn rotatef(angle f32, x f32, y f32, z f32) {
 	C.glRotatef(angle, x, y, z)
 }
-[inline]
-pub fn scaled(x f64, y f64, z f64)  {
+
+@[inline]
+pub fn scaled(x f64, y f64, z f64) {
 	C.glScaled(x, y, z)
 }
-[inline]
-pub fn scalef(x f32, y f32, z f32)  {
+
+@[inline]
+pub fn scalef(x f32, y f32, z f32) {
 	C.glScalef(x, y, z)
 }
-[inline]
-pub fn scissor(x int, y int, width int, height int)  {
+
+@[inline]
+pub fn scissor(x int, y int, width int, height int) {
 	C.glScissor(x, y, width, height)
 }
-[inline]
-pub fn select_buffer(size int, buffer &u32)  {
+
+@[inline]
+pub fn select_buffer(size int, buffer &u32) {
 	C.glSelectBuffer(size, buffer)
 }
-[inline]
-pub fn shade_model(mode u32)  {
+
+@[inline]
+pub fn shade_model(mode u32) {
 	C.glShadeModel(mode)
 }
-[inline]
-pub fn stencil_func(func u32, ref int, mask u32)  {
+
+@[inline]
+pub fn stencil_func(func u32, ref int, mask u32) {
 	C.glStencilFunc(func, ref, mask)
 }
-[inline]
-pub fn stencil_mask(mask u32)  {
+
+@[inline]
+pub fn stencil_mask(mask u32) {
 	C.glStencilMask(mask)
 }
-[inline]
-pub fn stencil_op(fail u32, zfail u32, zpass u32)  {
+
+@[inline]
+pub fn stencil_op(fail u32, zfail u32, zpass u32) {
 	C.glStencilOp(fail, zfail, zpass)
 }
-[inline]
-pub fn tex_coord1d(s f64)  {
+
+@[inline]
+pub fn tex_coord1d(s f64) {
 	C.glTexCoord1d(s)
 }
-[inline]
-pub fn tex_coord1dv(v &f64)  {
+
+@[inline]
+pub fn tex_coord1dv(v &f64) {
 	C.glTexCoord1dv(v)
 }
-[inline]
-pub fn tex_coord1f(s f32)  {
+
+@[inline]
+pub fn tex_coord1f(s f32) {
 	C.glTexCoord1f(s)
 }
-[inline]
-pub fn tex_coord1fv(v &f32)  {
+
+@[inline]
+pub fn tex_coord1fv(v &f32) {
 	C.glTexCoord1fv(v)
 }
-[inline]
-pub fn tex_coord1i(s int)  {
+
+@[inline]
+pub fn tex_coord1i(s int) {
 	C.glTexCoord1i(s)
 }
-[inline]
-pub fn tex_coord1iv(v &int)  {
+
+@[inline]
+pub fn tex_coord1iv(v &int) {
 	C.glTexCoord1iv(v)
 }
-[inline]
-pub fn tex_coord1s(s i16)  {
+
+@[inline]
+pub fn tex_coord1s(s i16) {
 	C.glTexCoord1s(s)
 }
-[inline]
-pub fn tex_coord1sv(v &i16)  {
+
+@[inline]
+pub fn tex_coord1sv(v &i16) {
 	C.glTexCoord1sv(v)
 }
-[inline]
-pub fn tex_coord2d(s f64, t f64)  {
+
+@[inline]
+pub fn tex_coord2d(s f64, t f64) {
 	C.glTexCoord2d(s, t)
 }
-[inline]
-pub fn tex_coord2dv(v &f64)  {
+
+@[inline]
+pub fn tex_coord2dv(v &f64) {
 	C.glTexCoord2dv(v)
 }
-[inline]
-pub fn tex_coord2f(s f32, t f32)  {
+
+@[inline]
+pub fn tex_coord2f(s f32, t f32) {
 	C.glTexCoord2f(s, t)
 }
-[inline]
-pub fn tex_coord2fv(v &f32)  {
+
+@[inline]
+pub fn tex_coord2fv(v &f32) {
 	C.glTexCoord2fv(v)
 }
-[inline]
-pub fn tex_coord2i(s int, t int)  {
+
+@[inline]
+pub fn tex_coord2i(s int, t int) {
 	C.glTexCoord2i(s, t)
 }
-[inline]
-pub fn tex_coord2iv(v &int)  {
+
+@[inline]
+pub fn tex_coord2iv(v &int) {
 	C.glTexCoord2iv(v)
 }
-[inline]
-pub fn tex_coord2s(s i16, t i16)  {
+
+@[inline]
+pub fn tex_coord2s(s i16, t i16) {
 	C.glTexCoord2s(s, t)
 }
-[inline]
-pub fn tex_coord2sv(v &i16)  {
+
+@[inline]
+pub fn tex_coord2sv(v &i16) {
 	C.glTexCoord2sv(v)
 }
-[inline]
-pub fn tex_coord3d(s f64, t f64, r f64)  {
+
+@[inline]
+pub fn tex_coord3d(s f64, t f64, r f64) {
 	C.glTexCoord3d(s, t, r)
 }
-[inline]
-pub fn tex_coord3dv(v &f64)  {
+
+@[inline]
+pub fn tex_coord3dv(v &f64) {
 	C.glTexCoord3dv(v)
 }
-[inline]
-pub fn tex_coord3f(s f32, t f32, r f32)  {
+
+@[inline]
+pub fn tex_coord3f(s f32, t f32, r f32) {
 	C.glTexCoord3f(s, t, r)
 }
-[inline]
-pub fn tex_coord3fv(v &f32)  {
+
+@[inline]
+pub fn tex_coord3fv(v &f32) {
 	C.glTexCoord3fv(v)
 }
-[inline]
-pub fn tex_coord3i(s int, t int, r int)  {
+
+@[inline]
+pub fn tex_coord3i(s int, t int, r int) {
 	C.glTexCoord3i(s, t, r)
 }
-[inline]
-pub fn tex_coord3iv(v &int)  {
+
+@[inline]
+pub fn tex_coord3iv(v &int) {
 	C.glTexCoord3iv(v)
 }
-[inline]
-pub fn tex_coord3s(s i16, t i16, r i16)  {
+
+@[inline]
+pub fn tex_coord3s(s i16, t i16, r i16) {
 	C.glTexCoord3s(s, t, r)
 }
-[inline]
-pub fn tex_coord3sv(v &i16)  {
+
+@[inline]
+pub fn tex_coord3sv(v &i16) {
 	C.glTexCoord3sv(v)
 }
-[inline]
-pub fn tex_coord4d(s f64, t f64, r f64, q f64)  {
+
+@[inline]
+pub fn tex_coord4d(s f64, t f64, r f64, q f64) {
 	C.glTexCoord4d(s, t, r, q)
 }
-[inline]
-pub fn tex_coord4dv(v &f64)  {
+
+@[inline]
+pub fn tex_coord4dv(v &f64) {
 	C.glTexCoord4dv(v)
 }
-[inline]
-pub fn tex_coord4f(s f32, t f32, r f32, q f32)  {
+
+@[inline]
+pub fn tex_coord4f(s f32, t f32, r f32, q f32) {
 	C.glTexCoord4f(s, t, r, q)
 }
-[inline]
-pub fn tex_coord4fv(v &f32)  {
+
+@[inline]
+pub fn tex_coord4fv(v &f32) {
 	C.glTexCoord4fv(v)
 }
-[inline]
-pub fn tex_coord4i(s int, t int, r int, q int)  {
+
+@[inline]
+pub fn tex_coord4i(s int, t int, r int, q int) {
 	C.glTexCoord4i(s, t, r, q)
 }
-[inline]
-pub fn tex_coord4iv(v &int)  {
+
+@[inline]
+pub fn tex_coord4iv(v &int) {
 	C.glTexCoord4iv(v)
 }
-[inline]
-pub fn tex_coord4s(s i16, t i16, r i16, q i16)  {
+
+@[inline]
+pub fn tex_coord4s(s i16, t i16, r i16, q i16) {
 	C.glTexCoord4s(s, t, r, q)
 }
-[inline]
-pub fn tex_coord4sv(v &i16)  {
+
+@[inline]
+pub fn tex_coord4sv(v &i16) {
 	C.glTexCoord4sv(v)
 }
-[inline]
-pub fn tex_coord_pointer(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn tex_coord_pointer(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glTexCoordPointer(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn tex_envf(target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn tex_envf(target u32, pname u32, param f32) {
 	C.glTexEnvf(target, pname, param)
 }
-[inline]
-pub fn tex_envfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn tex_envfv(target u32, pname u32, params &f32) {
 	C.glTexEnvfv(target, pname, params)
 }
-[inline]
-pub fn tex_envi(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn tex_envi(target u32, pname u32, param int) {
 	C.glTexEnvi(target, pname, param)
 }
-[inline]
-pub fn tex_enviv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_enviv(target u32, pname u32, params &int) {
 	C.glTexEnviv(target, pname, params)
 }
-[inline]
-pub fn tex_gend(coord u32, pname u32, param f64)  {
+
+@[inline]
+pub fn tex_gend(coord u32, pname u32, param f64) {
 	C.glTexGend(coord, pname, param)
 }
-[inline]
-pub fn tex_gendv(coord u32, pname u32, params &f64)  {
+
+@[inline]
+pub fn tex_gendv(coord u32, pname u32, params &f64) {
 	C.glTexGendv(coord, pname, params)
 }
-[inline]
-pub fn tex_genf(coord u32, pname u32, param f32)  {
+
+@[inline]
+pub fn tex_genf(coord u32, pname u32, param f32) {
 	C.glTexGenf(coord, pname, param)
 }
-[inline]
-pub fn tex_genfv(coord u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn tex_genfv(coord u32, pname u32, params &f32) {
 	C.glTexGenfv(coord, pname, params)
 }
-[inline]
-pub fn tex_geni(coord u32, pname u32, param int)  {
+
+@[inline]
+pub fn tex_geni(coord u32, pname u32, param int) {
 	C.glTexGeni(coord, pname, param)
 }
-[inline]
-pub fn tex_geniv(coord u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_geniv(coord u32, pname u32, params &int) {
 	C.glTexGeniv(coord, pname, params)
 }
-[inline]
-pub fn tex_image1d(target u32, level int, internalformat int, width int, border int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn tex_image1d(target u32, level int, internalformat int, width int, border int, format u32, gl_type u32, pixels voidptr) {
 	C.glTexImage1D(target, level, internalformat, width, border, format, gl_type, pixels)
 }
-[inline]
-pub fn tex_image2d(target u32, level int, internalformat int, width int, height int, border int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexImage2D(target, level, internalformat, width, height, border, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_image2d(target u32, level int, internalformat int, width int, height int, border int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexImage2D(target, level, internalformat, width, height, border, format, gl_type,
+		pixels)
 }
-[inline]
-pub fn tex_parameterf(target u32, pname u32, param f32)  {
+
+@[inline]
+pub fn tex_parameterf(target u32, pname u32, param f32) {
 	C.glTexParameterf(target, pname, param)
 }
-[inline]
-pub fn tex_parameterfv(target u32, pname u32, params &f32)  {
+
+@[inline]
+pub fn tex_parameterfv(target u32, pname u32, params &f32) {
 	C.glTexParameterfv(target, pname, params)
 }
-[inline]
-pub fn tex_parameteri(target u32, pname u32, param int)  {
+
+@[inline]
+pub fn tex_parameteri(target u32, pname u32, param int) {
 	C.glTexParameteri(target, pname, param)
 }
-[inline]
-pub fn tex_parameteriv(target u32, pname u32, params &int)  {
+
+@[inline]
+pub fn tex_parameteriv(target u32, pname u32, params &int) {
 	C.glTexParameteriv(target, pname, params)
 }
-[inline]
-pub fn tex_sub_image1d(target u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr)  {
+
+@[inline]
+pub fn tex_sub_image1d(target u32, level int, xoffset int, width int, format u32, gl_type u32, pixels voidptr) {
 	C.glTexSubImage1D(target, level, xoffset, width, format, gl_type, pixels)
 }
-[inline]
-pub fn tex_sub_image2d(target u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr)  {
-	C.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, gl_type, pixels)
+
+@[inline]
+pub fn tex_sub_image2d(target u32, level int, xoffset int, yoffset int, width int, height int, format u32, gl_type u32, pixels voidptr) {
+	C.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, gl_type,
+		pixels)
 }
-[inline]
-pub fn translated(x f64, y f64, z f64)  {
+
+@[inline]
+pub fn translated(x f64, y f64, z f64) {
 	C.glTranslated(x, y, z)
 }
-[inline]
-pub fn translatef(x f32, y f32, z f32)  {
+
+@[inline]
+pub fn translatef(x f32, y f32, z f32) {
 	C.glTranslatef(x, y, z)
 }
-[inline]
-pub fn vertex2d(x f64, y f64)  {
+
+@[inline]
+pub fn vertex2d(x f64, y f64) {
 	C.glVertex2d(x, y)
 }
-[inline]
-pub fn vertex2dv(v &f64)  {
+
+@[inline]
+pub fn vertex2dv(v &f64) {
 	C.glVertex2dv(v)
 }
-[inline]
-pub fn vertex2f(x f32, y f32)  {
+
+@[inline]
+pub fn vertex2f(x f32, y f32) {
 	C.glVertex2f(x, y)
 }
-[inline]
-pub fn vertex2fv(v &f32)  {
+
+@[inline]
+pub fn vertex2fv(v &f32) {
 	C.glVertex2fv(v)
 }
-[inline]
-pub fn vertex2i(x int, y int)  {
+
+@[inline]
+pub fn vertex2i(x int, y int) {
 	C.glVertex2i(x, y)
 }
-[inline]
-pub fn vertex2iv(v &int)  {
+
+@[inline]
+pub fn vertex2iv(v &int) {
 	C.glVertex2iv(v)
 }
-[inline]
-pub fn vertex2s(x i16, y i16)  {
+
+@[inline]
+pub fn vertex2s(x i16, y i16) {
 	C.glVertex2s(x, y)
 }
-[inline]
-pub fn vertex2sv(v &i16)  {
+
+@[inline]
+pub fn vertex2sv(v &i16) {
 	C.glVertex2sv(v)
 }
-[inline]
-pub fn vertex3d(x f64, y f64, z f64)  {
+
+@[inline]
+pub fn vertex3d(x f64, y f64, z f64) {
 	C.glVertex3d(x, y, z)
 }
-[inline]
-pub fn vertex3dv(v &f64)  {
+
+@[inline]
+pub fn vertex3dv(v &f64) {
 	C.glVertex3dv(v)
 }
-[inline]
-pub fn vertex3f(x f32, y f32, z f32)  {
+
+@[inline]
+pub fn vertex3f(x f32, y f32, z f32) {
 	C.glVertex3f(x, y, z)
 }
-[inline]
-pub fn vertex3fv(v &f32)  {
+
+@[inline]
+pub fn vertex3fv(v &f32) {
 	C.glVertex3fv(v)
 }
-[inline]
-pub fn vertex3i(x int, y int, z int)  {
+
+@[inline]
+pub fn vertex3i(x int, y int, z int) {
 	C.glVertex3i(x, y, z)
 }
-[inline]
-pub fn vertex3iv(v &int)  {
+
+@[inline]
+pub fn vertex3iv(v &int) {
 	C.glVertex3iv(v)
 }
-[inline]
-pub fn vertex3s(x i16, y i16, z i16)  {
+
+@[inline]
+pub fn vertex3s(x i16, y i16, z i16) {
 	C.glVertex3s(x, y, z)
 }
-[inline]
-pub fn vertex3sv(v &i16)  {
+
+@[inline]
+pub fn vertex3sv(v &i16) {
 	C.glVertex3sv(v)
 }
-[inline]
-pub fn vertex4d(x f64, y f64, z f64, w f64)  {
+
+@[inline]
+pub fn vertex4d(x f64, y f64, z f64, w f64) {
 	C.glVertex4d(x, y, z, w)
 }
-[inline]
-pub fn vertex4dv(v &f64)  {
+
+@[inline]
+pub fn vertex4dv(v &f64) {
 	C.glVertex4dv(v)
 }
-[inline]
-pub fn vertex4f(x f32, y f32, z f32, w f32)  {
+
+@[inline]
+pub fn vertex4f(x f32, y f32, z f32, w f32) {
 	C.glVertex4f(x, y, z, w)
 }
-[inline]
-pub fn vertex4fv(v &f32)  {
+
+@[inline]
+pub fn vertex4fv(v &f32) {
 	C.glVertex4fv(v)
 }
-[inline]
-pub fn vertex4i(x int, y int, z int, w int)  {
+
+@[inline]
+pub fn vertex4i(x int, y int, z int, w int) {
 	C.glVertex4i(x, y, z, w)
 }
-[inline]
-pub fn vertex4iv(v &int)  {
+
+@[inline]
+pub fn vertex4iv(v &int) {
 	C.glVertex4iv(v)
 }
-[inline]
-pub fn vertex4s(x i16, y i16, z i16, w i16)  {
+
+@[inline]
+pub fn vertex4s(x i16, y i16, z i16, w i16) {
 	C.glVertex4s(x, y, z, w)
 }
-[inline]
-pub fn vertex4sv(v &i16)  {
+
+@[inline]
+pub fn vertex4sv(v &i16) {
 	C.glVertex4sv(v)
 }
-[inline]
-pub fn vertex_pointer(size int, gl_type u32, stride int, pointer voidptr)  {
+
+@[inline]
+pub fn vertex_pointer(size int, gl_type u32, stride int, pointer voidptr) {
 	C.glVertexPointer(size, gl_type, stride, pointer)
 }
-[inline]
-pub fn viewport(x int, y int, width int, height int)  {
+
+@[inline]
+pub fn viewport(x int, y int, width int, height int) {
 	C.glViewport(x, y, width, height)
 }
-[inline]
+
+@[inline]
 pub fn glew_init() u32 {
 	return C.glewInit()
 }
-[inline]
+
+@[inline]
 pub fn glew_is_supported(name &char) u8 {
 	return C.glewIsSupported(name)
 }
-[inline]
+
+@[inline]
 pub fn glew_get_extension(name &char) u8 {
 	return C.glewGetExtension(name)
 }
-[inline]
+
+@[inline]
 pub fn glew_get_error_string(error u32) &u8 {
 	return C.glewGetErrorString(error)
 }
-[inline]
+
+@[inline]
 pub fn glew_get_string(name u32) &u8 {
 	return C.glewGetString(name)
 }
